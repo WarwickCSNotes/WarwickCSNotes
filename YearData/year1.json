@@ -4,8 +4,8 @@
     "modules": [
         {
             "code": "CS118",
+            "tagline": "How to make program",
             "name": "Programming for Computer Scientists",
-            "description": "How to make program",
             "notes": [
                 {"title": "AAAAAAAAAAAAAA", "url": "#"},
                 {"title": "BBBBBBBBBB", "url": "#"},
@@ -19,8 +19,8 @@
         },
         {
             "code": "CS126",
+            "tagline": "Data Structures",
             "name": "Design of Information Structures",
-            "description": "Data Structures",
             "notes": [
                 {"title": "Time Complexity", "url": "#"},
                 {"title": "Stacks and Queues", "url": "#"},
@@ -38,8 +38,9 @@
         },
         {
             "code": "CS130",
+            "tagline": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "name": "Sets and Proofs",
-            "description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "description":"A module of all time.",
             "notes": [
                 {"title": "Logic & Propositions", "url": "#"},
                 {"title": "Sets", "url": "/notes/CS130/Sets"},
@@ -54,8 +55,8 @@
         },
         {
             "code": "CS132",
+            "tagline": "Hardware fundamentals",
             "name": "Computer Organisation and Architecture",
-            "description": "Hardware fundamentals",
             "notes": [
                 {"title": "Data Representation", "url": "#"},
                 {"title": "Digital Logic", "url": "#"},
@@ -71,8 +72,8 @@
         },
         {
             "code": "CS133",
+            "tagline": "Academic writing and ethics or something idk I didn't go to lectures",
             "name": "Professional Skills",
-            "description": "Academic writing and ethics or something idk I didn't go to lectures",
             "notes": [
                 {"title": "Ethics", "url": "#"}
             ],
@@ -80,8 +81,8 @@
         },
         {
             "code": "CS141",
+            "tagline": "We love Haskell",
             "name": "Functional Programming",
-            "description": "We love Haskell",
             "past_papers": [
                 {"year": "2025", "url": "#"},
                 {"year": "2024", "url": "#"},

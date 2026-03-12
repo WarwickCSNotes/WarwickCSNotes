@@ -4,8 +4,8 @@
     "modules": [
         {
             "code": "CS310",
+            "tagline": "Dissertation - either you love it or you hate it",
             "name": "Project",
-            "description": "Dissertation - either you love it or you hate it",
             "notes": [
                 {"title": "Report Writing Tips", "url": "#"}
             ],
@@ -13,8 +13,8 @@
         },
         {
             "code": "CS325",
+            "tagline": "Build a thing",
             "name": "Compiler Design",
-            "description": "Build a thing",
             "notes": [
                 {"title": "Parsing", "url": "#"}
             ],
@@ -29,8 +29,8 @@
         },
         {
             "code": "CS331",
+            "tagline": "Has biology in it for some reason",
             "name": "Neural Computing",
-            "description": "Has biology in it for some reason",
             "notes": [
                 {"title": "Perceptrons & MLPs", "url": "#"}
             ],
@@ -42,8 +42,8 @@
         },
         {
             "code": "CS342",
+            "tagline": "What makes the money",
             "name": "Machine Learning",
-            "description": "What makes the money",
             "notes": [
                 {"title": "Probability", "url": "#"}
             ],
@@ -55,8 +55,8 @@
         },
         {
             "code": "CS355",
+            "tagline": "Image things",
             "name": "Digital Forensics",
-            "description": "Image things",
             "notes": [
                 {"title": "Image fundamentals", "url": "#"}
             ],

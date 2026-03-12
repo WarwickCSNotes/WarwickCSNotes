@@ -16,8 +16,13 @@
         <a href="/year/{{ year }}" class="btn btn-outline-secondary mb-4">&larr; Back to Year {{ year }}</a>
 
         <h1 class="mb-1">{{ module.code }}</h1>
-        <h4 class="text-muted mb-4">{{ module.name }}</h4>
+        <h4 class="text-muted mb-2">{{ module.name }}</h4>
+        <p class="text-secondary mb-2"><em>{{ module.tagline }}</em></p>
+        {% if module.description %}
         <p class="lead mb-5">{{ module.description }}</p>
+        {% else %}
+        <div class="mb-5"></div>
+        {% endif %}
 
         <div class="row g-4">
 
@@ -51,6 +56,9 @@
                             {% for paper in module.past_papers %}
                             <li class="list-group-item bg-transparent">
                                 <a href="{{ paper.url }}">{{ module.code }} {{ paper.year }}</a>
+                                {% if paper.description %}
+                                <small class="d-block text-secondary">{{ paper.description }}</small>
+                                {% endif %}
                             </li>
                             {% endfor %}
                         </ul>
@@ -71,6 +79,9 @@
                             {% for seminar in module.seminar_exercises %}
                             <li class="list-group-item bg-transparent">
                                 <a href="{{ seminar.url }}">{{ seminar.title }}</a>
+                                {% if seminar.description %}
+                                <small class="d-block text-secondary">{{ seminar.description }}</small>
+                                {% endif %}
                             </li>
                             {% endfor %}
                         </ul>

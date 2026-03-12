@@ -4,8 +4,8 @@
     "modules": [
         {
             "code": "CS241",
+            "tagline": "Processes, Scheduling, C",
             "name": "Operating Systems and Computer Networks",
-            "description": "Processes, Scheduling, C",
             "notes": [
                 {"title": "Threading", "url": "#"},
                 {"title": "Scheduling", "url": "#"},
@@ -24,8 +24,8 @@
         },
         {
             "code": "CS258",
+            "tagline": "Relational models, SQL, and pain",
             "name": "Database Systems",
-            "description": "Relational models, SQL, and pain",
             "notes": [
                 {"title": "Relational Model", "url": "#"}
             ],
@@ -40,8 +40,8 @@
         },
         {
             "code": "CS259",
+            "tagline": "Automata and fun",
             "name": "Formal Languages",
-            "description": "Automata and fun",
             "notes": [
                 {"title": "Regular Languages & DFAs", "url": "#"},
                 {"title": "NFAs", "url": "#"},
@@ -56,8 +56,8 @@
         },
         {
             "code": "CS260",
+            "tagline": "Algorithm paradigms and also complexity classes",
             "name": "Algorithms",
-            "description": "Algorithm paradigms and also complexity classes",
             "notes": [
                 {"title": "Complexity & Big-O", "url": "#"},
                 {"title": "Divide & Conquer", "url": "#"},
@@ -76,8 +76,8 @@
         },
         {
             "code": "CS261",
+            "tagline": "Nightmare nightmare nightmare",
             "name": "Software Engineering",
-            "description": "Nightmare nightmare nightmare",
             "notes": [
                 {"title": "GET ME OUT OF HERE", "url": "#"}
             ],
@@ -88,8 +88,8 @@
         },
         {
             "code": "CS262",
+            "tagline": "Prolog is kinda fun",
             "name": "Logic and Verification",
-            "description": "Prolog is kinda fun",
             "notes": [
                 {"title": "Propositional Logic", "url": "#"},
                 {"title": "Predicate Logic", "url": "#"},
