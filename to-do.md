@@ -10,3 +10,6 @@
 - Database considerations
     - how to retrieve data from a portainer deployment instance thing
 
+- Landing Page
+    - Links to the important things
+    - Disclaimer maybe?
