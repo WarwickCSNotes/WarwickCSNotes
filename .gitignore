@@ -24,3 +24,4 @@ tsconfig.tsbuildinfo
 .idea/
 
 *.log
+.ropeproject

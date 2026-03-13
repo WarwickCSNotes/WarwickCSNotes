@@ -9,9 +9,11 @@ This project uses UV for dependency management. Get UV here: https://docs.astral
 ## Local Testing
 
 Run:
+```bash
+uv run app.py
 ```
-flask run
-```
+Or install dependencies with `uv sync` and run `flask run`.
+
 Server-side output will be in the terminal.
 
 Go to:
