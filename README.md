@@ -6,7 +6,7 @@ Repository for notes.
 
 Run:
 ```bash
-uv run --app.py
+uv run app.py
 ```
 Or install dependencies with `uv sync` and run `flask run`.
 
