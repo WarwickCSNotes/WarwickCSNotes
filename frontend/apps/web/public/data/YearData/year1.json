@@ -7,9 +7,9 @@
             "tagline": "How to make program",
             "name": "Programming for Computer Scientists",
             "notes": [
-                {"title": "AAAAAAAAAAAAAA", "url": "#"},
-                {"title": "BBBBBBBBBB", "url": "#"},
-                {"title": "CCCCCCCCCCC", "url": "#"}
+                {"title": "Markdown Demo", "url": "/notes/CS118/Features-Markdown.md"},
+                {"title": "Typst Demo", "url": "/notes/CS118/Features-Typst.typ"},
+                {"title": "LaTeX Demo", "url": "/notes/CS118/Features-LaTeX.tex"}
             ],
             "past_papers": [
                 {"year": "2025", "url": "#"},

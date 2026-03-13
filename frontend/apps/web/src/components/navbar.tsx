@@ -9,9 +9,9 @@ export function Navbar() {
   return (
     <nav className="border-b bg-background p-4">
       <div className="container mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-bold">
-          <span className="dragon-logo hidden">🐉</span>
-          <span className="haskell-logo hidden">λ</span>
+        <Link to="/" className="flex items-center gap-2 font-bold text-primary">
+          <span className="dragon-logo">🐉</span>
+          <span className="haskell-logo">λ</span>
           Warwick CS Notes
         </Link>
         

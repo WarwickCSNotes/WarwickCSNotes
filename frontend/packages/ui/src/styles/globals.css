@@ -97,6 +97,10 @@
     --border: oklch(0.6 0.15 300);
 }
 
+.cs141 h1, .cs141 h2, .cs141 h3, .cs141 h4, .cs141 .prose h1, .cs141 .prose h2, .cs141 .prose h3, .cs141 .prose h4 {
+    color: var(--primary);
+}
+
 /* Theme specific logo toggling */
 .dragon-logo { display: none; margin-right: 0.4rem; }
 .ifykyk .dragon-logo { display: inline; }
