@@ -132,6 +132,20 @@ wheels = [
 ]
 
 [[package]]
+name = "pypandoc-binary"
+version = "1.16.2"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2c/e0/dcccafc2d8b343408abe1e4f84fa5f854eb29f2b59323a6d9fb95db333d1/pypandoc_binary-1.16.2-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:dc71533dcce1cb112994e44f95a21c042c02e4fd4b4815442d8cbf7fe0159a88", size = 25526445, upload-time = "2025-11-13T16:30:09.786Z" },
+    { url = "https://files.pythonhosted.org/packages/49/8f/5f8e7d7febad6972b826537fdb4d78db2dbed8f40f141f58cf1bd95cca7e/pypandoc_binary-1.16.2-py3-none-macosx_11_0_arm64.whl", hash = "sha256:a240d645963266be5d68c2b5a0fb9703dfa5bb5e6a8367e36060e2584236b457", size = 25526446, upload-time = "2025-11-13T16:30:12.627Z" },
+    { url = "https://files.pythonhosted.org/packages/31/ae/904a96cd84ef568fa7a8a6a2a783265dda1542fd6ee489ef6fbaf32dfc04/pypandoc_binary-1.16.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1d9d4e14bbf973578ba635d18730131f76d11cf6926e4be977b39fad0bf330a8", size = 36942728, upload-time = "2025-11-13T16:30:15.302Z" },
+    { url = "https://files.pythonhosted.org/packages/55/97/4c7e2543013ed6b8c1c7d7344ae5e3f0fa8df67c6712b90a7d2dc87669c0/pypandoc_binary-1.16.2-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f6108d0661298f97def07695527b73f8499e7c425c8386ae0de2e8bf95d5799c", size = 34049538, upload-time = "2025-11-13T16:30:18.467Z" },
+    { url = "https://files.pythonhosted.org/packages/63/72/7ddda95c6ea454296c450191860ecb6f833534d605288fa120bfbfa97c1f/pypandoc_binary-1.16.2-py3-none-musllinux_1_1_aarch64.whl", hash = "sha256:a7e03052c7e526188e970aa782245e10be815a292c74b14d350d81c19fdeeafb", size = 36942720, upload-time = "2025-11-13T16:30:21.116Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/fd/0dadb4c5ed01a98bfef1a3d63386686a43e19cf779181f5aea3e31bba800/pypandoc_binary-1.16.2-py3-none-musllinux_1_1_x86_64.whl", hash = "sha256:49a2bea5a79b20eca546b67d466f41d97cecf10e2efb366a7bef7cc3d4edef15", size = 34049518, upload-time = "2025-11-13T16:30:24.461Z" },
+    { url = "https://files.pythonhosted.org/packages/73/a5/8065640aa3acefafe784ed9dc8338ea4516d40c60e151d727369f609eaa1/pypandoc_binary-1.16.2-py3-none-win_amd64.whl", hash = "sha256:9005c32c9d62152cbdd00e5e38579e17c0e708789ef554852367e24fb0cc6cf3", size = 40229130, upload-time = "2025-11-13T16:30:27.624Z" },
+]
+
+[[package]]
 name = "warwickcsnotes"
 version = "0.1.0"
 source = { virtual = "." }
@@ -139,6 +153,7 @@ dependencies = [
     { name = "flask" },
     { name = "jinja2" },
     { name = "markdown" },
+    { name = "pypandoc-binary" },
 ]
 
 [package.metadata]
@@ -146,6 +161,7 @@ requires-dist = [
     { name = "flask", specifier = ">=3.1.3" },
     { name = "jinja2", specifier = ">=3.1.6" },
     { name = "markdown", specifier = ">=3.10.2" },
+    { name = "pypandoc-binary", specifier = ">=1.13" },
 ]
 
 [[package]]
