@@ -1,0 +1,69 @@
+{
+    "year": 3,
+    "title": "Year 3",
+    "modules": [
+        {
+            "code": "CS310",
+            "tagline": "Dissertation - either you love it or you hate it",
+            "name": "Project",
+            "notes": [
+                {"title": "Report Writing Tips", "url": "#"}
+            ],
+            "past_papers": []
+        },
+        {
+            "code": "CS325",
+            "tagline": "Build a thing",
+            "name": "Compiler Design",
+            "notes": [
+                {"title": "Parsing", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"},
+                {"year": "2023", "url": "#"}
+            ],
+            "seminar_exercises": [
+                {"title": "Lab", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS331",
+            "tagline": "Has biology in it for some reason",
+            "name": "Neural Computing",
+            "notes": [
+                {"title": "Perceptrons & MLPs", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"},
+                {"year": "2023", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS342",
+            "tagline": "What makes the money",
+            "name": "Machine Learning",
+            "notes": [
+                {"title": "Probability", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"},
+                {"year": "2023", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS355",
+            "tagline": "Image things",
+            "name": "Digital Forensics",
+            "notes": [
+                {"title": "Image fundamentals", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"}
+            ]
+        }
+    ]
+}
