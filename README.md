@@ -2,6 +2,10 @@
 
 Repository for notes. 
 
+## UV
+
+This project uses UV for dependency management. Get UV here: https://docs.astral.sh/uv/getting-started/installation
+
 ## Local Testing
 
 Run:
