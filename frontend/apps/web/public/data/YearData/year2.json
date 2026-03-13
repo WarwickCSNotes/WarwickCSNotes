@@ -1,0 +1,105 @@
+{
+    "year": 2,
+    "title": "Year 2",
+    "modules": [
+        {
+            "code": "CS241",
+            "tagline": "Processes, Scheduling, C",
+            "name": "Operating Systems and Computer Networks",
+            "notes": [
+                {"title": "Threading", "url": "#"},
+                {"title": "Scheduling", "url": "#"},
+                {"title": "How to C", "url": "#"},
+                {"title": "TCP vs UDP", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2023", "url": "#"},
+                {"year": "2022", "url": "#"},
+                {"year": "2021", "url": "#"}
+            ],
+            "seminar_exercises": [
+                {"title": "Lab", "url": "#"},
+                {"title": "Lab 2", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS258",
+            "tagline": "Relational models, SQL, and pain",
+            "name": "Database Systems",
+            "notes": [
+                {"title": "Relational Model", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"},
+                {"year": "2023", "url": "#"}
+            ],
+            "seminar_exercises": [
+                {"title": "Lab", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS259",
+            "tagline": "Automata and fun",
+            "name": "Formal Languages",
+            "notes": [
+                {"title": "Regular Languages & DFAs", "url": "#"},
+                {"title": "NFAs", "url": "#"},
+                {"title": "Regular Expressions", "url": "#"},
+                {"title": "CFGs", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"},
+                {"year": "2023", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS260",
+            "tagline": "Algorithm paradigms and also complexity classes",
+            "name": "Algorithms",
+            "notes": [
+                {"title": "Complexity & Big-O", "url": "#"},
+                {"title": "Divide & Conquer", "url": "#"},
+                {"title": "Dynamic Programming", "url": "#"},
+                {"title": "Greedy Algorithms", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2023", "url": "#"},
+                {"year": "2022", "url": "#"},
+                {"year": "2021", "url": "#"}
+            ],
+            "seminar_exercises": [
+                {"title": "ad", "url": "#"},
+                {"title": "da", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS261",
+            "tagline": "Nightmare nightmare nightmare",
+            "name": "Software Engineering",
+            "notes": [
+                {"title": "GET ME OUT OF HERE", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"}
+            ]
+        },
+        {
+            "code": "CS262",
+            "tagline": "Prolog is kinda fun",
+            "name": "Logic and Verification",
+            "notes": [
+                {"title": "Propositional Logic", "url": "#"},
+                {"title": "Predicate Logic", "url": "#"},
+                {"title": "Hoare Logic", "url": "#"}
+            ],
+            "past_papers": [
+                {"year": "2025", "url": "#"},
+                {"year": "2024", "url": "#"},
+                {"year": "2023", "url": "#"}
+            ]
+        }
+    ]
+}

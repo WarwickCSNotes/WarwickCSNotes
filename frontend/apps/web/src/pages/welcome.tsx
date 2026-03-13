@@ -1,0 +1,1 @@
+export const Welcome = () => <div className="container mx-auto p-8"><h1>WELCOME</h1></div>;
