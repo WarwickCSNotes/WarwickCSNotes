@@ -10,9 +10,9 @@ COPY Data/ ./Data/
 WORKDIR /app/frontend
 RUN bun install --frozen-lockfile
 
-# Build the web app directly, bypassing turbo
+# Build the web app directly, skipping tsc (type checking is a separate CI concern)
 WORKDIR /app/frontend/apps/web
-RUN bun run build
+RUN bunx vite build
 
 # Stage 2: serve built files with nginx
 FROM nginx:alpine
