@@ -19,3 +19,19 @@
     - GitHub
     - MatLab
     - VSCode
+- Courseworks
+    - example of a lab report for 132
+    - tips + tricks for certain things
+        - common mistakes
+        - things to know BEFORE starting
+        - work where they say its going to take x hours and its actually not even close
+
+- past papers
+    - prof skills quiz better format
+    - add explanations for why common mistakes are wrong
+ 
+- Module details
+    - term
+    - CATs
+    - Assesment format
+ 
