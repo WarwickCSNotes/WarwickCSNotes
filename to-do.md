@@ -14,6 +14,11 @@
     - Links to the important things
     - Disclaimer maybe?
  
+- Foundations Section
+    - LaTex
+    - GitHub
+    - MatLab
+    - VSCode
 - Courseworks
     - example of a lab report for 132
     - tips + tricks for certain things
