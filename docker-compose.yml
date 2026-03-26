@@ -1,16 +1,7 @@
 services:
-  backend:
+  notes:
     build:
       context: .
-      dockerfile: Dockerfile.backend
-    restart: unless-stopped
-
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
-    depends_on:
-      - backend
-    restart: unless-stopped
+      - "3000:3000"
