@@ -1,11 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
-import { Welcome } from "./pages/welcome";
-import { YearPage } from "./pages/year";
-import { ModulePage } from "./pages/module";
-import { NotePage } from "./pages/note";
-import { AcknowledgementsPage } from "./pages/acknowledgements";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Navbar } from "@/components/navbar"
+import { Welcome } from "./pages/welcome"
+import { YearPage } from "./pages/year"
+import { ModulePage } from "./pages/module"
+import { NotePage } from "./pages/note"
+import { AcknowledgementsPage } from "./pages/acknowledgements"
 
 export function App() {
   return (
@@ -21,5 +21,5 @@ export function App() {
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
-  );
+  )
 }

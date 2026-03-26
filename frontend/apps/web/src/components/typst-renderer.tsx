@@ -10,7 +10,10 @@ export const TypstRenderer = ({ content }: { content: string }) => {
       const renderer = await createTypstRenderer();
       await renderer.init();
       // Simple implementation: interpret the content as a typst document
-      await renderer.render(content, containerRef.current!);
+      await (renderer.render as any)({
+        mainContent: content,
+        container: containerRef.current!,
+      });
     };
     render().catch(console.error);
   }, [content]);

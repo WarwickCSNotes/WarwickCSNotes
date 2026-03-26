@@ -1,0 +1,8 @@
+# Ignore dependencies and logs to keep build context clean
+node_modules
+.git
+.next
+.turbo
+
+# Ensure dist is included even if it's gitignored (if build context is git-based)
+!frontend/apps/web/dist
