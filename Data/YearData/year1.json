@@ -5,6 +5,8 @@
         "CS118": {
             "tagline": "How to make program",
             "name": "Programming for Computer Scientists",
+            "Term":"1",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "AAAAAAAAAAAAAA", "url": "#"},
@@ -20,6 +22,8 @@
         "CS126": {
             "tagline": "Data Structures",
             "name": "Design of Information Structures",
+            "Term":"2",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Time Complexity", "url": "#"},
@@ -40,7 +44,9 @@
             "tagline": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "name": "Sets and Proofs",
             "description": "A module of all time.",
-            "authors": [],
+            "Term":"1",
+            "CATS":"15",
+            "authors": ["EdDenton"],
             "notes": [
                 {"title": "Logic & Propositions", "url": "#"},
                 {"title": "Sets", "url": "/notes/CS130/Sets"},
@@ -56,6 +62,8 @@
         "CS132": {
             "tagline": "Hardware fundamentals",
             "name": "Computer Organisation and Architecture",
+            "Term":"1",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Data Representation", "url": "#"},
@@ -73,6 +81,8 @@
         "CS133": {
             "tagline": "Academic writing and ethics or something idk I didn't go to lectures",
             "name": "Professional Skills",
+            "Term":"1/2",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Ethics", "url": "#"}
@@ -82,6 +92,8 @@
         "CS141": {
             "tagline": "We love Haskell",
             "name": "Functional Programming",
+            "Term":"2",
+            "CATS":"15",
             "authors": [],
             "past_papers": [
                 {"year": "2025", "url": "#"},
