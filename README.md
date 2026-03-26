@@ -21,7 +21,7 @@ Server-side output will be in the terminal.
 
 ### Frontend
 
-Run (in a separate terminal):
+Run (in a separate terminal, and CDed into frontend):
 ```
 bun dev
 ```

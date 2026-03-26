@@ -5,6 +5,8 @@
         "CS241": {
             "tagline": "Processes, Scheduling, C",
             "name": "Operating Systems and Computer Networks",
+            "Term":"1",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Threading", "url": "#"},
@@ -25,6 +27,8 @@
         "CS257": {
             "tagline": "Remember CS132? Version 2 dropped",
             "name": "Advanced Computer Architecture",
+            "Term":"2",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Memory", "url": "/notes/CS257/Memory"},
@@ -50,6 +54,8 @@
         "CS258": {
             "tagline": "Relational models, SQL, and pain",
             "name": "Database Systems",
+            "Term":"1",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Relational Model", "url": "#"}
@@ -66,6 +72,8 @@
         "CS259": {
             "tagline": "Automata and fun",
             "name": "Formal Languages",
+            "Term":"2",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Regular Languages & DFAs", "url": "#"},
@@ -82,6 +90,8 @@
         "CS260": {
             "tagline": "Algorithm paradigms and also complexity classes",
             "name": "Algorithms",
+            "Term":"1",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Complexity & Big-O", "url": "#"},
@@ -102,6 +112,8 @@
         "CS261": {
             "tagline": "Nightmare nightmare nightmare",
             "name": "Software Engineering",
+            "Term":"2",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "GET ME OUT OF HERE", "url": "#"}
@@ -114,6 +126,8 @@
         "CS262": {
             "tagline": "Prolog is kinda fun",
             "name": "Logic and Verification",
+            "Term":"2",
+            "CATS":"15",
             "authors": [],
             "notes": [
                 {"title": "Propositional Logic", "url": "#"},

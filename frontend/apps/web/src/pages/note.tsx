@@ -63,6 +63,10 @@ export const NotePage = () => {
       });
   }, [code]);
 
+  useEffect(() => {
+    if (note && code) document.title = `${note} - ${code} Notes`;
+  }, [note, code]);
+
   if (!noteExt) return <div className="container mx-auto p-4">Loading...</div>;
 
   const renderedContent = noteExt === 'tex' ? latexToMarkdown(content) : content;

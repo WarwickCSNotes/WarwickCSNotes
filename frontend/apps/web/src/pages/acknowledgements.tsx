@@ -20,6 +20,8 @@ export const AcknowledgementsPage = () => {
   }, [credits, location.hash]);
 
   return (
+    <>
+    <title>Acknowledgements</title>
     <div className="container mx-auto p-4 max-w-3xl">
       <h1 className="text-4xl font-bold mb-2">Acknowledgements</h1>
       <p className="text-muted-foreground mb-8">The people behind Warwick CS Notes.</p>
@@ -68,5 +70,6 @@ export const AcknowledgementsPage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };

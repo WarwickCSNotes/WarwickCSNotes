@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export const YearPage = () => {
   const { year } = useParams();
   const [data, setData] = useState<any>(null);
+
   useEffect(() => {
     fetch(`/api/year/${year}`)
       .then(res => res.json())
@@ -12,7 +13,13 @@ export const YearPage = () => {
         localStorage.setItem('last-year', String(year));
       });
   }, [year]);
+
+  useEffect(() => {
+    document.title = `Year ${year}`;
+  }, [year]);
+
   if (!data) return <div className="container mx-auto p-4">Loading...</div>;
+
   return (
     <div className="container mx-auto p-4">
       <Link to="/" className="inline-flex items-center gap-2 mb-6 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors">
@@ -25,6 +32,10 @@ export const YearPage = () => {
             <h6 className="text-sm text-muted-foreground">{code}</h6>
             <h5 className="font-bold">{mod.name}</h5>
             <p className="text-sm text-secondary-foreground">{mod.tagline}</p>
+            <div className="flex gap-3 mt-2">
+              {mod.Term && <span className="text-xs text-muted-foreground">Term {mod.Term}</span>}
+              {mod.CATS && <span className="text-xs text-muted-foreground">{mod.CATS} CATS</span>}
+            </div>
           </Link>
         ))}
       </div>
