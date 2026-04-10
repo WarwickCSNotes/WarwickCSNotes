@@ -8,8 +8,8 @@ export const Welcome = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold mb-4">Dashboard</h1>
 
-      <div className="mb-8 p-4 border rounded-lg bg-muted/50 text-sm text-muted-foreground">
-        <strong className="text-foreground">Disclaimer:</strong> These notes are student-made and
+      <div className="mb-8 p-4 border rounded-lg bg-surface text-surface-foreground text-sm">
+        <strong>Disclaimer:</strong> These notes are student-made and
         are not officially endorsed by the University of Warwick. They may contain errors or
         omissions. Always cross-reference with official lecture materials and module resources.
       </div>
@@ -19,7 +19,7 @@ export const Welcome = () => {
           <Link
             key={y}
             to={`/year/${y}`}
-            className="block p-6 border rounded-lg hover:bg-muted transition"
+            className="block p-6 bg-surface text-surface-foreground border rounded-lg hover:brightness-110 transition"
           >
             <h2 className="text-2xl font-semibold">Year {y}</h2>
           </Link>

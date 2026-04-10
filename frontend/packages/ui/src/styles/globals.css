@@ -27,6 +27,11 @@
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
     --ring: oklch(0.708 0 0);
+    --nav: oklch(0.205 0 0);
+    --nav-foreground: oklch(0.985 0 0);
+    --surface: oklch(0.96 0 0);
+    --surface-foreground: oklch(0.205 0 0);
+    --detail: oklch(0.5 0.15 250);
     --chart-1: oklch(0.809 0.105 251.813);
     --chart-2: oklch(0.623 0.214 259.815);
     --chart-3: oklch(0.546 0.245 262.881);
@@ -62,6 +67,11 @@
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.556 0 0);
+    --nav: oklch(0.18 0 0);
+    --nav-foreground: oklch(0.985 0 0);
+    --surface: oklch(0.22 0 0);
+    --surface-foreground: oklch(0.985 0 0);
+    --detail: oklch(0.7 0.1 250);
     --chart-1: oklch(0.809 0.105 251.813);
     --chart-2: oklch(0.623 0.214 259.815);
     --chart-3: oklch(0.546 0.245 262.881);
@@ -96,6 +106,11 @@
     --border: oklch(0.5 0.25 27);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.5 0.25 27);
+    --nav: oklch(0.22 0.12 27);
+    --nav-foreground: oklch(1 0 0);
+    --surface: oklch(0.12 0.04 27);
+    --surface-foreground: oklch(0.985 0 0);
+    --detail: oklch(0.68 0.15 27);
 }
 
 /* cs141: dark background, purple accent — inspired by themes.css cs141 */
@@ -117,6 +132,11 @@
     --border: oklch(0.6 0.15 300);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.6 0.15 300);
+    --nav: oklch(0.25 0.12 300);
+    --nav-foreground: oklch(1 0 0);
+    --surface: oklch(0.14 0.04 300);
+    --surface-foreground: oklch(0.985 0 0);
+    --detail: oklch(0.72 0.1 300);
 }
 
 .cs141 h1, .cs141 h2, .cs141 h3, .cs141 h4,
@@ -166,6 +186,11 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+    --color-nav: var(--nav);
+    --color-nav-foreground: var(--nav-foreground);
+    --color-surface: var(--surface);
+    --color-surface-foreground: var(--surface-foreground);
+    --color-detail: var(--detail);
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);

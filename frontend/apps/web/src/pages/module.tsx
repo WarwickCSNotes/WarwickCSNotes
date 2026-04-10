@@ -51,8 +51,8 @@ export const ModulePage = () => {
       <h1 className="text-3xl font-bold">{mod.code}</h1>
       <h4 className="text-xl text-muted-foreground">{mod.name}</h4>
       <div className="flex gap-4 mt-1 mb-2">
-        {mod.Term && <span className="text-sm text-muted-foreground">Term {mod.Term}</span>}
-        {mod.CATS && <span className="text-sm text-muted-foreground">{mod.CATS} CATS</span>}
+        {mod.Term && <span className="text-sm font-medium text-detail">Term {mod.Term}</span>}
+        {mod.CATS && <span className="text-sm font-medium text-detail">{mod.CATS} CATS</span>}
       </div>
       <p className="italic my-4">{mod.tagline}</p>
       {mod.description && <p className="mb-4">{mod.description}</p>}

@@ -9,9 +9,9 @@ export function Navbar() {
   const location = useLocation();
 
   return (
-    <nav className="border-b bg-background p-4">
+    <nav className="border-b border-white/10 bg-nav p-4 text-nav-foreground">
       <div className="container mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-bold text-primary text-xl">
+        <Link to="/" className="flex items-center gap-2 font-bold text-nav-foreground text-xl">
           <span className="dragon-logo text-2xl">🐉</span>
           <span className="haskell-logo text-2xl">λ</span>
           Warwick CS Notes
@@ -29,8 +29,8 @@ export function Navbar() {
                 to={`/year/${year}`}
                 className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                   active
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:bg-muted"
+                    ? "bg-white/20 text-nav-foreground"
+                    : "text-nav-foreground/75 hover:bg-white/10 hover:text-nav-foreground"
                 }`}
               >
                 Year {year}
@@ -42,8 +42,8 @@ export function Navbar() {
             to="/acknowledgements"
             className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
               location.pathname === '/acknowledgements'
-                ? "bg-primary text-primary-foreground"
-                : "hover:bg-muted"
+                ? "bg-white/20 text-nav-foreground"
+                : "text-nav-foreground/75 hover:bg-white/10 hover:text-nav-foreground"
             }`}
           >
             Credits
@@ -51,7 +51,7 @@ export function Navbar() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="cursor-pointer gap-1 hover:bg-muted ml-2">
+              <Button variant="outline" size="sm" className="cursor-pointer gap-1 ml-2 border-white/20 text-nav-foreground bg-transparent hover:bg-white/10 hover:text-nav-foreground">
                 Theme <ChevronDown className="h-3 w-3 opacity-70" />
               </Button>
             </DropdownMenuTrigger>
