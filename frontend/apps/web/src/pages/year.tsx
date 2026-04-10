@@ -28,13 +28,13 @@ export const YearPage = () => {
       <h1 className="mb-4">{data.title}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {Object.entries(data.modules).map(([code, mod]: [string, any]) => (
-          <Link key={code} to={`/module/${code}`} className="block p-4 border rounded shadow hover:bg-muted">
-            <h6 className="text-sm text-muted-foreground">{code}</h6>
+          <Link key={code} to={`/module/${code}`} className="block p-4 bg-surface text-surface-foreground border rounded-lg shadow hover:brightness-110 transition">
+            <h6 className="text-sm font-semibold text-primary">{code}</h6>
             <h5 className="font-bold">{mod.name}</h5>
-            <p className="text-sm text-secondary-foreground">{mod.tagline}</p>
+            <p className="text-sm text-muted-foreground mt-1">{mod.tagline}</p>
             <div className="flex gap-3 mt-2">
-              {mod.Term && <span className="text-xs text-muted-foreground">Term {mod.Term}</span>}
-              {mod.CATS && <span className="text-xs text-muted-foreground">{mod.CATS} CATS</span>}
+              {mod.Term && <span className="text-xs font-medium text-detail">Term {mod.Term}</span>}
+              {mod.CATS && <span className="text-xs font-medium text-detail">{mod.CATS} CATS</span>}
             </div>
           </Link>
         ))}
