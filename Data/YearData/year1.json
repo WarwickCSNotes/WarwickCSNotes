@@ -55,7 +55,7 @@
                 {"title": "Countability", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
+                {"year": "2025", "url": "#", "solution_url": "#"},
                 {"year": "2024", "url": "#"}
             ]
         },
@@ -87,6 +87,21 @@
             "notes": [
                 {"title": "Ethics", "url": "#"}
             ],
+            "past_papers": [],
+            "extras": [
+                {"title": "Class Test Simulator", "url": "/tools/CS133/class-test"}
+            ]
+        },
+        "CS139": {
+            "tagline": "HTML, CSS, the pain of JavaScript",
+            "name": "Web Development Technologies",
+            "Term":"2",
+            "CATS":"15",
+            "authors": [],
+            "notes": [
+                {"title": "HTML & CSS", "url": "#"},
+                {"title": "JavaScript", "url": "#"}
+            ],
             "past_papers": []
         },
         "CS141": {
@@ -105,6 +120,30 @@
                 {"title": "Lab 2", "url": "#"},
                 {"title": "Lab 3", "url": "#"}
             ]
+        },
+        "CS143": {
+            "tagline": "Rip off CS259",
+            "name": "Logic and Automata",
+            "Term":"2",
+            "CATS":"15",
+            "authors": [],
+            "notes": [
+                {"title": "Probability", "url": "#"},
+                {"title": "Distributions", "url": "#"}
+            ],
+            "past_papers": []
+        },
+        "CS146": {
+            "tagline": "Rabbits.",
+            "name": "Introduction to Discrete Mathematics",
+            "Term":"1",
+            "CATS":"15",
+            "authors": [],
+            "notes": [
+                {"title": "Linear Algebra", "url": "#"},
+                {"title": "Calculus", "url": "#"}
+            ],
+            "past_papers": []
         }
     }
 }

@@ -87,8 +87,8 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* ifykyk: dark background, red accent — inspired by themes.css ifykyk */
-.ifykyk {
+/* dragon: dark background, red accent */
+.dragon {
     --background: oklch(0.04 0 0);
     --foreground: oklch(1 0 0);
     --card: oklch(0.1 0 0);
@@ -144,14 +144,14 @@
     color: var(--primary);
 }
 
-.ifykyk h1, .ifykyk h2, .ifykyk h3, .ifykyk h4,
-.ifykyk .prose h1, .ifykyk .prose h2, .ifykyk .prose h3, .ifykyk .prose h4 {
+.dragon h1, .dragon h2, .dragon h3, .dragon h4,
+.dragon .prose h1, .dragon .prose h2, .dragon .prose h3, .dragon .prose h4 {
     color: var(--primary);
 }
 
 /* Theme specific logo toggling */
 .dragon-logo { display: none; margin-right: 0.4rem; }
-.ifykyk .dragon-logo { display: inline; }
+.dragon .dragon-logo { display: inline; }
 .haskell-logo { display: none; margin-right: 0.4rem; font-style: italic; font-weight: bold; color: var(--color-primary); }
 .cs141 .haskell-logo { display: inline; }
 

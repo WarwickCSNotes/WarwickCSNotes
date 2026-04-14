@@ -1,5 +1,30 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { BadgeCheck } from "lucide-react";
+
+function VerifiedBadge({ className = "" }: { className?: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span className={`absolute z-10 ${className}`}>
+      <span
+        role="button"
+        aria-label="Verified"
+        tabIndex={0}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(o => !o); }}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        className="inline-flex items-center justify-center cursor-help"
+      >
+        <BadgeCheck className="h-4 w-4 text-green-500" />
+      </span>
+      {open && (
+        <span className="absolute z-20 right-0 top-full mt-1 whitespace-nowrap px-2 py-1 rounded bg-popover text-popover-foreground text-xs border shadow">
+          This was checked by a tutor or module organiser
+        </span>
+      )}
+    </span>
+  );
+}
 
 export const ModulePage = () => {
   const { code } = useParams();
@@ -69,8 +94,9 @@ export const ModulePage = () => {
                 </div>
               )
               : (
-                <Link key={note.title} to={note.url} className="block mb-2 p-3 border rounded text-sm hover:bg-muted transition-colors">
+                <Link key={note.title} to={note.url} className="relative block mb-2 p-3 border rounded text-sm hover:bg-muted transition-colors">
                   {note.title}
+                  {note.verified && <VerifiedBadge className="top-2 right-2" />}
                   {contributors.length > 0 && (
                     <span className="block mt-1" onClick={e => e.preventDefault()}>
                       <em className="text-xs text-muted-foreground not-italic">Created by </em>
@@ -98,21 +124,41 @@ export const ModulePage = () => {
               <div key={paper.year} className="grid grid-cols-2 gap-2">
                 <a
                   href={paper.url}
-                  className="block p-3 border rounded bg-card hover:bg-muted hover:border-primary transition-colors text-center text-sm font-medium"
+                  className="relative block p-3 border rounded bg-card hover:bg-muted hover:border-primary transition-colors text-center text-sm font-medium"
                 >
                   {paper.year} Paper
+                  {paper.verified && <VerifiedBadge className="top-2 right-2" />}
                 </a>
                 <a
                   href={paper.solution_url || "#"}
-                  className={`block p-3 border rounded bg-card text-center text-sm font-medium ${paper.solution_url ? "hover:bg-muted hover:border-primary transition-colors" : "opacity-50 cursor-not-allowed"}`}
+                  className={`relative block p-3 border rounded bg-card text-center text-sm font-medium ${paper.solution_url ? "hover:bg-muted hover:border-primary transition-colors" : "opacity-50 cursor-not-allowed"}`}
                 >
                   Solution
+                  {paper.solution_verified && <VerifiedBadge className="top-2 right-2" />}
                 </a>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {mod.extras?.length > 0 && (
+        <div className="mt-4 border p-4 rounded">
+          <h5 className="font-bold mb-2">Extras</h5>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            {mod.extras.map((extra: any) => (
+              <Link
+                key={extra.title}
+                to={extra.url}
+                className="relative block p-3 border rounded bg-surface text-surface-foreground text-sm font-medium hover:brightness-110 transition"
+              >
+                {extra.title}
+                {extra.verified && <VerifiedBadge className="top-2 right-2" />}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

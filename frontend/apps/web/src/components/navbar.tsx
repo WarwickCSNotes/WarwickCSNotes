@@ -18,7 +18,7 @@ export function Navbar() {
         </Link>
 
         <div className="flex items-center gap-2">
-          {[1, 2, 3].map((year) => {
+          {[1, 2, 3, 4].map((year) => {
             const onYearPath = location.pathname.startsWith(`/year/${year}`);
             const onModuleOrNote = location.pathname.startsWith('/module/') || location.pathname.startsWith('/notes/');
             const lastYear = onModuleOrNote ? localStorage.getItem('last-year') : null;
@@ -37,6 +37,17 @@ export function Navbar() {
               </Link>
             );
           })}
+
+          <Link
+            to="/careers"
+            className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+              location.pathname === '/careers'
+                ? "bg-white/20 text-nav-foreground"
+                : "text-nav-foreground/75 hover:bg-white/10 hover:text-nav-foreground"
+            }`}
+          >
+            Careers
+          </Link>
 
           <Link
             to="/acknowledgements"
@@ -58,7 +69,7 @@ export function Navbar() {
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("ifykyk")}>🐉 ifykyk</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dragon")}>🐉 Dragon</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("cs141")}>λ 141</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

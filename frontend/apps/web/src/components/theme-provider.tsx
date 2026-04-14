@@ -1,8 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 import * as React from "react"
 
-type Theme = "dark" | "light" | "system" | "ifykyk" | "cs141"
-type ResolvedTheme = "dark" | "light" | "ifykyk" | "cs141"
+type Theme = "dark" | "light" | "system" | "dragon" | "cs141"
+type ResolvedTheme = "dark" | "light" | "dragon" | "cs141"
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -17,7 +17,7 @@ type ThemeProviderState = {
 }
 
 const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)"
-const THEME_VALUES: Theme[] = ["dark", "light", "system", "ifykyk", "cs141"]
+const THEME_VALUES: Theme[] = ["dark", "light", "system", "dragon", "cs141"]
 
 const ThemeProviderContext = React.createContext<
   ThemeProviderState | undefined
@@ -110,7 +110,7 @@ export function ThemeProvider({
         ? disableTransitionsTemporarily()
         : null
 
-      root.classList.remove("light", "dark", "ifykyk", "cs141")
+      root.classList.remove("light", "dark", "dragon", "cs141")
       root.classList.add(resolvedTheme)
 
       if (restoreTransitions) {

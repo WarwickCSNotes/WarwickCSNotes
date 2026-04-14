@@ -6,9 +6,10 @@ from flask import Flask, Response, abort, send_from_directory
 app = Flask(__name__)
 BASE_DIR = os.path.dirname(__file__)
 DIST_DIR = os.path.join(BASE_DIR, "frontend", "apps", "web", "dist")
-NOTE_DATA_DIR = os.path.join(DIST_DIR, "NoteData")
-YEAR_DATA_DIR = os.path.join(DIST_DIR, "YearData")
-CREDITS_DIR = os.path.join(DIST_DIR, "Credits")
+DATA_DIR = os.path.join(BASE_DIR, "Data")
+NOTE_DATA_DIR = os.path.join(DATA_DIR, "NoteData")
+YEAR_DATA_DIR = os.path.join(DATA_DIR, "YearData")
+CREDITS_DIR = os.path.join(DATA_DIR, "Credits")
 CREDITS_FILE = os.path.join(CREDITS_DIR, "people.json")
 NOTE_EXTENSIONS = ("md", "tex", "typ")
 
@@ -21,7 +22,7 @@ print("Credits directory:", CREDITS_DIR)
 
 @app.route("/api/year/<int:year_num>")
 def api_year(year_num):
-    if year_num not in (1, 2, 3):
+    if year_num not in (1, 2, 3, 4):
         abort(404)
     with open(os.path.join(YEAR_DATA_DIR, f"year{year_num}.json")) as f:
         return json.load(f)
@@ -29,7 +30,7 @@ def api_year(year_num):
 
 @app.route("/api/module/<code>")
 def api_module(code):
-    for year_num in (1, 2, 3):
+    for year_num in (1, 2, 3, 4):
         with open(os.path.join(YEAR_DATA_DIR, f"year{year_num}.json")) as f:
             year_data = json.load(f)
         for mod_code, mod in year_data["modules"].items():

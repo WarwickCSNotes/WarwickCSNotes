@@ -1,0 +1,114 @@
+{
+    "year": 4,
+    "title": "Year 4",
+    "modules": {
+        "CS402": {
+            "tagline": "Go fast with many cores",
+            "name": "High Performance Computing",
+            "Term": "2",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS404": {
+            "tagline": "Agents doing things for you",
+            "name": "Agent Based Systems",
+            "Term": "2",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS407": {
+            "tagline": "Team project - management simulator",
+            "name": "Group Project",
+            "Term": "1/2/3",
+            "CATS": "30",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS409": {
+            "tagline": "Game theory but computer",
+            "name": "Algorithmic Game Theory",
+            "Term": "1",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS412": {
+            "tagline": "Formal specs and proofs",
+            "name": "Formal Systems Development",
+            "Term": "1",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS413": {
+            "tagline": "Make the computer see things",
+            "name": "Image and Video Analysis",
+            "Term": "1",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS416": {
+            "tagline": "Maths for making things optimal",
+            "name": "Optimisation Methods",
+            "Term": "2",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS419": {
+            "tagline": "Spooky action at a distance",
+            "name": "Quantum Computing",
+            "Term": "2",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS424": {
+            "tagline": "Biology but in code",
+            "name": "Computational Biology",
+            "Term": "2",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS429": {
+            "tagline": "ML from scratch",
+            "name": "Machine Learning Algorithms and Practice",
+            "Term": "2",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS430": {
+            "tagline": "Raw data to deep insights",
+            "name": "Foundations of Data Analytics",
+            "Term": "1",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        },
+        "CS435": {
+            "tagline": "Hacking and defending",
+            "name": "Advanced Computer Security",
+            "Term": "1",
+            "CATS": "15",
+            "authors": [],
+            "notes": [],
+            "past_papers": []
+        }
+    }
+}

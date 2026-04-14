@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   publicDir: path.resolve(__dirname, "../../../Data"),
   server: {
-    port: 3000,
+    port: 5173,
     proxy: {
       "/api": "http://localhost:3000",
       "/notes": {

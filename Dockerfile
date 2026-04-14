@@ -22,6 +22,7 @@ COPY pyproject.toml uv.lock ./
 RUN uv sync
 
 COPY app.py ./
+COPY Data/ ./Data/
 
 RUN mkdir -p frontend/apps/web
 COPY --from=build /app/frontend/apps/web/dist ./frontend/apps/web/dist
