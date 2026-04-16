@@ -7,17 +7,51 @@ app = Flask(__name__)
 BASE_DIR = os.path.dirname(__file__)
 DIST_DIR = os.path.join(BASE_DIR, "frontend", "apps", "web", "dist")
 DATA_DIR = os.path.join(BASE_DIR, "Data")
-NOTE_DATA_DIR = os.path.join(DATA_DIR, "NoteData")
+RESOURCES_DIR = os.path.join(DATA_DIR, "Resources")
 YEAR_DATA_DIR = os.path.join(DATA_DIR, "YearData")
 CREDITS_DIR = os.path.join(DATA_DIR, "Credits")
 CREDITS_FILE = os.path.join(CREDITS_DIR, "people.json")
-NOTE_EXTENSIONS = ("md", "tex", "typ")
 
-print("Base directory:", BASE_DIR)
-print("Dist directory:", DIST_DIR)
-print("Note data directory:", NOTE_DATA_DIR)
-print("Year data directory:", YEAR_DATA_DIR)
-print("Credits directory:", CREDITS_DIR)
+# Resources are shared content files (notes, solutions, ...) stored under
+# Data/Resources/<Category>/. All resource files obey the same rules:
+#   - extension is one of CONTENT_EXTENSIONS
+#   - served via the same endpoint with an X-Content-Extension header
+CONTENT_EXTENSIONS = ("md", "tex", "typ", "pdf")
+RESOURCE_CATEGORIES = ("Notes", "Solutions")
+
+
+def serve_content(directory, filename):
+    """Serve a resource file from `directory`, probing extensions if none given."""
+    if "." in filename:
+        path = os.path.join(directory, filename)
+        ext = filename.rsplit(".", 1)[-1]
+    else:
+        path = None
+        ext = None
+        for e in CONTENT_EXTENSIONS:
+            p = os.path.join(directory, f"{filename}.{e}")
+            if os.path.exists(p):
+                path = p
+                ext = e
+                break
+
+    if not path or not os.path.exists(path):
+        abort(404)
+
+    if ext == "pdf":
+        return send_from_directory(
+            os.path.dirname(path),
+            os.path.basename(path),
+            mimetype="application/pdf",
+        )
+
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+    return Response(
+        content,
+        content_type="text/plain",
+        headers={"X-Content-Extension": ext, "X-Note-Extension": ext},
+    )
 
 
 @app.route("/api/year/<int:year_num>")
@@ -45,44 +79,40 @@ def api_credits():
         return json.load(f)
 
 
-@app.route("/api/credits/notes")
-def api_credits_notes():
-    with open(os.path.join(CREDITS_DIR, "notes.json")) as f:
+@app.route("/api/credits/<category>")
+def api_credits_category(category):
+    path = os.path.join(CREDITS_DIR, f"{category.lower()}.json")
+    if not os.path.exists(path):
+        abort(404)
+    with open(path) as f:
         return json.load(f)
+
+
+@app.route("/resources/<category>/<module_code>/<filename>")
+def resource(category, module_code, filename):
+    """Unified resource endpoint.
+
+    URL: /resources/<Category>/<ModuleCode>/<Filename>
+    File: Data/Resources/<Category>/<Filename>.<ext>
+
+    module_code is for URL/breadcrumb context only; file lookup is flat
+    inside each category directory. Filenames can include the module
+    code themselves if they need to be unique per module (e.g. solutions
+    use "CS130-2025.md").
+    """
+    del module_code
+    if category not in RESOURCE_CATEGORIES:
+        abort(404)
+    directory = os.path.join(RESOURCES_DIR, category)
+    return serve_content(directory, filename)
 
 
 @app.route("/")
 @app.route("/<path:path>")
 def serve(path=""):
-    print("Requested path:", path)
     if path and os.path.exists(os.path.join(DIST_DIR, path)):
         return send_from_directory(DIST_DIR, path)
     return send_from_directory(DIST_DIR, "index.html")
-
-
-@app.route("/notes/<module_code>/<note_name>")
-def note(module_code, note_name):
-    if "." in note_name:
-        path = os.path.join(NOTE_DATA_DIR, note_name)
-        ext = note_name.rsplit(".", 1)[-1]
-    else:
-        path = None
-        ext = None
-        for e in NOTE_EXTENSIONS:
-            p = os.path.join(NOTE_DATA_DIR, f"{note_name}.{e}")
-            if os.path.exists(p):
-                path = p
-                ext = e
-                break
-
-    if not path or not os.path.exists(path):
-        abort(404)
-
-    with open(path, encoding="utf-8") as f:
-        content = f.read()
-    return Response(
-        content, content_type="text/plain", headers={"X-Note-Extension": ext}
-    )
 
 
 if __name__ == "__main__":

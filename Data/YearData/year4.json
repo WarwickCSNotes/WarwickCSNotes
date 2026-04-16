@@ -9,7 +9,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS404": {
             "tagline": "Agents doing things for you",
@@ -18,7 +19,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS407": {
             "tagline": "Team project - management simulator",
@@ -27,7 +29,8 @@
             "CATS": "30",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS409": {
             "tagline": "Game theory but computer",
@@ -36,7 +39,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS412": {
             "tagline": "Formal specs and proofs",
@@ -45,7 +49,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS413": {
             "tagline": "Make the computer see things",
@@ -54,7 +59,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS416": {
             "tagline": "Maths for making things optimal",
@@ -63,7 +69,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS419": {
             "tagline": "Spooky action at a distance",
@@ -72,7 +79,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS424": {
             "tagline": "Biology but in code",
@@ -81,7 +89,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS429": {
             "tagline": "ML from scratch",
@@ -90,7 +99,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS430": {
             "tagline": "Raw data to deep insights",
@@ -99,7 +109,8 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS435": {
             "tagline": "Hacking and defending",
@@ -108,7 +119,9 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         }
     }
 }
+

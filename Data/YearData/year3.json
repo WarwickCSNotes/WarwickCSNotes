@@ -11,7 +11,8 @@
             "notes": [
                 {"title": "Report Writing Tips", "url": "#"}
             ],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS325": {
             "tagline": "Build a thing",
@@ -23,13 +24,14 @@
                 {"title": "Parsing", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS331": {
             "tagline": "Has biology in it for some reason",
@@ -41,10 +43,11 @@
                 {"title": "Perceptrons & MLPs", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
-            ]
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
+            ],
+            "exercise_solutions": []
         },
         "CS342": {
             "tagline": "What makes the money",
@@ -56,10 +59,11 @@
                 {"title": "Probability", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
-            ]
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
+            ],
+            "exercise_solutions": []
         },
         "CS355": {
             "tagline": "Image things",
@@ -71,9 +75,10 @@
                 {"title": "Image fundamentals", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"}
-            ]
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"}
+            ],
+            "exercise_solutions": []
         }
     }
 }

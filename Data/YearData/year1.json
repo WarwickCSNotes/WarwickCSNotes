@@ -14,10 +14,11 @@
                 {"title": "CCCCCCCCCCC", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
-            ]
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
+            ],
+            "exercise_solutions": []
         },
         "CS126": {
             "tagline": "Data Structures",
@@ -31,14 +32,15 @@
                 {"title": "Trees", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2023", "url": "#"},
-                {"year": "2022", "url": "#"},
-                {"year": "2021", "url": "#"}
+                {"title": "2023 Exam Paper", "url": "#"},
+                {"title": "2022 Exam Paper", "url": "#"},
+                {"title": "2021 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "Lab 1", "url": "#"},
                 {"title": "Lab 2", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS130": {
             "tagline": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -49,14 +51,22 @@
             "authors": ["EdDenton"],
             "notes": [
                 {"title": "Logic & Propositions", "url": "#"},
-                {"title": "Sets", "url": "/notes/CS130/Sets"},
-                {"title": "Relations", "url": "/notes/CS130/Test"},
+                {"title": "Sets", "url": "/resources/Notes/CS130/Sets", "unfinished":true},
+                {"title": "Testing LaTeX formatting", "url": "/resources/Notes/CS130/Test"},
                 {"title": "Functions", "url": "#"},
                 {"title": "Countability", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#", "solution_url": "#"},
-                {"year": "2024", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1300_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1300_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS130/CS130-2025", "unfinished":true}},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1300_c_exam_paper.pdf"}
+            ],
+            "external_resources": [
+                {"name": "Book of Proof (Hammack)", "url":"https://richardhammack.github.io/BookOfProof/Main.pdf", "description": "Free online textbook, great for proof techniques."},
+                {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."}
+            ],
+            "exercise_solutions": [
+                {"title": "Testing Exercise Solutions", "url": "#", "solution": {"url": "/resources/Solutions/CS130/CS130-Seminar-1"}}
             ]
         },
         "CS132": {
@@ -71,12 +81,13 @@
                 {"title": "Assembly", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "Lab 1", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS133": {
             "tagline": "Academic writing and ethics or something idk I didn't go to lectures",
@@ -90,7 +101,8 @@
             "past_papers": [],
             "extras": [
                 {"title": "Class Test Simulator", "url": "/tools/CS133/class-test"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS139": {
             "tagline": "HTML, CSS, the pain of JavaScript",
@@ -102,7 +114,8 @@
                 {"title": "HTML & CSS", "url": "#"},
                 {"title": "JavaScript", "url": "#"}
             ],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS141": {
             "tagline": "We love Haskell",
@@ -111,15 +124,16 @@
             "CATS":"15",
             "authors": [],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "Lab 1", "url": "#"},
                 {"title": "Lab 2", "url": "#"},
                 {"title": "Lab 3", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS143": {
             "tagline": "Rip off CS259",
@@ -131,7 +145,8 @@
                 {"title": "Probability", "url": "#"},
                 {"title": "Distributions", "url": "#"}
             ],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         },
         "CS146": {
             "tagline": "Rabbits.",
@@ -143,7 +158,8 @@
                 {"title": "Linear Algebra", "url": "#"},
                 {"title": "Calculus", "url": "#"}
             ],
-            "past_papers": []
+            "past_papers": [],
+            "exercise_solutions": []
         }
     }
 }

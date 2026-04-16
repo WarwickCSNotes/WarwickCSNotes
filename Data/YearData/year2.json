@@ -15,14 +15,15 @@
                 {"title": "TCP vs UDP", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2023", "url": "#"},
-                {"year": "2022", "url": "#"},
-                {"year": "2021", "url": "#"}
+                {"title": "2023 Exam Paper", "url": "#"},
+                {"title": "2022 Exam Paper", "url": "#"},
+                {"title": "2021 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"},
                 {"title": "Lab 2", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS257": {
             "tagline": "Remember CS132? Version 2 dropped",
@@ -31,25 +32,26 @@
             "CATS":"15",
             "authors": [],
             "notes": [
-                {"title": "Memory", "url": "/notes/CS257/Memory"},
-                {"title": "Cache", "url": "/notes/CS257/Cache"},
-                {"title": "Code Optimisation", "url": "/notes/CS257/CodeOptimisation"},
-                {"title": "Processors", "url": "/notes/CS257/Processors"},
-                {"title": "Pipelining", "url": "/notes/CS257/Pipelining"},
-                {"title": "Superscalar Architecture", "url": "/notes/CS257/Superscalar"},
-                {"title": "Parallel Processing", "url": "/notes/CS257/Parallel"},
-                {"title": "SMP Cache Coherence", "url": "/notes/CS257/SMPCacheCoherence"},
-                {"title": "Multithreading & Multicore", "url": "/notes/CS257/MultithreadingMulticore"},
-                {"title": "State of the Art", "url": "/notes/CS257/StateOfTheArt"}
+                {"title": "Memory", "url": "/resources/Notes/CS257/Memory"},
+                {"title": "Cache", "url": "/resources/Notes/CS257/Cache"},
+                {"title": "Code Optimisation", "url": "/resources/Notes/CS257/CodeOptimisation"},
+                {"title": "Processors", "url": "/resources/Notes/CS257/Processors"},
+                {"title": "Pipelining", "url": "/resources/Notes/CS257/Pipelining"},
+                {"title": "Superscalar Architecture", "url": "/resources/Notes/CS257/Superscalar"},
+                {"title": "Parallel Processing", "url": "/resources/Notes/CS257/Parallel"},
+                {"title": "SMP Cache Coherence", "url": "/resources/Notes/CS257/SMPCacheCoherence"},
+                {"title": "Multithreading & Multicore", "url": "/resources/Notes/CS257/MultithreadingMulticore"},
+                {"title": "State of the Art", "url": "/resources/Notes/CS257/StateOfTheArt"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS258": {
             "tagline": "Relational models, SQL, and pain",
@@ -61,13 +63,14 @@
                 {"title": "Relational Model", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS259": {
             "tagline": "Automata and fun",
@@ -82,10 +85,11 @@
                 {"title": "CFGs", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
-            ]
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
+            ],
+            "exercise_solutions": []
         },
         "CS260": {
             "tagline": "Algorithm paradigms and also complexity classes",
@@ -100,14 +104,15 @@
                 {"title": "Greedy Algorithms", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2023", "url": "#"},
-                {"year": "2022", "url": "#"},
-                {"year": "2021", "url": "#"}
+                {"title": "2023 Exam Paper", "url": "#"},
+                {"title": "2022 Exam Paper", "url": "#"},
+                {"title": "2021 Exam Paper", "url": "#"}
             ],
             "seminar_exercises": [
                 {"title": "ad", "url": "#"},
                 {"title": "da", "url": "#"}
-            ]
+            ],
+            "exercise_solutions": []
         },
         "CS261": {
             "tagline": "Nightmare nightmare nightmare",
@@ -119,9 +124,10 @@
                 {"title": "GET ME OUT OF HERE", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"}
-            ]
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"}
+            ],
+            "exercise_solutions": []
         },
         "CS262": {
             "tagline": "Prolog is kinda fun",
@@ -135,10 +141,11 @@
                 {"title": "Hoare Logic", "url": "#"}
             ],
             "past_papers": [
-                {"year": "2025", "url": "#"},
-                {"year": "2024", "url": "#"},
-                {"year": "2023", "url": "#"}
-            ]
+                {"title": "2025 Exam Paper", "url": "#"},
+                {"title": "2024 Exam Paper", "url": "#"},
+                {"title": "2023 Exam Paper", "url": "#"}
+            ],
+            "exercise_solutions": []
         }
     }
 }
