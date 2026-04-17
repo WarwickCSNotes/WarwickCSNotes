@@ -1,6 +1,6 @@
 # Warwick CS Notes
 
-Repository for notes. 
+Repository for notes. Check it out here: [https://csnotes.containers.uwcs.co.uk/](https://csnotes.containers.uwcs.co.uk/)!
 
 ## Contributing
 
