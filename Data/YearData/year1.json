@@ -52,7 +52,6 @@
             "notes": [
                 {"title": "Logic & Propositions", "url": "#"},
                 {"title": "Sets", "url": "/resources/Notes/CS130/Sets", "unfinished":true},
-                {"title": "Testing LaTeX formatting", "url": "/resources/Notes/CS130/Test"},
                 {"title": "Functions", "url": "#"},
                 {"title": "Countability", "url": "#"}
             ],

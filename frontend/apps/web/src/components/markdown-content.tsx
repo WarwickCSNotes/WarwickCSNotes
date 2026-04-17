@@ -1,8 +1,25 @@
+import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import {
+  Info,
+  Lightbulb,
+  AlertTriangle,
+  AlertOctagon,
+  CheckCircle2,
+  XCircle,
+  HelpCircle,
+  Quote,
+  BookOpen,
+  FileText,
+  Flame,
+  ListChecks,
+  Pencil,
+  ChevronDown,
+} from "lucide-react";
 
 export function latexToMarkdown(tex: string): string {
   let md = tex;
@@ -28,12 +45,115 @@ export function latexToMarkdown(tex: string): string {
   return md.trim();
 }
 
+type CalloutStyle = {
+  label: string;
+  icon: typeof Info;
+  container: string;
+  title: string;
+};
+
+const CALLOUT_TYPES: Record<string, CalloutStyle> = {
+  note:      { label: "Note",      icon: Pencil,        container: "border-blue-500/50 bg-blue-500/10",   title: "text-blue-600 dark:text-blue-400" },
+  info:      { label: "Info",      icon: Info,          container: "border-cyan-500/50 bg-cyan-500/10",   title: "text-cyan-600 dark:text-cyan-400" },
+  tip:       { label: "Tip",       icon: Lightbulb,     container: "border-teal-500/50 bg-teal-500/10",   title: "text-teal-600 dark:text-teal-400" },
+  hint:      { label: "Hint",      icon: Lightbulb,     container: "border-teal-500/50 bg-teal-500/10",   title: "text-teal-600 dark:text-teal-400" },
+  important: { label: "Important", icon: Flame,         container: "border-purple-500/50 bg-purple-500/10", title: "text-purple-600 dark:text-purple-400" },
+  warning:   { label: "Warning",   icon: AlertTriangle, container: "border-amber-500/50 bg-amber-500/10", title: "text-amber-600 dark:text-amber-400" },
+  caution:   { label: "Caution",   icon: AlertTriangle, container: "border-amber-500/50 bg-amber-500/10", title: "text-amber-600 dark:text-amber-400" },
+  danger:    { label: "Danger",    icon: AlertOctagon,  container: "border-red-500/50 bg-red-500/10",     title: "text-red-600 dark:text-red-400" },
+  error:     { label: "Error",     icon: AlertOctagon,  container: "border-red-500/50 bg-red-500/10",     title: "text-red-600 dark:text-red-400" },
+  success:   { label: "Success",   icon: CheckCircle2,  container: "border-green-500/50 bg-green-500/10", title: "text-green-600 dark:text-green-400" },
+  check:     { label: "Check",     icon: CheckCircle2,  container: "border-green-500/50 bg-green-500/10", title: "text-green-600 dark:text-green-400" },
+  done:      { label: "Done",      icon: CheckCircle2,  container: "border-green-500/50 bg-green-500/10", title: "text-green-600 dark:text-green-400" },
+  failure:   { label: "Failure",   icon: XCircle,       container: "border-red-500/50 bg-red-500/10",     title: "text-red-600 dark:text-red-400" },
+  fail:      { label: "Fail",      icon: XCircle,       container: "border-red-500/50 bg-red-500/10",     title: "text-red-600 dark:text-red-400" },
+  missing:   { label: "Missing",   icon: XCircle,       container: "border-red-500/50 bg-red-500/10",     title: "text-red-600 dark:text-red-400" },
+  question:  { label: "Question",  icon: HelpCircle,    container: "border-amber-500/50 bg-amber-500/10", title: "text-amber-600 dark:text-amber-400" },
+  help:      { label: "Help",      icon: HelpCircle,    container: "border-amber-500/50 bg-amber-500/10", title: "text-amber-600 dark:text-amber-400" },
+  faq:       { label: "FAQ",       icon: HelpCircle,    container: "border-amber-500/50 bg-amber-500/10", title: "text-amber-600 dark:text-amber-400" },
+  quote:     { label: "Quote",     icon: Quote,         container: "border-muted bg-muted/30",            title: "text-muted-foreground" },
+  cite:      { label: "Cite",      icon: Quote,         container: "border-muted bg-muted/30",            title: "text-muted-foreground" },
+  example:   { label: "Example",   icon: BookOpen,      container: "border-purple-500/50 bg-purple-500/10", title: "text-purple-600 dark:text-purple-400" },
+  abstract:  { label: "Abstract",  icon: FileText,      container: "border-cyan-500/50 bg-cyan-500/10",   title: "text-cyan-600 dark:text-cyan-400" },
+  summary:   { label: "Summary",   icon: FileText,      container: "border-cyan-500/50 bg-cyan-500/10",   title: "text-cyan-600 dark:text-cyan-400" },
+  tldr:      { label: "TL;DR",     icon: FileText,      container: "border-cyan-500/50 bg-cyan-500/10",   title: "text-cyan-600 dark:text-cyan-400" },
+  todo:      { label: "Todo",      icon: ListChecks,    container: "border-blue-500/50 bg-blue-500/10",   title: "text-blue-600 dark:text-blue-400" },
+};
+
+// Obsidian-style callouts: a blockquote whose first line is `[!type] Optional Title`.
+// Transform the mdast so the blockquote carries callout metadata, then the
+// blockquote component picks it up.
+function remarkObsidianCallouts() {
+  return (tree: any) => {
+    const visit = (node: any) => {
+      if (node?.type === 'blockquote') {
+        const firstChild = node.children?.[0];
+        if (firstChild?.type === 'paragraph') {
+          const firstText = firstChild.children?.[0];
+          if (firstText?.type === 'text') {
+            const match = firstText.value.match(/^\[!(\w+)\]([+-]?)(?:\s+(.*?))?(\r?\n|$)/);
+            if (match) {
+              const [matched, type, fold, title] = match;
+              node.data = {
+                ...(node.data || {}),
+                hProperties: {
+                  ...(node.data?.hProperties || {}),
+                  'data-callout': type.toLowerCase(),
+                  'data-callout-title': title ?? '',
+                  'data-callout-fold': fold ?? '',
+                },
+              };
+              firstText.value = firstText.value.slice(matched.length);
+              if (firstText.value === '') {
+                firstChild.children.shift();
+                if (firstChild.children.length === 0) {
+                  node.children.shift();
+                }
+              }
+            }
+          }
+        }
+      }
+      if (Array.isArray(node?.children)) node.children.forEach(visit);
+    };
+    visit(tree);
+  };
+}
+
+function Callout({ type, title, fold, children }: { type: string; title: string; fold: string; children: React.ReactNode }) {
+  const style = CALLOUT_TYPES[type] ?? CALLOUT_TYPES.note;
+  const Icon = style.icon;
+  const displayTitle = title?.trim() || style.label;
+  const collapsible = fold === '+' || fold === '-';
+  const [open, setOpen] = useState(fold !== '-');
+  const toggle = () => setOpen(o => !o);
+  return (
+    <div className={`not-prose my-4 border-l-4 rounded-r px-4 py-3 ${style.container}`}>
+      <div
+        className={`flex items-center gap-2 font-semibold ${style.title} ${collapsible ? "cursor-pointer select-none" : ""}`}
+        onClick={collapsible ? toggle : undefined}
+        role={collapsible ? "button" : undefined}
+        aria-expanded={collapsible ? open : undefined}
+        tabIndex={collapsible ? 0 : undefined}
+        onKeyDown={collapsible ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}
+      >
+        <Icon className="h-4 w-4" />
+        <span className="flex-1">{displayTitle}</span>
+        {collapsible && <ChevronDown className={`h-4 w-4 transition-transform ${open ? '' : '-rotate-90'}`} />}
+      </div>
+      {(!collapsible || open) && (
+        <div className="mt-2 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0">{children}</div>
+      )}
+    </div>
+  );
+}
+
 export function MarkdownContent({ content, extension }: { content: string; extension: string }) {
   const rendered = extension === 'tex' ? latexToMarkdown(content) : content;
   return (
     <div className="prose dark:prose-invert">
       <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkMath]}
+        remarkPlugins={[remarkGfm, remarkMath, remarkObsidianCallouts]}
         rehypePlugins={[rehypeKatex]}
         components={{
           h1: ({ children, ...props }) => <h1 {...props} className="text-4xl font-bold mt-8 mb-4" id={String(children).toLowerCase().replace(/\s+/g, '-')}>{children}</h1>,
@@ -42,10 +162,19 @@ export function MarkdownContent({ content, extension }: { content: string; exten
           h4: ({ children, ...props }) => <h4 {...props} className="text-xl font-medium mt-4 mb-2" id={String(children).toLowerCase().replace(/\s+/g, '-')}>{children}</h4>,
           p: ({ children }) => <p className="my-4 leading-7">{children}</p>,
           ul: ({ children }) => <ul className="list-disc pl-6 my-4 space-y-1">{children}</ul>,
-          ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-1">{children}</ol>,
+          ol: ({ children, start }) => <ol start={start} className="list-decimal pl-6 my-4 space-y-1">{children}</ol>,
           li: ({ children }) => <li className="leading-7">{children}</li>,
           a: ({ children, href }) => <a href={href} className="text-primary underline hover:opacity-80">{children}</a>,
-          blockquote: ({ children }) => <blockquote className="border-l-4 border-muted pl-4 italic my-4 text-muted-foreground">{children}</blockquote>,
+          img: ({ src, alt }) => <img src={src} alt={alt ?? ''} className="my-4 max-w-full rounded border" />,
+          blockquote: ({ children, ...props }) => {
+            const calloutType = (props as any)['data-callout'];
+            if (calloutType) {
+              const title = (props as any)['data-callout-title'] ?? '';
+              const fold = (props as any)['data-callout-fold'] ?? '';
+              return <Callout type={calloutType} title={title} fold={fold}>{children}</Callout>;
+            }
+            return <blockquote className="border-l-4 border-muted pl-4 italic my-4 text-muted-foreground">{children}</blockquote>;
+          },
           code: ({ children, className }) => className
             ? <code className={`${className} block bg-muted rounded p-4 my-4 overflow-x-auto text-sm`}>{children}</code>
             : <code className="bg-muted rounded px-1.5 py-0.5 text-sm font-mono">{children}</code>,
