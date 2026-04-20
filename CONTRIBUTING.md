@@ -46,7 +46,9 @@ Steps:
 
 1) **Write the file:** Markdown (`.md`), LaTeX (`.tex`), or PDF (`.pdf`) are all supported! Markdown with embedded LaTeX (via `$...$` / `$$...$$`) is the most common choice, renders well, and is easy for multiple people to collaborate on.
 
-2) **Link it:** Open `Data/YearData/year<N>.json`, find the module, and add an entry.
+2) **If you have images:** Put images inside of `Data/Resources/Images`. Reference them in markdown with `/Resources/Images/YourImage.png`
+
+3) **Link it:** Open `Data/YearData/year<N>.json`, find the module, and add an entry.
 Note that these entries are separated by commas, and the last entry shouldn't have a comma at the end (see `CS130` in `year1.json` for an example):
 
   - **Notes:** Add to the module's `notes` array e.g.:

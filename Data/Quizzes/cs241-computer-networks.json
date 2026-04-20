@@ -1,0 +1,83 @@
+{
+    "title": "Computer Networks",
+    "module": "CS241",
+    "description": "Covers network structure, packet routing, packet delays, and the IP suite layers.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "What is the name for the delay caused by pushing a packet of length L onto a link of bandwidth R (that is, L/R)?",
+            "accepted": ["transmission delay", "transmission", "d_trans"]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each source of packet delay to its description.",
+            "left": ["Transmission", "Queueing", "Nodal processing", "Propagation"],
+            "right": [
+                "Time to check bit errors and determine the output link",
+                "Time a packet waits at the output link (depends on congestion)",
+                "Distance divided by the signal speed along the link",
+                "Time to push the packet bits onto the link (L/R)"
+            ],
+            "correct": [3, 1, 0, 2]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are advantages of packet switching over circuit switching?",
+            "options": [
+                "Different flows can share links along their route",
+                "Good resource utilisation under bursty traffic",
+                "Flows can reroute around failed or congested links",
+                "Guaranteed bandwidth for every flow",
+                "Packets always arrive in order"
+            ],
+            "correct": [0, 1, 2]
+        },
+        {
+            "type": "text",
+            "prompt": "Which link-layer protocol resolves an IP address to a MAC address for a device on the same subnet?",
+            "accepted": ["arp", "address resolution protocol", "the address resolution protocol"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about layering in the network stack?",
+            "options": [
+                "Layer N uses services of layer N-1 and provides services to layer N+1",
+                "Layer 1 is the physical layer",
+                "It is easy to swap out a layer's implementation",
+                "Layer 5 (application) is closest to hardware",
+                "Every layer adds a header to the data unit it passes on"
+            ],
+            "correct": [0, 1, 2, 4]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each IP suite layer number to its name.",
+            "left": ["Layer 5", "Layer 4", "Layer 3", "Layer 2", "Layer 1"],
+            "right": [
+                "Network",
+                "Application",
+                "Physical",
+                "Link",
+                "Transport"
+            ],
+            "correct": [1, 4, 0, 3, 2]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the term for the rate (in bits per second) at which bits are successfully transferred in a given flow?",
+            "accepted": ["throughput"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about the store-and-forward principle?",
+            "options": [
+                "A router must receive the entire packet before it can start forwarding",
+                "Each hop adds a transmission delay of L/R for the packet",
+                "Packets are forwarded bit-by-bit as they arrive",
+                "The bottleneck link determines steady-state throughput for a flow",
+                "It is the reason the first packet suffers more transmission delay than later ones in a pipelined transfer"
+            ],
+            "correct": [0, 1, 3, 4]
+        }
+    ]
+}

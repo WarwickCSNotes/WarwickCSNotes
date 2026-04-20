@@ -229,6 +229,23 @@ export const ModulePage = () => {
         </div>
       )}
 
+      {mod.quizzes?.length > 0 && (
+        <div className="mt-4 border p-4 rounded">
+          <h5 className="font-bold mb-2">Quizzes</h5>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            {mod.quizzes.map((quiz: any) => (
+              <Link
+                key={quiz.title}
+                to={quiz.url}
+                className="relative block p-3 border rounded bg-surface text-surface-foreground text-sm font-medium hover:brightness-110 transition"
+              >
+                {quiz.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
       {mod.external_resources?.length > 0 && (
         <div className="mt-4 border p-4 rounded">
           <h5 className="font-bold mb-2">External Resources</h5>

@@ -5,14 +5,20 @@
         "CS241": {
             "tagline": "Processes, Scheduling, C",
             "name": "Operating Systems and Computer Networks",
+            "description":"Warning: past papers may not be as relevant, due to the new MO (Jonathan Foss, replacing Arpan).",
             "Term":"1",
             "CATS":"15",
             "authors": [],
             "notes": [
-                {"title": "Threading", "url": "#"},
-                {"title": "Scheduling", "url": "#"},
-                {"title": "How to C", "url": "#"},
-                {"title": "TCP vs UDP", "url": "#"}
+                {"title": "Kernels", "url": "/resources/Notes/CS241/Kernels"},
+                {"title": "Processes and Scheduling", "url": "/resources/Notes/CS241/ProcessesAndScheduling"},
+                {"title": "Memory of Processes", "url": "/resources/Notes/CS241/MemoryOfProcesses"},
+                {"title": "Threads", "url": "/resources/Notes/CS241/Threads"},
+                {"title": "Deadlocks and Synchronisation", "url": "/resources/Notes/CS241/DeadlocksAndSynchronisation"},
+                {"title": "Computer Networks", "url": "/resources/Notes/CS241/ComputerNetworks"},
+                {"title": "Application Layer", "url": "/resources/Notes/CS241/ApplicationLayer"},
+                {"title": "Transport Layer", "url": "/resources/Notes/CS241/TransportLayer"},
+                {"title": "Network Layer", "url": "/resources/Notes/CS241/NetworkLayer"}
             ],
             "past_papers": [
                 {"title": "2023 Exam Paper", "url": "#"},
@@ -23,7 +29,18 @@
                 {"title": "Lab", "url": "#"},
                 {"title": "Lab 2", "url": "#"}
             ],
-            "exercise_solutions": []
+            "exercise_solutions": [],
+            "quizzes": [
+                {"title": "Kernels", "url": "/quizzes/cs241-kernels"},
+                {"title": "Processes and Scheduling", "url": "/quizzes/cs241-processes-and-scheduling"},
+                {"title": "Memory of Processes", "url": "/quizzes/cs241-memory-of-processes"},
+                {"title": "Threads", "url": "/quizzes/cs241-threads"},
+                {"title": "Deadlocks and Synchronisation", "url": "/quizzes/cs241-deadlocks-and-synchronisation"},
+                {"title": "Computer Networks", "url": "/quizzes/cs241-computer-networks"},
+                {"title": "Application Layer", "url": "/quizzes/cs241-application-layer"},
+                {"title": "Transport Layer", "url": "/quizzes/cs241-transport-layer"},
+                {"title": "Network Layer", "url": "/quizzes/cs241-network-layer"}
+            ]
         },
         "CS257": {
             "tagline": "Remember CS132? Version 2 dropped",

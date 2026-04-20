@@ -1,0 +1,88 @@
+{
+    "title": "Deadlocks and Synchronisation",
+    "module": "CS241",
+    "description": "Covers the four deadlock conditions, the Banker's algorithm, critical sections, and classic synchronisation problems.",
+    "questions": [
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are the four necessary conditions for deadlock?",
+            "options": [
+                "Mutual exclusion",
+                "Hold and wait",
+                "No preemption",
+                "Circular wait",
+                "Starvation",
+                "Priority inversion"
+            ],
+            "correct": [0, 1, 2, 3]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each synchronisation issue to its description.",
+            "left": ["Deadlock", "Starvation", "Priority inversion"],
+            "right": [
+                "A lower-priority process holds a lock needed by a higher-priority one",
+                "Two or more processes wait indefinitely for events only caused by each other",
+                "A process waits indefinitely while others make progress"
+            ],
+            "correct": [1, 2, 0]
+        },
+        {
+            "type": "text",
+            "prompt": "Which classic algorithm grants a resource request only if the resulting state is safe, using declared maximum needs of each process?",
+            "accepted": ["banker's algorithm", "bankers algorithm", "banker's", "banker"]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the name for a region of code in which shared variables are accessed and which must execute with mutual exclusion?",
+            "accepted": ["critical section", "the critical section"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are properties an ideal synchronisation solution must satisfy?",
+            "options": [
+                "Mutual exclusion",
+                "Progress",
+                "Bounded waiting",
+                "Preemption",
+                "First-come-first-served ordering"
+            ],
+            "correct": [0, 1, 2]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about semaphores?",
+            "options": [
+                "wait() decrements the value and blocks if the result is negative",
+                "signal() increments the value",
+                "A semaphore can only ever take the values 0 and 1",
+                "Can be used as a counting resource (for example, number of empty slots in a buffer)",
+                "A binary semaphore behaves similarly to a mutex lock"
+            ],
+            "correct": [0, 1, 3, 4]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each classic synchronisation problem to its core concern.",
+            "left": ["Bounded buffer", "Readers and writers", "Dining philosophers"],
+            "right": [
+                "Avoiding circular wait when multiple processes grab paired resources",
+                "Letting many readers share access, but only one writer at a time",
+                "Producers and consumers sharing a fixed-capacity queue"
+            ],
+            "correct": [2, 1, 0]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are issues with Peterson's algorithm?",
+            "options": [
+                "It uses busy-waiting",
+                "It can fail on modern architectures where read/write operations are reordered",
+                "It does not satisfy mutual exclusion",
+                "It cannot be generalised beyond two processes without modification",
+                "It does not satisfy progress"
+            ],
+            "correct": [0, 1, 3]
+        }
+    ]
+}

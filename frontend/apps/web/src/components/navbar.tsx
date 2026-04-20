@@ -39,6 +39,17 @@ export function Navbar() {
           })}
 
           <Link
+            to="/quizzes"
+            className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+              location.pathname.startsWith('/quizzes')
+                ? "bg-white/20 text-nav-foreground"
+                : "text-nav-foreground/75 hover:bg-white/10 hover:text-nav-foreground"
+            }`}
+          >
+            Quizzes
+          </Link>
+
+          <Link
             to="/careers"
             className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
               location.pathname === '/careers'

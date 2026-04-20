@@ -1,0 +1,79 @@
+{
+    "title": "Network Layer",
+    "module": "CS241",
+    "description": "Covers IP, NAT, DHCP, subnets, and routing algorithms.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "What is the main protocol of the network layer?",
+            "accepted": ["ip", "internet protocol", "the internet protocol"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are reserved IPv4 ranges for private addresses?",
+            "options": [
+                "10.x.x.x",
+                "127.x.x.x",
+                "172.16.x.x to 172.31.x.x",
+                "192.168.x.x",
+                "8.8.8.x"
+            ],
+            "correct": [0, 2, 3]
+        },
+        {
+            "type": "text",
+            "prompt": "Which application-layer protocol dynamically assigns IP addresses to devices on a network (typically run by the gateway router)?",
+            "accepted": ["dhcp", "dynamic host configuration protocol"]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each network-layer concept to its description.",
+            "left": ["Forwarding", "Routing", "Longest prefix matching", "NAT"],
+            "right": [
+                "Translates private addresses to a shared public address using port numbers to distinguish hosts",
+                "Constructing routing tables, typically by running a routing algorithm",
+                "Moving a packet from a router's input to the appropriate output link",
+                "Selecting the routing-table entry whose destination prefix matches the most bits of the target IP"
+            ],
+            "correct": [2, 1, 3, 0]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are global (link-state) routing algorithms?",
+            "options": [
+                "Dijkstra's algorithm (as used in OSPF)",
+                "Distance vector algorithm",
+                "Bellman-Ford-based routing",
+                "Flooding link costs across the network"
+            ],
+            "correct": [0, 3]
+        },
+        {
+            "type": "text",
+            "prompt": "Which equation, relating d_x(y) to the d_v(y) of x's neighbours, is the distance vector algorithm based on?",
+            "accepted": ["bellman-ford", "bellman ford", "bellman-ford equation", "the bellman-ford equation"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about NAT?",
+            "options": [
+                "It allows many private IPs to share a single public IP",
+                "It uses port numbers at the gateway to distinguish internal hosts",
+                "It is considered controversial because port numbers are meant to identify processes, not hosts",
+                "It is a permanent fix to IPv4 address exhaustion",
+                "It requires every NAT translation to be recorded in a table on the gateway"
+            ],
+            "correct": [0, 1, 2, 4]
+        },
+        {
+            "type": "text",
+            "prompt": "In the CIDR notation a.b.c.d/x, what does x represent?",
+            "accepted": [
+                "number of bits in the subnet prefix",
+                "number of bits in the subnet mask",
+                "subnet prefix length",
+                "number of prefix bits"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "title": "Memory of Processes",
+    "module": "CS241",
+    "description": "Covers memory allocation, paging, segmentation, and page tables.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "Which hardware component translates logical (virtual) addresses into physical addresses?",
+            "accepted": ["mmu", "memory management unit", "the mmu"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about contiguous memory allocation?",
+            "options": [
+                "Each process occupies a single continuous section of memory",
+                "Suffers from external fragmentation (total space exists but is scattered)",
+                "Requires base and limit registers in the MMU",
+                "Eliminates internal fragmentation completely",
+                "Compaction can combine free holes but has high overhead"
+            ],
+            "correct": [0, 1, 2, 4]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each variable-partition allocation strategy to its behaviour.",
+            "left": ["First fit", "Best fit", "Worst fit"],
+            "right": [
+                "Picks the smallest hole that is big enough",
+                "Picks the largest hole available",
+                "Picks the first hole that is big enough"
+            ],
+            "correct": [2, 0, 1]
+        },
+        {
+            "type": "text",
+            "prompt": "In paging, what is the name for a fixed-size block of a program?",
+            "accepted": ["page", "a page"]
+        },
+        {
+            "type": "text",
+            "prompt": "In paging, what is the name for a fixed-size block of physical memory?",
+            "accepted": ["frame", "a frame"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about the Translation Lookaside Buffer (TLB)?",
+            "options": [
+                "Hardware cache of recently-used page table entries",
+                "On a hit, address translation takes one memory access",
+                "On a miss, two memory accesses are still required",
+                "Typically holds thousands of entries",
+                "The ASID allows multiple processes to share the TLB safely"
+            ],
+            "correct": [0, 1, 2, 4]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each page table structure to its defining characteristic.",
+            "left": ["Hashed page table", "Inverted page table", "Multi-level page table"],
+            "right": [
+                "One entry per physical frame, indexed by (PID, page number); small but slow to search",
+                "Outer table indexes into inner tables; invalid regions can be collapsed into one entry",
+                "Page number is hashed; colliding entries stored in a linked list"
+            ],
+            "correct": [2, 0, 1]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the name for an access to a logical address that has no corresponding physical frame, requiring a fetch from secondary storage?",
+            "accepted": ["page fault", "a page fault"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about segmentation?",
+            "options": [
+                "A program is divided into variable-size logical segments",
+                "Logical addresses have the form (segment number, offset)",
+                "The segment table stores a base and limit for each segment",
+                "Segmentation eliminates external fragmentation",
+                "Accessing beyond the segment limit raises an addressing error"
+            ],
+            "correct": [0, 1, 2, 4]
+        }
+    ]
+}

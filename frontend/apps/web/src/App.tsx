@@ -7,6 +7,8 @@ import { ModulePage } from "./pages/module"
 import { ResourcePage } from "./pages/resource"
 import { AcknowledgementsPage } from "./pages/acknowledgements"
 import { CareersPage } from "./pages/careers"
+import { QuizzesPage } from "./pages/quizzes"
+import { QuizPage } from "./pages/quiz"
 import { CS133ClassTest } from "./pages/tools/cs133-class-test"
 
 export function App() {
@@ -21,6 +23,8 @@ export function App() {
           <Route path="/resources/:category/:code/:filename" element={<ResourcePage />} />
           <Route path="/acknowledgements" element={<AcknowledgementsPage />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/quizzes" element={<QuizzesPage />} />
+          <Route path="/quizzes/:id" element={<QuizPage />} />
           <Route path="/tools/CS133/class-test" element={<CS133ClassTest />} />
         </Routes>
       </BrowserRouter>

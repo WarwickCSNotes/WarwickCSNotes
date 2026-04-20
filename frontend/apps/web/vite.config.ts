@@ -11,9 +11,12 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/api": "http://localhost:3000",
-      "/notes": {
+      "/resources": {
         target: "http://localhost:3000",
         bypass: (req) => {
+          // Let the browser's SPA navigation through so React Router handles
+          // /resources/<Category>/<Code>/<Filename> URLs. Fetch/XHR requests
+          // (which ask for application/json or text/plain) still hit Flask.
           if (req.headers.accept?.includes("text/html")) return req.url
         },
       },

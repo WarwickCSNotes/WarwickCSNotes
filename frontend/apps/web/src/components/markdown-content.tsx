@@ -80,9 +80,35 @@ const CALLOUT_TYPES: Record<string, CalloutStyle> = {
   todo:      { label: "Todo",      icon: ListChecks,    container: "border-blue-500/50 bg-blue-500/10",   title: "text-blue-600 dark:text-blue-400" },
 };
 
+// Serialise a list of mdast inline nodes back to markdown source. Good enough
+// for round-tripping the title of a callout so that things like `code`,
+// **bold**, and $math$ survive.
+function inlineToMarkdown(nodes: any[]): string {
+  let out = '';
+  for (const node of nodes) {
+    if (!node) continue;
+    switch (node.type) {
+      case 'text': out += node.value; break;
+      case 'inlineCode': out += '`' + node.value + '`'; break;
+      case 'strong': out += '**' + inlineToMarkdown(node.children) + '**'; break;
+      case 'emphasis': out += '*' + inlineToMarkdown(node.children) + '*'; break;
+      case 'delete': out += '~~' + inlineToMarkdown(node.children) + '~~'; break;
+      case 'link': out += '[' + inlineToMarkdown(node.children) + '](' + (node.url ?? '') + ')'; break;
+      case 'image': out += '![' + (node.alt ?? '') + '](' + (node.url ?? '') + ')'; break;
+      case 'inlineMath': out += '$' + node.value + '$'; break;
+      case 'break': out += ' '; break;
+      default:
+        if (Array.isArray(node.children)) out += inlineToMarkdown(node.children);
+        break;
+    }
+  }
+  return out;
+}
+
 // Obsidian-style callouts: a blockquote whose first line is `[!type] Optional Title`.
-// Transform the mdast so the blockquote carries callout metadata, then the
-// blockquote component picks it up.
+// The title can contain inline markdown (code, bold, math, ...), so we serialise
+// the full first paragraph back to markdown and stash it on the node; the
+// blockquote renderer parses it again via ReactMarkdown.
 function remarkObsidianCallouts() {
   return (tree: any) => {
     const visit = (node: any) => {
@@ -91,25 +117,25 @@ function remarkObsidianCallouts() {
         if (firstChild?.type === 'paragraph') {
           const firstText = firstChild.children?.[0];
           if (firstText?.type === 'text') {
-            const match = firstText.value.match(/^\[!(\w+)\]([+-]?)(?:\s+(.*?))?(\r?\n|$)/);
-            if (match) {
-              const [matched, type, fold, title] = match;
+            // Match only the `[!type][fold] ` prefix; the title is whatever
+            // remains on the first line (across all inline children).
+            const prefixMatch = firstText.value.match(/^\[!(\w+)\]([+-]?)\s*/);
+            if (prefixMatch) {
+              const [matched, type, fold] = prefixMatch;
+              firstText.value = firstText.value.slice(matched.length);
+              if (firstText.value === '') firstChild.children.shift();
+              const titleMarkdown = inlineToMarkdown(firstChild.children);
+              // The first paragraph is fully consumed by the title.
+              node.children.shift();
               node.data = {
                 ...(node.data || {}),
                 hProperties: {
                   ...(node.data?.hProperties || {}),
                   'data-callout': type.toLowerCase(),
-                  'data-callout-title': title ?? '',
+                  'data-callout-title': titleMarkdown,
                   'data-callout-fold': fold ?? '',
                 },
               };
-              firstText.value = firstText.value.slice(matched.length);
-              if (firstText.value === '') {
-                firstChild.children.shift();
-                if (firstChild.children.length === 0) {
-                  node.children.shift();
-                }
-              }
             }
           }
         }
@@ -123,7 +149,7 @@ function remarkObsidianCallouts() {
 function Callout({ type, title, fold, children }: { type: string; title: string; fold: string; children: React.ReactNode }) {
   const style = CALLOUT_TYPES[type] ?? CALLOUT_TYPES.note;
   const Icon = style.icon;
-  const displayTitle = title?.trim() || style.label;
+  const trimmed = title?.trim() ?? '';
   const collapsible = fold === '+' || fold === '-';
   const [open, setOpen] = useState(fold !== '-');
   const toggle = () => setOpen(o => !o);
@@ -138,7 +164,25 @@ function Callout({ type, title, fold, children }: { type: string; title: string;
         onKeyDown={collapsible ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}
       >
         <Icon className="h-4 w-4" />
-        <span className="flex-1">{displayTitle}</span>
+        <span className="flex-1">
+          {trimmed ? (
+            <ReactMarkdown
+              remarkPlugins={[remarkMath]}
+              rehypePlugins={[rehypeKatex]}
+              components={{
+                // Render the title inline (strip block wrappers and heavy styles).
+                p: ({ children }) => <>{children}</>,
+                code: ({ children }) => (
+                  <code className="bg-black/10 dark:bg-white/10 rounded px-1 py-0.5 text-sm font-mono">{children}</code>
+                ),
+              }}
+            >
+              {trimmed}
+            </ReactMarkdown>
+          ) : (
+            style.label
+          )}
+        </span>
         {collapsible && <ChevronDown className={`h-4 w-4 transition-transform ${open ? '' : '-rotate-90'}`} />}
       </div>
       {(!collapsible || open) && (

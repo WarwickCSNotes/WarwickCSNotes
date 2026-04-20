@@ -9,6 +9,7 @@ DIST_DIR = os.path.join(BASE_DIR, "frontend", "apps", "web", "dist")
 DATA_DIR = os.path.join(BASE_DIR, "Data")
 RESOURCES_DIR = os.path.join(DATA_DIR, "Resources")
 YEAR_DATA_DIR = os.path.join(DATA_DIR, "YearData")
+QUIZ_DIR = os.path.join(DATA_DIR, "Quizzes")
 CREDITS_DIR = os.path.join(DATA_DIR, "Credits")
 CREDITS_FILE = os.path.join(CREDITS_DIR, "people.json")
 
@@ -82,6 +83,39 @@ def api_credits():
 @app.route("/api/credits/<category>")
 def api_credits_category(category):
     path = os.path.join(CREDITS_DIR, f"{category.lower()}.json")
+    if not os.path.exists(path):
+        abort(404)
+    with open(path) as f:
+        return json.load(f)
+
+
+@app.route("/api/quizzes")
+def api_quizzes():
+    """List quizzes available under Data/Quizzes as {id, title, module, description}."""
+    if not os.path.isdir(QUIZ_DIR):
+        return []
+    out = []
+    for name in sorted(os.listdir(QUIZ_DIR)):
+        if not name.endswith(".json"):
+            continue
+        qid = name[:-5]
+        try:
+            with open(os.path.join(QUIZ_DIR, name)) as f:
+                data = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+        out.append({
+            "id": qid,
+            "title": data.get("title", qid),
+            "module": data.get("module"),
+            "description": data.get("description", ""),
+        })
+    return out
+
+
+@app.route("/api/quizzes/<quiz_id>")
+def api_quiz(quiz_id):
+    path = os.path.join(QUIZ_DIR, f"{quiz_id}.json")
     if not os.path.exists(path):
         abort(404)
     with open(path) as f:

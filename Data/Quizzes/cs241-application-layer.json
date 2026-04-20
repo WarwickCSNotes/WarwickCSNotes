@@ -1,0 +1,70 @@
+{
+    "title": "Application Layer",
+    "module": "CS241",
+    "description": "Covers sockets, HTTP, and web caching.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "What is the name for the API that the application layer uses to send and receive messages via the transport layer?",
+            "accepted": ["socket", "a socket"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about sockets?",
+            "options": [
+                "A socket is bound to a local IP address and port number",
+                "Processes send and receive messages through sockets",
+                "The application chooses between TCP and UDP when creating a socket",
+                "Each host can only have one open socket at a time",
+                "Lower layers are responsible for actually transporting the message to the receiver's socket"
+            ],
+            "correct": [0, 1, 2, 4]
+        },
+        {
+            "type": "text",
+            "prompt": "Which version of HTTP reuses a single TCP connection for multiple objects (persistent connections)?",
+            "accepted": ["http 1.1", "http/1.1", "http v1.1", "1.1", "http1.1"]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the name for an intermediate server that stores frequently-requested web content and serves it without involving the origin server?",
+            "accepted": ["web cache", "proxy server", "cache", "proxy"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are benefits of web caching?",
+            "options": [
+                "Faster response time for clients",
+                "Reduces traffic on the ISP's external links",
+                "Reduces overall internet traffic",
+                "Guarantees every response is up to date",
+                "Typically installed by ISPs"
+            ],
+            "correct": [0, 1, 2, 4]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each application-layer protocol to its typical purpose.",
+            "left": ["HTTP", "DNS", "DHCP", "SMTP"],
+            "right": [
+                "Dynamically assigns IP addresses to hosts on a network",
+                "Transfers email between mail servers",
+                "Serves web pages and resources to clients",
+                "Resolves domain names to IP addresses"
+            ],
+            "correct": [2, 3, 0, 1]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about HTTP v1.0 (non-persistent) vs HTTP v1.1 (persistent)?",
+            "options": [
+                "v1.0 opens a new TCP connection for each object",
+                "v1.1 can send multiple objects over a single TCP connection",
+                "v1.1 total time for n objects is roughly (n+1) x RTT plus download time, whereas v1.0 is roughly 2n x RTT plus download time (simplified)",
+                "v1.1 is worse for server resource usage than v1.0",
+                "v1.0 has lower per-request overhead than v1.1"
+            ],
+            "correct": [0, 1, 2]
+        }
+    ]
+}

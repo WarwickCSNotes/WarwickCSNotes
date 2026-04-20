@@ -1,0 +1,76 @@
+{
+    "title": "Processes and Scheduling",
+    "module": "CS241",
+    "description": "Covers processes, the PCB, scheduling algorithms, fork, and IPC.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "What is the term for an active entity: a program in execution, loaded into memory?",
+            "accepted": ["process", "a process"]
+        },
+        {
+            "type": "text",
+            "prompt": "Which data structure holds information about a process (state, PC, registers, scheduling info, memory info)?",
+            "accepted": ["process control block", "pcb", "the process control block"]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each scheduler performance metric to its definition.",
+            "left": ["CPU utilisation", "Throughput", "Turnaround time", "Waiting time", "Response time"],
+            "right": [
+                "Start time minus arrival time",
+                "Fraction of CPU busy when jobs are in the ready queue",
+                "End time minus arrival time minus burst time",
+                "Number of processes completed per unit time",
+                "End time minus arrival time"
+            ],
+            "correct": [1, 3, 4, 2, 0]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following statements about non-preemptive scheduling are TRUE?",
+            "options": [
+                "Once a process is given the CPU, it holds it until the current CPU burst finishes",
+                "A running process can be interrupted to schedule another process",
+                "Typically simpler to implement than preemptive scheduling",
+                "FCFS is an example",
+                "Round robin is an example"
+            ],
+            "correct": [0, 2, 3]
+        },
+        {
+            "type": "text",
+            "prompt": "Which scheduler controls the number of processes in memory by moving processes from the new state to ready?",
+            "accepted": ["long term scheduler", "long-term scheduler", "the long term scheduler"]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each scheduling algorithm to its behaviour.",
+            "left": ["FCFS", "SJF (non-preemptive)", "SJF (preemptive)", "Round Robin"],
+            "right": [
+                "Switches to a newly-arrived process if it has a shorter next burst than the running one",
+                "Each process gets a fixed time quantum, then yields",
+                "Runs processes in order of arrival",
+                "Picks the process with the shortest predicted next CPU burst; the running one finishes first"
+            ],
+            "correct": [2, 3, 0, 1]
+        },
+        {
+            "type": "text",
+            "prompt": "A child process that has terminated but whose exit status has not yet been collected by its parent is called what?",
+            "accepted": ["zombie", "zombie process", "a zombie"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following statements about inter-process communication are TRUE?",
+            "options": [
+                "Shared memory is typically faster than message passing because it has no syscall overhead",
+                "Message passing uses a kernel-provided communication channel",
+                "Named pipes persist in the file system after the processes using them exit",
+                "Pipes provide two-way communication by default",
+                "Blocking send blocks the sender until the message is received"
+            ],
+            "correct": [0, 1, 2, 4]
+        }
+    ]
+}

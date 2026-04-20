@@ -1,0 +1,70 @@
+{
+    "title": "Kernels",
+    "module": "CS241",
+    "description": "Quick check on kernels, dual mode operation, and kernel structures.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "What is the name of the OS component that sits between hardware and user processes, runs at all times, and is loaded into memory at startup?",
+            "accepted": ["kernel", "the kernel"]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the name of the bit that indicates whether the CPU is currently in user or kernel mode?",
+            "accepted": ["mode bit", "the mode bit"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are listed as advantages of a monolithic kernel (as opposed to a microkernel)?",
+            "options": [
+                "Minimum syscall overhead",
+                "Easy to debug",
+                "Clear interfaces between layers",
+                "Easier to extend with new functionality",
+                "Secure and reliable"
+            ],
+            "correct": [0]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are disadvantages of a layered kernel structure?",
+            "options": [
+                "Hard to debug",
+                "Difficult to define layers",
+                "Performance: syscalls may traverse multiple layers",
+                "No clear interfaces between components",
+                "Cannot be extended at runtime"
+            ],
+            "correct": [1, 2]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each OS structure to its defining characteristic.",
+            "left": ["Monolithic", "Microkernel", "Layered", "Loadable modules"],
+            "right": [
+                "Only essential components in the kernel; non-essentials run as user-level programs",
+                "Core services at startup; extra functionality loaded dynamically while running",
+                "Layer K uses services from K-1 and provides services to K+1",
+                "All OS functions built into the kernel itself"
+            ],
+            "correct": [3, 0, 2, 1]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Select all TRUE statements about microkernels.",
+            "options": [
+                "The kernel contains only process management, memory management, and inter-process communication",
+                "They typically have higher syscall overhead than monolithic kernels",
+                "They are harder to extend than monolithic kernels",
+                "They tend to be more secure and reliable than monolithic kernels",
+                "All OS services run in kernel mode"
+            ],
+            "correct": [0, 1, 3]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the name of the region of memory in which the kernel executes, protected from user processes and accessed via system calls?",
+            "accepted": ["kernel space"]
+        }
+    ]
+}

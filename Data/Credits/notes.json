@@ -12,5 +12,15 @@
     "Parallel.md": ["Flynt"],
     "SMPCacheCoherence.md": ["Flynt"],
     "MultithreadingMulticore.md": ["Flynt"],
-    "StateOfTheArt.md": ["Flynt"]
+    "StateOfTheArt.md": ["Flynt"],
+
+    "ApplicationLayer.md": ["Expiracy"],
+    "ComputerNetworks.md": ["Expiracy"],
+    "DeadlocksAndSynchronisation.md": ["Expiracy"],
+    "Kernels.md": ["Expiracy"],
+    "MemoryOfProcesses.md": ["Expiracy"],
+    "NetworkLayer.md": ["Expiracy"],
+    "ProcessesAndScheduling.md": ["Expiracy"],
+    "Threads.md": ["Expiracy"],
+    "TransportLayer.md": ["Expiracy"]
 }

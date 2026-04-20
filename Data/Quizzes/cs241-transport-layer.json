@@ -1,0 +1,79 @@
+{
+    "title": "Transport Layer",
+    "module": "CS241",
+    "description": "Covers TCP, UDP, ARQ retransmission protocols, and AIMD congestion control.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "Which transport protocol is connection-oriented and provides reliable, in-order delivery?",
+            "accepted": ["tcp", "transmission control protocol"]
+        },
+        {
+            "type": "text",
+            "prompt": "Which transport protocol is connectionless, has smaller headers, and treats each segment independently?",
+            "accepted": ["udp", "user datagram protocol"]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each ARQ protocol to its behaviour.",
+            "left": ["Stop-and-wait", "Go-back-N", "Selective repeat", "TCP ARQ"],
+            "right": [
+                "Cumulative ACKs, but individually retransmits problematic packets; uses fast retransmit on 3 duplicate ACKs",
+                "Send one packet, wait for its ACK before sending the next",
+                "Sender retransmits only the missing packets; receiver buffers out-of-order arrivals",
+                "Window-based; if one packet times out, the entire window is retransmitted"
+            ],
+            "correct": [1, 3, 2, 0]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are TRUE about AIMD congestion control?",
+            "options": [
+                "Additive increase: window grows by 1 MSS per RTT",
+                "Multiplicative decrease: window is halved on loss",
+                "After a timeout, TCP enters slow start (window reset and exponential growth until threshold)",
+                "After 3 duplicate ACKs, TCP enters slow start",
+                "AIMD converges towards a fair share of bandwidth between competing flows"
+            ],
+            "correct": [0, 1, 2, 4]
+        },
+        {
+            "type": "text",
+            "prompt": "How many duplicate ACKs does TCP wait for before doing a fast retransmit?",
+            "accepted": ["3", "three"]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following does TCP provide (but UDP does not)?",
+            "options": [
+                "Reliable delivery via ACKs and retransmission",
+                "In-order delivery via sequence numbers",
+                "Flow control",
+                "Congestion control",
+                "Per-segment routing decisions"
+            ],
+            "correct": [0, 1, 2, 3]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are part of the TCP three-way handshake?",
+            "options": [
+                "Client sends SYN to server",
+                "Server replies with SYN-ACK",
+                "Client sends ACK (possibly with request) to server",
+                "Server sends FIN to client",
+                "Client sends RST to server"
+            ],
+            "correct": [0, 1, 2]
+        },
+        {
+            "type": "text",
+            "prompt": "In TCP, what is the window size computed as (in terms of bytes sent and acknowledged)?",
+            "accepted": [
+                "seq. num of last byte sent minus seq. num of last byte acked",
+                "last byte sent minus last byte acked",
+                "last sent minus last acked"
+            ]
+        }
+    ]
+}
