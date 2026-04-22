@@ -223,6 +223,18 @@ export function MarkdownContent({ content, extension }: { content: string; exten
             ? <code className={`${className} block bg-muted rounded p-4 my-4 overflow-x-auto text-sm`}>{children}</code>
             : <code className="bg-muted rounded px-1.5 py-0.5 text-sm font-mono">{children}</code>,
           hr: () => <hr className="my-6 border-border" />,
+          // Tables: use border-primary so grid lines pick up each theme's accent
+          // (purple for cs141, red for dragon, near-black for light, etc.).
+          table: ({ children }) => (
+            <div className="my-4 overflow-x-auto">
+              <table className="not-prose w-full border-collapse border border-primary text-sm">{children}</table>
+            </div>
+          ),
+          thead: ({ children }) => <thead className="bg-primary/10">{children}</thead>,
+          tbody: ({ children }) => <tbody>{children}</tbody>,
+          tr: ({ children }) => <tr className="border border-primary">{children}</tr>,
+          th: ({ children }) => <th className="border border-primary px-3 py-2 text-left font-semibold">{children}</th>,
+          td: ({ children }) => <td className="border border-primary px-3 py-2 align-top">{children}</td>,
         }}
       >
         {rendered}

@@ -40,6 +40,7 @@
             "CATS":"15",
             "authors": [],
             "notes": [
+                {"title": "Biological Neurons", "url": "/resources/Notes/CS331/BiologicalNeuron"},
                 {"title": "Perceptrons & MLPs", "url": "#"}
             ],
             "past_papers": [

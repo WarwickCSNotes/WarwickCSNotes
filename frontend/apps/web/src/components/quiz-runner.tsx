@@ -454,8 +454,11 @@ export function QuizRunner({ questions, pickCount, instaCheck = false }: QuizRun
                   {q.left.map((leftItem, li) => {
                     const choice = ((answers[i] as number[]) ?? Array(q.left.length).fill(-1))[li] ?? -1;
                     const correctIdx = q.correct[li];
-                    const itemCorrect = submitted && choice === correctIdx;
-                    const itemWrong = submitted && choice !== correctIdx;
+                    // Show feedback on full submit OR, in insta-check mode, as
+                    // soon as the user has picked a non-placeholder option.
+                    const showPair = submitted || (instaCheck && choice !== -1);
+                    const itemCorrect = showPair && choice === correctIdx;
+                    const itemWrong = showPair && choice !== correctIdx;
                     return (
                       <div
                         key={li}

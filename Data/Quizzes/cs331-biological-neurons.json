@@ -7,7 +7,59 @@
             "type": "multitext",
             "prompt": "Name the 4 parts of a biological neuron mentioned in this module.",
             "slots": 4,
-            "accepted": ["Dendrites", "Soma", "Synapses", "Axons"]
+            "accepted": ["Dendrites", "Soma", "Synapses", "Axon"]
+        },
+        {
+            "type": "text",
+            "prompt": "What is found on the surface of a dendrite to receive signals from other neurons (one per synapse)?",
+            "accepted": ["spine", "spines", "dendritic spine", "dendritic spines"]
+        },
+        {
+            "type": "text",
+            "prompt": "What is at the end of an axon that connects with the dendrites of other neurons?",
+            "accepted": ["axon terminals", "axon terminal", "terminals"]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each structure of a neuron to its role.",
+            "left": ["Dendrites", "Soma", "Axon", "Axon Hillock", "Synapse"],
+            "right": [
+                "Transmits an action potential from the soma to other neurons",
+                "Body of the neuron: where the nucleus, DNA, and protein synthesis live",
+                "The point at which two neurons meet",
+                "Sums incoming potentials and fires an action potential when the threshold is exceeded",
+                "Receive action potentials from other neurons"
+            ],
+            "correct": [4, 1, 0, 3, 2]
+        },
+        {
+            "type": "text",
+            "prompt": "Where are action potentials summed and measured against a threshold?",
+            "accepted": ["axon hillock", "the axon hillock", "hillock"]
+        },
+        {
+            "type": "multitext",
+            "prompt": "Name the three types of neuron.",
+            "slots": 3,
+            "accepted": [
+                "Sensory neuron",
+                "Motor neuron",
+                "Relay neuron",
+                "Interneuron",
+                "Sensory",
+                "Motor",
+                "Relay"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "The CNS is only the brain and the spinal cord. Sensory neurons elsewhere in the body (in sense organs like the eye, ear, nose, and tongue) are part of which nervous system?",
+            "accepted": [
+                "peripheral nervous system",
+                "the peripheral nervous system",
+                "pns",
+                "peripheral"
+            ]
         }
     ]
 }

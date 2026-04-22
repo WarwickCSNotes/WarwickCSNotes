@@ -22,5 +22,7 @@
     "NetworkLayer.md": ["Expiracy"],
     "ProcessesAndScheduling.md": ["Expiracy"],
     "Threads.md": ["Expiracy"],
-    "TransportLayer.md": ["Expiracy"]
+    "TransportLayer.md": ["Expiracy"],
+
+    "BiologicalNeuron.md": ["EdDenton"]
 }
