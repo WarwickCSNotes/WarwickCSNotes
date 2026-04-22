@@ -47,7 +47,10 @@
                 {"title": "2024 Exam Paper", "url": "#"},
                 {"title": "2023 Exam Paper", "url": "#"}
             ],
-            "exercise_solutions": []
+            "exercise_solutions": [],
+            "quizzes": [
+                {"title": "Biological Neurons", "url": "/quizzes/cs331-biological-neurons"}
+            ]
         },
         "CS342": {
             "tagline": "What makes the money",

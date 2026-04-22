@@ -129,7 +129,14 @@
                 {"title": "ad", "url": "#"},
                 {"title": "da", "url": "#"}
             ],
-            "exercise_solutions": []
+            "exercise_solutions": [],
+            "external_resources": [
+                {
+                    "name": "Michael Sambol (YouTube)",
+                    "url": "https://www.youtube.com/@MichaelSambol",
+                    "description": "Short, visual explanations of common algorithms and data structures. Great for quick intuition on topics in this module."
+                }
+            ]
         },
         "CS261": {
             "tagline": "Nightmare nightmare nightmare",

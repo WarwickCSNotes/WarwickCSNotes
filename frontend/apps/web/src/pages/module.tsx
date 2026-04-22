@@ -1,6 +1,34 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BadgeCheck, Construction } from "lucide-react";
+
+/** Link-like card that can safely contain other interactive children
+ *  (e.g. author links). Implemented as a div + onClick to avoid nesting
+ *  <a> inside <a>. Inner links should call e.stopPropagation() to prevent
+ *  double navigation. */
+function ResourceCard({
+  to,
+  className,
+  children,
+}: {
+  to: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const navigate = useNavigate();
+  const activate = () => navigate(to);
+  return (
+    <div
+      role="link"
+      tabIndex={0}
+      onClick={activate}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } }}
+      className={className}
+    >
+      {children}
+    </div>
+  );
+}
 
 function Badge({ icon, colorClass, label, tooltip }: { icon: React.ReactNode; colorClass: string; label: string; tooltip: string }) {
   const [open, setOpen] = useState(false);
@@ -91,14 +119,16 @@ export const ModulePage = () => {
   function Contributors({ authorIds }: { authorIds: string[] }) {
     if (authorIds.length === 0) return null;
     return (
-      <span className="block mt-1" onClick={e => e.preventDefault()}>
+      <span className="block mt-1">
         <em className="text-xs text-muted-foreground not-italic">Created by </em>
         {authorIds.map((authorId, i) => (
           <span key={authorId}>
             {i > 0 && <em className="text-xs text-muted-foreground">, </em>}
             <Link
               to={`/acknowledgements#${authorId}`}
-              className="text-xs italic text-muted-foreground hover:text-primary transition-colors"
+              // Prevent the outer ResourceCard from also navigating.
+              onClick={e => e.stopPropagation()}
+              className="text-xs italic text-muted-foreground hover:text-primary transition-colors hover:underline"
             >
               {people[authorId]?.name ?? authorId}
             </Link>
@@ -138,11 +168,11 @@ export const ModulePage = () => {
               );
             }
             return (
-              <Link key={note.title} to={note.url} className="relative block mb-2 p-3 border rounded text-sm hover:bg-muted transition-colors">
+              <ResourceCard key={note.title} to={note.url} className="relative block mb-2 p-3 border rounded text-sm hover:bg-muted transition-colors cursor-pointer">
                 {note.title}
                 <Badges verified={note.verified} unfinished={note.unfinished} />
                 <Contributors authorIds={getContributors(noteCredits, note.url)} />
-              </Link>
+              </ResourceCard>
             );
           })}
         </div>
@@ -163,14 +193,14 @@ export const ModulePage = () => {
                     <Badges verified={paper.verified} unfinished={paper.unfinished} />
                   </a>
                   {solutionIsInternal ? (
-                    <Link
+                    <ResourceCard
                       to={solutionUrl}
-                      className="relative block p-3 border rounded bg-card text-center text-sm font-medium hover:bg-muted hover:border-primary transition-colors"
+                      className="relative block p-3 border rounded bg-card text-center text-sm font-medium hover:bg-muted hover:border-primary transition-colors cursor-pointer"
                     >
                       Solution
                       <Badges verified={paper.solution?.verified} unfinished={paper.solution?.unfinished} />
                       <Contributors authorIds={solutionContributors} />
-                    </Link>
+                    </ResourceCard>
                   ) : (
                     <a
                       href={solutionUrl || "#"}
@@ -205,14 +235,14 @@ export const ModulePage = () => {
                     <Badges verified={exercise.verified} unfinished={exercise.unfinished} />
                   </a>
                   {solutionIsInternal ? (
-                    <Link
+                    <ResourceCard
                       to={solutionUrl}
-                      className="relative block p-3 border rounded bg-card text-center text-sm font-medium hover:bg-muted hover:border-primary transition-colors"
+                      className="relative block p-3 border rounded bg-card text-center text-sm font-medium hover:bg-muted hover:border-primary transition-colors cursor-pointer"
                     >
                       Solution
                       <Badges verified={exercise.solution?.verified} unfinished={exercise.solution?.unfinished} />
                       <Contributors authorIds={solutionContributors} />
-                    </Link>
+                    </ResourceCard>
                   ) : (
                     <a
                       href={solutionUrl || "#"}

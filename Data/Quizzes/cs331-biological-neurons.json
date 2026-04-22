@@ -1,0 +1,13 @@
+{
+    "title": "Biological Neurons",
+    "module": "CS331",
+    "description": "Quick check on the biological inspiration for artificial neural networks.",
+    "questions": [
+        {
+            "type": "multitext",
+            "prompt": "Name the 4 parts of a biological neuron mentioned in this module.",
+            "slots": 4,
+            "accepted": ["Dendrites", "Soma", "Synapses", "Axons"]
+        }
+    ]
+}
