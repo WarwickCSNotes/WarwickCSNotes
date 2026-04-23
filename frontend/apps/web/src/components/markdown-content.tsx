@@ -106,9 +106,12 @@ function inlineToMarkdown(nodes: any[]): string {
 }
 
 // Obsidian-style callouts: a blockquote whose first line is `[!type] Optional Title`.
+// The title ends at the first newline — anything past that in the same paragraph
+// (Obsidian allows body content on the next line without a blank separator) is
+// split out into a new body paragraph so only the title survives in the header.
 // The title can contain inline markdown (code, bold, math, ...), so we serialise
-// the full first paragraph back to markdown and stash it on the node; the
-// blockquote renderer parses it again via ReactMarkdown.
+// the title children back to markdown and stash it on the node; the blockquote
+// renderer parses it again via ReactMarkdown.
 function remarkObsidianCallouts() {
   return (tree: any) => {
     const visit = (node: any) => {
@@ -118,15 +121,33 @@ function remarkObsidianCallouts() {
           const firstText = firstChild.children?.[0];
           if (firstText?.type === 'text') {
             // Match only the `[!type][fold] ` prefix; the title is whatever
-            // remains on the first line (across all inline children).
-            const prefixMatch = firstText.value.match(/^\[!(\w+)\]([+-]?)\s*/);
+            // remains on the first line of the first text node.
+            const prefixMatch = firstText.value.match(/^\[!(\w+)\]([+-]?)[ \t]*/);
             if (prefixMatch) {
               const [matched, type, fold] = prefixMatch;
               firstText.value = firstText.value.slice(matched.length);
+
+              // If the first text contains a newline, split: everything after
+              // the newline becomes the body, along with any remaining inline
+              // children of this paragraph.
+              const bodyChildren: any[] = [];
+              const nlIdx = firstText.value.indexOf('\n');
+              if (nlIdx >= 0) {
+                const bodyText = firstText.value.slice(nlIdx + 1);
+                firstText.value = firstText.value.slice(0, nlIdx);
+                if (bodyText) bodyChildren.push({ type: 'text', value: bodyText });
+                bodyChildren.push(...firstChild.children.slice(1));
+                firstChild.children.length = 1;
+              }
+
               if (firstText.value === '') firstChild.children.shift();
               const titleMarkdown = inlineToMarkdown(firstChild.children);
-              // The first paragraph is fully consumed by the title.
+              // First paragraph is fully consumed by the title; replace with
+              // a body paragraph if anything was split off.
               node.children.shift();
+              if (bodyChildren.length > 0) {
+                node.children.unshift({ type: 'paragraph', children: bodyChildren });
+              }
               node.data = {
                 ...(node.data || {}),
                 hProperties: {
