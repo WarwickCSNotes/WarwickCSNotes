@@ -24,5 +24,6 @@
     "Threads.md": ["Expiracy"],
     "TransportLayer.md": ["Expiracy"],
 
-    "BiologicalNeuron.md": ["EdDenton"]
+    "BiologicalNeuron.md": ["EdDenton"],
+    "PropositionalLogic.md": ["EdDenton"]
 }

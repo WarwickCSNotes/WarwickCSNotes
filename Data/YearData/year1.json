@@ -50,7 +50,7 @@
             "CATS":"15",
             "authors": ["EdDenton"],
             "notes": [
-                {"title": "Logic & Propositions", "url": "#"},
+                {"title": "Propositional Logic", "url": "/resources/Notes/CS130/PropositionalLogic", "unfinished": true},
                 {"title": "Sets", "url": "/resources/Notes/CS130/Sets", "unfinished":true},
                 {"title": "Functions", "url": "#"},
                 {"title": "Countability", "url": "#"}
@@ -66,6 +66,9 @@
             ],
             "exercise_solutions": [
                 {"title": "Testing Exercise Solutions", "url": "#", "solution": {"url": "/resources/Solutions/CS130/CS130-Seminar-1"}}
+            ],
+            "quizzes": [
+                {"title": "Propositional Logic", "url": "/quizzes/cs130-propositional-logic"}
             ]
         },
         "CS132": {
