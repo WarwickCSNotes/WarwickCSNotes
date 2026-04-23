@@ -26,5 +26,12 @@
         "github": "https://github.com/expiracy",
         "linkedin": "https://www.linkedin.com/in/jameslaigray/",
         "image": "https://github.com/expiracy.png"
+    },
+    "TomSweet": {
+        "name": "Thomas Sweet",
+        "role": "DevOps",
+        "github": "https://github.com/Tomoli75",
+        "linkedin": "https://www.linkedin.com/in/thomas-sweet-5770ab368/",
+        "image": "https://github.com/Tomoli75.png"
     }
 }
