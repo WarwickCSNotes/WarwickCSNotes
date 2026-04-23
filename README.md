@@ -1,6 +1,6 @@
 # Warwick CS Notes
 
-Repository for notes. Check it out here: [https://csnotes.containers.uwcs.co.uk/](https://csnotes.containers.uwcs.co.uk/)!
+Repository for notes. Check it out here: [https://csnotes.uwcs.co.uk/](https://csnotes.uwcs.co.uk/)!
 
 ## Contributing
 
@@ -60,10 +60,10 @@ To deploy via Portainer UWCS:
 - Go to [Portainer UWCS](https://portainer.uwcs.co.uk/)
 - Click **Add Container**
 - Set the **Image** to `ghcr.io/warwickcsnotes/warwickcsnotes:latest`
-- Under port mapping, set **Host** to a random unique port number and **Container** to `3000`
+- Under port mapping, set **Host** to `5422` (this is essential for being mapped to `csnotes.uwcs` as opposed to `csnotes.containers.uwcs`) and **Container** to `3000`
 - Under **Advanced Settings**, add an environment variable: `VIRTUAL_HOST=csnotes`
 - Deploy the container
-- The site will be available at [csnotes.containers.uwcs.co.uk](https://csnotes.containers.uwcs.co.uk/)
+- The site will be available at [csnotes.uwcs.co.uk](https://csnotes.uwcs.co.uk/)
 
 ## More Info
 
