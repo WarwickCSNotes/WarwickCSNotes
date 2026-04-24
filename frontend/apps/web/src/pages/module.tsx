@@ -93,7 +93,16 @@ export const ModulePage = () => {
   }, [code]);
 
   useEffect(() => {
-    fetch("/api/credits").then(res => res.json()).then(setPeople);
+    fetch("/api/credits")
+      .then(res => res.json())
+      .then((data: { dev?: any[]; content?: any[] }) => {
+        // People come grouped (dev / content); flatten to an id→person map
+        // since credit lookups are by author id, not group.
+        const byId: Record<string, any> = {};
+        for (const p of data.dev ?? []) byId[p.id] = p;
+        for (const p of data.content ?? []) byId[p.id] = p;
+        setPeople(byId);
+      });
     fetch("/api/credits/notes").then(res => res.json()).then(setNoteCredits);
     fetch("/api/credits/solutions").then(res => res.json()).then(setSolutionCredits);
     fetch("/api/credits/quizzes").then(res => res.json()).then(setQuizCredits);

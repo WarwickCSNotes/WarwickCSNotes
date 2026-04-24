@@ -1,37 +1,46 @@
 {
-    "EdDenton": {
-        "name": "Edward Denton",
-        "role": "Project Lead",
-        "github": "https://github.com/RexMortem",
-        "linkedin": "https://www.linkedin.com/in/edward-denton-416a30240/",
-        "image": "https://github.com/RexMortem.png"
-    },
-    "JakubCza": {
-        "name": "Jakub Czarlinski",
-        "role": "Technical Lead",
-        "github": "https://github.com/jakubczarlinski",
-        "linkedin": "https://www.linkedin.com/in/jakub-czarlinski/",
-        "image": "https://github.com/jakubczarlinski.png"
-    },
-    "Flynt": {
-        "name": "Finn McGoldrick",
-        "role": "Notes Contributor",
-        "github": "https://github.com/Flynt-251",
-        "linkedin": "https://www.linkedin.com/in/finn-m-00b258229/",
-        "image": "https://github.com/Flynt-251.png"
-    },
-    "Expiracy": {
-        "name": "James Gray",
-        "role": "Notes Contributor",
-        "github": "https://github.com/expiracy",
-        "linkedin": "https://www.linkedin.com/in/jameslaigray/",
-        "image": "https://github.com/expiracy.png"
-    },
-    "TomSweet": {
-        "name": "Thomas Sweet",
-        "role": "DevOps",
-        "github": "https://github.com/Tomoli75",
-        "linkedin": "https://www.linkedin.com/in/thomas-sweet-5770ab368/",
-        "image": "https://github.com/Tomoli75.png"
-    }
+    "dev": [
+        {
+            "id": "EdDenton",
+            "name": "Edward Denton",
+            "role": "Project Lead",
+            "github": "https://github.com/RexMortem",
+            "linkedin": "https://www.linkedin.com/in/edward-denton-416a30240/",
+            "image": "https://github.com/RexMortem.png"
+        },
+        {
+            "id": "JakubCza",
+            "name": "Jakub Czarlinski",
+            "role": "Technical Lead",
+            "github": "https://github.com/jakubczarlinski",
+            "linkedin": "https://www.linkedin.com/in/jakub-czarlinski/",
+            "image": "https://github.com/jakubczarlinski.png"
+        },
+        {
+            "id": "TomSweet",
+            "name": "Thomas Sweet",
+            "role": "DevOps Engineer",
+            "github": "https://github.com/Tomoli75",
+            "linkedin": "https://www.linkedin.com/in/thomas-sweet-5770ab368/",
+            "image": "https://github.com/Tomoli75.png"
+        }
+    ],
+    "content": [
+        {
+            "id": "Flynt",
+            "name": "Finn McGoldrick",
+            "role": "Notes Contributor",
+            "github": "https://github.com/Flynt-251",
+            "linkedin": "https://www.linkedin.com/in/finn-m-00b258229/",
+            "image": "https://github.com/Flynt-251.png"
+        },
+        {
+            "id": "Expiracy",
+            "name": "James Gray",
+            "role": "Notes Contributor",
+            "github": "https://github.com/expiracy",
+            "linkedin": "https://www.linkedin.com/in/jameslaigray/",
+            "image": "https://github.com/expiracy.png"
+        }
+    ]
 }

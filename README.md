@@ -10,7 +10,17 @@ Contribution is at the heart of this project! To learn how to contribute to the 
 
 This project uses UV for dependency management. Get UV here: https://docs.astral.sh/uv/getting-started/installation
 
-## Local Testing
+## Local Testing w/ Docker
+
+To run:
+```
+docker compose up -d --build
+```
+*Note: you should have Docker running while doing this*
+
+The `--build` is for forcing a fresh image to be built.
+
+## Local Testing w/o Docker
 
 You'll need two terminals: one for the Flask backend and one for the Vite dev server. The Vite dev server proxies `/api` and `/notes` requests to Flask, so both must be running.
 
@@ -36,16 +46,6 @@ Notes:
 - If you haven't installed `bun`, grab it from https://bun.sh
 - If you haven't installed `uv`, see the **UV** section above
 - Hot reload works on both sides: saving a `.tsx` file updates the browser; saving `app.py` restarts Flask automatically (debug mode)
-
-## Local Testing w/ Docker
-
-To run:
-```
-docker compose up -d --build
-```
-*Note: you should have Docker running while doing this*
-
-The `--build` is for forcing a fresh image to be built.
 
 ## Deploying
 

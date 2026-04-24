@@ -34,7 +34,14 @@ export const QuizPage = () => {
   }, [id]);
 
   useEffect(() => {
-    fetch("/api/credits").then(res => res.json()).then(setPeople);
+    fetch("/api/credits")
+      .then(res => res.json())
+      .then((data: { dev?: { id: string; name: string }[]; content?: { id: string; name: string }[] }) => {
+        const byId: Record<string, Person> = {};
+        for (const p of data.dev ?? []) byId[p.id] = { name: p.name };
+        for (const p of data.content ?? []) byId[p.id] = { name: p.name };
+        setPeople(byId);
+      });
     fetch("/api/credits/quizzes").then(res => res.json()).then(setCredits);
   }, []);
 
