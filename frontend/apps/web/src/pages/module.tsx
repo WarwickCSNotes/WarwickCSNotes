@@ -112,7 +112,7 @@ export const ModulePage = () => {
     if (mod) document.title = `${mod.code} Notes`;
   }, [mod]);
 
-  if (!mod) return <div className="container mx-auto p-4">Loading module...</div>;
+  if (!mod) return <div className="mx-auto max-w-6xl p-4">Loading module...</div>;
 
   // For any resource URL (/resources/<Category>/<Code>/<Filename>), match the
   // filename against a credits dict whose keys are filenames (with extension).
@@ -150,7 +150,7 @@ export const ModulePage = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto max-w-6xl p-4">
       <Link
         to={`/year/${mod.year}`}
         className="inline-flex items-center gap-2 mb-6 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors"

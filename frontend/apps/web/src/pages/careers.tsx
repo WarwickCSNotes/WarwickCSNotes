@@ -52,7 +52,7 @@ export const CareersPage = () => {
   useEffect(() => { document.title = "Careers"; }, []);
 
   return (
-    <div className="container mx-auto p-4 max-w-4xl">
+    <div className="mx-auto max-w-6xl p-4">
       <h1 className="text-4xl font-bold mb-2">Careers</h1>
       <p className="text-muted-foreground mb-8">
         Resources for internships, placements, CV support, and side projects.

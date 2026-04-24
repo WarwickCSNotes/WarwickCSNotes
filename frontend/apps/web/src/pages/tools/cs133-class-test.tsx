@@ -82,7 +82,7 @@ export const CS133ClassTest = () => {
   useEffect(() => { document.title = "CS133 Class Test Simulator"; }, []);
 
   return (
-    <div className="container mx-auto p-4 max-w-3xl">
+    <div className="mx-auto max-w-6xl p-4">
       <div className="flex items-center gap-3 mb-6 flex-wrap">
         <Link
           to="/module/CS133"

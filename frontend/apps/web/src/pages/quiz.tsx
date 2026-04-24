@@ -49,8 +49,8 @@ export const QuizPage = () => {
     if (quiz) document.title = `${quiz.title} Quiz`;
   }, [quiz]);
 
-  if (error) return <div className="container mx-auto p-4">Quiz not found.</div>;
-  if (!quiz) return <div className="container mx-auto p-4">Loading quiz...</div>;
+  if (error) return <div className="mx-auto max-w-6xl p-4">Quiz not found.</div>;
+  if (!quiz) return <div className="mx-auto max-w-6xl p-4">Loading quiz...</div>;
 
   const backTo = quiz.module ? `/module/${quiz.module}` : `/quizzes`;
   const backLabel = quiz.module ?? "All quizzes";
@@ -58,7 +58,7 @@ export const QuizPage = () => {
   const authors = credits[`${id}.json`] ?? [];
 
   return (
-    <div className="container mx-auto p-4 max-w-3xl">
+    <div className="mx-auto max-w-6xl p-4">
       <div className="flex items-center gap-3 mb-6 flex-wrap">
         <Link
           to={backTo}

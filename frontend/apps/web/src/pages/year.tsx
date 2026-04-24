@@ -18,10 +18,10 @@ export const YearPage = () => {
     document.title = `Year ${year}`;
   }, [year]);
 
-  if (!data) return <div className="container mx-auto p-4">Loading...</div>;
+  if (!data) return <div className="mx-auto max-w-6xl p-4">Loading...</div>;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto max-w-6xl p-4">
       <Link to="/" className="inline-flex items-center gap-2 mb-6 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors">
         &larr; Dashboard
       </Link>

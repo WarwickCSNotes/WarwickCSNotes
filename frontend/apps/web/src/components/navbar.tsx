@@ -10,7 +10,7 @@ export function Navbar() {
 
   return (
     <nav className="border-b border-white/10 bg-nav p-4 text-nav-foreground">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="mx-auto max-w-6xl flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-bold text-nav-foreground text-xl">
           <span className="dragon-logo text-2xl">🐉</span>
           <span className="haskell-logo text-2xl">λ</span>
