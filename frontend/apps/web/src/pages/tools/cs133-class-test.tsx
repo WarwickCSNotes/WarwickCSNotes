@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { QuizRunner, type Question } from "@/components/quiz-runner";
 import { InstaCheckToggle } from "@/components/insta-check-toggle";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { useInstaCheck } from "@/lib/use-insta-check";
 
@@ -82,7 +83,7 @@ export const CS133ClassTest = () => {
   useEffect(() => { document.title = "CS133 Class Test Simulator"; }, []);
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <PageHeader
         title="Class Test Simulator"
         subtitle="Practice questions for CS133 Professional Skills."
@@ -92,6 +93,6 @@ export const CS133ClassTest = () => {
       </PageHeader>
 
       <QuizRunner questions={QUESTIONS} pickCount={5} instaCheck={instaCheck} />
-    </div>
+    </Page>
   );
 };

@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Github, MessageSquare, Linkedin } from "lucide-react";
+import { Page } from "@/components/page";
 
 export const Welcome = () => {
   useEffect(() => { document.title = "CS Notes"; }, []);
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <h1 className="text-4xl font-bold mb-4">Dashboard</h1>
 
       <div className="mb-8 p-4 border rounded-lg bg-surface text-surface-foreground text-sm">
@@ -56,6 +57,6 @@ export const Welcome = () => {
           </a>
         </div>
       </section>
-    </div>
+    </Page>
   );
 };

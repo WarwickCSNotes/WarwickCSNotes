@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { QuizRunner, type Question } from "@/components/quiz-runner";
 import { InstaCheckToggle } from "@/components/insta-check-toggle";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { useInstaCheck } from "@/lib/use-insta-check";
 
@@ -50,8 +51,8 @@ export const QuizPage = () => {
     if (quiz) document.title = `${quiz.title} Quiz`;
   }, [quiz]);
 
-  if (error) return <div className="mx-auto max-w-6xl p-4">Quiz not found.</div>;
-  if (!quiz) return <div className="mx-auto max-w-6xl p-4">Loading quiz...</div>;
+  if (error) return <Page>Quiz not found.</Page>;
+  if (!quiz) return <Page>Loading quiz...</Page>;
 
   const backTo = quiz.module ? `/module/${quiz.module}` : `/quizzes`;
   const backLabel = quiz.module ?? "All quizzes";
@@ -59,7 +60,7 @@ export const QuizPage = () => {
   const authors = credits[`${id}.json`] ?? [];
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <PageHeader
         title={quiz.title}
         subtitle={quiz.module}
@@ -86,6 +87,6 @@ export const QuizPage = () => {
       {quiz.description && <p className="text-muted-foreground mt-2 mb-6">{quiz.description}</p>}
 
       <QuizRunner questions={quiz.questions} instaCheck={instaCheck} />
-    </div>
+    </Page>
   );
 };

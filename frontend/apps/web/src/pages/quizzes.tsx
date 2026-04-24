@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 
 type QuizMeta = {
@@ -32,7 +33,7 @@ export const QuizzesPage = () => {
   const moduleKeys = Object.keys(byModule).sort();
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <PageHeader
         title="Quizzes"
         subtitle="Practice quizzes across modules. Pick one and test yourself."
@@ -64,6 +65,6 @@ export const QuizzesPage = () => {
           </div>
         </section>
       ))}
-    </div>
+    </Page>
   );
 };

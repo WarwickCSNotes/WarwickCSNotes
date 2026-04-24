@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 
 export const YearPage = () => {
@@ -19,10 +20,10 @@ export const YearPage = () => {
     document.title = `Year ${year}`;
   }, [year]);
 
-  if (!data) return <div className="mx-auto max-w-6xl p-4">Loading...</div>;
+  if (!data) return <Page>Loading...</Page>;
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <PageHeader title={data.title} back={{ to: "/", label: "Dashboard" }} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {Object.entries(data.modules).map(([code, mod]: [string, any]) => (
@@ -37,6 +38,6 @@ export const YearPage = () => {
           </Link>
         ))}
       </div>
-    </div>
+    </Page>
   );
 };

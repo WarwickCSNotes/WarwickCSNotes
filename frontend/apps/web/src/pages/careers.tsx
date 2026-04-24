@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { ExternalLink } from "lucide-react";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 
 type CareerLink = {
@@ -53,7 +54,7 @@ export const CareersPage = () => {
   useEffect(() => { document.title = "Careers"; }, []);
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <PageHeader
         title="Careers"
         subtitle="Resources for internships, placements, CV support, and side projects."
@@ -74,6 +75,6 @@ export const CareersPage = () => {
           {SOCIETIES.map(s => <CareerCard key={s.name} link={s} />)}
         </div>
       </section>
-    </div>
+    </Page>
   );
 };

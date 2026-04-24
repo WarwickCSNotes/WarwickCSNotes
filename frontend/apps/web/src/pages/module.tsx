@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BadgeCheck, Construction } from "lucide-react";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 
 /** Link-like card that can safely contain other interactive children
@@ -113,7 +114,7 @@ export const ModulePage = () => {
     if (mod) document.title = `${mod.code} Notes`;
   }, [mod]);
 
-  if (!mod) return <div className="mx-auto max-w-6xl p-4">Loading module...</div>;
+  if (!mod) return <Page>Loading module...</Page>;
 
   // For any resource URL (/resources/<Category>/<Code>/<Filename>), match the
   // filename against a credits dict whose keys are filenames (with extension).
@@ -151,7 +152,7 @@ export const ModulePage = () => {
   }
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <PageHeader
         title={mod.code}
         subtitle={mod.name}
@@ -333,6 +334,6 @@ export const ModulePage = () => {
           </div>
         </div>
       )}
-    </div>
+    </Page>
   );
 };

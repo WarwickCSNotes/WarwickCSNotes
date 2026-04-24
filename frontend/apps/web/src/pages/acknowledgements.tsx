@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { Github, Linkedin } from "lucide-react";
 
@@ -82,7 +83,7 @@ export const AcknowledgementsPage = () => {
   return (
     <>
     <title>Acknowledgements</title>
-    <div className="mx-auto max-w-6xl p-4">
+    <Page>
       <PageHeader
         title="Acknowledgements"
         subtitle="The people behind Warwick CS Notes."
@@ -94,7 +95,7 @@ export const AcknowledgementsPage = () => {
           <PersonCard key={person.id} person={person} />
         ))}
       </div>
-    </div>
+    </Page>
     </>
   );
 };
