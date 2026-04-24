@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { PageHeader } from "@/components/page-header";
 
 export const YearPage = () => {
   const { year } = useParams();
@@ -22,10 +23,7 @@ export const YearPage = () => {
 
   return (
     <div className="mx-auto max-w-6xl p-4">
-      <Link to="/" className="inline-flex items-center gap-2 mb-6 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors">
-        &larr; Dashboard
-      </Link>
-      <h1 className="mb-4">{data.title}</h1>
+      <PageHeader title={data.title} back={{ to: "/", label: "Dashboard" }} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {Object.entries(data.modules).map(([code, mod]: [string, any]) => (
           <Link key={code} to={`/module/${code}`} className="block p-4 bg-surface text-surface-foreground border rounded-lg shadow hover:brightness-110 transition">

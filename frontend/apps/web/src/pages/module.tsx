@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BadgeCheck, Construction } from "lucide-react";
+import { PageHeader } from "@/components/page-header";
 
 /** Link-like card that can safely contain other interactive children
  *  (e.g. author links). Implemented as a div + onClick to avoid nesting
@@ -151,16 +152,12 @@ export const ModulePage = () => {
 
   return (
     <div className="mx-auto max-w-6xl p-4">
-      <Link
-        to={`/year/${mod.year}`}
-        className="inline-flex items-center gap-2 mb-6 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors"
-      >
-        &larr; Year {mod.year}
-      </Link>
-
-      <h1 className="text-3xl font-bold">{mod.code}</h1>
-      <h4 className="text-xl text-muted-foreground">{mod.name}</h4>
-      <div className="flex gap-4 mt-1 mb-2">
+      <PageHeader
+        title={mod.code}
+        subtitle={mod.name}
+        back={{ to: `/year/${mod.year}`, label: `Year ${mod.year}` }}
+      />
+      <div className="flex gap-4 -mt-4 mb-2">
         {mod.Term && <span className="text-sm font-medium text-detail">Term {mod.Term}</span>}
         {mod.CATS && <span className="text-sm font-medium text-detail">{mod.CATS} CATS</span>}
       </div>

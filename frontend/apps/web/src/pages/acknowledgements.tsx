@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { PageHeader } from "@/components/page-header";
 import { Github, Linkedin } from "lucide-react";
 
 type Person = {
@@ -82,8 +83,11 @@ export const AcknowledgementsPage = () => {
     <>
     <title>Acknowledgements</title>
     <div className="mx-auto max-w-6xl p-4">
-      <h1 className="text-4xl font-bold mb-2">Acknowledgements</h1>
-      <p className="text-muted-foreground mb-8">The people behind Warwick CS Notes.</p>
+      <PageHeader
+        title="Acknowledgements"
+        subtitle="The people behind Warwick CS Notes."
+        back={{ to: "/", label: "Dashboard" }}
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {people.map(person => (

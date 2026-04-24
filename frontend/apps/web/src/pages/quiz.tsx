@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { QuizRunner, type Question } from "@/components/quiz-runner";
 import { InstaCheckToggle } from "@/components/insta-check-toggle";
+import { PageHeader } from "@/components/page-header";
 import { useInstaCheck } from "@/lib/use-insta-check";
 
 type Quiz = {
@@ -59,20 +60,15 @@ export const QuizPage = () => {
 
   return (
     <div className="mx-auto max-w-6xl p-4">
-      <div className="flex items-center gap-3 mb-6 flex-wrap">
-        <Link
-          to={backTo}
-          className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors"
-        >
-          &larr; {backLabel}
-        </Link>
+      <PageHeader
+        title={quiz.title}
+        subtitle={quiz.module}
+        back={{ to: backTo, label: backLabel }}
+      >
         <InstaCheckToggle />
-      </div>
-
-      <h1 className="text-3xl font-bold mb-1">{quiz.title}</h1>
-      {quiz.module && <p className="text-sm text-muted-foreground">{quiz.module}</p>}
+      </PageHeader>
       {authors.length > 0 && (
-        <p className="text-xs text-muted-foreground italic mt-1">
+        <p className="text-xs text-muted-foreground italic -mt-4">
           Created by{" "}
           {authors.map((authorId, idx) => (
             <span key={authorId}>

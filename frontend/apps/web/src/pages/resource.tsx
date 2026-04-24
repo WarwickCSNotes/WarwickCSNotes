@@ -37,17 +37,17 @@ export const ResourcePage = () => {
   return (
     <div className="mx-auto max-w-6xl p-4">
       <div className="flex items-center gap-4 mb-6 flex-wrap">
-        <Link
-          to={`/module/${code}`}
-          className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors"
-        >
-          &larr; {code}
-        </Link>
         {modName && (
           <span className="text-muted-foreground text-sm">
             {modName} - {CATEGORY_LABEL[category] ?? category}
           </span>
         )}
+        <Link
+          to={`/module/${code}`}
+          className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors ml-auto shrink-0"
+        >
+          &larr; {code}
+        </Link>
       </div>
 
       {extension === 'pdf' ? (

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { ExternalLink } from "lucide-react";
+import { PageHeader } from "@/components/page-header";
 
 type CareerLink = {
   name: string;
@@ -53,10 +54,11 @@ export const CareersPage = () => {
 
   return (
     <div className="mx-auto max-w-6xl p-4">
-      <h1 className="text-4xl font-bold mb-2">Careers</h1>
-      <p className="text-muted-foreground mb-8">
-        Resources for internships, placements, CV support, and side projects.
-      </p>
+      <PageHeader
+        title="Careers"
+        subtitle="Resources for internships, placements, CV support, and side projects."
+        back={{ to: "/", label: "Dashboard" }}
+      />
 
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">From the Department</h2>

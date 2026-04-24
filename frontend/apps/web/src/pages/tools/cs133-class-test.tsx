@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { QuizRunner, type Question } from "@/components/quiz-runner";
 import { InstaCheckToggle } from "@/components/insta-check-toggle";
+import { PageHeader } from "@/components/page-header";
 import { useInstaCheck } from "@/lib/use-insta-check";
 
 const QUESTIONS: Question[] = [
@@ -83,18 +83,13 @@ export const CS133ClassTest = () => {
 
   return (
     <div className="mx-auto max-w-6xl p-4">
-      <div className="flex items-center gap-3 mb-6 flex-wrap">
-        <Link
-          to="/module/CS133"
-          className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors"
-        >
-          &larr; CS133
-        </Link>
+      <PageHeader
+        title="Class Test Simulator"
+        subtitle="Practice questions for CS133 Professional Skills."
+        back={{ to: "/module/CS133", label: "CS133" }}
+      >
         <InstaCheckToggle />
-      </div>
-
-      <h1 className="text-3xl font-bold mb-2">Class Test Simulator</h1>
-      <p className="text-muted-foreground mb-6">Practice questions for CS133 Professional Skills.</p>
+      </PageHeader>
 
       <QuizRunner questions={QUESTIONS} pickCount={5} instaCheck={instaCheck} />
     </div>

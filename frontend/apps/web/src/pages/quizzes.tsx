@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { PageHeader } from "@/components/page-header";
 
 type QuizMeta = {
   id: string;
@@ -32,10 +33,11 @@ export const QuizzesPage = () => {
 
   return (
     <div className="mx-auto max-w-6xl p-4">
-      <h1 className="text-4xl font-bold mb-2">Quizzes</h1>
-      <p className="text-muted-foreground mb-8">
-        Practice quizzes across modules. Pick one and test yourself.
-      </p>
+      <PageHeader
+        title="Quizzes"
+        subtitle="Practice quizzes across modules. Pick one and test yourself."
+        back={{ to: "/", label: "Dashboard" }}
+      />
 
       {loading && <p>Loading...</p>}
 
