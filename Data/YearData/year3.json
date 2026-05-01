@@ -41,7 +41,7 @@
             "authors": [],
             "notes": [
                 {"title": "Biological Neurons", "url": "/resources/Notes/CS331/BiologicalNeuron"},
-                {"title": "Perceptrons & MLPs", "url": "#"}
+                {"title": "Perceptron", "url": "/resources/Notes/CS331/Perceptron"}
             ],
             "past_papers": [
                 {"title": "2025 Exam Paper", "url": "#"},
@@ -51,7 +51,9 @@
             "exercise_solutions": [],
             "quizzes": [
                 {"title": "Biological Neurons", "url": "/quizzes/cs331-biological-neurons"},
-                {"title": "MP Neuron", "url": "/quizzes/cs331-mp-neuron"}
+                {"title": "MP Neuron", "url": "/quizzes/cs331-mp-neuron"},
+                {"title": "MP Neuron vs Perceptron", "url": "/quizzes/cs331-mp-neuron-vs-perceptron"},
+                {"title": "Perceptron Learning", "url": "/quizzes/cs331-perceptron-learning", "unfinished": true}
             ]
         },
         "CS342": {

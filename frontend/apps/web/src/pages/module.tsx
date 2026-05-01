@@ -279,6 +279,7 @@ export const ModulePage = () => {
                 className="relative block p-3 border rounded bg-surface text-surface-foreground text-sm font-medium hover:bg-surface-hover transition-colors cursor-pointer"
               >
                 {quiz.title}
+                <Badges verified={quiz.verified} unfinished={quiz.unfinished} />
                 <Contributors authorIds={getContributors(quizCredits, quiz.url)} />
               </ResourceCard>
             ))}

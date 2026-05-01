@@ -1,0 +1,19 @@
+{
+    "title": "Perceptron Learning",
+    "module": "CS331",
+    "description": "Training a perceptron and choosing a learning rate.",
+    "questions": [
+        {
+            "type": "multitext",
+            "prompt": "Why might you have a high learning rate?",
+            "slots": 2,
+            "accepted": ["Speed", "Fewer iterations"]
+        },
+        {
+            "type": "multitext",
+            "prompt": "Why might you have a low learning rate?",
+            "slots": 2,
+            "accepted": ["accuracy", "not overshoot", "overshoot"]
+        }
+    ]
+}

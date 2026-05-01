@@ -6,6 +6,8 @@ Repository for notes. Check it out here: [https://csnotes.uwcs.co.uk/](https://c
 
 Contribution is at the heart of this project! To learn how to contribute to the project, check out `CONTRIBUTING.md`.
 
+There is a note on what we're allowed to host at the top of `Docs.md`!
+
 ## UV
 
 This project uses UV for dependency management. Get UV here: https://docs.astral.sh/uv/getting-started/installation
