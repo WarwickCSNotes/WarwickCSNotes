@@ -1,0 +1,37 @@
+{
+    "title": "MP Neuron vs Perceptron",
+    "module": "CS331",
+    "description": "Comparing the McCulloch-Pitts neuron with the Perceptron.",
+    "questions": [
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following is true?",
+            "options": [
+                "MP neuron is a special case of Perceptron",
+                "Perceptron is a special case of MP Neuron",
+                "MP neuron and Perceptron are exactly the same",
+                "MP neuron and Perceptron are completely distinct concepts"
+            ],
+            "correct": [0]
+        },
+        {
+            "type": "sort",
+            "prompt": "Sort each property into whether it describes the Perceptron or the MP Neuron.",
+            "columns": ["Perceptron", "MP Neuron"],
+            "items": [
+                "Input from reals",
+                "Binary input (from {0, 1})",
+                "Can automatically learn threshold",
+                "Have to manually set threshold",
+                "Has weights",
+                "Does not have weights (i.e. every weight=1)"
+            ],
+            "correct": [0, 1, 0, 1, 0, 1]
+        },
+        {
+            "type": "text",
+            "prompt": "What can't assign different levels of importance to inputs?",
+            "accepted": ["MP Neuron", "MP", "McCulloch-Pitts"]
+        }
+    ]
+}

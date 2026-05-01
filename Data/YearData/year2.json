@@ -121,7 +121,9 @@
                 {"title": "Greedy Algorithms", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2023 Exam Paper", "url": "#"},
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2600_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2600_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2600_a_exam_paper.pdf"},
                 {"title": "2022 Exam Paper", "url": "#"},
                 {"title": "2021 Exam Paper", "url": "#"}
             ],

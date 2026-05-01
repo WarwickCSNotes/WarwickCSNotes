@@ -8,3 +8,7 @@
 > You might think: what about inhibitory inputs in the Perceptron? 
 > You can model inhibitory inputs by having weights assigned to these inputs with incredibly high negative weighting (ideally -inf)
 
+>[!tip]- Checking if data can be fit by a single perceptron
+> A perceptron is a binary classifier. 
+>
+> Therefore, if you want to see if data can be fit by a perceptron, draw an $n$-dimensional graph (where $n$ is number of inputs/weights), and see if there is a hypersurface that divides the two groups of points (for $n=2$, see if there is a line that divides the two groups).

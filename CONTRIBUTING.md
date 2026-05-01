@@ -6,6 +6,8 @@ Contributions are greatly appreciated! Contributions shape how successful the pr
 
 If you submit a successful edit contribution to the project (so a PR usually), you will be added to the Credits section of the site `:)`
 
+**Note:** There is a section in `Docs.md` for what we're allowed to host.
+
 ## Reporting Issues
 
 If you've spotted a bug or want to flag a mistake in a note:
