@@ -50,9 +50,10 @@
             "CATS":"15",
             "authors": ["EdDenton"],
             "notes": [
-                {"title": "Propositional Logic", "url": "/resources/Notes/CS130/PropositionalLogic", "unfinished": true},
-                {"title": "Predicate Logic", "url": "/resources/Notes/CS130/PredicateLogic", "unfinished": true},
-                {"title": "Sets", "url": "/resources/Notes/CS130/Sets", "unfinished":true},
+                {"title": "Sets", "url": "/resources/Notes/CS130/Sets"},
+                {"title": "Propositional Logic", "url": "/resources/Notes/CS130/PropositionalLogic"},
+                {"title": "Predicate Logic", "url": "/resources/Notes/CS130/PredicateLogic"},
+                {"title": "Relations", "url": "/resources/Notes/CS130/Relations"},
                 {"title": "Functions", "url": "#"},
                 {"title": "Countability", "url": "#"}
             ],
@@ -65,9 +66,7 @@
                 {"name": "Book of Proof (Hammack)", "url":"https://richardhammack.github.io/BookOfProof/Main.pdf", "description": "Free online textbook, great for proof techniques."},
                 {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."}
             ],
-            "exercise_solutions": [
-                {"title": "Testing Exercise Solutions", "url": "#", "solution": {"url": "/resources/Solutions/CS130/CS130-Seminar-1"}}
-            ],
+            "exercise_solutions": [],
             "quizzes": [
                 {"title": "Propositional Logic", "url": "/quizzes/cs130-propositional-logic"}
             ]

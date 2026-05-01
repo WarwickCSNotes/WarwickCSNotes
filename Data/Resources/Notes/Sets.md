@@ -88,12 +88,9 @@ Examples:
 - $\emptyset \subseteq A$ for any set $A$ (the implication $x \in \emptyset \rightarrow x \in A$ is vacuously true).
 - $A \subseteq A$ for any set $A$.
 
->![info]+ Subset antisymmetry
-> If $A \subseteq B$ **and** $B \subseteq A$, then $A = B$.
+>[!info]- Prove $(A \subseteq B) \land (B \subseteq A) \implies (A = B)$ (Subset antisymmetry)
+> This is a super useful technique: to prove two sets are equal, the standard move is to show each is a subset of the other.
 >
-> This is hugely useful in practice: to prove two sets are equal, the standard move is to show each is a subset of the other. Such a proof is often called a **double containment** proof.
-
->![info]+ Proof of subset antisymmetry
 > Suppose $A \subseteq B$ and $B \subseteq A$. We want to show $A = B$, i.e. that $A$ and $B$ have exactly the same elements.
 >
 > Take any $x$:

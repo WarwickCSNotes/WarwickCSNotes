@@ -39,7 +39,7 @@ $\exists x.\, P(x)$, read "there exists $x$ such that $P(x)$", is true exactly w
 
 For example, with the domain $\mathbb{R}$ and $P(x)$ standing for "$x^2 = 2$", the statement $\exists x.\, P(x)$ is true (take $x = \sqrt{2}$). With the domain $\mathbb{Q}$, the same statement would be false: there is no rational $x$ with $x^2 = 2$.
 
->![info]+ Negating "for all" and "there exists"
+>[!info]- Negating "for all" and "there exists"
 > "Not for all $x$, $P(x)$" means there is *some* $x$ for which $P(x)$ is false. That is:
 > $\neg(\forall x.\, P(x)) \;\equiv\; \exists x.\, \neg P(x)$.
 >
@@ -73,7 +73,7 @@ the variable $x$ is bound (by the $\forall$) and $y$ is free. The truth of this 
 
 A formula with no free variables is called a **sentence** (or a **closed formula**). A sentence has a definite truth value once the domain and predicates are fixed. A formula *with* free variables behaves more like a predicate, since its truth value depends on the values supplied for the free variables.
 
->![info]- Renaming bound variables
+>[!info]- Renaming bound variables
 > The name of a bound variable doesn't matter, you can rename it without changing the meaning of the formula:
 > $\forall x.\, P(x) \;\equiv\; \forall y.\, P(y)$.
 >

@@ -26,5 +26,6 @@
 
     "BiologicalNeuron.md": ["EdDenton"],
     "PropositionalLogic.md": ["EdDenton"],
-    "PredicateLogic.md": ["EdDenton"]
+    "PredicateLogic.md": ["EdDenton"],
+    "Relations.md": ["EdDenton"]
 }

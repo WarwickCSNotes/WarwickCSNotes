@@ -60,7 +60,7 @@ $p \rightarrow q$ is false only when $p$ is true and $q$ is false. In every othe
 | F | T | T |
 | F | F | T |
 
->![info]+ How many binary logical operators are there in total?
+>[!info]- How many binary logical operators are there in total?
 > A binary operator on $\{T, F\}$ has $4$ possible inputs ($TT, TF, FT, FF$) and assigns each one to either $T$ or $F$. That gives $2^4 = 16$ distinct binary operators.
 >
 > $\wedge, \vee, \rightarrow$ are three of the more useful ones, but we'll meet others (like XOR and the biconditional) too.
@@ -71,7 +71,7 @@ Implication is worth a closer look, because it's so fundamental to proofs and lo
 
 The statement $p \rightarrow q$ ("if $p$ then $q$") says: *whenever $p$ holds, $q$ also holds*. It does **not** say "if $q$ then $p$" - those are *very* different statements.
 
->![info]- Intuition for $(p \rightarrow q) \neq (q \rightarrow p)$
+>[!info]- Intuition for $(p \rightarrow q) \neq (q \rightarrow p)$
 > "If it is raining then the ground is wet" is not the same as "If the ground is wet then it is raining". The ground could be wet for many other reasons: a sprinkler, a spilt drink, a recent flood. So $p \rightarrow q$ doesn't give you $q \rightarrow p$ for free.
 
 If you want both directions to hold, $p \rightarrow q$ **and** $q \rightarrow p$, then $p$ and $q$ are logically equivalent $p \leftrightarrow q$. This is true exactly when $p$ and $q$ have the same truth value, hence logical equivalence. It is also written $p \equiv q$.
@@ -84,11 +84,11 @@ We use the language of "sufficient" and "necessary" to talk about implications. 
 
 So $p \leftrightarrow q$ ("$p$ if and only if $q$") means $p$ is both sufficient *and* necessary for $q$, i.e. they're equivalent.
 
->![info]+ The Contrapositive
+>[!info]- The Contrapositive
 > The **contrapositive** of $p \rightarrow q$ is $\neg q \rightarrow \neg p$. The two are logically equivalent:
 > $p \rightarrow q \;\equiv\; \neg q \rightarrow \neg p$.
 >
-> **Proof.** Convert each implication into its disjunctive form using $a \rightarrow b \;\equiv\; \neg a \vee b$:
+> **Proof:** Convert each implication into its disjunctive form using $a \rightarrow b \;\equiv\; \neg a \vee b$:
 > 1. $p \rightarrow q \;\equiv\; \neg p \vee q$
 > 2. By commutativity, $\neg p \vee q \;\equiv\; q \vee \neg p$
 > 3. By double negation, $q \vee \neg p \;\equiv\; \neg(\neg q) \vee \neg p$

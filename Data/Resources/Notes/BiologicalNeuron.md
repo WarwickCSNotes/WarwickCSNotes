@@ -34,7 +34,7 @@ There are 4 components of a neuron we discuss in this module:
 - **Axon:** This transmits an action potential to other neurons
 - **Synapse:** The point at which two neurons meet
 
->![info]+ Axon Hillock
+>[!info]- Axon Hillock
 > The Axon Hillock is a 5th component which is mentioned (but not included as one of the 4 components for some reason).
 > 
 > It is in between the Soma and the Axon - it is where potentials are summed and where an action potential down the axon starts
@@ -67,7 +67,7 @@ Two main factors which determine the speed of the action potential:
 - the diameter of the axon; the bigger the diameter, the faster the transmission
 - whether it is covered with a **myelin sheath** i.e. if the axon is myelinated. If it is myelinated, the transmission is faster
 
->![info]- Myelin Sheath
+>[!info]- Myelin Sheath
 > The **myelin sheath** is a fatty covering which act as an insulator for axons, so the action potential remains strong and doesn't dissipate/leak outwards.
 
 The axon ends in a bunch of **axon terminals** which is where the synapses connecting the axon to the dendrites of other neurons are. 

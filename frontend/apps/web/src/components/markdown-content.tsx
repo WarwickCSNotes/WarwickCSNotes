@@ -121,26 +121,40 @@ function remarkObsidianCallouts() {
           const firstText = firstChild.children?.[0];
           if (firstText?.type === 'text') {
             // Match only the `[!type][fold] ` prefix; the title is whatever
-            // remains on the first line of the first text node.
+            // remains on the first line, possibly spanning several inline children.
             const prefixMatch = firstText.value.match(/^\[!(\w+)\]([+-]?)[ \t]*/);
             if (prefixMatch) {
               const [matched, type, fold] = prefixMatch;
               firstText.value = firstText.value.slice(matched.length);
 
-              // If the first text contains a newline, split: everything after
-              // the newline becomes the body, along with any remaining inline
-              // children of this paragraph.
-              const bodyChildren: any[] = [];
-              const nlIdx = firstText.value.indexOf('\n');
-              if (nlIdx >= 0) {
-                const bodyText = firstText.value.slice(nlIdx + 1);
-                firstText.value = firstText.value.slice(0, nlIdx);
-                if (bodyText) bodyChildren.push({ type: 'text', value: bodyText });
-                bodyChildren.push(...firstChild.children.slice(1));
-                firstChild.children.length = 1;
+              // Find the newline that ends the title. The title can be split
+              // across multiple inline children (e.g. text + math + text) when
+              // it contains inline elements, so scan every text child until we
+              // find one with a `\n`.
+              let splitIdx = -1;
+              let nlIdx = -1;
+              for (let i = 0; i < firstChild.children.length; i++) {
+                const c = firstChild.children[i];
+                if (c.type === 'text') {
+                  const idx = c.value.indexOf('\n');
+                  if (idx >= 0) { splitIdx = i; nlIdx = idx; break; }
+                }
               }
 
-              if (firstText.value === '') firstChild.children.shift();
+              const bodyChildren: any[] = [];
+              if (splitIdx >= 0) {
+                const splitChild = firstChild.children[splitIdx];
+                const bodyText = splitChild.value.slice(nlIdx + 1);
+                splitChild.value = splitChild.value.slice(0, nlIdx);
+                if (bodyText) bodyChildren.push({ type: 'text', value: bodyText });
+                bodyChildren.push(...firstChild.children.slice(splitIdx + 1));
+                firstChild.children.length = splitIdx + 1;
+                if (splitChild.value === '') firstChild.children.pop();
+              }
+
+              if (firstChild.children[0]?.type === 'text' && firstChild.children[0].value === '') {
+                firstChild.children.shift();
+              }
               const titleMarkdown = inlineToMarkdown(firstChild.children);
               // First paragraph is fully consumed by the title; replace with
               // a body paragraph if anything was split off.
