@@ -51,6 +51,7 @@
             "authors": ["EdDenton"],
             "notes": [
                 {"title": "Propositional Logic", "url": "/resources/Notes/CS130/PropositionalLogic", "unfinished": true},
+                {"title": "Predicate Logic", "url": "/resources/Notes/CS130/PredicateLogic", "unfinished": true},
                 {"title": "Sets", "url": "/resources/Notes/CS130/Sets", "unfinished":true},
                 {"title": "Functions", "url": "#"},
                 {"title": "Countability", "url": "#"}

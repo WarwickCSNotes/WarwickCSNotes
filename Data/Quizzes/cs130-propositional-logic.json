@@ -24,6 +24,20 @@
                 "$\\lnot B \\implies \\lnot A$"
             ],
             "correct": [2]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are the same as \"if $A$ then $B$\"?",
+            "options": [
+                "$A$ is sufficient for $B$",
+                "$B$ is necessary for $A$",
+                "if $\\lnot B$ then $\\lnot A$",
+                "$\\lnot A$ is necessary for $\\lnot B$",
+                "$A \\implies B$",
+                "$B$ is sufficient for $A$",
+                "if $\\lnot A$ then $\\lnot B$"
+            ],
+            "correct": [0, 1, 2, 3]
         }
     ]
 }
