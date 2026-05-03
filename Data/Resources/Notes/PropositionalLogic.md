@@ -29,9 +29,9 @@ $\neg p$ is true exactly when $p$ is false.
 
 ### AND (Conjunction)
 
-$p \wedge q$ is true exactly when both $p$ and $q$ are true.
+$p \land q$ is true exactly when both $p$ and $q$ are true.
 
-| $p$ | $q$ | $p \wedge q$ |
+| $p$ | $q$ | $p \land q$ |
 | --- | --- | --- |
 | T | T | T |
 | T | F | F |
@@ -40,9 +40,9 @@ $p \wedge q$ is true exactly when both $p$ and $q$ are true.
 
 ### OR (Disjunction)
 
-$p \vee q$ is true when at least one of $p$ or $q$ is true.
+$p \lor q$ is true when at least one of $p$ or $q$ is true.
 
-| $p$ | $q$ | $p \vee q$ |
+| $p$ | $q$ | $p \lor q$ |
 | --- | --- | --- |
 | T | T | T |
 | T | F | T |
@@ -60,10 +60,17 @@ $p \rightarrow q$ is false only when $p$ is true and $q$ is false. In every othe
 | F | T | T |
 | F | F | T |
 
+>[!info]- Deriving an alternative formula for implication
+> We can derive an alternative formula for implication using this truth table: by finding a formula to cover each "true" row, we can $\lor$ them together to arrive at a larger formula that represents implication.
+>
+> 1) $q$ being true covers the 1st and 3rd row. We now need to cover just the 4th row.
+> 2) $p$ being false covers the 4th row, so $\neg p$ covers the 4th row.
+> 3) So $\neg p \lor q$ covers the 1st, 3rd, and 4th rows. Hence $(p \rightarrow q) \equiv (\neg p \lor q)$.
+
 >[!info]- How many binary logical operators are there in total?
 > A binary operator on $\{T, F\}$ has $4$ possible inputs ($TT, TF, FT, FF$) and assigns each one to either $T$ or $F$. That gives $2^4 = 16$ distinct binary operators.
 >
-> $\wedge, \vee, \rightarrow$ are three of the more useful ones, but we'll meet others (like XOR and the biconditional) too.
+> $\land, \lor, \rightarrow$ are three of the more useful ones, but we'll meet others (like XOR and the biconditional) too.
 
 ## Close look at Implication
 
@@ -88,11 +95,11 @@ So $p \leftrightarrow q$ ("$p$ if and only if $q$") means $p$ is both sufficient
 > The **contrapositive** of $p \rightarrow q$ is $\neg q \rightarrow \neg p$. The two are logically equivalent:
 > $p \rightarrow q \;\equiv\; \neg q \rightarrow \neg p$.
 >
-> **Proof:** Convert each implication into its disjunctive form using $a \rightarrow b \;\equiv\; \neg a \vee b$:
-> 1. $p \rightarrow q \;\equiv\; \neg p \vee q$
-> 2. By commutativity, $\neg p \vee q \;\equiv\; q \vee \neg p$
-> 3. By double negation, $q \vee \neg p \;\equiv\; \neg(\neg q) \vee \neg p$
-> 4. Re-applying the implication equivalence (in reverse), $\neg(\neg q) \vee \neg p \;\equiv\; \neg q \rightarrow \neg p$.
+> **Proof:** Convert each implication into a form with $\lor$: $a \rightarrow b \;\equiv\; \neg a \lor b$:
+> 1. $p \rightarrow q \;\equiv\; \neg p \lor q$
+> 2. By commutativity, $\neg p \lor q \;\equiv\; q \lor \neg p$
+> 3. By double negation, $q \lor \neg p \;\equiv\; \neg(\neg q) \lor \neg p$
+> 4. Re-applying the implication equivalence (in reverse), $\neg(\neg q) \lor \neg p \;\equiv\; \neg q \rightarrow \neg p$.
 >
 > The contrapositive is often easier to work with than the original: instead of proving "$p$ implies $q$" directly, you can prove "if $q$ fails, then $p$ fails too".
 
@@ -100,14 +107,14 @@ So $p \leftrightarrow q$ ("$p$ if and only if $q$") means $p$ is both sufficient
 
 A **tautology** is a propositional formula that evaluates to true under *every* assignment of its atomic propositions.
 
-The classic example is $p \vee \neg p$ (the law of the excluded middle). Whatever $p$ is, exactly one of $p$ and $\neg p$ is true, so the disjunction is always true:
+The classic example is $p \lor \neg p$ (the law of the excluded middle). Whatever $p$ is, exactly one of $p$ and $\neg p$ is true, so the disjunction is always true:
 
-| $p$ | $\neg p$ | $p \vee \neg p$ |
+| $p$ | $\neg p$ | $p \lor \neg p$ |
 | --- | --- | --- |
 | T | F | T |
 | F | T | T |
 
-The dual concept is a **contradiction**: a formula that is false under every assignment, like $p \wedge \neg p$. A formula that is sometimes true and sometimes false is called a **contingency**.
+The dual concept is a **contradiction**: a formula that is false under every assignment, like $p \land \neg p$. A formula that is sometimes true and sometimes false is called a **contingency**.
 
 ## Propositional Logic Laws
 
@@ -116,14 +123,14 @@ The following laws are equivalences ($\equiv$) you can substitute freely when ma
 | Law | Statement |
 | --- | --- |
 | **Double Negation** | $\neg(\neg p) \equiv p$ |
-| **Idempotence** | $p \wedge p \equiv p$,$\quad$ $p \vee p \equiv p$ |
-| **Commutativity** | $p \wedge q \equiv q \wedge p$,$\quad$ $p \vee q \equiv q \vee p$ |
-| **Associativity** | $(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$,$\quad$ $(p \vee q) \vee r \equiv p \vee (q \vee r)$ |
-| **Distributivity** | $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$,$\quad$ $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$ |
-| **Annihilation** | $p \wedge F \equiv F$,$\quad$ $p \vee T \equiv T$ |
-| **Identity** | $p \wedge T \equiv p$,$\quad$ $p \vee F \equiv p$ |
-| **Absorption** | $p \wedge (p \vee q) \equiv p$,$\quad$ $p \vee (p \wedge q) \equiv p$ |
-| **Excluded Middle** | $p \vee \neg p \equiv T$,$\quad$ $p \wedge \neg p \equiv F$ |
-| **De Morgan's** | $\neg(p \wedge q) \equiv \neg p \vee \neg q$,$\quad$ $\neg(p \vee q) \equiv \neg p \wedge \neg q$ |
+| **Idempotence** | $p \land p \equiv p$,$\quad$ $p \lor p \equiv p$ |
+| **Commutativity** | $p \land q \equiv q \land p$,$\quad$ $p \lor q \equiv q \lor p$ |
+| **Associativity** | $(p \land q) \land r \equiv p \land (q \land r)$,$\quad$ $(p \lor q) \lor r \equiv p \lor (q \lor r)$ |
+| **Distributivity** | $p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$,$\quad$ $p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$ |
+| **Annihilation** | $p \land F \equiv F$,$\quad$ $p \lor T \equiv T$ |
+| **Identity** | $p \land T \equiv p$,$\quad$ $p \lor F \equiv p$ |
+| **Absorption** | $p \land (p \lor q) \equiv p$,$\quad$ $p \lor (p \land q) \equiv p$ |
+| **Excluded Middle** | $p \lor \neg p \equiv T$,$\quad$ $p \land \neg p \equiv F$ |
+| **De Morgan's** | $\neg(p \land q) \equiv \neg p \lor \neg q$,$\quad$ $\neg(p \lor q) \equiv \neg p \land \neg q$ |
 
 These laws let you simplify or rearrange formulas without changing their truth values, and most proofs of equivalence in propositional logic are just chained applications of them.
