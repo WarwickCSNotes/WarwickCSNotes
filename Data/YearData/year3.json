@@ -53,7 +53,8 @@
                 {"title": "Biological Neurons", "url": "/quizzes/cs331-biological-neurons"},
                 {"title": "MP Neuron", "url": "/quizzes/cs331-mp-neuron"},
                 {"title": "MP Neuron vs Perceptron", "url": "/quizzes/cs331-mp-neuron-vs-perceptron"},
-                {"title": "Perceptron Learning", "url": "/quizzes/cs331-perceptron-learning", "unfinished": true}
+                {"title": "Perceptron Learning", "url": "/quizzes/cs331-perceptron-learning", "unfinished": true},
+                {"title": "Activation Functions", "url": "/quizzes/cs331-activation-functions"}
             ]
         },
         "CS342": {

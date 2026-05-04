@@ -3,5 +3,6 @@
     "cs331-biological-neurons.json": ["EdDenton"],
     "cs331-mp-neuron.json": ["EdDenton"],
     "cs331-mp-neuron-vs-perceptron.json": ["EdDenton"],
-    "cs331-perceptron-learning.json": ["EdDenton"]
+    "cs331-perceptron-learning.json": ["EdDenton"],
+    "cs331-activation-functions.json": ["LucySiket"]
 }
