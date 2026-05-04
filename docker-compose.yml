@@ -1,11 +1,14 @@
-version: '3.8'
-
 services:
   csnotes:
     image: ghcr.io/warwickcsnotes/warwickcsnotes:latest
     container_name: warwickcsnotes
-    ports:
-      - "5422:3000"
     environment:
       - VIRTUAL_HOST=csnotes
+    ports:
+      - 5422:3000
     restart: unless-stopped
+    networks:
+      - csnotes
+
+networks:
+  csnotes:
