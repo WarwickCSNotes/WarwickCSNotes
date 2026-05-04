@@ -41,6 +41,14 @@
             "github": "https://github.com/Flynt-251",
             "linkedin": "https://www.linkedin.com/in/finn-m-00b258229/",
             "image": "https://github.com/Flynt-251.png"
+        },
+        {
+            "id": "LucySiket",
+            "name": "Lucy Siket",
+            "role": "Quiz Contributor",
+            "github": "https://github.com/lucysiket",
+            "linkedin": "https://www.linkedin.com/in/lucy-siket/",
+            "image": "/api/credits/images/LucySiket.png"
         }
     ]
 }

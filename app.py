@@ -12,6 +12,7 @@ YEAR_DATA_DIR = os.path.join(DATA_DIR, "YearData")
 QUIZ_DIR = os.path.join(DATA_DIR, "Quizzes")
 CREDITS_DIR = os.path.join(DATA_DIR, "Credits")
 CREDITS_FILE = os.path.join(CREDITS_DIR, "people.json")
+CREDITS_IMAGES_DIR = os.path.join(CREDITS_DIR, "Images")
 REVIEWS_DIR = os.path.join(DATA_DIR, "Reviews")
 REVIEWS_PER_PAGE = 10
 
@@ -168,6 +169,19 @@ def api_credits_category(category):
         abort(404)
     with open(path) as f:
         return json.load(f)
+
+
+@app.route("/api/credits/images/<filename>")
+def api_credits_image(filename):
+    """Serve a contributor photo from Data/Credits/Images/.
+    Used as the `image` URL for people who supply their own avatar instead
+    of falling back to the GitHub-hosted convention."""
+    if "/" in filename or "\\" in filename or filename.startswith("."):
+        abort(404)
+    path = os.path.join(CREDITS_IMAGES_DIR, filename)
+    if not os.path.isfile(path):
+        abort(404)
+    return send_from_directory(CREDITS_IMAGES_DIR, filename)
 
 
 @app.route("/api/quizzes")
