@@ -15,6 +15,11 @@ function InlineRendered({ children }: { children: string }) {
       components={{
         // Strip the default <p> wrapper so this stays inline.
         p: ({ children }) => <>{children}</>,
+        // Force images to break onto their own line so they don't blow out
+        // inline contexts like prompts and dropdown options.
+        img: ({ src, alt }) => (
+          <img src={src} alt={alt ?? ''} className="block my-2 max-w-full rounded border" />
+        ),
       }}
     >
       {children}
@@ -26,6 +31,8 @@ export type TextQuestion = {
   type: "text";
   prompt: string;
   accepted: string[];
+  /** Optional worked solution shown below the input only when the answer is wrong. */
+  explanation?: string;
 };
 
 export type CheckboxQuestion = {
@@ -584,6 +591,21 @@ export function QuizRunner({ questions, pickCount, instaCheck = false }: QuizRun
                         {inputG === "partial" ? "Pretty much, exact answer: " : "Accepted: "}
                         <InlineRendered>{joinOr(q.accepted)}</InlineRendered>
                       </p>
+                    )}
+                    {show && inputG === "wrong" && q.explanation && (
+                      <div className="text-sm text-muted-foreground mt-2 space-y-1">
+                        <ReactMarkdown
+                          remarkPlugins={[remarkMath]}
+                          rehypePlugins={[rehypeKatex]}
+                          components={{
+                            img: ({ src, alt }) => (
+                              <img src={src} alt={alt ?? ''} className="my-2 max-w-full rounded border" />
+                            ),
+                          }}
+                        >
+                          {q.explanation}
+                        </ReactMarkdown>
+                      </div>
                     )}
                   </div>
                 );

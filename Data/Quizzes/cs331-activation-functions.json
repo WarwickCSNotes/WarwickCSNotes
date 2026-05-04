@@ -1,0 +1,89 @@
+{
+    "title": "Activation Functions",
+    "module": "CS331",
+    "description": "",
+    "questions": [
+        {
+            "type": "match",
+            "prompt": "Match each activation function to its name.",
+            "left": [
+                "$f(x) = \\begin{cases} 1 & x \\geq 0 \\\\ 0 & x < 0 \\end{cases}$",
+                "$f(x) = x$",
+                "$\\sigma(x) = \\dfrac{1}{1 + e^{-x}}$",
+                "$\\tanh(x) = \\dfrac{e^{x} - e^{-x}}{e^{x} + e^{-x}}$"
+            ],
+            "right": ["Step", "Linear", "Sigmoid", "Tanh"],
+            "correct": [0, 1, 2, 3]
+        },
+        {
+            "type": "sort",
+            "prompt": "Sort each property into the activation function it describes.",
+            "columns": ["Tanh", "Linear", "Sigmoid"],
+            "items": [
+                "Improves upon sigmoid by being zero centred",
+                "Output is not bounded",
+                "Max value of derivative is $0.25$",
+                "Max value of derivative is $1$",
+                "Derivative is constant so constant gradient descent occurs"
+            ],
+            "correct": [0, 1, 2, 0, 1]
+        },
+        {
+            "type": "match",
+            "prompt": "Select the range for each activation function.",
+            "left": ["Step", "Linear", "Sigmoid", "Tanh"],
+            "right": [
+                "$\\{0, 1\\}$",
+                "$[-\\infty, +\\infty]$",
+                "$[0, 1]$",
+                "$[-1, 1]$"
+            ],
+            "correct": [0, 1, 2, 3]
+        },
+        {
+            "type": "text",
+            "prompt": "Given $\\tanh(2) = \\dfrac{e^{2} - e^{-2}}{e^{2} + e^{-2}} = 0.96$, compute $\\tanh'(2)$.",
+            "accepted": ["0.0784"],
+            "explanation": "$\\tanh'(x) = 1 - \\tanh^{2}(x)$, so $\\tanh'(2) = 1 - \\tanh^{2}(2) = 1 - (0.96)^{2} = 1 - 0.9216 = 0.0784$."
+        },
+        {
+            "type": "text",
+            "prompt": "Perform softmax on the vector $z = [0, 1, 0.245, 0.17, 0.138]$. Round to 3dp at each stage. Give your final answer as a vector.",
+            "accepted": [
+                "[0.136, 0.371, 0.174, 0.162, 0.157]",
+                "0.136, 0.371, 0.174, 0.162, 0.157",
+                "0.136 0.371 0.174 0.162 0.157",
+                "[0.136 0.371 0.174 0.162 0.157]"
+            ],
+            "explanation": "Softmax formula: $\\text{softmax}(z_i) = \\dfrac{e^{z_i}}{\\sum_j e^{z_j}}$\n\nExponentiate each value: $e^{z} = [1.000,\\ 2.718,\\ 1.278,\\ 1.185,\\ 1.148]$\n\nSum: $1.000 + 2.718 + 1.278 + 1.185 + 1.148 = 7.329$\n\nDivide each value by $7.329$: $\\text{softmax}(z) = [0.136,\\ 0.371,\\ 0.174,\\ 0.162,\\ 0.157]$"
+        },
+        {
+            "type": "text",
+            "prompt": "What is an application of Maxout?",
+            "accepted": [
+                "MLP",
+                "Multi-layer Perceptron",
+                "Multilayer Perceptron",
+                "Multi Layer Perceptron"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "Given $x_1 = 2$ and $x_2 = 1$, compute the output $y$ of the Maxout unit shown.\n\n![Maxout Unit](/Resources/Images/MaxoutUnit.png)",
+            "accepted": ["3", "$3$", "y = 3", "y=3"],
+            "explanation": "Each internal unit is a linear combination of the inputs plus a bias; the output is the maximum.\n\n$z_1 = 2x_1 + 1 \\cdot x_2 + (-2) = 2(2) + 1 - 2 = 3$\n\n$z_2 = 0 \\cdot x_1 + (-2)x_2 + 2 = 0 - 2 + 2 = 0$\n\n$z_3 = -3x_1 + 3x_2 + (-1) = -6 + 3 - 1 = -4$\n\n$y = \\max(z_1, z_2, z_3) = \\max(3, 0, -4) = 3$"
+        },
+        {
+            "type": "match",
+            "prompt": "Match each variation of ReLU to its description.",
+            "left": ["ReLU", "Leaky ReLU", "PReLU", "ELU"],
+            "right": [
+                "$\\max(0, x)$",
+                "$\\max(\\alpha x, x)$ where $\\alpha$ is user-specified",
+                "$\\max(\\alpha x, x)$ where $\\alpha$ is learned",
+                "$f(x) = \\begin{cases} x & x \\geq 0 \\\\ \\alpha(e^{x} - 1) & x < 0 \\end{cases}$"
+            ],
+            "correct": [0, 1, 2, 3]
+        }
+    ]
+}
