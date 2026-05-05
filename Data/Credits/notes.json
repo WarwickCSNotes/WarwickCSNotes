@@ -13,7 +13,6 @@
     "SMPCacheCoherence.md": ["Flynt"],
     "MultithreadingMulticore.md": ["Flynt"],
     "StateOfTheArt.md": ["Flynt"],
-
     "ApplicationLayer.md": ["Expiracy"],
     "ComputerNetworks.md": ["Expiracy"],
     "DeadlocksAndSynchronisation.md": ["Expiracy"],
