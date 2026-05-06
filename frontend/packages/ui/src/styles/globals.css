@@ -148,6 +148,50 @@
     color: var(--primary);
 }
 
+/* contrast: pure black/white with a bright yellow accent and hard-line
+   borders. Designed for accessibility — every text/background pair clears
+   WCAG AAA, and there is no faint "muted" grey that disappears for users
+   with low vision. */
+.contrast {
+    --background: oklch(0 0 0);
+    --foreground: oklch(1 0 0);
+    --card: oklch(0 0 0);
+    --card-foreground: oklch(1 0 0);
+    --popover: oklch(0 0 0);
+    --popover-foreground: oklch(1 0 0);
+    --primary: oklch(0.95 0.2 95);
+    --primary-foreground: oklch(0 0 0);
+    --secondary: oklch(0.1 0 0);
+    --secondary-foreground: oklch(1 0 0);
+    --muted: oklch(0.1 0 0);
+    --muted-foreground: oklch(1 0 0);
+    --accent: oklch(0.1 0 0);
+    --accent-foreground: oklch(0.95 0.2 95);
+    --destructive: oklch(0.75 0.25 27);
+    --border: oklch(1 0 0);
+    --input: oklch(1 0 0 / 30%);
+    --ring: oklch(0.95 0.2 95);
+    --nav: oklch(0 0 0);
+    --nav-foreground: oklch(1 0 0);
+    --surface: oklch(0.08 0 0);
+    --surface-foreground: oklch(1 0 0);
+    --surface-hover: oklch(0.18 0 0);
+    --detail: oklch(0.95 0.2 95);
+}
+
+.contrast h1, .contrast h2, .contrast h3, .contrast h4,
+.contrast .prose h1, .contrast .prose h2, .contrast .prose h3, .contrast .prose h4 {
+    color: var(--primary);
+}
+
+/* High contrast mode: the default navbar styling renders inactive links at
+   75% opacity, which sits in a low-contrast grey on black. Force solid
+   white and a heavier font weight for accessibility. */
+.contrast nav a {
+    color: oklch(1 0 0) !important;
+    font-weight: 700;
+}
+
 .dragon h1, .dragon h2, .dragon h3, .dragon h4,
 .dragon .prose h1, .dragon .prose h2, .dragon .prose h3, .dragon .prose h4 {
     color: var(--primary);
