@@ -79,6 +79,7 @@ export function Navbar() {
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("contrast")}>High Contrast</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("dragon")}>🐉 Dragon</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("cs141")}>λ 141</DropdownMenuItem>
             </DropdownMenuContent>
