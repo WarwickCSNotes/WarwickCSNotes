@@ -5,11 +5,25 @@ const DropdownContext = React.createContext({ isOpen: false, toggle: () => {}, c
 
 export const DropdownMenu = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = React.useState(false)
-  const toggle = () => setIsOpen(!isOpen)
+  const toggle = () => setIsOpen(prev => !prev)
   const close = () => setIsOpen(false)
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  // Close when the user clicks (or taps) anywhere outside the dropdown.
+  React.useEffect(() => {
+    if (!isOpen) return
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!ref.current) return
+      if (ref.current.contains(event.target as Node)) return
+      setIsOpen(false)
+    }
+    document.addEventListener("pointerdown", handlePointerDown)
+    return () => document.removeEventListener("pointerdown", handlePointerDown)
+  }, [isOpen])
+
   return (
     <DropdownContext.Provider value={{ isOpen, toggle, close }}>
-      <div className="relative inline-block text-left">{children}</div>
+      <div ref={ref} className="relative inline-block text-left">{children}</div>
     </DropdownContext.Provider>
   )
 }
