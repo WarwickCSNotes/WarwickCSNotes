@@ -1,43 +1,109 @@
-import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Page } from "@/components/page";
-import { PageHeader } from "@/components/page-header";
+import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Page } from "@/components/page"
+import { PageHeader } from "@/components/page-header"
+import { SurfaceLink } from "@/components/surface"
+
+type YearModule = {
+  name: string
+  tagline?: string
+  Term?: string | number
+  CATS?: string | number
+}
+
+type YearData = {
+  title: string
+  modules: Record<string, YearModule>
+}
+
+type TermGroupKey = "term1" | "term2" | "multiterm"
+
+const TERM_GROUPS: { key: TermGroupKey; title: string }[] = [
+  { key: "term1", title: "Term 1" },
+  { key: "term2", title: "Term 2" },
+  { key: "multiterm", title: "Multiterm" },
+]
+
+function termGroup(term: string | number | undefined): TermGroupKey {
+  const normalized = String(term ?? "").trim()
+  if (normalized === "1") return "term1"
+  if (normalized === "2") return "term2"
+  return "multiterm"
+}
 
 export const YearPage = () => {
-  const { year } = useParams();
-  const [data, setData] = useState<any>(null);
+  const { year } = useParams()
+  const [data, setData] = useState<YearData | null>(null)
 
   useEffect(() => {
     fetch(`/api/year/${year}`)
-      .then(res => res.json())
-      .then(data => {
-        setData(data);
-        localStorage.setItem('last-year', String(year));
-      });
-  }, [year]);
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        localStorage.setItem("last-year", String(year))
+      })
+  }, [year])
 
   useEffect(() => {
-    document.title = `Year ${year}`;
-  }, [year]);
+    document.title = `Year ${year}`
+  }, [year])
 
-  if (!data) return <Page>Loading...</Page>;
+  if (!data) return <Page>Loading...</Page>
+
+  const groupedModules = Object.entries(data.modules).reduce<
+    Record<TermGroupKey, [string, YearModule][]>
+  >(
+    (groups, entry) => {
+      groups[termGroup(entry[1].Term)].push(entry)
+      return groups
+    },
+    { term1: [], term2: [], multiterm: [] }
+  )
 
   return (
     <Page>
       <PageHeader title={data.title} back={{ to: "/", label: "Dashboard" }} />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {Object.entries(data.modules).map(([code, mod]: [string, any]) => (
-          <Link key={code} to={`/module/${code}`} className="block p-4 bg-surface text-surface-foreground border rounded-lg shadow hover:bg-surface-hover transition-colors">
-            <h6 className="text-sm font-semibold text-primary">{code}</h6>
-            <h5 className="font-bold">{mod.name}</h5>
-            <p className="text-sm text-muted-foreground mt-1">{mod.tagline}</p>
-            <div className="flex gap-3 mt-2">
-              {mod.Term && <span className="text-xs font-medium text-detail">Term {mod.Term}</span>}
-              {mod.CATS && <span className="text-xs font-medium text-detail">{mod.CATS} CATS</span>}
-            </div>
-          </Link>
-        ))}
+      <div className="space-y-8">
+        {TERM_GROUPS.map(({ key, title }) => {
+          const modules = groupedModules[key]
+          if (modules.length === 0) return null
+
+          return (
+            <section key={key}>
+              <h2 className="mb-3 text-2xl font-semibold">{title}</h2>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {modules.map(([code, mod]) => (
+                  <SurfaceLink
+                    key={code}
+                    to={`/module/${code}`}
+                    className="min-h-36 p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    <h6 className="text-sm font-semibold text-primary">
+                      {code}
+                    </h6>
+                    <h5 className="font-bold">{mod.name}</h5>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {mod.tagline}
+                    </p>
+                    <div className="mt-2 flex gap-3">
+                      {mod.Term && (
+                        <span className="text-xs font-medium text-muted-foreground">
+                          Term {mod.Term}
+                        </span>
+                      )}
+                      {mod.CATS && (
+                        <span className="text-xs font-medium text-muted-foreground">
+                          {mod.CATS} CATS
+                        </span>
+                      )}
+                    </div>
+                  </SurfaceLink>
+                ))}
+              </div>
+            </section>
+          )
+        })}
       </div>
     </Page>
-  );
-};
+  )
+}

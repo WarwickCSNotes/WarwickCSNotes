@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
-import "katex/dist/katex.min.css";
+import { useEffect, useRef, useState } from "react"
+import { ChevronDown } from "lucide-react"
+import ReactMarkdown from "react-markdown"
+import remarkMath from "remark-math"
+import rehypeKatex from "rehype-katex"
+import "katex/dist/katex.min.css"
 
 /** Renders a short piece of text with inline markdown + LaTeX (via $...$).
  *  No block wrapping, so it can sit inside buttons, labels, option rows. */
@@ -18,66 +18,70 @@ function InlineRendered({ children }: { children: string }) {
         // Force images to break onto their own line so they don't blow out
         // inline contexts like prompts and dropdown options.
         img: ({ src, alt }) => (
-          <img src={src} alt={alt ?? ''} className="block my-2 max-w-full rounded border" />
+          <img
+            src={src}
+            alt={alt ?? ""}
+            className="my-2 block max-w-full rounded border"
+          />
         ),
       }}
     >
       {children}
     </ReactMarkdown>
-  );
+  )
 }
 
 export type TextQuestion = {
-  type: "text";
-  prompt: string;
-  accepted: string[];
+  type: "text"
+  prompt: string
+  accepted: string[]
   /** Optional worked solution shown below the input only when the answer is wrong. */
-  explanation?: string;
-};
+  explanation?: string
+}
 
 export type CheckboxQuestion = {
-  type: "checkbox";
-  prompt: string;
-  options: string[];
-  correct: number[];
-};
+  type: "checkbox"
+  prompt: string
+  options: string[]
+  correct: number[]
+}
 
 export type MatchQuestion = {
-  type: "match";
-  prompt: string;
-  left: string[];
-  right: string[];
-  correct: number[];
-};
+  type: "match"
+  prompt: string
+  left: string[]
+  right: string[]
+  correct: number[]
+}
 
 /** "Name N things" question: N text slots, any order. Each accepted answer
  *  can only satisfy one slot (no duplicates). */
 export type MultiTextQuestion = {
-  type: "multitext";
-  prompt: string;
-  slots: number;
-  accepted: string[];
-};
+  type: "multitext"
+  prompt: string
+  slots: number
+  accepted: string[]
+}
 
 /** Drag items from a pool into one of N columns. Each item belongs to exactly
  *  one correct column. correct[i] gives the correct column index for items[i]. */
 export type SortQuestion = {
-  type: "sort";
-  prompt: string;
-  columns: string[];
-  items: string[];
-  correct: number[];
-};
+  type: "sort"
+  prompt: string
+  columns: string[]
+  items: string[]
+  correct: number[]
+}
 
 export type Question =
   | TextQuestion
   | CheckboxQuestion
   | MatchQuestion
   | MultiTextQuestion
-  | SortQuestion;
+  | SortQuestion
 
-type Answer = string | number[] | string[];
-type Correctness = "correct" | "partial" | "wrong";
+type Answer = string | number[] | string[]
+type Correctness = "correct" | "partial" | "wrong"
 
 /** A partial match against a single accepted answer. Intentionally strict so
  *  that "o" doesn't count for "soma". Accepts:
@@ -85,46 +89,51 @@ type Correctness = "correct" | "partial" | "wrong";
  *   2. extra last letter added   ("somas" -> "soma")
  *   3. accepted answer contained within the user's input ("the soma" -> "soma") */
 function isPartialMatch(user: string, accepted: string): boolean {
-  if (user.length + 1 === accepted.length && accepted.startsWith(user)) return true;
-  if (user.length === accepted.length + 1 && user.startsWith(accepted)) return true;
-  if (user.length > accepted.length && user.includes(accepted)) return true;
-  return false;
+  if (user.length + 1 === accepted.length && accepted.startsWith(user))
+    return true
+  if (user.length === accepted.length + 1 && user.startsWith(accepted))
+    return true
+  if (user.length > accepted.length && user.includes(accepted)) return true
+  return false
 }
 
 function gradeText(q: TextQuestion, ans: string): Correctness {
-  const user = ans.trim().toLowerCase();
-  if (user === "") return "wrong";
+  const user = ans.trim().toLowerCase()
+  if (user === "") return "wrong"
   for (const a of q.accepted) {
-    if (a.toLowerCase() === user) return "correct";
+    if (a.toLowerCase() === user) return "correct"
   }
   for (const a of q.accepted) {
-    if (isPartialMatch(user, a.toLowerCase())) return "partial";
+    if (isPartialMatch(user, a.toLowerCase())) return "partial"
   }
-  return "wrong";
+  return "wrong"
 }
 
-type SlotResult = { state: Correctness; acceptedIdx: number };
+type SlotResult = { state: Correctness; acceptedIdx: number }
 
 /** For a multitext question, grades each slot independently. Each accepted
  *  answer can only satisfy one slot. Prefers exact matches first so a partial
  *  match on one slot doesn't steal an accepted answer that another slot could
  *  match exactly. */
 function matchMultiText(q: MultiTextQuestion, slots: string[]): SlotResult[] {
-  const results: SlotResult[] = slots.map(() => ({ state: "wrong", acceptedIdx: -1 }));
-  const claimed = new Set<number>();
-  const normalisedSlots = slots.map(s => s.trim().toLowerCase());
-  const normalisedAccepted = q.accepted.map(a => a.toLowerCase());
+  const results: SlotResult[] = slots.map(() => ({
+    state: "wrong",
+    acceptedIdx: -1,
+  }))
+  const claimed = new Set<number>()
+  const normalisedSlots = slots.map((s) => s.trim().toLowerCase())
+  const normalisedAccepted = q.accepted.map((a) => a.toLowerCase())
 
   // Pass 1: exact matches
   for (let s = 0; s < slots.length; s++) {
-    const user = normalisedSlots[s]!;
-    if (user === "") continue;
+    const user = normalisedSlots[s]!
+    if (user === "") continue
     for (let a = 0; a < q.accepted.length; a++) {
-      if (claimed.has(a)) continue;
+      if (claimed.has(a)) continue
       if (normalisedAccepted[a] === user) {
-        results[s] = { state: "correct", acceptedIdx: a };
-        claimed.add(a);
-        break;
+        results[s] = { state: "correct", acceptedIdx: a }
+        claimed.add(a)
+        break
       }
     }
   }
@@ -132,104 +141,105 @@ function matchMultiText(q: MultiTextQuestion, slots: string[]): SlotResult[] {
   // Pass 2: strict partials (one-off spelling or accepted contained in user)
   // for slots not yet matched. See isPartialMatch for the exact rules.
   for (let s = 0; s < slots.length; s++) {
-    if (results[s]!.state !== "wrong") continue;
-    const user = normalisedSlots[s]!;
-    if (user === "") continue;
+    if (results[s]!.state !== "wrong") continue
+    const user = normalisedSlots[s]!
+    if (user === "") continue
     for (let a = 0; a < q.accepted.length; a++) {
-      if (claimed.has(a)) continue;
+      if (claimed.has(a)) continue
       if (isPartialMatch(user, normalisedAccepted[a]!)) {
-        results[s] = { state: "partial", acceptedIdx: a };
-        claimed.add(a);
-        break;
+        results[s] = { state: "partial", acceptedIdx: a }
+        claimed.add(a)
+        break
       }
     }
   }
 
-  return results;
+  return results
 }
 
 function grade(q: Question, ans: Answer | undefined): Correctness {
-  if (ans === undefined) return "wrong";
-  if (q.type === "text") return gradeText(q, String(ans));
+  if (ans === undefined) return "wrong"
+  if (q.type === "text") return gradeText(q, String(ans))
   if (q.type === "checkbox") {
-    const selected = (ans as number[]).slice().sort();
-    const correct = q.correct.slice().sort();
+    const selected = (ans as number[]).slice().sort()
+    const correct = q.correct.slice().sort()
     const allCorrect =
-      selected.length === correct.length && selected.every((v, i) => v === correct[i]);
-    return allCorrect ? "correct" : "wrong";
+      selected.length === correct.length &&
+      selected.every((v, i) => v === correct[i])
+    return allCorrect ? "correct" : "wrong"
   }
   if (q.type === "multitext") {
-    const slots = (ans as string[]);
-    const matches = matchMultiText(q, slots);
-    const exact = matches.filter(m => m.state === "correct").length;
-    const anyMatch = matches.filter(m => m.state !== "wrong").length;
-    if (exact === q.slots) return "correct";
-    if (anyMatch > 0) return "partial";
-    return "wrong";
+    const slots = ans as string[]
+    const matches = matchMultiText(q, slots)
+    const exact = matches.filter((m) => m.state === "correct").length
+    const anyMatch = matches.filter((m) => m.state !== "wrong").length
+    if (exact === q.slots) return "correct"
+    if (anyMatch > 0) return "partial"
+    return "wrong"
   }
   if (q.type === "sort") {
-    const placement = ans as number[];
-    const hits = q.correct.filter((c, idx) => placement[idx] === c).length;
-    if (hits === q.items.length) return "correct";
-    if (hits > 0) return "partial";
-    return "wrong";
+    const placement = ans as number[]
+    const hits = q.correct.filter((c, idx) => placement[idx] === c).length
+    if (hits === q.items.length) return "correct"
+    if (hits > 0) return "partial"
+    return "wrong"
   }
-  const choice = ans as number[];
-  return q.correct.every((c, i) => choice[i] === c) ? "correct" : "wrong";
+  const choice = ans as number[]
+  return q.correct.every((c, i) => choice[i] === c) ? "correct" : "wrong"
 }
 
 /** Points awarded for a question. Most question types are all-or-nothing,
  *  but multitext is graded per-slot so a quiz total reflects actual progress. */
 function pointsFor(q: Question, ans: Answer | undefined): number {
-  if (ans === undefined) return 0;
+  if (ans === undefined) return 0
   if (q.type === "multitext") {
-    const slots = ans as string[];
-    const matches = matchMultiText(q, slots);
-    const hits = matches.filter(m => m.state !== "wrong").length;
-    return hits / q.slots;
+    const slots = ans as string[]
+    const matches = matchMultiText(q, slots)
+    const hits = matches.filter((m) => m.state !== "wrong").length
+    return hits / q.slots
   }
   if (q.type === "sort") {
-    const placement = ans as number[];
-    const hits = q.correct.filter((c, idx) => placement[idx] === c).length;
-    return hits / q.items.length;
+    const placement = ans as number[]
+    const hits = q.correct.filter((c, idx) => placement[idx] === c).length
+    return hits / q.items.length
   }
-  return grade(q, ans) === "wrong" ? 0 : 1;
+  return grade(q, ans) === "wrong" ? 0 : 1
 }
 
 /** "a", "a or b", "a, b or c", "a, b, c or d". */
 function joinOr(items: string[]): string {
-  if (items.length <= 1) return items[0] ?? "";
-  if (items.length === 2) return `${items[0]} or ${items[1]}`;
-  return `${items.slice(0, -1).join(", ")} or ${items[items.length - 1]}`;
+  if (items.length <= 1) return items[0] ?? ""
+  if (items.length === 2) return `${items[0]} or ${items[1]}`
+  return `${items.slice(0, -1).join(", ")} or ${items[items.length - 1]}`
 }
 
 function formatScore(n: number): string {
   // Round to 2dp, strip trailing zeros so "3", "3.5", "3.33" all look clean.
-  const rounded = Math.round(n * 100) / 100;
-  if (Number.isInteger(rounded)) return String(rounded);
-  return rounded.toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+  const rounded = Math.round(n * 100) / 100
+  if (Number.isInteger(rounded)) return String(rounded)
+  return rounded.toFixed(2).replace(/0+$/, "").replace(/\.$/, "")
 }
 
 function shuffle<T>(arr: T[]): T[] {
-  const pool = arr.slice();
+  const pool = arr.slice()
   for (let i = pool.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j]!, pool[i]!];
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[pool[i], pool[j]] = [pool[j]!, pool[i]!]
   }
-  return pool;
+  return pool
 }
 
 /** Shuffle the right-hand options of a match question so the dropdowns aren't
  *  in the same order every attempt. correct[] is rewritten to point at the
  *  options' new indices, so grading code is unchanged. */
 function randomiseMatchOrder(q: Question): Question {
-  if (q.type !== "match") return q;
-  const perm = shuffle(q.right.map((_, i) => i));
+  if (q.type !== "match") return q
+  const perm = shuffle(q.right.map((_, i) => i))
   return {
     ...q,
-    right: perm.map(i => q.right[i]!),
-    correct: q.correct.map(c => perm.indexOf(c)),
-  };
+    right: perm.map((i) => q.right[i]!),
+    correct: q.correct.map((c) => perm.indexOf(c)),
+  }
 }
 
 /** Custom dropdown that wraps long option text, unlike a native <select>. */
@@ -240,46 +250,49 @@ function WrappingSelect({
   disabled,
   placeholder,
 }: {
-  options: string[];
-  value: number;
-  onChange: (next: number) => void;
-  disabled: boolean;
-  placeholder: string;
+  options: string[]
+  value: number
+  onChange: (next: number) => void
+  disabled: boolean
+  placeholder: string
 }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!open) return;
+    if (!open) return
     const onDown = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", onDown);
-    return () => document.removeEventListener("mousedown", onDown);
-  }, [open]);
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener("mousedown", onDown)
+    return () => document.removeEventListener("mousedown", onDown)
+  }, [open])
 
-  const label = value >= 0 ? options[value]! : placeholder;
-  const isPlaceholder = value < 0;
+  const label = value >= 0 ? options[value]! : placeholder
+  const isPlaceholder = value < 0
 
   return (
-    <div ref={ref} className="relative flex-1 min-w-0">
+    <div ref={ref} className="relative min-w-0 flex-1">
       <button
         type="button"
         disabled={disabled}
-        onClick={() => setOpen(o => !o)}
-        className="w-full p-2 border rounded bg-background text-foreground text-left flex items-start gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-start gap-2 rounded border bg-background p-2 text-left text-foreground disabled:cursor-not-allowed disabled:opacity-70"
       >
-        <span className="flex-1 min-w-0 whitespace-normal break-words">
+        <span className="min-w-0 flex-1 wrap-break-word whitespace-normal">
           {isPlaceholder ? label : <InlineRendered>{label}</InlineRendered>}
         </span>
-        <ChevronDown className="h-4 w-4 mt-0.5 shrink-0 opacity-70" />
+        <ChevronDown className="mt-0.5 h-4 w-4 shrink-0 opacity-70" />
       </button>
       {open && (
-        <div className="absolute z-20 top-full left-0 right-0 mt-1 border rounded bg-popover text-popover-foreground shadow-lg max-h-72 overflow-y-auto">
+        <div className="absolute top-full right-0 left-0 z-20 mt-1 max-h-72 overflow-y-auto rounded border bg-popover text-popover-foreground shadow-lg">
           <button
             type="button"
-            className="w-full p-2 text-left text-sm hover:bg-muted text-muted-foreground"
-            onClick={() => { onChange(-1); setOpen(false); }}
+            className="w-full p-2 text-left text-sm text-muted-foreground hover:bg-muted"
+            onClick={() => {
+              onChange(-1)
+              setOpen(false)
+            }}
           >
             {placeholder}
           </button>
@@ -287,8 +300,11 @@ function WrappingSelect({
             <button
               key={i}
               type="button"
-              className={`w-full p-2 text-left text-sm hover:bg-muted whitespace-normal break-words ${i === value ? "bg-muted" : ""}`}
-              onClick={() => { onChange(i); setOpen(false); }}
+              className={`w-full p-2 text-left text-sm break-words whitespace-normal hover:bg-muted ${i === value ? "bg-muted" : ""}`}
+              onClick={() => {
+                onChange(i)
+                setOpen(false)
+              }}
             >
               <InlineRendered>{opt}</InlineRendered>
             </button>
@@ -296,7 +312,7 @@ function WrappingSelect({
         </div>
       )}
     </div>
-  );
+  )
 }
 
 /** Drag-and-drop sort question. Items live in a "pool" until placed; user drags
@@ -309,52 +325,60 @@ function SortRenderer({
   instaCheck,
   onChange,
 }: {
-  q: SortQuestion;
-  placement: number[];
-  submitted: boolean;
-  instaCheck: boolean;
-  onChange: (next: number[]) => void;
+  q: SortQuestion
+  placement: number[]
+  submitted: boolean
+  instaCheck: boolean
+  onChange: (next: number[]) => void
 }) {
   // Drop zones registered by their column index. -1 is the pool.
-  const zonesRef = useRef<Map<number, HTMLDivElement>>(new Map());
+  const zonesRef = useRef<Map<number, HTMLDivElement>>(new Map())
   const setZone = (col: number) => (el: HTMLDivElement | null) => {
-    if (el) zonesRef.current.set(col, el);
-    else zonesRef.current.delete(col);
-  };
+    if (el) zonesRef.current.set(col, el)
+    else zonesRef.current.delete(col)
+  }
 
   const [drag, setDrag] = useState<{
-    itemIdx: number;
-    pointerX: number;
-    pointerY: number;
-    offsetX: number;
-    offsetY: number;
-    width: number;
-    height: number;
-    overCol: number | null;
-  } | null>(null);
+    itemIdx: number
+    pointerX: number
+    pointerY: number
+    offsetX: number
+    offsetY: number
+    width: number
+    height: number
+    overCol: number | null
+  } | null>(null)
 
   const findColAt = (x: number, y: number): number | null => {
     for (const [col, el] of zonesRef.current) {
-      const rect = el.getBoundingClientRect();
-      if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
-        return col;
+      const rect = el.getBoundingClientRect()
+      if (
+        x >= rect.left &&
+        x <= rect.right &&
+        y >= rect.top &&
+        y <= rect.bottom
+      ) {
+        return col
       }
     }
-    return null;
-  };
+    return null
+  }
 
   const moveItem = (itemIdx: number, col: number) => {
-    if (submitted) return;
-    const next = placement.slice();
-    next[itemIdx] = col;
-    onChange(next);
-  };
+    if (submitted) return
+    const next = placement.slice()
+    next[itemIdx] = col
+    onChange(next)
+  }
 
-  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>, itemIdx: number) => {
-    if (submitted) return;
-    const target = e.currentTarget;
-    const rect = target.getBoundingClientRect();
-    target.setPointerCapture(e.pointerId);
+  const onPointerDown = (
+    e: React.PointerEvent<HTMLDivElement>,
+    itemIdx: number
+  ) => {
+    if (submitted) return
+    const target = e.currentTarget
+    const rect = target.getBoundingClientRect()
+    target.setPointerCapture(e.pointerId)
     setDrag({
       itemIdx,
       pointerX: e.clientX,
@@ -364,95 +388,111 @@ function SortRenderer({
       width: rect.width,
       height: rect.height,
       overCol: null,
-    });
-  };
+    })
+  }
 
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>, itemIdx: number) => {
-    if (!drag || drag.itemIdx !== itemIdx) return;
-    const overCol = findColAt(e.clientX, e.clientY);
-    setDrag(d => (d ? { ...d, pointerX: e.clientX, pointerY: e.clientY, overCol } : null));
-  };
+  const onPointerMove = (
+    e: React.PointerEvent<HTMLDivElement>,
+    itemIdx: number
+  ) => {
+    if (!drag || drag.itemIdx !== itemIdx) return
+    const overCol = findColAt(e.clientX, e.clientY)
+    setDrag((d) =>
+      d ? { ...d, pointerX: e.clientX, pointerY: e.clientY, overCol } : null
+    )
+  }
 
-  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>, itemIdx: number) => {
-    if (!drag || drag.itemIdx !== itemIdx) return;
+  const onPointerUp = (
+    e: React.PointerEvent<HTMLDivElement>,
+    itemIdx: number
+  ) => {
+    if (!drag || drag.itemIdx !== itemIdx) return
     if (e.currentTarget.hasPointerCapture(e.pointerId)) {
-      e.currentTarget.releasePointerCapture(e.pointerId);
+      e.currentTarget.releasePointerCapture(e.pointerId)
     }
-    if (drag.overCol !== null) moveItem(itemIdx, drag.overCol);
-    setDrag(null);
-  };
+    if (drag.overCol !== null) moveItem(itemIdx, drag.overCol)
+    setDrag(null)
+  }
 
   // Show feedback per item: on full submit, or in insta-check mode once the
   // item has been placed in a column (still-in-pool items stay neutral).
   const itemFeedback = (itemIdx: number): Correctness | null => {
-    const col = placement[itemIdx];
-    if (col === undefined || col < 0) return submitted ? "wrong" : null;
-    if (!submitted && !instaCheck) return null;
-    return col === q.correct[itemIdx] ? "correct" : "wrong";
-  };
+    const col = placement[itemIdx]
+    if (col === undefined || col < 0) return submitted ? "wrong" : null
+    if (!submitted && !instaCheck) return null
+    return col === q.correct[itemIdx] ? "correct" : "wrong"
+  }
 
   const itemsIn = (col: number): number[] =>
-    placement.map((p, idx) => (p === col ? idx : -1)).filter(idx => idx >= 0);
+    placement.map((p, idx) => (p === col ? idx : -1)).filter((idx) => idx >= 0)
 
   const renderItem = (itemIdx: number, isGhost = false) => {
-    const fb = itemFeedback(itemIdx);
+    const fb = itemFeedback(itemIdx)
     const border =
-      fb === "correct" ? "border-green-500 bg-green-500/10"
-      : fb === "wrong" ? "border-red-500 bg-red-500/10"
-      : "border-border bg-background hover:bg-muted";
-    const isDragSource = drag?.itemIdx === itemIdx && !isGhost;
+      fb === "correct"
+        ? "border-green-500 bg-green-500/10"
+        : fb === "wrong"
+          ? "border-red-500 bg-red-500/10"
+          : "border-border bg-background hover:bg-muted"
+    const isDragSource = drag?.itemIdx === itemIdx && !isGhost
     return (
       <div
         key={itemIdx}
-        onPointerDown={e => onPointerDown(e, itemIdx)}
-        onPointerMove={e => onPointerMove(e, itemIdx)}
-        onPointerUp={e => onPointerUp(e, itemIdx)}
-        onPointerCancel={e => onPointerUp(e, itemIdx)}
-        className={`px-3 py-2 border rounded text-sm select-none ${border} ${
-          submitted ? "cursor-not-allowed" : "cursor-grab active:cursor-grabbing"
+        onPointerDown={(e) => onPointerDown(e, itemIdx)}
+        onPointerMove={(e) => onPointerMove(e, itemIdx)}
+        onPointerUp={(e) => onPointerUp(e, itemIdx)}
+        onPointerCancel={(e) => onPointerUp(e, itemIdx)}
+        className={`rounded border px-3 py-2 text-sm select-none ${border} ${
+          submitted
+            ? "cursor-not-allowed"
+            : "cursor-grab active:cursor-grabbing"
         } ${isDragSource ? "opacity-30" : ""}`}
         style={{ touchAction: "none" }}
       >
         <InlineRendered>{q.items[itemIdx] ?? ""}</InlineRendered>
       </div>
-    );
-  };
+    )
+  }
 
   const zoneClasses = (col: number) => {
-    const isOver = drag?.overCol === col;
+    const isOver = drag?.overCol === col
     return `min-h-20 p-2 border-2 rounded-lg flex flex-col gap-2 transition-colors ${
-      isOver ? "border-primary bg-primary/10" : "border-dashed border-border bg-muted/30"
-    }`;
-  };
+      isOver
+        ? "border-primary bg-primary/10"
+        : "border-dashed border-border bg-muted/30"
+    }`
+  }
 
   return (
     <div className="space-y-3">
       <div>
-        <p className="text-xs text-muted-foreground mb-1">Unsorted</p>
+        <p className="mb-1 text-xs text-muted-foreground">Unsorted</p>
         <div ref={setZone(-1)} className={zoneClasses(-1)}>
           {itemsIn(-1).length === 0 && (
-            <p className="text-xs text-muted-foreground italic px-1">
+            <p className="px-1 text-xs text-muted-foreground italic">
               Drag items here to remove them from a column.
             </p>
           )}
           <div className="flex flex-wrap gap-2">
-            {itemsIn(-1).map(idx => renderItem(idx))}
+            {itemsIn(-1).map((idx) => renderItem(idx))}
           </div>
         </div>
       </div>
-      <div className={`grid gap-3 ${q.columns.length === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"}`}>
+      <div
+        className={`grid gap-3 ${q.columns.length === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"}`}
+      >
         {q.columns.map((col, ci) => (
           <div key={ci}>
-            <p className="text-sm font-medium mb-1">{col}</p>
+            <p className="mb-1 text-sm font-medium">{col}</p>
             <div ref={setZone(ci)} className={zoneClasses(ci)}>
-              {itemsIn(ci).map(idx => renderItem(idx))}
+              {itemsIn(ci).map((idx) => renderItem(idx))}
             </div>
           </div>
         ))}
       </div>
       {drag && (
         <div
-          className="pointer-events-none fixed z-50 px-3 py-2 border rounded text-sm bg-background shadow-lg opacity-90"
+          className="pointer-events-none fixed z-50 rounded border bg-background px-3 py-2 text-sm opacity-90 shadow-lg"
           style={{
             left: drag.pointerX - drag.offsetX,
             top: drag.pointerY - drag.offsetY,
@@ -463,168 +503,204 @@ function SortRenderer({
         </div>
       )}
       {submitted && placement.some((p, idx) => p !== q.correct[idx]) && (
-        <div className="text-sm text-muted-foreground mt-2 space-y-1">
+        <div className="mt-2 space-y-1 text-sm text-muted-foreground">
           {q.items.map((item, idx) =>
             placement[idx] !== q.correct[idx] ? (
               <p key={idx}>
                 <InlineRendered>{item}</InlineRendered>
                 {" → "}
-                <span className="font-medium">{q.columns[q.correct[idx]!]}</span>
+                <span className="font-medium">
+                  {q.columns[q.correct[idx]!]}
+                </span>
               </p>
-            ) : null,
+            ) : null
           )}
         </div>
       )}
     </div>
-  );
+  )
 }
 
 export type QuizRunnerProps = {
-  questions: Question[];
+  questions: Question[]
   /** If set, picks a random subset of this size. Otherwise uses all questions in order. */
-  pickCount?: number;
+  pickCount?: number
   /** If true, Enter/blur on a text input shows that input's feedback immediately
    *  without needing to submit the whole quiz. */
-  instaCheck?: boolean;
-};
+  instaCheck?: boolean
+}
 
-export function QuizRunner({ questions, pickCount, instaCheck = false }: QuizRunnerProps) {
+export function QuizRunner({
+  questions,
+  pickCount,
+  instaCheck = false,
+}: QuizRunnerProps) {
   // Always shuffle so the order varies per attempt. If pickCount is given,
   // take a random subset of that size; otherwise include every question.
   const pick = () => {
-    const shuffled = shuffle(questions);
-    const subset = pickCount !== undefined
-      ? shuffled.slice(0, Math.min(pickCount, questions.length))
-      : shuffled;
-    return subset.map(randomiseMatchOrder);
-  };
+    const shuffled = shuffle(questions)
+    const subset =
+      pickCount !== undefined
+        ? shuffled.slice(0, Math.min(pickCount, questions.length))
+        : shuffled
+    return subset.map(randomiseMatchOrder)
+  }
 
-  const [selected, setSelected] = useState<Question[]>(pick);
-  const [answers, setAnswers] = useState<Record<number, Answer>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [selected, setSelected] = useState<Question[]>(pick)
+  const [answers, setAnswers] = useState<Record<number, Answer>>({})
+  const [submitted, setSubmitted] = useState(false)
   // Snapshot of each input's value at the last insta-check trigger (Enter/blur).
   // Keys: "text-<questionIdx>" for single text, "slot-<questionIdx>-<slotIdx>" for multitext.
   // Feedback is graded against the snapshot so it doesn't update live while
   // the user keeps typing; it only updates on the next Enter/blur.
-  const [snapshots, setSnapshots] = useState<Record<string, string>>({});
+  const [snapshots, setSnapshots] = useState<Record<string, string>>({})
 
   useEffect(() => {
-    setSelected(pick());
-    setAnswers({});
-    setSubmitted(false);
-    setSnapshots({});
+    setSelected(pick())
+    setAnswers({})
+    setSubmitted(false)
+    setSnapshots({})
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [questions]);
+  }, [questions])
 
   // If insta-check turns off, drop snapshots so the UI goes back to
   // "no feedback until submit".
   useEffect(() => {
-    if (!instaCheck) setSnapshots({});
-  }, [instaCheck]);
+    if (!instaCheck) setSnapshots({})
+  }, [instaCheck])
 
-  const hasText = (v: unknown) => typeof v === "string" && v.trim() !== "";
-  const snap = (key: string, value: string) => setSnapshots(s => ({ ...s, [key]: value }));
+  const hasText = (v: unknown) => typeof v === "string" && v.trim() !== ""
+  const snap = (key: string, value: string) =>
+    setSnapshots((s) => ({ ...s, [key]: value }))
   const showText = (i: number) =>
-    submitted || (instaCheck && snapshots[`text-${i}`] !== undefined);
+    submitted || (instaCheck && snapshots[`text-${i}`] !== undefined)
   const showSlot = (i: number, si: number) =>
-    submitted || (instaCheck && snapshots[`slot-${i}-${si}`] !== undefined);
+    submitted || (instaCheck && snapshots[`slot-${i}-${si}`] !== undefined)
   /** Value to grade against: live answer after a full submit, snapshot otherwise. */
   const gradeTextValue = (i: number): string =>
-    submitted ? ((answers[i] as string) ?? "") : (snapshots[`text-${i}`] ?? "");
+    submitted ? ((answers[i] as string) ?? "") : (snapshots[`text-${i}`] ?? "")
   const gradeSlotValue = (i: number, si: number): string =>
     submitted
       ? (((answers[i] as string[] | undefined) ?? [])[si] ?? "")
-      : (snapshots[`slot-${i}-${si}`] ?? "");
+      : (snapshots[`slot-${i}-${si}`] ?? "")
 
   // Score: pointsFor gives 0-1 per question (fractional for multitext so partial
   // answers contribute proportionally). Totals always add up against selected.length.
-  const score = selected.reduce((acc, q, i) => acc + pointsFor(q, answers[i]), 0);
-  const scoreLabel = formatScore(score);
+  const score = selected.reduce(
+    (acc, q, i) => acc + pointsFor(q, answers[i]),
+    0
+  )
+  const scoreLabel = formatScore(score)
 
   const reset = () => {
-    setSelected(pick());
-    setAnswers({});
-    setSubmitted(false);
-    setSnapshots({});
-  };
+    setSelected(pick())
+    setAnswers({})
+    setSubmitted(false)
+    setSnapshots({})
+  }
 
   // Tailwind colour map: partial answers share the correct (green) colour
   // since they score full marks. The "exact answer: X" feedback still
   // distinguishes partial from correct in text.
   const stateBorder = (s: Correctness) =>
-    s === "wrong" ? "border-red-500" : "border-green-500";
+    s === "wrong" ? "border-red-500" : "border-green-500"
   const stateBg = (s: Correctness) =>
-    s === "wrong" ? "bg-red-500/10" : "bg-green-500/10";
+    s === "wrong" ? "bg-red-500/10" : "bg-green-500/10"
 
   return (
     <>
       <div className="space-y-6">
         {selected.map((q, i) => {
-          const g = submitted ? grade(q, answers[i]) : undefined;
-          const cardBorder = g ? stateBorder(g) : "";
+          const g = submitted ? grade(q, answers[i]) : undefined
+          const cardBorder = g ? stateBorder(g) : ""
           return (
             <div
               key={i}
-              className={`p-4 bg-surface text-surface-foreground border rounded-lg ${cardBorder}`}
+              className={`rounded-lg border bg-surface p-4 text-surface-foreground ${cardBorder}`}
             >
-              <p className="font-medium mb-3">
+              <p className="mb-3 font-medium">
                 {i + 1}. <InlineRendered>{q.prompt}</InlineRendered>
               </p>
 
-              {q.type === "text" && (() => {
-                const show = showText(i);
-                const inputG = show ? grade(q, gradeTextValue(i)) : undefined;
-                return (
-                  <div>
-                    <input
-                      type="text"
-                      disabled={submitted}
-                      value={(answers[i] as string) ?? ""}
-                      onChange={e => setAnswers(a => ({ ...a, [i]: e.target.value }))}
-                      onKeyDown={e => { if (instaCheck && e.key === 'Enter' && hasText(e.currentTarget.value)) snap(`text-${i}`, e.currentTarget.value); }}
-                      onBlur={e => { if (instaCheck && hasText(e.currentTarget.value)) snap(`text-${i}`, e.currentTarget.value); }}
-                      className={`w-full p-2 border rounded bg-background text-foreground ${inputG ? stateBorder(inputG) : ""}`}
-                      placeholder="Type your answer..."
-                    />
-                    {show && inputG !== "correct" && (
-                      <p className="text-sm text-muted-foreground mt-2">
-                        {inputG === "partial" ? "Pretty much, exact answer: " : "Accepted: "}
-                        <InlineRendered>{joinOr(q.accepted)}</InlineRendered>
-                      </p>
-                    )}
-                    {show && inputG === "wrong" && q.explanation && (
-                      <div className="text-sm text-muted-foreground mt-2 space-y-1">
-                        <ReactMarkdown
-                          remarkPlugins={[remarkMath]}
-                          rehypePlugins={[rehypeKatex]}
-                          components={{
-                            img: ({ src, alt }) => (
-                              <img src={src} alt={alt ?? ''} className="my-2 max-w-full rounded border" />
-                            ),
-                          }}
-                        >
-                          {q.explanation}
-                        </ReactMarkdown>
-                      </div>
-                    )}
-                  </div>
-                );
-              })()}
+              {q.type === "text" &&
+                (() => {
+                  const show = showText(i)
+                  const inputG = show ? grade(q, gradeTextValue(i)) : undefined
+                  return (
+                    <div>
+                      <input
+                        type="text"
+                        disabled={submitted}
+                        value={(answers[i] as string) ?? ""}
+                        onChange={(e) =>
+                          setAnswers((a) => ({ ...a, [i]: e.target.value }))
+                        }
+                        onKeyDown={(e) => {
+                          if (
+                            instaCheck &&
+                            e.key === "Enter" &&
+                            hasText(e.currentTarget.value)
+                          )
+                            snap(`text-${i}`, e.currentTarget.value)
+                        }}
+                        onBlur={(e) => {
+                          if (instaCheck && hasText(e.currentTarget.value))
+                            snap(`text-${i}`, e.currentTarget.value)
+                        }}
+                        className={`w-full rounded border bg-background p-2 text-foreground ${inputG ? stateBorder(inputG) : ""}`}
+                        placeholder="Type your answer..."
+                      />
+                      {show && inputG !== "correct" && (
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          {inputG === "partial"
+                            ? "Pretty much, exact answer: "
+                            : "Accepted: "}
+                          <InlineRendered>{joinOr(q.accepted)}</InlineRendered>
+                        </p>
+                      )}
+                      {show && inputG === "wrong" && q.explanation && (
+                        <div className="mt-2 space-y-1 text-sm text-muted-foreground">
+                          <ReactMarkdown
+                            remarkPlugins={[remarkMath]}
+                            rehypePlugins={[rehypeKatex]}
+                            components={{
+                              img: ({ src, alt }) => (
+                                <img
+                                  src={src}
+                                  alt={alt ?? ""}
+                                  className="my-2 max-w-full rounded border"
+                                />
+                              ),
+                            }}
+                          >
+                            {q.explanation}
+                          </ReactMarkdown>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })()}
 
               {q.type === "checkbox" && (
                 <div className="space-y-2">
                   {q.options.map((opt, j) => {
-                    const isChecked = ((answers[i] as number[]) ?? []).includes(j);
-                    const isCorrectChoice = submitted && q.correct.includes(j);
-                    const isWrongChoice = submitted && isChecked && !q.correct.includes(j);
+                    const isChecked = ((answers[i] as number[]) ?? []).includes(
+                      j
+                    )
+                    const isCorrectChoice = submitted && q.correct.includes(j)
+                    const isWrongChoice =
+                      submitted && isChecked && !q.correct.includes(j)
                     return (
                       <label
                         key={j}
-                        className={`block p-2 border rounded cursor-pointer transition-colors ${
-                          isCorrectChoice ? "border-green-500 bg-green-500/10" :
-                          isWrongChoice ? "border-red-500 bg-red-500/10" :
-                          isChecked ? "border-primary bg-primary/10" :
-                          "hover:bg-muted"
+                        className={`block cursor-pointer rounded border p-2 transition-colors ${
+                          isCorrectChoice
+                            ? "border-green-500 bg-green-500/10"
+                            : isWrongChoice
+                              ? "border-red-500 bg-red-500/10"
+                              : isChecked
+                                ? "border-primary bg-primary/10"
+                                : "hover:bg-muted"
                         }`}
                       >
                         <input
@@ -632,106 +708,144 @@ export function QuizRunner({ questions, pickCount, instaCheck = false }: QuizRun
                           className="mr-2"
                           disabled={submitted}
                           checked={isChecked}
-                          onChange={() => setAnswers(a => {
-                            const cur = ((a[i] as number[]) ?? []).slice();
-                            const idx = cur.indexOf(j);
-                            if (idx >= 0) cur.splice(idx, 1); else cur.push(j);
-                            return { ...a, [i]: cur };
-                          })}
+                          onChange={() =>
+                            setAnswers((a) => {
+                              const cur = ((a[i] as number[]) ?? []).slice()
+                              const idx = cur.indexOf(j)
+                              if (idx >= 0) cur.splice(idx, 1)
+                              else cur.push(j)
+                              return { ...a, [i]: cur }
+                            })
+                          }
                         />
                         <InlineRendered>{opt}</InlineRendered>
                       </label>
-                    );
+                    )
                   })}
                 </div>
               )}
 
-              {q.type === "multitext" && (() => {
-                const liveSlots: string[] = (answers[i] as string[]) ?? Array(q.slots).fill("");
-                // Grade against snapshots when not submitted, live values after submit.
-                const gradingSlots: string[] = Array.from({ length: q.slots }).map(
-                  (_, si) => gradeSlotValue(i, si)
-                );
-                const slotResults = matchMultiText(q, gradingSlots);
-                const used = new Set(
-                  slotResults
-                    .filter(r => r.acceptedIdx >= 0)
-                    .map(r => r.acceptedIdx)
-                );
-                const missing = q.accepted.filter((_, idx) => !used.has(idx));
-                return (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-3">
-                    {Array.from({ length: q.slots }).map((_, si) => {
-                      const show = showSlot(i, si);
-                      const slotResult = show ? slotResults[si] : undefined;
-                      const slotG: Correctness | undefined = slotResult?.state;
-                      return (
-                        <div key={si}>
-                          <input
-                            type="text"
-                            disabled={submitted}
-                            value={liveSlots[si] ?? ""}
-                            onChange={e => setAnswers(a => {
-                              const cur = ((a[i] as string[]) ?? Array(q.slots).fill("")).slice();
-                              cur[si] = e.target.value;
-                              return { ...a, [i]: cur };
-                            })}
-                            onKeyDown={e => { if (instaCheck && e.key === 'Enter' && hasText(e.currentTarget.value)) snap(`slot-${i}-${si}`, e.currentTarget.value); }}
-                            onBlur={e => { if (instaCheck && hasText(e.currentTarget.value)) snap(`slot-${i}-${si}`, e.currentTarget.value); }}
-                            className={`w-full p-2 border rounded bg-background text-foreground ${slotG ? stateBorder(slotG) : ""}`}
-                            placeholder={`Answer ${si + 1}...`}
-                          />
-                          {slotResult && slotResult.state === "partial" && slotResult.acceptedIdx >= 0 && (
-                            <p className="text-xs text-muted-foreground mt-1">
-                              Pretty much, exact answer:{" "}
-                              <InlineRendered>{q.accepted[slotResult.acceptedIdx] ?? ""}</InlineRendered>
-                            </p>
-                          )}
-                          {submitted && slotResult && slotResult.state === "wrong" && missing.length > 0 && (
-                            <p className="text-xs text-muted-foreground mt-1">
-                              Accepted: {joinOr(missing)}
-                            </p>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })()}
+              {q.type === "multitext" &&
+                (() => {
+                  const liveSlots: string[] =
+                    (answers[i] as string[]) ?? Array(q.slots).fill("")
+                  // Grade against snapshots when not submitted, live values after submit.
+                  const gradingSlots: string[] = Array.from({
+                    length: q.slots,
+                  }).map((_, si) => gradeSlotValue(i, si))
+                  const slotResults = matchMultiText(q, gradingSlots)
+                  const used = new Set(
+                    slotResults
+                      .filter((r) => r.acceptedIdx >= 0)
+                      .map((r) => r.acceptedIdx)
+                  )
+                  const missing = q.accepted.filter((_, idx) => !used.has(idx))
+                  return (
+                    <div className="grid grid-cols-1 gap-x-3 gap-y-3 sm:grid-cols-2">
+                      {Array.from({ length: q.slots }).map((_, si) => {
+                        const show = showSlot(i, si)
+                        const slotResult = show ? slotResults[si] : undefined
+                        const slotG: Correctness | undefined = slotResult?.state
+                        return (
+                          <div key={si}>
+                            <input
+                              type="text"
+                              disabled={submitted}
+                              value={liveSlots[si] ?? ""}
+                              onChange={(e) =>
+                                setAnswers((a) => {
+                                  const cur = (
+                                    (a[i] as string[]) ??
+                                    Array(q.slots).fill("")
+                                  ).slice()
+                                  cur[si] = e.target.value
+                                  return { ...a, [i]: cur }
+                                })
+                              }
+                              onKeyDown={(e) => {
+                                if (
+                                  instaCheck &&
+                                  e.key === "Enter" &&
+                                  hasText(e.currentTarget.value)
+                                )
+                                  snap(`slot-${i}-${si}`, e.currentTarget.value)
+                              }}
+                              onBlur={(e) => {
+                                if (
+                                  instaCheck &&
+                                  hasText(e.currentTarget.value)
+                                )
+                                  snap(`slot-${i}-${si}`, e.currentTarget.value)
+                              }}
+                              className={`w-full rounded border bg-background p-2 text-foreground ${slotG ? stateBorder(slotG) : ""}`}
+                              placeholder={`Answer ${si + 1}...`}
+                            />
+                            {slotResult &&
+                              slotResult.state === "partial" &&
+                              slotResult.acceptedIdx >= 0 && (
+                                <p className="mt-1 text-xs text-muted-foreground">
+                                  Pretty much, exact answer:{" "}
+                                  <InlineRendered>
+                                    {q.accepted[slotResult.acceptedIdx] ?? ""}
+                                  </InlineRendered>
+                                </p>
+                              )}
+                            {submitted &&
+                              slotResult &&
+                              slotResult.state === "wrong" &&
+                              missing.length > 0 && (
+                                <p className="mt-1 text-xs text-muted-foreground">
+                                  Accepted: {joinOr(missing)}
+                                </p>
+                              )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )
+                })()}
 
-              {q.type === "sort" && (() => {
-                const placement: number[] =
-                  (answers[i] as number[]) ?? Array(q.items.length).fill(-1);
-                return (
-                  <SortRenderer
-                    q={q}
-                    placement={placement}
-                    submitted={submitted}
-                    instaCheck={instaCheck}
-                    onChange={next => setAnswers(a => ({ ...a, [i]: next }))}
-                  />
-                );
-              })()}
+              {q.type === "sort" &&
+                (() => {
+                  const placement: number[] =
+                    (answers[i] as number[]) ?? Array(q.items.length).fill(-1)
+                  return (
+                    <SortRenderer
+                      q={q}
+                      placement={placement}
+                      submitted={submitted}
+                      instaCheck={instaCheck}
+                      onChange={(next) =>
+                        setAnswers((a) => ({ ...a, [i]: next }))
+                      }
+                    />
+                  )
+                })()}
 
               {q.type === "match" && (
                 <div className="space-y-2">
                   {q.left.map((leftItem, li) => {
-                    const choice = ((answers[i] as number[]) ?? Array(q.left.length).fill(-1))[li] ?? -1;
-                    const correctIdx = q.correct[li];
+                    const choice =
+                      ((answers[i] as number[]) ??
+                        Array(q.left.length).fill(-1))[li] ?? -1
+                    const correctIdx = q.correct[li]
                     // Show feedback on full submit OR, in insta-check mode, as
                     // soon as the user has picked a non-placeholder option.
-                    const showPair = submitted || (instaCheck && choice !== -1);
-                    const itemCorrect = showPair && choice === correctIdx;
-                    const itemWrong = showPair && choice !== correctIdx;
+                    const showPair = submitted || (instaCheck && choice !== -1)
+                    const itemCorrect = showPair && choice === correctIdx
+                    const itemWrong = showPair && choice !== correctIdx
                     return (
                       <div
                         key={li}
-                        className={`flex items-start gap-3 p-2 border rounded ${
-                          itemCorrect ? `border-green-500 ${stateBg("correct")}` :
-                          itemWrong ? `border-red-500 ${stateBg("wrong")}` : ""
+                        className={`flex items-start gap-3 rounded border p-2 ${
+                          itemCorrect
+                            ? `border-green-500 ${stateBg("correct")}`
+                            : itemWrong
+                              ? `border-red-500 ${stateBg("wrong")}`
+                              : ""
                         }`}
                       >
-                        <span className="font-medium w-32 sm:w-40 shrink-0 whitespace-normal break-words">
+                        <span className="w-32 shrink-0 font-medium break-words whitespace-normal sm:w-40">
                           <InlineRendered>{leftItem}</InlineRendered>
                         </span>
                         <span className="pt-2">→</span>
@@ -740,42 +854,52 @@ export function QuizRunner({ questions, pickCount, instaCheck = false }: QuizRun
                           value={choice}
                           disabled={submitted}
                           placeholder="-- choose --"
-                          onChange={(v) => setAnswers(a => {
-                            const cur = ((a[i] as number[]) ?? Array(q.left.length).fill(-1)).slice();
-                            cur[li] = v;
-                            return { ...a, [i]: cur };
-                          })}
+                          onChange={(v) =>
+                            setAnswers((a) => {
+                              const cur = (
+                                (a[i] as number[]) ??
+                                Array(q.left.length).fill(-1)
+                              ).slice()
+                              cur[li] = v
+                              return { ...a, [i]: cur }
+                            })
+                          }
                         />
                       </div>
-                    );
+                    )
                   })}
                   {submitted && g !== "correct" && (
-                    <p className="text-sm text-muted-foreground mt-2">
-                      Correct: {q.left.map((l, li) => `${l} → ${q.right[q.correct[li]!]}`).join("; ")}
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Correct:{" "}
+                      {q.left
+                        .map((l, li) => `${l} → ${q.right[q.correct[li]!]}`)
+                        .join("; ")}
                     </p>
                   )}
                 </div>
               )}
             </div>
-          );
+          )
         })}
       </div>
 
-      <div className="mt-6 flex gap-3 items-center">
+      <div className="mt-6 flex items-center gap-3">
         {!submitted && !instaCheck && (
           <button
             onClick={() => setSubmitted(true)}
-            className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium cursor-pointer"
+            className="cursor-pointer rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
             Submit
           </button>
         )}
         {submitted && (
           <>
-            <span className="text-lg font-semibold">Score: {scoreLabel} / {selected.length}</span>
+            <span className="text-lg font-semibold">
+              Score: {scoreLabel} / {selected.length}
+            </span>
             <button
               onClick={reset}
-              className="px-4 py-2 border rounded-lg text-sm font-medium hover:bg-muted cursor-pointer"
+              className="cursor-pointer rounded-lg border px-4 py-2 text-sm font-medium hover:bg-muted"
             >
               Try again
             </button>
@@ -783,5 +907,5 @@ export function QuizRunner({ questions, pickCount, instaCheck = false }: QuizRun
         )}
       </div>
     </>
-  );
+  )
 }

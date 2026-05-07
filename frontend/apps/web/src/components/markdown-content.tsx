@@ -17,11 +17,10 @@ import {
   FileText,
   Flame,
   ListChecks,
-  Pencil,
   ChevronDown,
 } from "lucide-react";
 
-export function latexToMarkdown(tex: string): string {
+function latexToMarkdown(tex: string): string {
   let md = tex;
   md = md.replace(/\\documentclass(\[.*?\])?\{.*?\}/g, '');
   md = md.replace(/\\usepackage(\[.*?\])?\{.*?\}/g, '');
@@ -52,8 +51,19 @@ type CalloutStyle = {
   title: string;
 };
 
+type MarkdownNode = {
+  type?: string;
+  value?: string;
+  url?: string;
+  alt?: string;
+  children?: MarkdownNode[];
+  data?: {
+    hProperties?: Record<string, unknown>;
+  };
+};
+
 const CALLOUT_TYPES: Record<string, CalloutStyle> = {
-  note:      { label: "Note",      icon: Pencil,        container: "border-blue-500/50 bg-blue-500/10",   title: "text-blue-600 dark:text-blue-400" },
+  note:      { label: "Note",      icon: FileText,      container: "border-blue-500/50 bg-blue-500/10",   title: "text-blue-600 dark:text-blue-400" },
   info:      { label: "Info",      icon: Info,          container: "border-cyan-500/50 bg-cyan-500/10",   title: "text-cyan-600 dark:text-cyan-400" },
   tip:       { label: "Tip",       icon: Lightbulb,     container: "border-teal-500/50 bg-teal-500/10",   title: "text-teal-600 dark:text-teal-400" },
   hint:      { label: "Hint",      icon: Lightbulb,     container: "border-teal-500/50 bg-teal-500/10",   title: "text-teal-600 dark:text-teal-400" },
@@ -83,7 +93,7 @@ const CALLOUT_TYPES: Record<string, CalloutStyle> = {
 // Serialise a list of mdast inline nodes back to markdown source. Good enough
 // for round-tripping the title of a callout so that things like `code`,
 // **bold**, and $math$ survive.
-function inlineToMarkdown(nodes: any[]): string {
+function inlineToMarkdown(nodes: MarkdownNode[] = []): string {
   let out = '';
   for (const node of nodes) {
     if (!node) continue;
@@ -113,13 +123,15 @@ function inlineToMarkdown(nodes: any[]): string {
 // the title children back to markdown and stash it on the node; the blockquote
 // renderer parses it again via ReactMarkdown.
 function remarkObsidianCallouts() {
-  return (tree: any) => {
-    const visit = (node: any) => {
+  return (tree: MarkdownNode) => {
+    const visit = (node: MarkdownNode) => {
       if (node?.type === 'blockquote') {
-        const firstChild = node.children?.[0];
-        if (firstChild?.type === 'paragraph') {
-          const firstText = firstChild.children?.[0];
-          if (firstText?.type === 'text') {
+        const blockChildren = node.children;
+        const firstChild = blockChildren?.[0];
+        if (firstChild?.type === 'paragraph' && blockChildren) {
+          const paragraphChildren = firstChild.children;
+          const firstText = paragraphChildren?.[0];
+          if (firstText?.type === 'text' && typeof firstText.value === "string" && paragraphChildren) {
             // Match only the `[!type][fold] ` prefix; the title is whatever
             // remains on the first line, possibly spanning several inline children.
             const prefixMatch = firstText.value.match(/^\[!(\w+)\]([+-]?)[ \t]*/);
@@ -133,34 +145,35 @@ function remarkObsidianCallouts() {
               // find one with a `\n`.
               let splitIdx = -1;
               let nlIdx = -1;
-              for (let i = 0; i < firstChild.children.length; i++) {
-                const c = firstChild.children[i];
-                if (c.type === 'text') {
+              for (let i = 0; i < paragraphChildren.length; i++) {
+                const c = paragraphChildren[i];
+                if (c.type === 'text' && typeof c.value === "string") {
                   const idx = c.value.indexOf('\n');
                   if (idx >= 0) { splitIdx = i; nlIdx = idx; break; }
                 }
               }
 
-              const bodyChildren: any[] = [];
+              const bodyChildren: MarkdownNode[] = [];
               if (splitIdx >= 0) {
-                const splitChild = firstChild.children[splitIdx];
+                const splitChild = paragraphChildren[splitIdx];
+                if (typeof splitChild.value !== "string") return;
                 const bodyText = splitChild.value.slice(nlIdx + 1);
                 splitChild.value = splitChild.value.slice(0, nlIdx);
                 if (bodyText) bodyChildren.push({ type: 'text', value: bodyText });
-                bodyChildren.push(...firstChild.children.slice(splitIdx + 1));
-                firstChild.children.length = splitIdx + 1;
-                if (splitChild.value === '') firstChild.children.pop();
+                bodyChildren.push(...paragraphChildren.slice(splitIdx + 1));
+                paragraphChildren.length = splitIdx + 1;
+                if (splitChild.value === '') paragraphChildren.pop();
               }
 
-              if (firstChild.children[0]?.type === 'text' && firstChild.children[0].value === '') {
-                firstChild.children.shift();
+              if (paragraphChildren[0]?.type === 'text' && paragraphChildren[0].value === '') {
+                paragraphChildren.shift();
               }
-              const titleMarkdown = inlineToMarkdown(firstChild.children);
+              const titleMarkdown = inlineToMarkdown(paragraphChildren);
               // First paragraph is fully consumed by the title; replace with
               // a body paragraph if anything was split off.
-              node.children.shift();
+              blockChildren.shift();
               if (bodyChildren.length > 0) {
-                node.children.unshift({ type: 'paragraph', children: bodyChildren });
+                blockChildren.unshift({ type: 'paragraph', children: bodyChildren });
               }
               node.data = {
                 ...(node.data || {}),
@@ -246,10 +259,15 @@ export function MarkdownContent({ content, extension }: { content: string; exten
           a: ({ children, href }) => <a href={href} className="text-primary underline hover:opacity-80">{children}</a>,
           img: ({ src, alt }) => <img src={src} alt={alt ?? ''} className="my-4 max-w-full rounded border" />,
           blockquote: ({ children, ...props }) => {
-            const calloutType = (props as any)['data-callout'];
+            const calloutProps = props as {
+              "data-callout"?: string;
+              "data-callout-title"?: string;
+              "data-callout-fold"?: string;
+            };
+            const calloutType = calloutProps["data-callout"];
             if (calloutType) {
-              const title = (props as any)['data-callout-title'] ?? '';
-              const fold = (props as any)['data-callout-fold'] ?? '';
+              const title = calloutProps["data-callout-title"] ?? '';
+              const fold = calloutProps["data-callout-fold"] ?? '';
               return <Callout type={calloutType} title={title} fold={fold}>{children}</Callout>;
             }
             return <blockquote className="border-l-4 border-muted pl-4 italic my-4 text-muted-foreground">{children}</blockquote>;

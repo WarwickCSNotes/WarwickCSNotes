@@ -1,58 +1,64 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { QuizRunner, type Question } from "@/components/quiz-runner";
-import { InstaCheckToggle } from "@/components/insta-check-toggle";
-import { Page } from "@/components/page";
-import { PageHeader } from "@/components/page-header";
-import { useInstaCheck } from "@/lib/use-insta-check";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { QuizRunner, type Question } from "@/components/quiz-runner"
+import { InstaCheckToggle } from "@/components/insta-check-toggle"
+import { Page } from "@/components/page"
+import { PageHeader } from "@/components/page-header"
+import { useInstaCheck } from "@/lib/use-insta-check"
 
 type Quiz = {
-  title: string;
-  module?: string;
-  description?: string;
-  questions: Question[];
-};
+  title: string
+  module?: string
+  description?: string
+  questions: Question[]
+}
 
 export const QuizPage = () => {
-  const { id } = useParams();
-  const [quiz, setQuiz] = useState<Quiz | null>(null);
-  const [error, setError] = useState(false);
-  const [instaCheck] = useInstaCheck();
+  const { id } = useParams()
+  const [state, setState] = useState<{
+    id?: string
+    quiz: Quiz | null
+    error: boolean
+  }>({ quiz: null, error: false })
+  const [instaCheck] = useInstaCheck()
 
   useEffect(() => {
-    setQuiz(null);
-    setError(false);
     fetch(`/api/quizzes/${id}`)
-      .then(res => {
-        if (!res.ok) throw new Error("not found");
-        return res.json();
+      .then((res) => {
+        if (!res.ok) throw new Error("not found")
+        return res.json() as Promise<Quiz>
       })
-      .then(setQuiz)
-      .catch(() => setError(true));
-  }, [id]);
+      .then((quiz) => setState({ id, quiz, error: false }))
+      .catch(() => setState({ id, quiz: null, error: true }))
+  }, [id])
 
   useEffect(() => {
-    if (quiz) document.title = `${quiz.title} Quiz`;
-  }, [quiz]);
+    if (state.quiz) document.title = `${state.quiz.title} Quiz`
+  }, [state.quiz])
 
-  if (error) return <Page>Quiz not found.</Page>;
-  if (!quiz) return <Page>Loading quiz...</Page>;
+  if (state.id !== id) return <Page>Loading quiz...</Page>
+  if (state.error) return <Page>Quiz not found.</Page>
+  if (!state.quiz) return <Page>Loading quiz...</Page>
 
-  const backTo = quiz.module ? `/module/${quiz.module}` : `/quizzes`;
-  const backLabel = quiz.module ?? "All quizzes";
+  const backTo = state.quiz.module ? `/module/${state.quiz.module}` : `/quizzes`
+  const backLabel = state.quiz.module ?? "All quizzes"
 
   return (
     <Page>
       <PageHeader
-        title={quiz.title}
-        subtitle={quiz.module}
+        title={state.quiz.title}
+        subtitle={state.quiz.module}
         back={{ to: backTo, label: backLabel }}
       >
         <InstaCheckToggle />
       </PageHeader>
-      {quiz.description && <p className="text-muted-foreground mt-2 mb-6">{quiz.description}</p>}
+      {state.quiz.description && (
+        <p className="mt-2 mb-6 text-muted-foreground">
+          {state.quiz.description}
+        </p>
+      )}
 
-      <QuizRunner questions={quiz.questions} instaCheck={instaCheck} />
+      <QuizRunner questions={state.quiz.questions} instaCheck={instaCheck} />
     </Page>
-  );
-};
+  )
+}

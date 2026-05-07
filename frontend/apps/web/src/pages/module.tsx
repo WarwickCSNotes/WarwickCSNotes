@@ -1,9 +1,62 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { BadgeCheck, Construction } from "lucide-react";
-import { Page } from "@/components/page";
-import { PageHeader } from "@/components/page-header";
-import { AiSummaryPanel, useAiSummary } from "@/components/ai-summary";
+import { useParams, Link, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { BadgeCheck, Construction } from "lucide-react"
+import { Page } from "@/components/page"
+import { PageHeader } from "@/components/page-header"
+import { AiSummaryPanel } from "@/components/ai-summary"
+import { useAiSummary } from "@/lib/use-ai-summary"
+import {
+  Panel,
+  Pill,
+  SurfaceAnchor,
+  SurfaceCard,
+  SurfaceLink,
+} from "@/components/surface"
+import {
+  disabledCompactTileClass,
+  interactiveCompactTileClass,
+} from "@/components/surface-styles"
+import { cn } from "@workspace/ui/lib/utils"
+
+type CreditPerson = { id: string; name?: string }
+type CreditsResponse = { dev?: CreditPerson[]; content?: CreditPerson[] }
+type ResourceEntry = {
+  title: string
+  url: string
+  verified?: boolean
+  unfinished?: boolean
+}
+type SolutionEntry = {
+  url?: string
+  verified?: boolean
+  unfinished?: boolean
+}
+type PaperEntry = ResourceEntry & { solution?: SolutionEntry }
+type ExternalResource = {
+  name: string
+  url?: string
+  description?: string
+}
+type ReviewSummary = {
+  count: number
+  average: Record<string, number>
+}
+type ModuleData = {
+  code: string
+  name: string
+  year: string | number
+  Term?: string | number
+  CATS?: string | number
+  tagline?: string
+  description?: string
+  notes?: ResourceEntry[]
+  past_papers?: PaperEntry[]
+  exercise_solutions?: PaperEntry[]
+  quizzes?: ResourceEntry[]
+  external_resources?: ExternalResource[]
+  extras?: ResourceEntry[]
+  review_summary?: ReviewSummary
+}
 
 /** Link-like card that can safely contain other interactive children
  *  (e.g. author links). Implemented as a div + onClick to avoid nesting
@@ -14,144 +67,203 @@ function ResourceCard({
   className,
   children,
 }: {
-  to: string;
-  className?: string;
-  children: React.ReactNode;
+  to: string
+  className?: string
+  children: React.ReactNode
 }) {
-  const navigate = useNavigate();
-  const activate = () => navigate(to);
+  const navigate = useNavigate()
+  const activate = () => navigate(to)
   return (
     <div
       role="link"
       tabIndex={0}
       onClick={activate}
-      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } }}
+      onKeyDown={(e) => {
+        if (e.target !== e.currentTarget) return
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          activate()
+        }
+      }}
       className={className}
     >
       {children}
     </div>
-  );
+  )
 }
 
-function Badge({ icon, colorClass, label, tooltip }: { icon: React.ReactNode; colorClass: string; label: string; tooltip: string }) {
-  const [open, setOpen] = useState(false);
+function Badge({
+  icon,
+  colorClass,
+  label,
+  tooltip,
+}: {
+  icon: React.ReactNode
+  colorClass: string
+  label: string
+  tooltip: string
+}) {
+  const [open, setOpen] = useState(false)
   return (
     <span className="relative inline-flex">
       <span
         role="button"
         aria-label={label}
         tabIndex={0}
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(o => !o); }}
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          setOpen((o) => !o)
+        }}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
-        className={`inline-flex items-center justify-center cursor-help ${colorClass}`}
+        className={`inline-flex cursor-help items-center justify-center ${colorClass}`}
       >
         {icon}
       </span>
       {open && (
-        <span className="absolute z-20 right-0 top-full mt-1 whitespace-nowrap px-2 py-1 rounded bg-popover text-popover-foreground text-xs border shadow">
+        <span className="absolute top-full right-0 z-20 mt-1 rounded border bg-popover px-2 py-1 text-xs whitespace-nowrap text-popover-foreground shadow">
           {tooltip}
         </span>
       )}
     </span>
-  );
+  )
 }
 
 function VerifiedBadge() {
-  return <Badge icon={<BadgeCheck className="h-4 w-4" />} colorClass="text-green-500" label="Verified" tooltip="This was checked by a tutor or module organiser" />;
+  return (
+    <Badge
+      icon={<BadgeCheck className="h-4 w-4" />}
+      colorClass="text-green-500"
+      label="Verified"
+      tooltip="This was checked by a tutor or module organiser"
+    />
+  )
 }
 
 function UnfinishedBadge() {
-  return <Badge icon={<Construction className="h-4 w-4" />} colorClass="text-amber-500" label="Unfinished" tooltip="This resource is still being worked on" />;
+  return (
+    <Badge
+      icon={<Construction className="h-4 w-4" />}
+      colorClass="text-amber-500"
+      label="Unfinished"
+      tooltip="This resource is still being worked on"
+    />
+  )
 }
 
-function Badges({ verified, unfinished }: { verified?: boolean; unfinished?: boolean }) {
-  if (!verified && !unfinished) return null;
+function Badges({
+  verified,
+  unfinished,
+}: {
+  verified?: boolean
+  unfinished?: boolean
+}) {
+  if (!verified && !unfinished) return null
   return (
-    <span className="absolute z-10 top-2 right-2 inline-flex items-center gap-1">
+    <span className="absolute top-2 right-2 z-10 inline-flex items-center gap-1">
       {unfinished && <UnfinishedBadge />}
       {verified && <VerifiedBadge />}
     </span>
-  );
+  )
 }
 
 export const ModulePage = () => {
-  const { code } = useParams();
-  const [mod, setMod] = useState<any>(null);
-  const [people, setPeople] = useState<Record<string, any>>({});
-  const [noteCredits, setNoteCredits] = useState<Record<string, string[]>>({});
-  const [solutionCredits, setSolutionCredits] = useState<Record<string, string[]>>({});
-  const [quizCredits, setQuizCredits] = useState<Record<string, string[]>>({});
-  const aiSummary = useAiSummary(code);
+  const { code } = useParams()
+  const [mod, setMod] = useState<ModuleData | null>(null)
+  const [people, setPeople] = useState<Record<string, CreditPerson>>({})
+  const [noteCredits, setNoteCredits] = useState<Record<string, string[]>>({})
+  const [solutionCredits, setSolutionCredits] = useState<
+    Record<string, string[]>
+  >({})
+  const [quizCredits, setQuizCredits] = useState<Record<string, string[]>>({})
+  const aiSummary = useAiSummary(code)
 
   useEffect(() => {
     fetch(`/api/module/${code}`)
-      .then(res => {
-        if (!res.ok) throw new Error('Not found');
-        return res.json();
+      .then((res) => {
+        if (!res.ok) throw new Error("Not found")
+        return res.json()
       })
-      .then(mod => {
-        setMod(mod);
-        localStorage.setItem('last-year', String(mod.year));
-      });
-  }, [code]);
+      .then((mod: ModuleData) => {
+        setMod(mod)
+        localStorage.setItem("last-year", String(mod.year))
+      })
+  }, [code])
 
   useEffect(() => {
     fetch("/api/credits")
-      .then(res => res.json())
-      .then((data: { dev?: any[]; content?: any[] }) => {
+      .then((res) => res.json())
+      .then((data: CreditsResponse) => {
         // People come grouped (dev / content); flatten to an id→person map
         // since credit lookups are by author id, not group.
-        const byId: Record<string, any> = {};
-        for (const p of data.dev ?? []) byId[p.id] = p;
-        for (const p of data.content ?? []) byId[p.id] = p;
-        setPeople(byId);
-      });
-    fetch("/api/credits/notes").then(res => res.json()).then(setNoteCredits);
-    fetch("/api/credits/solutions").then(res => res.json()).then(setSolutionCredits);
-    fetch("/api/credits/quizzes").then(res => res.json()).then(setQuizCredits);
-  }, []);
+        const byId: Record<string, CreditPerson> = {}
+        for (const p of data.dev ?? []) byId[p.id] = p
+        for (const p of data.content ?? []) byId[p.id] = p
+        setPeople(byId)
+      })
+    fetch("/api/credits/notes")
+      .then((res) => res.json())
+      .then(setNoteCredits)
+    fetch("/api/credits/solutions")
+      .then((res) => res.json())
+      .then(setSolutionCredits)
+    fetch("/api/credits/quizzes")
+      .then((res) => res.json())
+      .then(setQuizCredits)
+  }, [])
 
   useEffect(() => {
-    if (mod) document.title = `${mod.code} Notes`;
-  }, [mod]);
+    if (mod) document.title = `${mod.code} Notes`
+  }, [mod])
 
-  if (!mod) return <Page>Loading module...</Page>;
+  if (!mod) return <Page>Loading module...</Page>
 
   // For any resource URL (/resources/<Category>/<Code>/<Filename>), match the
   // filename against a credits dict whose keys are filenames (with extension).
   function getContributors(
     credits: Record<string, string[]>,
-    resourceUrl: string,
+    resourceUrl: string
   ): string[] {
-    const basename = resourceUrl.split('/').pop() ?? '';
+    const basename = resourceUrl.split("/").pop() ?? ""
     for (const [filename, authors] of Object.entries(credits)) {
-      if (filename.replace(/\.[^.]+$/, '') === basename) return authors as string[];
+      if (filename.replace(/\.[^.]+$/, "") === basename)
+        return authors as string[]
     }
-    return [];
+    return []
   }
 
   function Contributors({ authorIds }: { authorIds: string[] }) {
-    if (authorIds.length === 0) return null;
+    if (authorIds.length === 0) return null
     return (
-      <span className="block mt-1">
-        <em className="text-xs text-muted-foreground not-italic">Created by </em>
+      <span className="mt-1 block">
+        <em className="text-xs text-muted-foreground not-italic">
+          Created by{" "}
+        </em>
         {authorIds.map((authorId, i) => (
           <span key={authorId}>
             {i > 0 && <em className="text-xs text-muted-foreground">, </em>}
             <Link
               to={`/acknowledgements#${authorId}`}
               // Prevent the outer ResourceCard from also navigating.
-              onClick={e => e.stopPropagation()}
-              className="text-xs italic text-muted-foreground hover:text-primary transition-colors hover:underline"
+              onClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => e.stopPropagation()}
+              className="text-xs text-muted-foreground italic transition-colors hover:text-primary hover:underline"
             >
               {people[authorId]?.name ?? authorId}
             </Link>
           </span>
         ))}
       </span>
-    );
+    )
   }
+
+  const exerciseSolutions = mod.exercise_solutions ?? []
+  const quizzes = mod.quizzes ?? []
+  const externalResources = mod.external_resources ?? []
+  const extras = mod.extras ?? []
+  const reviewSummary = mod.review_summary
+  const reviewCount = reviewSummary?.count ?? 0
 
   return (
     <Page>
@@ -160,209 +272,297 @@ export const ModulePage = () => {
         subtitle={mod.name}
         back={{ to: `/year/${mod.year}`, label: `Year ${mod.year}` }}
       />
-      <div className="flex gap-4 -mt-4 mb-2">
-        {mod.Term && <span className="text-sm font-medium text-detail">Term {mod.Term}</span>}
-        {mod.CATS && <span className="text-sm font-medium text-detail">{mod.CATS} CATS</span>}
+      <div className="-mt-4 mb-2 flex gap-4">
+        {mod.Term && (
+          <span className="text-sm font-medium text-muted-foreground">
+            Term {mod.Term}
+          </span>
+        )}
+        {mod.CATS && (
+          <span className="text-sm font-medium text-muted-foreground">
+            {mod.CATS} CATS
+          </span>
+        )}
       </div>
-      <p className="italic my-4">{mod.tagline}</p>
+      <p className="my-4 italic">{mod.tagline}</p>
       {mod.description && <p className="mb-4">{mod.description}</p>}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="border p-4 rounded">
-          <h5 className="font-bold mb-2">Notes</h5>
-          {mod.notes?.map((note: any) => {
-            if (note.url === '#') {
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <Panel>
+          <h5 className="mb-2 font-bold">Notes</h5>
+          {mod.notes?.map((note) => {
+            if (note.url === "#") {
               return (
-                <div key={note.title} className="mb-2 p-3 border rounded opacity-50 text-sm">
+                <div
+                  key={note.title}
+                  className={cn(disabledCompactTileClass, "mb-2")}
+                >
                   {note.title}
                 </div>
-              );
+              )
             }
             return (
-              <ResourceCard key={note.title} to={note.url} className="relative block mb-2 p-3 border rounded text-sm hover:bg-muted transition-colors cursor-pointer">
+              <ResourceCard
+                key={note.title}
+                to={note.url}
+                className={cn(
+                  interactiveCompactTileClass,
+                  "mb-2"
+                )}
+              >
                 {note.title}
                 <Badges verified={note.verified} unfinished={note.unfinished} />
-                <Contributors authorIds={getContributors(noteCredits, note.url)} />
+                <Contributors
+                  authorIds={getContributors(noteCredits, note.url)}
+                />
               </ResourceCard>
-            );
+            )
           })}
-        </div>
-        <div className="border p-4 rounded">
-          <h5 className="font-bold mb-2">Past Papers</h5>
+        </Panel>
+        <Panel>
+          <h5 className="mb-2 font-bold">Past Papers</h5>
           <div className="space-y-2">
-            {mod.past_papers?.map((paper: any) => {
-              const solutionUrl = paper.solution?.url;
-              const solutionContributors = solutionUrl ? getContributors(solutionCredits, solutionUrl) : [];
-              const solutionIsInternal = solutionUrl?.startsWith('/resources/Solutions/');
+            {mod.past_papers?.map((paper) => {
+              const solutionUrl = paper.solution?.url
+              const solutionContributors = solutionUrl
+                ? getContributors(solutionCredits, solutionUrl)
+                : []
+              const solutionIsInternal = solutionUrl?.startsWith(
+                "/resources/Solutions/"
+              )
               return (
                 <div key={paper.title} className="grid grid-cols-2 gap-2">
                   <a
                     href={paper.url}
-                    className="relative block p-3 border rounded bg-card hover:bg-muted hover:border-primary transition-colors text-center text-sm font-medium"
+                    target={paper.url.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      paper.url.startsWith("http") ? "noreferrer" : undefined
+                    }
+                    className={cn(interactiveCompactTileClass, "text-center")}
                   >
                     {paper.title}
-                    <Badges verified={paper.verified} unfinished={paper.unfinished} />
+                    <Badges
+                      verified={paper.verified}
+                      unfinished={paper.unfinished}
+                    />
                   </a>
-                  {solutionIsInternal ? (
+                  {solutionUrl && solutionIsInternal ? (
                     <ResourceCard
                       to={solutionUrl}
-                      className="relative block p-3 border rounded bg-card text-center text-sm font-medium hover:bg-muted hover:border-primary transition-colors cursor-pointer"
+                      className={cn(interactiveCompactTileClass, "text-center")}
                     >
                       Solution
-                      <Badges verified={paper.solution?.verified} unfinished={paper.solution?.unfinished} />
+                      <Badges
+                        verified={paper.solution?.verified}
+                        unfinished={paper.solution?.unfinished}
+                      />
                       <Contributors authorIds={solutionContributors} />
                     </ResourceCard>
                   ) : (
                     <a
                       href={solutionUrl || "#"}
-                      className={`relative block p-3 border rounded bg-card text-center text-sm font-medium ${solutionUrl ? "hover:bg-muted hover:border-primary transition-colors" : "opacity-50 cursor-not-allowed"}`}
+                      target={
+                        solutionUrl?.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        solutionUrl?.startsWith("http")
+                          ? "noreferrer"
+                          : undefined
+                      }
+                      className={cn(
+                        solutionUrl
+                          ? interactiveCompactTileClass
+                          : disabledCompactTileClass,
+                        "text-center"
+                      )}
                     >
                       Solution
-                      <Badges verified={paper.solution?.verified} unfinished={paper.solution?.unfinished} />
+                      <Badges
+                        verified={paper.solution?.verified}
+                        unfinished={paper.solution?.unfinished}
+                      />
                     </a>
                   )}
                 </div>
-              );
+              )
             })}
           </div>
-        </div>
+        </Panel>
       </div>
 
-      {mod.exercise_solutions?.length > 0 && (
-        <div className="mt-4 border p-4 rounded">
-          <h5 className="font-bold mb-2">Exercise Solutions</h5>
+      {exerciseSolutions.length > 0 && (
+        <Panel className="mt-4">
+          <h5 className="mb-2 font-bold">Exercise Solutions</h5>
           <div className="space-y-2">
-            {mod.exercise_solutions.map((exercise: any) => {
-              const solutionUrl = exercise.solution?.url;
-              const solutionContributors = solutionUrl ? getContributors(solutionCredits, solutionUrl) : [];
-              const solutionIsInternal = solutionUrl?.startsWith('/resources/Solutions/');
+            {exerciseSolutions.map((exercise) => {
+              const solutionUrl = exercise.solution?.url
+              const solutionContributors = solutionUrl
+                ? getContributors(solutionCredits, solutionUrl)
+                : []
+              const solutionIsInternal = solutionUrl?.startsWith(
+                "/resources/Solutions/"
+              )
               return (
                 <div key={exercise.title} className="grid grid-cols-2 gap-2">
                   <a
                     href={exercise.url}
-                    className="relative block p-3 border rounded bg-card hover:bg-muted hover:border-primary transition-colors text-center text-sm font-medium"
+                    target={
+                      exercise.url.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      exercise.url.startsWith("http") ? "noreferrer" : undefined
+                    }
+                    className={cn(interactiveCompactTileClass, "text-center")}
                   >
                     {exercise.title}
-                    <Badges verified={exercise.verified} unfinished={exercise.unfinished} />
+                    <Badges
+                      verified={exercise.verified}
+                      unfinished={exercise.unfinished}
+                    />
                   </a>
-                  {solutionIsInternal ? (
+                  {solutionUrl && solutionIsInternal ? (
                     <ResourceCard
                       to={solutionUrl}
-                      className="relative block p-3 border rounded bg-card text-center text-sm font-medium hover:bg-muted hover:border-primary transition-colors cursor-pointer"
+                      className={cn(interactiveCompactTileClass, "text-center")}
                     >
                       Solution
-                      <Badges verified={exercise.solution?.verified} unfinished={exercise.solution?.unfinished} />
+                      <Badges
+                        verified={exercise.solution?.verified}
+                        unfinished={exercise.solution?.unfinished}
+                      />
                       <Contributors authorIds={solutionContributors} />
                     </ResourceCard>
                   ) : (
                     <a
                       href={solutionUrl || "#"}
-                      className={`relative block p-3 border rounded bg-card text-center text-sm font-medium ${solutionUrl ? "hover:bg-muted hover:border-primary transition-colors" : "opacity-50 cursor-not-allowed"}`}
+                      target={
+                        solutionUrl?.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        solutionUrl?.startsWith("http")
+                          ? "noreferrer"
+                          : undefined
+                      }
+                      className={cn(
+                        solutionUrl
+                          ? interactiveCompactTileClass
+                          : disabledCompactTileClass,
+                        "text-center"
+                      )}
                     >
                       Solution
-                      <Badges verified={exercise.solution?.verified} unfinished={exercise.solution?.unfinished} />
+                      <Badges
+                        verified={exercise.solution?.verified}
+                        unfinished={exercise.solution?.unfinished}
+                      />
                     </a>
                   )}
                 </div>
-              );
+              )
             })}
           </div>
-        </div>
+        </Panel>
       )}
 
-      {mod.quizzes?.length > 0 && (
-        <div className="mt-4 border p-4 rounded">
-          <h5 className="font-bold mb-2">Quizzes</h5>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {mod.quizzes.map((quiz: any) => (
+      {quizzes.length > 0 && (
+        <Panel className="mt-4">
+          <h5 className="mb-2 font-bold">Quizzes</h5>
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+            {quizzes.map((quiz) => (
               <ResourceCard
                 key={quiz.title}
                 to={quiz.url}
-                className="relative block p-3 border rounded bg-surface text-surface-foreground text-sm font-medium hover:bg-surface-hover transition-colors cursor-pointer"
+                className={interactiveCompactTileClass}
               >
                 {quiz.title}
                 <Badges verified={quiz.verified} unfinished={quiz.unfinished} />
-                <Contributors authorIds={getContributors(quizCredits, quiz.url)} />
+                <Contributors
+                  authorIds={getContributors(quizCredits, quiz.url)}
+                />
               </ResourceCard>
             ))}
           </div>
-        </div>
+        </Panel>
       )}
 
-      {mod.external_resources?.length > 0 && (
-        <div className="mt-4 border p-4 rounded">
-          <h5 className="font-bold mb-2">External Resources</h5>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {mod.external_resources.map((r: any) => {
+      {externalResources.length > 0 && (
+        <Panel className="mt-4">
+          <h5 className="mb-2 font-bold">External Resources</h5>
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+            {externalResources.map((r) => {
               const body = (
                 <>
                   <div className="font-medium">{r.name}</div>
-                  {r.description && <p className="text-xs text-muted-foreground mt-1">{r.description}</p>}
+                  {r.description && (
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {r.description}
+                    </p>
+                  )}
                 </>
-              );
+              )
               return r.url ? (
-                <a
+                <SurfaceAnchor
                   key={r.name}
                   href={r.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="block p-3 border rounded bg-surface text-surface-foreground text-sm hover:bg-surface-hover transition-colors"
+                  className="p-3 text-sm"
                 >
                   {body}
-                </a>
+                </SurfaceAnchor>
               ) : (
-                <div key={r.name} className="block p-3 border rounded bg-surface text-surface-foreground text-sm">
+                <SurfaceCard key={r.name} className="p-3 text-sm">
                   {body}
-                </div>
-              );
+                </SurfaceCard>
+              )
             })}
           </div>
-        </div>
+        </Panel>
       )}
 
-      {mod.extras?.length > 0 && (
-        <div className="mt-4 border p-4 rounded">
-          <h5 className="font-bold mb-2">Extras</h5>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {mod.extras.map((extra: any) => (
-              <Link
+      {extras.length > 0 && (
+        <Panel className="mt-4">
+          <h5 className="mb-2 font-bold">Extras</h5>
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+            {extras.map((extra) => (
+              <SurfaceLink
                 key={extra.title}
                 to={extra.url}
-                className="relative block p-3 border rounded bg-surface text-surface-foreground text-sm font-medium hover:bg-surface-hover transition-colors"
+                className="relative p-3 text-sm font-medium"
               >
                 {extra.title}
-                <Badges verified={extra.verified} unfinished={extra.unfinished} />
-              </Link>
+                <Badges
+                  verified={extra.verified}
+                  unfinished={extra.unfinished}
+                />
+              </SurfaceLink>
             ))}
           </div>
-        </div>
+        </Panel>
       )}
 
-      <div className="mt-4 border p-4 rounded">
-        <div className="flex items-baseline justify-between gap-3 flex-wrap mb-2">
+      <Panel className="mt-4">
+        <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">
           <h5 className="font-bold">Reviews</h5>
-          {mod.review_summary?.count > 0 ? (
+          {reviewCount > 0 ? (
             <Link
               to={`/reviews/${mod.code}`}
               className="text-sm font-medium text-primary hover:underline"
             >
-              See all {mod.review_summary.count} review{mod.review_summary.count === 1 ? "" : "s"} &rarr;
+              See all {reviewCount} review{reviewCount === 1 ? "" : "s"} &rarr;
             </Link>
           ) : (
             <span className="text-sm text-muted-foreground">0 reviews</span>
           )}
         </div>
-        {mod.review_summary?.count > 0 ? (
+        {reviewCount > 0 && reviewSummary ? (
           <>
             <div className="flex flex-wrap gap-2">
-              {Object.entries(mod.review_summary.average as Record<string, number>).map(([key, val]) => (
-                <span
-                  key={key}
-                  className="text-xs px-2 py-1 border rounded bg-surface text-surface-foreground"
-                >
+              {Object.entries(reviewSummary.average).map(([key, val]) => (
+                <Pill key={key}>
                   Avg {key.charAt(0).toUpperCase() + key.slice(1)}:{" "}
                   <span className="font-semibold">{val}</span>
-                </span>
+                </Pill>
               ))}
             </div>
             <AiSummaryPanel state={aiSummary} bordered={false} />
@@ -372,7 +572,7 @@ export const ModulePage = () => {
             No reviews for this module yet.
           </p>
         )}
-      </div>
+      </Panel>
     </Page>
-  );
-};
+  )
+}
