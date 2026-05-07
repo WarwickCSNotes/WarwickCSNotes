@@ -103,7 +103,7 @@ export function AiSummaryPanel({
   return (
     <div className={wrapperClass}>
       <div className="flex items-center gap-2 mb-2">
-        <h2 className="text-sm font-semibold">AI summary</h2>
+        <h2 className="text-sm font-semibold">Summary</h2>
         <InfoTooltip text="This is an AI summary" />
       </div>
       <p className="text-sm whitespace-pre-wrap">{state.text}</p>
