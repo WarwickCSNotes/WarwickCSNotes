@@ -13,6 +13,7 @@ There is a note on what we're allowed to host at the top of `Docs.md`!
 This project uses UV for dependency management. Get UV here: https://docs.astral.sh/uv/getting-started/installation
 
 ## Local Testing w/ Docker
+*Note that if you want the LLM stuff to work, add a .env file with CLAUDE_API="yourkey"*
 
 To build:
 ```
@@ -22,7 +23,7 @@ To build:
 
 To run:
 ```
-docker build -t warwickcsnotes:local .
+docker run --rm -p 3000:3000 --env-file .env warwickcsnotes:local
 ```
 
 ## Local Testing w/o Docker

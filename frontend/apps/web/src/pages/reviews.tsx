@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams, Link } from "react-router-dom";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
+import { AiSummaryPanel, useAiSummary } from "@/components/ai-summary";
 
 type ReviewSummary = { count: number; average: Record<string, number> };
 
@@ -89,6 +90,7 @@ export const ReviewsPage = () => {
 
   const [data, setData] = useState<ReviewsResponse | null>(null);
   const [error, setError] = useState(false);
+  const aiSummary = useAiSummary(code);
 
   useEffect(() => {
     setData(null);
@@ -129,6 +131,8 @@ export const ReviewsPage = () => {
           ))}
         </div>
       )}
+
+      {data.total > 0 && <AiSummaryPanel state={aiSummary} />}
 
       {data.total === 0 ? (
         <p className="text-muted-foreground">There are no reviews for this module yet.</p>

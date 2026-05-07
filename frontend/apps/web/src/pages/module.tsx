@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BadgeCheck, Construction } from "lucide-react";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
+import { AiSummaryPanel, useAiSummary } from "@/components/ai-summary";
 
 /** Link-like card that can safely contain other interactive children
  *  (e.g. author links). Implemented as a div + onClick to avoid nesting
@@ -81,6 +82,7 @@ export const ModulePage = () => {
   const [noteCredits, setNoteCredits] = useState<Record<string, string[]>>({});
   const [solutionCredits, setSolutionCredits] = useState<Record<string, string[]>>({});
   const [quizCredits, setQuizCredits] = useState<Record<string, string[]>>({});
+  const aiSummary = useAiSummary(code);
 
   useEffect(() => {
     fetch(`/api/module/${code}`)
@@ -351,17 +353,20 @@ export const ModulePage = () => {
           )}
         </div>
         {mod.review_summary?.count > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            {Object.entries(mod.review_summary.average as Record<string, number>).map(([key, val]) => (
-              <span
-                key={key}
-                className="text-xs px-2 py-1 border rounded bg-surface text-surface-foreground"
-              >
-                Avg {key.charAt(0).toUpperCase() + key.slice(1)}:{" "}
-                <span className="font-semibold">{val}</span>
-              </span>
-            ))}
-          </div>
+          <>
+            <div className="flex flex-wrap gap-2">
+              {Object.entries(mod.review_summary.average as Record<string, number>).map(([key, val]) => (
+                <span
+                  key={key}
+                  className="text-xs px-2 py-1 border rounded bg-surface text-surface-foreground"
+                >
+                  Avg {key.charAt(0).toUpperCase() + key.slice(1)}:{" "}
+                  <span className="font-semibold">{val}</span>
+                </span>
+              ))}
+            </div>
+            <AiSummaryPanel state={aiSummary} bordered={false} />
+          </>
         ) : (
           <p className="text-sm text-muted-foreground italic">
             No reviews for this module yet.
