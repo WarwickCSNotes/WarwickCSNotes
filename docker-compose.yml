@@ -4,6 +4,7 @@ services:
     container_name: warwickcsnotes
     environment:
       - VIRTUAL_HOST=csnotes
+      - GEMINI_KEY=${GEMINI_KEY}
     ports:
       - 5422:3000
     restart: unless-stopped
