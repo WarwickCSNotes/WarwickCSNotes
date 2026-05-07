@@ -192,6 +192,42 @@
     font-weight: 700;
 }
 
+/* cat: warm pastel theme inspired by hand-drawn / "shop cute" Shopify themes.
+   Cream-peach background (not stark white), salmon-pink primary accent, dusty
+   coral-rust text, and a sage/teal `detail` colour so secondary labels (Term
+   N, X CATS) get the multi-pastel feel rather than another shade of pink. */
+.cat {
+    --background: oklch(0.97 0.022 60);
+    --foreground: oklch(0.42 0.12 20);
+    --card: oklch(0.99 0.012 40);
+    --card-foreground: oklch(0.42 0.12 20);
+    --popover: oklch(0.99 0.012 40);
+    --popover-foreground: oklch(0.42 0.12 20);
+    --primary: oklch(0.72 0.16 20);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.97 0.02 40);
+    --secondary-foreground: oklch(0.42 0.12 20);
+    --muted: oklch(0.97 0.02 40);
+    --muted-foreground: oklch(0.55 0.08 20);
+    --accent: oklch(0.97 0.02 40);
+    --accent-foreground: oklch(0.72 0.16 20);
+    --destructive: oklch(0.65 0.20 27);
+    --border: oklch(0.92 0.04 25);
+    --input: oklch(0.92 0.04 25);
+    --ring: oklch(0.72 0.16 20);
+    --nav: oklch(0.88 0.07 25);
+    --nav-foreground: oklch(0.45 0.15 25);
+    --surface: oklch(0.99 0.012 40);
+    --surface-foreground: oklch(0.42 0.12 20);
+    --surface-hover: oklch(0.95 0.025 40);
+    --detail: oklch(0.65 0.09 180);
+}
+
+.cat h1, .cat h2, .cat h3, .cat h4,
+.cat .prose h1, .cat .prose h2, .cat .prose h3, .cat .prose h4 {
+    color: var(--primary);
+}
+
 .dragon h1, .dragon h2, .dragon h3, .dragon h4,
 .dragon .prose h1, .dragon .prose h2, .dragon .prose h3, .dragon .prose h4 {
     color: var(--primary);
@@ -202,6 +238,19 @@
 .dragon .dragon-logo { display: inline; }
 .haskell-logo { display: none; margin-right: 0.4rem; font-style: italic; font-weight: bold; color: var(--color-primary); }
 .cs141 .haskell-logo { display: inline; }
+.cat-logo { display: none; margin-right: 0.4rem; }
+.cat .cat-logo { display: inline; }
+
+/* Decorative sparkles in the navbar, only when the cat theme is active. */
+.cat-star {
+    display: none;
+    position: absolute;
+    color: white;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+.cat .cat-star { display: inline; }
 
 @theme inline {
     --color-background: var(--background);
