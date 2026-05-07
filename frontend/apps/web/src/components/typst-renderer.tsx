@@ -1,22 +1,27 @@
-import { useEffect, useRef } from 'react';
-import { createTypstRenderer } from '@myriaddreamin/typst.ts';
+import { useEffect, useRef } from "react"
+import { createTypstRenderer } from "@myriaddreamin/typst.ts"
+
+type TypstRenderFn = (options: {
+  mainContent: string
+  container: HTMLDivElement
+}) => Promise<void>
 
 export const TypstRenderer = ({ content }: { content: string }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current) return
     const render = async () => {
-      const renderer = await createTypstRenderer();
-      await renderer.init();
+      const renderer = createTypstRenderer()
+      await renderer.init()
       // Simple implementation: interpret the content as a typst document
-      await (renderer.render as any)({
+      await (renderer.renderToCanvas as unknown as TypstRenderFn)({
         mainContent: content,
         container: containerRef.current!,
-      });
-    };
-    render().catch(console.error);
-  }, [content]);
+      })
+    }
+    render().catch(console.error)
+  }, [content])
 
-  return <div ref={containerRef} className="typst-container" />;
-};
+  return <div ref={containerRef} className="typst-container" />
+}

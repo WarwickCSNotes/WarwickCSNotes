@@ -1,19 +1,26 @@
-import { useEffect } from "react";
-import { QuizRunner, type Question } from "@/components/quiz-runner";
-import { InstaCheckToggle } from "@/components/insta-check-toggle";
-import { Page } from "@/components/page";
-import { PageHeader } from "@/components/page-header";
-import { useInstaCheck } from "@/lib/use-insta-check";
+import { useEffect } from "react"
+import { QuizRunner, type Question } from "@/components/quiz-runner"
+import { InstaCheckToggle } from "@/components/insta-check-toggle"
+import { Page } from "@/components/page"
+import { PageHeader } from "@/components/page-header"
+import { useInstaCheck } from "@/lib/use-insta-check"
 
 const QUESTIONS: Question[] = [
   {
     type: "text",
-    prompt: "State the name of the official in the UK whose job it is to uphold information rights in the public interest.",
-    accepted: ["information commissioner", "ico", "information commissioner's office", "the information commissioner"],
+    prompt:
+      "State the name of the official in the UK whose job it is to uphold information rights in the public interest.",
+    accepted: [
+      "information commissioner",
+      "ico",
+      "information commissioner's office",
+      "the information commissioner",
+    ],
   },
   {
     type: "checkbox",
-    prompt: "Under the Regulation of Investigatory Powers Act 2000, for which of the following reasons may an organisation monitor (but not record) communications?",
+    prompt:
+      "Under the Regulation of Investigatory Powers Act 2000, for which of the following reasons may an organisation monitor (but not record) communications?",
     options: [
       "Employee supervision",
       "Confidential phone lines",
@@ -39,7 +46,8 @@ const QUESTIONS: Question[] = [
   },
   {
     type: "checkbox",
-    prompt: "Which of the following is/are NOT protected by copyright (in the UK)?",
+    prompt:
+      "Which of the following is/are NOT protected by copyright (in the UK)?",
     options: [
       "Wiki",
       "Blog",
@@ -57,7 +65,8 @@ const QUESTIONS: Question[] = [
   },
   {
     type: "checkbox",
-    prompt: "The BCS lists in its Code of Conduct four duties that members must uphold – what are they?",
+    prompt:
+      "The BCS lists in its Code of Conduct four duties that members must uphold – what are they?",
     options: [
       "Duty to the Profession",
       "Duties to Employers and Clients",
@@ -73,14 +82,17 @@ const QUESTIONS: Question[] = [
   },
   {
     type: "text",
-    prompt: "Name the professional qualification awarded by the BCS on behalf of the Engineering Council.",
+    prompt:
+      "Name the professional qualification awarded by the BCS on behalf of the Engineering Council.",
     accepted: ["ceng", "chartered engineer"],
   },
-];
+]
 
 export const CS133ClassTest = () => {
-  const [instaCheck] = useInstaCheck();
-  useEffect(() => { document.title = "CS133 Class Test Simulator"; }, []);
+  const [instaCheck] = useInstaCheck()
+  useEffect(() => {
+    document.title = "CS133 Class Test Simulator"
+  }, [])
 
   return (
     <Page>
@@ -94,5 +106,5 @@ export const CS133ClassTest = () => {
 
       <QuizRunner questions={QUESTIONS} pickCount={5} instaCheck={instaCheck} />
     </Page>
-  );
-};
+  )
+}

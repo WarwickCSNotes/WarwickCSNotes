@@ -8,9 +8,9 @@ COPY Data/ /app/Data/
 # Install dependencies
 RUN bun install --frozen-lockfile
 
-# Build the web app (skip tsc, vite handles transpilation via esbuild)
+# Build the web app
 WORKDIR /app/frontend/apps/web
-RUN sed -i 's/"build": "tsc -b && vite build"/"build": "vite build"/' package.json && bun run build
+RUN bun run build
 
 FROM ghcr.io/astral-sh/uv:alpine3.23 AS runtime
 RUN apk add --no-cache python3
