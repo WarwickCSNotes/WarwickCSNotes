@@ -8,6 +8,7 @@ type ReviewSummary = { count: number; average: Record<string, number> };
 
 type Review = {
   Author?: string;
+  Title?: string;
   AcademicYear?: string;
   Reflection: [string, string][];
   Ratings: Record<string, number>;
@@ -48,7 +49,7 @@ function ReviewCard({ review, idx }: { review: Review; idx: number }) {
     <article className="border rounded-lg p-4 bg-surface text-surface-foreground">
       <div className="flex items-baseline justify-between gap-3 mb-3 flex-wrap">
         <div className="flex items-baseline gap-3 flex-wrap">
-          <h3 className="text-sm font-semibold text-muted-foreground">Review #{idx}</h3>
+          <h3 className="text-sm font-semibold text-muted-foreground">{review.Title ?? `Review #${idx}`}</h3>
           {review.Author && (
             <span className="text-xs text-muted-foreground">
               by <span className="font-medium">{review.Author}</span>

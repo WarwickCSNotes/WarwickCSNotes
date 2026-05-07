@@ -5,6 +5,7 @@ services:
     environment:
       - VIRTUAL_HOST=csnotes
       - GEMINI_KEY=${GEMINI_KEY}
+      - CLAUDE_API=${CLAUDE_API}
     ports:
       - 5422:3000
     restart: unless-stopped
