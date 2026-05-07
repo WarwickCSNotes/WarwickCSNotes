@@ -1,5 +1,8 @@
 services:
   csnotes:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: ghcr.io/warwickcsnotes/warwickcsnotes:latest
     container_name: warwickcsnotes
     environment:

@@ -1,16 +1,23 @@
 interface PageSectionProps {
-  title: React.ReactNode;
-  subtitle?: React.ReactNode;
-  className?: string;
-  children: React.ReactNode;
+  title: React.ReactNode
+  subtitle?: React.ReactNode
+  className?: string
+  children: React.ReactNode
 }
 
-export function PageSection({ title, subtitle, className, children }: PageSectionProps) {
+export function PageSection({
+  title,
+  subtitle,
+  className,
+  children,
+}: PageSectionProps) {
   return (
     <section className={className}>
-      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
-      {subtitle && <p className="text-sm text-muted-foreground mb-4">{subtitle}</p>}
+      <h2 className="mb-4 text-2xl font-semibold">{title}</h2>
+      {subtitle && (
+        <p className="mb-4 text-sm text-muted-foreground">{subtitle}</p>
+      )}
       {children}
     </section>
-  );
+  )
 }

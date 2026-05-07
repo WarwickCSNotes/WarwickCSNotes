@@ -1,9 +1,9 @@
-import { useInstaCheck } from "@/lib/use-insta-check";
+import { useInstaCheck } from "@/lib/use-insta-check"
 
 /** Small switch-style toggle for the "insta-check" quiz setting.
  *  Intended to sit next to the back button at the top of a quiz page. */
 export function InstaCheckToggle() {
-  const [enabled, setEnabled] = useInstaCheck();
+  const [enabled, setEnabled] = useInstaCheck()
   return (
     <button
       type="button"
@@ -11,20 +11,20 @@ export function InstaCheckToggle() {
       aria-checked={enabled}
       aria-label="Toggle insta-check"
       onClick={() => setEnabled(!enabled)}
-      className="inline-flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium hover:bg-muted transition-colors cursor-pointer"
+      className="inline-flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
     >
       <span
-        className={`inline-flex items-center w-10 h-5 p-0.5 rounded-full transition-colors ${
+        className={`inline-flex h-5 w-10 items-center rounded-full p-0.5 transition-colors ${
           enabled ? "bg-primary" : "bg-gray-400"
         }`}
       >
         <span
-          className={`w-4 h-4 rounded-full bg-white transition-transform ${
+          className={`h-4 w-4 rounded-full bg-white transition-transform ${
             enabled ? "translate-x-5" : "translate-x-0"
           }`}
         />
       </span>
       Insta-check
     </button>
-  );
+  )
 }

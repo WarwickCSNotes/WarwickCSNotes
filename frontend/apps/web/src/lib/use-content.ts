@@ -4,27 +4,30 @@ import { useEffect, useState } from "react";
 // (or legacy X-Note-Extension) from the response. Returns loading state
 // via a null extension until the first fetch resolves.
 export function useContent(url: string) {
-  const [content, setContent] = useState("");
-  const [extension, setExtension] = useState<string | null>(null);
+  const [state, setState] = useState<{
+    url: string;
+    content: string;
+    extension: string | null;
+  }>({ url, content: "", extension: null });
 
   useEffect(() => {
     let cancelled = false;
-    setExtension(null);
     fetch(url)
       .then(res => {
         if (!res.ok) throw new Error('Not found');
         const ext = res.headers.get('x-content-extension') ?? res.headers.get('x-note-extension');
-        if (!cancelled) setExtension(ext);
-        return res.text();
+        return res.text().then(text => ({ text, ext }));
       })
-      .then(text => { if (!cancelled) setContent(text); })
+      .then(({ text, ext }) => {
+        if (!cancelled) setState({ url, content: text, extension: ext });
+      })
       .catch(() => {
         if (cancelled) return;
-        setContent('Content not found.');
-        setExtension('md');
+        setState({ url, content: 'Content not found.', extension: 'md' });
       });
     return () => { cancelled = true; };
   }, [url]);
 
-  return { content, extension };
+  if (state.url !== url) return { content: "", extension: null };
+  return { content: state.content, extension: state.extension };
 }
