@@ -32,6 +32,11 @@ const SOCIETIES: CareerLink[] = [
     url: "https://warwick.ai/",
     description: "AI/ML-focused society with projects, education, and a yearly AI summit.",
   },
+  {
+    name: "Warwick Cyber Society",
+    url: "https://warwickcybersoc.com/",
+    description: "CTFs, talks, socials, and shenanigans. Great for picking up offensive/defensive security skills.",
+  },
 ];
 
 function CareerCard({ link }: { link: CareerLink }) {
