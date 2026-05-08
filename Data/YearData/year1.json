@@ -14,9 +14,14 @@
                 {"title": "CCCCCCCCCCC", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1180_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1180_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1180_a_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Programming assignment 1", "submission_deadline": "2025-11-05 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
+                {"title": "Programming assignment 2", "submission_deadline": "2025-12-11 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-04-29 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -32,13 +37,17 @@
                 {"title": "Trees", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2023 Exam Paper", "url": "#"},
-                {"title": "2022 Exam Paper", "url": "#"},
-                {"title": "2021 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1260_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1260_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1260_d_exam_paper.pdf"}
             ],
             "seminar_exercises": [
                 {"title": "Lab 1", "url": "#"},
                 {"title": "Lab 2", "url": "#"}
+            ],
+            "assessments": [
+                {"title": "Programming assignment", "submission_deadline": "2026-05-05 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-28 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -63,8 +72,16 @@
                 {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1300_c_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS130/CS130-2023", "unfinished": true}}
             ],
             "external_resources": [
-                {"name": "Book of Proof (Hammack)", "url":"https://richardhammack.github.io/BookOfProof/Main.pdf", "description": "Free online textbook, great for proof techniques."},
+                {"name": "Book of Proof (Hammack)", "url":"https://go.exlibris.link/x3XvLhzk", "description": "Free online textbook, great for proof techniques."},
                 {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."}
+            ],
+            "assessments": [
+                {"title": "Problem Set 0", "submission_deadline": "2025-10-13 12:00 PM", "weighting": 1, "eligible_for_self_certification": true},
+                {"title": "Problem Set 1", "submission_deadline": "2025-10-27 12:00 PM", "weighting": 3, "eligible_for_self_certification": true},
+                {"title": "Problem Set 2", "submission_deadline": "2025-11-10 12:00 PM", "weighting": 3, "eligible_for_self_certification": true},
+                {"title": "Problem Set 3", "submission_deadline": "2025-11-24 12:00 PM", "weighting": 3, "eligible_for_self_certification": true},
+                {"title": "Examination January", "submission_deadline": "2026-01-14 2:00 PM", "weighting": 10, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-06 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": [],
             "quizzes": [
@@ -83,11 +100,18 @@
                 {"title": "Assembly", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1320_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1320_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1320_a_exam_paper.pdf"}
+
             ],
             "seminar_exercises": [
                 {"title": "Lab 1", "url": "#"}
+            ],
+            "assessments": [
+                {"title": "Coursework 2 - Group Technical Report", "submission_deadline": "2026-01-22 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
+                {"title": "Coursework 1 - Problem Sheet", "submission_deadline": "2025-11-27 12:00 PM", "weighting": 15, "eligible_for_self_certification": true},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-08 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -104,6 +128,13 @@
             "extras": [
                 {"title": "Class Test Simulator", "url": "/tools/CS133/class-test"}
             ],
+            "assessments": [
+                {"title": "Lab Mark Points", "submission_deadline": "2025-12-12 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Class test", "submission_deadline": "2026-03-18 8:30 AM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Personal development plan", "submission_deadline": "2026-05-07 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Essay", "submission_deadline": "2026-04-30 12:00 PM", "weighting": 30, "eligible_for_self_certification": false},
+                {"title": "Presentation", "submission_deadline": "2026-03-20 12:00 PM", "weighting": 15, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS139": {
@@ -116,8 +147,43 @@
                 {"title": "HTML & CSS", "url": "#"},
                 {"title": "JavaScript", "url": "#"}
             ],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1390_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1390_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1390_c_exam_paper_2.pdf"}
+            ],
+            "assessments": [
+                {"title": "Web Server Application Coursework", "submission_deadline": "2026-03-12 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-30 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
+        },
+        "CS140": {
+            "tagline": "*Sometimes I dream of saving the world...*",
+            "name": "Computer Security",
+            "Term":"1",
+            "CATS":"15",
+            "authors": [],
+            "notes": [
+                {"title": "Linux Basics", "url": "#"},
+                {"title": "Secret & Public Key Encryption", "url": "#"},
+                {"title": "Web Servers, Authentication & Cookies", "url": "#"}
+            ],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1400_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1400_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1400_c_exam_paper.pdf"}
+            ],
+            "exercise_solutions": [],
+            "external_resources": [
+                {"name": "Computer Security (3rd ed) by Dieter Gollmann", "url":"https://go.exlibris.link/x3XvLhzk", "description": "Reccomended reading by the module organiser."}
+            ],
+            "assessments": [
+                {"title": "Coursework 1 - web server", "submission_deadline": "2025-12-04 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
+                {"title": "Coursework 3 - security defects", "submission_deadline": "2026-01-19 12:00 PM", "weighting": 25, "eligible_for_self_certification": true},
+                {"title": "Coursework 2 - secure message", "submission_deadline": "2025-12-04 12:00 PM", "weighting": 10, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-13 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+            ]
         },
         "CS141": {
             "tagline": "We love Haskell",
@@ -126,14 +192,19 @@
             "CATS":"15",
             "authors": [],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1410_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1410_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1410_c_exam_paper.pdf"}
             ],
             "seminar_exercises": [
                 {"title": "Lab 1", "url": "#"},
                 {"title": "Lab 2", "url": "#"},
                 {"title": "Lab 3", "url": "#"}
+            ],
+            "assessments": [
+                {"title": "Coursework 1", "submission_deadline": "2026-02-19 12:00 PM", "weighting": 15, "eligible_for_self_certification": true},
+                {"title": "Coursework 2", "submission_deadline": "2026-04-07 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-16 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -148,6 +219,10 @@
                 {"title": "Distributions", "url": "#"}
             ],
             "past_papers": [],
+            "assessments": [
+                {"title": "Programming Assignment", "submission_deadline": "2026-04-13 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-04 2:00 PM", "weighting": 80, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS146": {
@@ -160,7 +235,19 @@
                 {"title": "Linear Algebra", "url": "#"},
                 {"title": "Calculus", "url": "#"}
             ],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1460_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1460_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1460_a_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Problem sheet 1", "submission_deadline": "2025-10-20 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
+                {"title": "Problem sheet 2", "submission_deadline": "2025-11-03 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
+                {"title": "Problem sheet 3", "submission_deadline": "2025-11-17 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
+                {"title": "Problem sheet 4", "submission_deadline": "2025-12-01 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
+                {"title": "Problem sheet 5", "submission_deadline": "2025-12-15 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-30 2:00 PM", "weighting": 80, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         }
     }

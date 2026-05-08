@@ -1,0 +1,30 @@
+# local development version of compose to enable file-watch rebuilding
+services:
+  csnotes:
+    build: .
+    image: warwickcsnotes:local
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync
+          path: ./app.py
+          target: /app/app.py
+
+        - action: sync
+          path: ./Data
+          target: /app/Data
+
+        - action: rebuild
+          path: ./frontend
+
+        - action: rebuild
+          path: ./pyproject.toml
+
+        - action: rebuild
+          path: ./uv.lock
+
+        - action: rebuild
+          path: ./Dockerfile

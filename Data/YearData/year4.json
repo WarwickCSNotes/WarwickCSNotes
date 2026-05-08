@@ -9,7 +9,16 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4020_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4020_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4020_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework 1", "submission_deadline": "2026-02-10 12:00 PM", "weighting": 10, "eligible_for_self_certification": false},
+                {"title": "Coursework 2", "submission_deadline": "2026-03-26 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-05 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS404": {
@@ -19,7 +28,15 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4040_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4040_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4040_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2026-03-30 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-20 9:30 AM", "weighting": 75, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS407": {
@@ -30,6 +47,12 @@
             "authors": [],
             "notes": [],
             "past_papers": [],
+            "assessments": [
+                {"title": "Progress Presentation", "submission_deadline": null, "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Group Report", "submission_deadline": "2026-05-05 12:00 PM", "weighting": 60, "eligible_for_self_certification": false},
+                {"title": "Individual Report", "submission_deadline": "2026-05-05 12:00 PM", "weighting": 10, "eligible_for_self_certification": false},
+                {"title": "Final Presentation", "submission_deadline": null, "weighting": 10, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS409": {
@@ -39,7 +62,17 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4090_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4090_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4090_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework 1", "submission_deadline": "2025-11-11 12:00 PM", "weighting": 2, "eligible_for_self_certification": false},
+                {"title": "Peer Assessment", "submission_deadline": "2025-11-18 12:00 PM", "weighting": 3, "eligible_for_self_certification": false},
+                {"title": "Coursework 2", "submission_deadline": "2025-12-15 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-02 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS412": {
@@ -49,7 +82,16 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4120_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4120_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4120_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework 1", "submission_deadline": "2025-11-24 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Coursework 2", "submission_deadline": "2026-01-19 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-01 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS413": {
@@ -59,7 +101,15 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4130_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4130_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4139_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Unsupervised Practical Assignment", "submission_deadline": "2026-01-19 12:00 PM", "weighting": 30, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-18 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS416": {
@@ -69,7 +119,15 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4160_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4160_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Practical Assignment 1", "submission_deadline": "2026-02-16 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Practical Assignment 2", "submission_deadline": "2026-03-12 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-21 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS419": {
@@ -79,7 +137,17 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4190_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4190_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4190_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Problem Sheet 1", "submission_deadline": "2026-02-02 12:00 PM", "weighting": 10, "eligible_for_self_certification": false},
+                {"title": "Problem Sheet 2", "submission_deadline": "2026-02-23 12:00 PM", "weighting": 10, "eligible_for_self_certification": false},
+                {"title": "Problem Sheet 3", "submission_deadline": "2026-03-16 12:00 PM", "weighting": 10, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-10 2:00 PM", "weighting": 70, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS424": {
@@ -89,7 +157,17 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4240_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4240_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4240_a_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Assignment 1", "submission_deadline": "2026-02-04 12:00 PM", "weighting": 16, "eligible_for_self_certification": false},
+                {"title": "Assignment 2", "submission_deadline": "2026-02-25 12:00 PM", "weighting": 17, "eligible_for_self_certification": false},
+                {"title": "Assignment 3", "submission_deadline": "2026-03-18 12:00 PM", "weighting": 17, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-28 2:00 PM", "weighting": 50, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS429": {
@@ -99,7 +177,16 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4290_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4290_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4290_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Assignment 1", "submission_deadline": "2026-02-18 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
+                {"title": "Assignment 2", "submission_deadline": "2026-03-23 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-27 2:00 PM", "weighting": 50, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS430": {
@@ -109,7 +196,17 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4300_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4300_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Problem Sheet 3", "submission_deadline": "2025-11-27 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
+                {"title": "Problem Sheet 4", "submission_deadline": "2025-12-11 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
+                {"title": "Problem Sheet 5", "submission_deadline": "2025-12-18 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
+                {"title": "Project", "submission_deadline": "2026-01-22 12:00 PM", "weighting": 35, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-29 2:00 PM", "weighting": 50, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS435": {
@@ -119,9 +216,16 @@
             "CATS": "15",
             "authors": [],
             "notes": [],
-            "past_papers": [],
+            "past_papers": [
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs4350_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs4350_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs4359_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2025-12-08 12:00 PM", "weighting": 30, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-03 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         }
     }
 }
-

@@ -277,7 +277,7 @@ function WrappingSelect({
         type="button"
         disabled={disabled}
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-start gap-2 rounded border bg-background p-2 text-left text-foreground disabled:cursor-not-allowed disabled:opacity-70"
+        className="flex w-full items-start gap-2 rounded border bg-card p-2 text-left text-card-foreground disabled:cursor-not-allowed disabled:opacity-70"
       >
         <span className="min-w-0 flex-1 wrap-break-word whitespace-normal">
           {isPlaceholder ? label : <InlineRendered>{label}</InlineRendered>}
@@ -433,7 +433,7 @@ function SortRenderer({
         ? "border-green-500 bg-green-500/10"
         : fb === "wrong"
           ? "border-red-500 bg-red-500/10"
-          : "border-border bg-background hover:bg-muted"
+          : "border-border bg-card hover:bg-muted"
     const isDragSource = drag?.itemIdx === itemIdx && !isGhost
     return (
       <div
@@ -492,7 +492,7 @@ function SortRenderer({
       </div>
       {drag && (
         <div
-          className="pointer-events-none fixed z-50 rounded border bg-background px-3 py-2 text-sm opacity-90 shadow-lg"
+          className="pointer-events-none fixed z-50 rounded border bg-card px-3 py-2 text-sm text-card-foreground opacity-90 shadow-lg"
           style={{
             left: drag.pointerX - drag.offsetX,
             top: drag.pointerY - drag.offsetY,
@@ -647,7 +647,7 @@ export function QuizRunner({
                           if (instaCheck && hasText(e.currentTarget.value))
                             snap(`text-${i}`, e.currentTarget.value)
                         }}
-                        className={`w-full rounded border bg-background p-2 text-foreground ${inputG ? stateBorder(inputG) : ""}`}
+                        className={`w-full rounded border bg-card p-2 text-card-foreground ${inputG ? stateBorder(inputG) : ""}`}
                         placeholder="Type your answer..."
                       />
                       {show && inputG !== "correct" && (
@@ -700,7 +700,7 @@ export function QuizRunner({
                               ? "border-red-500 bg-red-500/10"
                               : isChecked
                                 ? "border-primary bg-primary/10"
-                                : "hover:bg-muted"
+                                : "bg-card hover:bg-muted"
                         }`}
                       >
                         <input
@@ -777,7 +777,7 @@ export function QuizRunner({
                                 )
                                   snap(`slot-${i}-${si}`, e.currentTarget.value)
                               }}
-                              className={`w-full rounded border bg-background p-2 text-foreground ${slotG ? stateBorder(slotG) : ""}`}
+                              className={`w-full rounded border bg-card p-2 text-card-foreground ${slotG ? stateBorder(slotG) : ""}`}
                               placeholder={`Answer ${si + 1}...`}
                             />
                             {slotResult &&
@@ -842,7 +842,7 @@ export function QuizRunner({
                             ? `border-green-500 ${stateBg("correct")}`
                             : itemWrong
                               ? `border-red-500 ${stateBg("wrong")}`
-                              : ""
+                              : "bg-card"
                         }`}
                       >
                         <span className="w-32 shrink-0 font-medium break-words whitespace-normal sm:w-40">
