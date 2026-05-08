@@ -17,9 +17,17 @@
             "image": "https://github.com/jakubczarlinski.png"
         },
         {
+            "id": "OdinHoldom",
+            "name": "Odin Holdom",
+            "role": "Frontend Engineer",
+            "github": "https://github.com/odiinh",
+            "linkedin": "https://www.linkedin.com/in/odinholdom/",
+            "image": "/api/credits/images/odinh.jpg"
+        },
+        {
             "id": "Expiracy",
             "name": "James Gray",
-            "role": "UI & Notes Contributor",
+            "role": "UI Designer & Notes Contributor",
             "github": "https://github.com/expiracy",
             "linkedin": "https://www.linkedin.com/in/jameslaigray/",
             "image": "https://github.com/expiracy.png"

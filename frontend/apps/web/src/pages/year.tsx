@@ -97,19 +97,14 @@ export const YearPage = () => {
                     <p className="mt-1 text-sm text-muted-foreground">
                       <InlineMarkdown>{mod.tagline ?? ""}</InlineMarkdown>
                     </p>
-                    {mod.description && (
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        <InlineMarkdown>{mod.description}</InlineMarkdown>
-                      </p>
-                    )}
                     <div className="mt-2 flex gap-3">
                       {mod.Term && (
-                        <span className="text-xs font-medium text-muted-foreground">
+                        <span className="text-xs font-medium text-detail">
                           Term {mod.Term}
                         </span>
                       )}
                       {mod.CATS && (
-                        <span className="text-xs font-medium text-muted-foreground">
+                        <span className="text-xs font-medium text-detail">
                           {mod.CATS} CATS
                         </span>
                       )}

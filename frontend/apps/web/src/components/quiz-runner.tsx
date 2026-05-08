@@ -220,6 +220,21 @@ function formatScore(n: number): string {
   return rounded.toFixed(2).replace(/0+$/, "").replace(/\.$/, "")
 }
 
+/** Move focus from a quiz input to the next enabled text input on the page,
+ *  mimicking Tab. Used so that pressing Enter advances to the next question
+ *  (or next multitext slot) the way students intuitively expect. */
+function focusNextQuizInput(current: HTMLInputElement) {
+  const inputs = Array.from(
+    document.querySelectorAll<HTMLInputElement>(
+      'input[type="text"]:not([disabled])'
+    )
+  )
+  const idx = inputs.indexOf(current)
+  if (idx >= 0 && idx + 1 < inputs.length) {
+    inputs[idx + 1]!.focus()
+  }
+}
+
 function shuffle<T>(arr: T[]): T[] {
   const pool = arr.slice()
   for (let i = pool.length - 1; i > 0; i--) {
@@ -636,12 +651,14 @@ export function QuizRunner({
                           setAnswers((a) => ({ ...a, [i]: e.target.value }))
                         }
                         onKeyDown={(e) => {
+                          if (e.key !== "Enter") return
+                          e.preventDefault()
                           if (
                             instaCheck &&
-                            e.key === "Enter" &&
                             hasText(e.currentTarget.value)
                           )
                             snap(`text-${i}`, e.currentTarget.value)
+                          focusNextQuizInput(e.currentTarget)
                         }}
                         onBlur={(e) => {
                           if (instaCheck && hasText(e.currentTarget.value))
@@ -681,15 +698,25 @@ export function QuizRunner({
                   )
                 })()}
 
-              {q.type === "checkbox" && (
+              {q.type === "checkbox" && (() => {
+                const userPicked = (answers[i] as number[] | undefined) ?? []
+                const hasSelection = userPicked.length > 0
+                // Insta-check: highlight the user's picks as they go,
+                // green for ones in `correct`, red otherwise. Unpicked
+                // correct options stay neutral so we don't reveal answers
+                // the user hasn't earned. On submit we fall back to the
+                // full-feedback behaviour: every correct option goes green
+                // (including ones the user missed) and wrong picks stay red.
+                const showFeedback = submitted || (instaCheck && hasSelection)
+                return (
                 <div className="space-y-2">
                   {q.options.map((opt, j) => {
-                    const isChecked = ((answers[i] as number[]) ?? []).includes(
-                      j
-                    )
-                    const isCorrectChoice = submitted && q.correct.includes(j)
+                    const isChecked = userPicked.includes(j)
+                    const isCorrectChoice = submitted
+                      ? q.correct.includes(j)
+                      : showFeedback && isChecked && q.correct.includes(j)
                     const isWrongChoice =
-                      submitted && isChecked && !q.correct.includes(j)
+                      showFeedback && isChecked && !q.correct.includes(j)
                     return (
                       <label
                         key={j}
@@ -723,7 +750,8 @@ export function QuizRunner({
                     )
                   })}
                 </div>
-              )}
+                )
+              })()}
 
               {q.type === "multitext" &&
                 (() => {
@@ -763,12 +791,14 @@ export function QuizRunner({
                                 })
                               }
                               onKeyDown={(e) => {
+                                if (e.key !== "Enter") return
+                                e.preventDefault()
                                 if (
                                   instaCheck &&
-                                  e.key === "Enter" &&
                                   hasText(e.currentTarget.value)
                                 )
                                   snap(`slot-${i}-${si}`, e.currentTarget.value)
+                                focusNextQuizInput(e.currentTarget)
                               }}
                               onBlur={(e) => {
                                 if (

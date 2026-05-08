@@ -686,6 +686,8 @@ export const ModulePage = () => {
         </Panel>
       )}
 
+      {assessments.length > 0 && <AssessmentTable assessments={assessments} />}
+
       <Panel className="mt-4">
         <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">
           <h5 className="font-bold">Reviews</h5>
@@ -718,8 +720,6 @@ export const ModulePage = () => {
           </p>
         )}
       </Panel>
-
-      {assessments.length > 0 && <AssessmentTable assessments={assessments} />}
     </Page>
   )
 }
