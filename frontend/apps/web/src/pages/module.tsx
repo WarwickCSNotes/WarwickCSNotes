@@ -274,12 +274,12 @@ export const ModulePage = () => {
       />
       <div className="-mt-4 mb-2 flex gap-4">
         {mod.Term && (
-          <span className="text-sm font-medium text-muted-foreground">
+          <span className="text-sm font-medium text-detail">
             Term {mod.Term}
           </span>
         )}
         {mod.CATS && (
-          <span className="text-sm font-medium text-muted-foreground">
+          <span className="text-sm font-medium text-detail">
             {mod.CATS} CATS
           </span>
         )}
