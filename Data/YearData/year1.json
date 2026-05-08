@@ -72,7 +72,7 @@
                 {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1300_c_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS130/CS130-2023", "unfinished": true}}
             ],
             "external_resources": [
-                {"name": "Book of Proof (Hammack)", "url":"https://go.exlibris.link/x3XvLhzk", "description": "Free online textbook, great for proof techniques."},
+                {"name": "Book of Proof (Hammack)", "url":"https://richardhammack.github.io/BookOfProof/Main.pdf", "description": "Free online textbook, great for proof techniques."},
                 {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."}
             ],
             "assessments": [
