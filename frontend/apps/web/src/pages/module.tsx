@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { BadgeCheck, Construction } from "lucide-react"
+import { ArrowUpDown, BadgeCheck, Construction } from "lucide-react"
+import ReactMarkdown from "react-markdown"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { AiSummaryPanel } from "@/components/ai-summary"
@@ -41,6 +42,17 @@ type ReviewSummary = {
   count: number
   average: Record<string, number>
 }
+type Assessment = {
+  title: string
+  submission_deadline?: string | null
+  weighting: number
+  eligible_for_self_certification: boolean
+}
+type AssessmentSortKey = "weighting" | "submission_deadline"
+type AssessmentSort = {
+  key: AssessmentSortKey
+  direction: "asc" | "desc"
+}
 type ModuleData = {
   code: string
   name: string
@@ -56,6 +68,7 @@ type ModuleData = {
   external_resources?: ExternalResource[]
   extras?: ResourceEntry[]
   review_summary?: ReviewSummary
+  assessments?: Assessment[]
 }
 
 /** Link-like card that can safely contain other interactive children
@@ -168,6 +181,136 @@ function Badges({
   )
 }
 
+function parseSubmissionDeadline(deadline?: string | null): number {
+  if (!deadline) return Number.POSITIVE_INFINITY
+
+  const match = deadline
+    .trim()
+    .match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})\s*(AM|PM)$/i)
+  if (match) {
+    const [, year, month, day, hour, minute, meridiem] = match
+    let parsedHour = Number(hour) % 12
+    if (meridiem.toUpperCase() === "PM") parsedHour += 12
+    return new Date(
+      Number(year),
+      Number(month) - 1,
+      Number(day),
+      parsedHour,
+      Number(minute)
+    ).getTime()
+  }
+
+  const parsed = Date.parse(deadline)
+  return Number.isNaN(parsed) ? Number.POSITIVE_INFINITY : parsed
+}
+
+function AssessmentTable({ assessments }: { assessments: Assessment[] }) {
+  const [sort, setSort] = useState<AssessmentSort>({
+    key: "weighting",
+    direction: "desc",
+  })
+
+  const updateSort = (key: AssessmentSortKey) => {
+    setSort((current) => ({
+      key,
+      direction:
+        current.key === key && current.direction === "asc" ? "desc" : "asc",
+    }))
+  }
+
+  const sortedAssessments = assessments
+    .map((assessment, index) => ({ assessment, index }))
+    .sort((a, b) => {
+      const left =
+        sort.key === "weighting"
+          ? a.assessment.weighting
+          : parseSubmissionDeadline(a.assessment.submission_deadline)
+      const right =
+        sort.key === "weighting"
+          ? b.assessment.weighting
+          : parseSubmissionDeadline(b.assessment.submission_deadline)
+      const direction = sort.direction === "asc" ? 1 : -1
+
+      if (left === right) return a.index - b.index
+      return (left - right) * direction
+    })
+    .map(({ assessment }) => assessment)
+
+  const sortLabel = (key: AssessmentSortKey) => {
+    if (sort.key !== key) return "Sort"
+    return sort.direction === "asc" ? "Ascending" : "Descending"
+  }
+
+  return (
+    <div className="mt-8 rounded border p-4">
+      <h5 className="mb-3 font-bold">Assessment</h5>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[640px] border-separate border-spacing-y-2 text-sm">
+          <thead>
+            <tr className="text-left text-foreground">
+              <th className="px-3 py-2 text-sm font-semibold">Component</th>
+              <th className="px-3 py-2 font-semibold">
+                <button
+                  type="button"
+                  onClick={() => updateSort("submission_deadline")}
+                  className="inline-flex items-center gap-1 text-left text-sm font-semibold hover:text-primary"
+                  aria-label={`${sortLabel("submission_deadline")} by submission deadline`}
+                >
+                  Submission Deadline
+                  <ArrowUpDown className="h-3.5 w-3.5" aria-hidden="true" />
+                </button>
+              </th>
+              <th className="px-3 py-2 font-semibold">
+                <button
+                  type="button"
+                  onClick={() => updateSort("weighting")}
+                  className="inline-flex items-center gap-1 text-left text-sm font-semibold hover:text-primary"
+                  aria-label={`${sortLabel("weighting")} by weighting`}
+                >
+                  Weighting
+                  <ArrowUpDown className="h-3.5 w-3.5" aria-hidden="true" />
+                </button>
+              </th>
+              <th className="px-3 py-2 text-center text-sm font-semibold">
+                Self-certification
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedAssessments.map((assessment) => (
+              <tr key={assessment.title} className="group">
+                <td className="border-y border-border bg-surface px-3 py-3 font-medium transition-colors group-hover:bg-surface-hover first:rounded-l first:border-l">
+                  {assessment.title}
+                </td>
+                <td
+                  className={`border-y border-border bg-surface px-3 py-3 transition-colors group-hover:bg-surface-hover ${assessment.submission_deadline ? "" : "text-muted-foreground"}`}
+                >
+                  {assessment.submission_deadline ?? "TBC"}
+                </td>
+                <td className="border-y border-border bg-surface px-3 py-3 transition-colors group-hover:bg-surface-hover">
+                  {assessment.weighting}%
+                </td>
+                <td className="border-y border-border bg-surface px-3 py-3 text-center transition-colors group-hover:bg-surface-hover last:rounded-r last:border-r">
+                  <span
+                    role="img"
+                    aria-label={
+                      assessment.eligible_for_self_certification
+                        ? "Eligible for self-certification"
+                        : "Not eligible for self-certification"
+                    }
+                  >
+                    {assessment.eligible_for_self_certification ? "✅" : "❌"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
 export const ModulePage = () => {
   const { code } = useParams()
   const [mod, setMod] = useState<ModuleData | null>(null)
@@ -262,6 +405,7 @@ export const ModulePage = () => {
   const quizzes = mod.quizzes ?? []
   const externalResources = mod.external_resources ?? []
   const extras = mod.extras ?? []
+  const assessments = mod.assessments ?? []
   const reviewSummary = mod.review_summary
   const reviewCount = reviewSummary?.count ?? 0
 
@@ -284,7 +428,11 @@ export const ModulePage = () => {
           </span>
         )}
       </div>
-      <p className="my-4 italic">{mod.tagline}</p>
+      <p className="my-4 italic">
+        <ReactMarkdown components={{ p: ({ children }) => <>{children}</> }}>
+          {mod.tagline ?? ""}
+        </ReactMarkdown>
+      </p>
       {mod.description && <p className="mb-4">{mod.description}</p>}
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -305,10 +453,7 @@ export const ModulePage = () => {
               <ResourceCard
                 key={note.title}
                 to={note.url}
-                className={cn(
-                  interactiveCompactTileClass,
-                  "mb-2"
-                )}
+                className={cn(interactiveCompactTileClass, "mb-2")}
               >
                 {note.title}
                 <Badges verified={note.verified} unfinished={note.unfinished} />
@@ -573,6 +718,8 @@ export const ModulePage = () => {
           </p>
         )}
       </Panel>
+
+      {assessments.length > 0 && <AssessmentTable assessments={assessments} />}
     </Page>
   )
 }

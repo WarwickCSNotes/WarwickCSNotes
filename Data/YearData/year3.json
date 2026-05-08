@@ -12,6 +12,11 @@
                 {"title": "Report Writing Tips", "url": "#"}
             ],
             "past_papers": [],
+            "assessments": [
+                {"title": "Progress Report", "submission_deadline": "2026-01-22 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Final Report", "submission_deadline": "2026-04-09 12:00 PM", "weighting": 75, "eligible_for_self_certification": false},
+                {"title": "Project Management Report", "submission_deadline": "2026-04-09 12:00 PM", "weighting": 10, "eligible_for_self_certification": false}
+            ],
             "exercise_solutions": []
         },
         "CS325": {
@@ -24,12 +29,16 @@
                 {"title": "Parsing", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3250_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3250_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3250_a_exam_paper.pdf"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"}
+            ],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2025-11-24 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-01 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -44,11 +53,15 @@
                 {"title": "Perceptron", "url": "/resources/Notes/CS331/Perceptron"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3310_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3310_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3310_c_exam_paper.pdf"}
             ],
             "exercise_solutions": [],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2026-04-10 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-18 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+            ],
             "quizzes": [
                 {"title": "Biological Neurons", "url": "/quizzes/cs331-biological-neurons"},
                 {"title": "MP Neuron", "url": "/quizzes/cs331-mp-neuron"},
@@ -67,9 +80,13 @@
                 {"title": "Probability", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3420__exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3420_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3420_c_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2025-12-16 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-21 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -83,8 +100,14 @@
                 {"title": "Image fundamentals", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3550_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3550_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3550_c_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework 1", "submission_deadline": "2026-02-19 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Coursework 2", "submission_deadline": "2026-03-16 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-26 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         }

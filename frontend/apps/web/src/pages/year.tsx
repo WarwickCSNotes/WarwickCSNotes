@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import ReactMarkdown from "react-markdown"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { SurfaceLink } from "@/components/surface"
@@ -7,6 +8,7 @@ import { SurfaceLink } from "@/components/surface"
 type YearModule = {
   name: string
   tagline?: string
+  description?: string
   Term?: string | number
   CATS?: string | number
 }
@@ -30,6 +32,16 @@ function termGroup(term: string | number | undefined): TermGroupKey {
   if (normalized === "2") return "term2"
   return "multiterm"
 }
+
+const InlineMarkdown = ({ children }: { children: string }) => (
+  <ReactMarkdown
+    components={{
+      p: ({ children }) => <>{children}</>,
+    }}
+  >
+    {children}
+  </ReactMarkdown>
+)
 
 export const YearPage = () => {
   const { year } = useParams()
@@ -83,8 +95,13 @@ export const YearPage = () => {
                     </h6>
                     <h5 className="font-bold">{mod.name}</h5>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {mod.tagline}
+                      <InlineMarkdown>{mod.tagline ?? ""}</InlineMarkdown>
                     </p>
+                    {mod.description && (
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        <InlineMarkdown>{mod.description}</InlineMarkdown>
+                      </p>
+                    )}
                     <div className="mt-2 flex gap-3">
                       {mod.Term && (
                         <span className="text-xs font-medium text-muted-foreground">

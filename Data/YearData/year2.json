@@ -21,15 +21,19 @@
                 {"title": "Network Layer", "url": "/resources/Notes/CS241/NetworkLayer"}
             ],
             "past_papers": [
-                {"title": "2023 Exam Paper", "url": "#"},
-                {"title": "2022 Exam Paper", "url": "#"},
-                {"title": "2021 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2410_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2410_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2410_b_exam_paper_2.pdf"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"},
                 {"title": "Lab 2", "url": "#"}
             ],
             "exercise_solutions": [],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2025-12-09 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-04-29 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+            ],
             "quizzes": [
                 {"title": "Kernels", "url": "/quizzes/cs241-kernels"},
                 {"title": "Processes and Scheduling", "url": "/quizzes/cs241-processes-and-scheduling"},
@@ -61,12 +65,16 @@
                 {"title": "State of the Art", "url": "/resources/Notes/CS257/StateOfTheArt"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2570_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2570_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2570_c_exam_paper.pdf"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"}
+            ],
+            "assessments": [
+                {"title": "Practical Assignment", "submission_deadline": "2026-03-12 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-13 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -80,12 +88,16 @@
                 {"title": "Relational Model", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2580_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2580_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2580_b_exam_paper.pdf"}
             ],
             "seminar_exercises": [
                 {"title": "Lab", "url": "#"}
+            ],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2025-12-17 12:00 PM", "weighting": 30, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-05 2:00 PM", "weighting": 70, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -102,9 +114,13 @@
                 {"title": "CFGs", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2590_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2590_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2590_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2026-04-30 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-15 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -123,15 +139,18 @@
             "past_papers": [
                 {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2600_exam_paper.pdf"},
                 {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2600_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2600_a_exam_paper.pdf"},
-                {"title": "2022 Exam Paper", "url": "#"},
-                {"title": "2021 Exam Paper", "url": "#"}
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2600_a_exam_paper.pdf"}
             ],
             "seminar_exercises": [
                 {"title": "ad", "url": "#"},
                 {"title": "da", "url": "#"}
             ],
             "exercise_solutions": [],
+            "assessments": [
+                {"title": "Coursework 1", "submission_deadline": "2025-11-10 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
+                {"title": "Coursework 2", "submission_deadline": "2025-12-15 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-01 9:10 AM", "weighting": 90, "eligible_for_self_certification": false}
+            ],
             "external_resources": [
                 {
                     "name": "Michael Sambol (YouTube)",
@@ -150,8 +169,15 @@
                 {"title": "GET ME OUT OF HERE", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2610_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2610_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url":"https://warwick.ac.uk/services/exampapers/cs/2023/cs2610_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Requirements and Design", "submission_deadline": "2026-02-09 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
+                {"title": "Group Presentation", "submission_deadline": "2026-03-16 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Peer Assessment", "submission_deadline": "2026-04-20 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
+                {"title": "Individual Report", "submission_deadline": "2026-04-20 12:00 PM", "weighting": 50, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         },
@@ -167,9 +193,13 @@
                 {"title": "Hoare Logic", "url": "#"}
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "#"},
-                {"title": "2024 Exam Paper", "url": "#"},
-                {"title": "2023 Exam Paper", "url": "#"}
+                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2620.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2620_exam_paper.pdf"},
+                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2620_b_exam_paper.pdf"}
+            ],
+            "assessments": [
+                {"title": "Coursework", "submission_deadline": "2026-05-05 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
+                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-17 2:00 PM", "weighting": 75, "eligible_for_self_certification": false}
             ],
             "exercise_solutions": []
         }

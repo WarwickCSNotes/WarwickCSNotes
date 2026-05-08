@@ -228,6 +228,51 @@
     color: var(--primary);
 }
 
+/* tabula: derived from Tabula/ID7 CSS. Tweak these variables to shape the palette. */
+.tabula {
+    --background: #efe6cf;
+    --foreground: #383838;
+    --card: #fff;
+    --card-foreground: #383838;
+    --popover: #fff;
+    --popover-foreground: #383838;
+    --primary: #245a86;
+    --primary-foreground: #fff;
+    --secondary: #e9e9e9;
+    --secondary-foreground: #333;
+    --muted: #eeeeee;
+    --muted-foreground: #6c757d;
+    --accent: #ffc040;
+    --accent-foreground: #0b0c0c;
+    --destructive: #851e1a;
+    --border: #b9b9b9;
+    --input: #ccc;
+    --ring: #ffbf47;
+    --nav: rgb(106, 180, 174);
+    --nav-foreground: #fff;
+    --surface: #eeeeee;
+    --surface-foreground: #383838;
+    --surface-hover: #e2e2e2;
+    --detail: #1f7972;
+    --chart-1: #245a86;
+    --chart-2: #1f7972;
+    --chart-3: #552d62;
+    --chart-4: #be410c;
+    --chart-5: #af2723;
+    --sidebar: #eeeeee;
+    --sidebar-foreground: #383838;
+    --sidebar-primary: #245a86;
+    --sidebar-primary-foreground: #fff;
+    --sidebar-accent: #e6e6e6;
+    --sidebar-accent-foreground: #333;
+    --sidebar-border: #ddd;
+    --sidebar-ring: #ffbf47;
+}
+
+.tabula :focus-visible {
+    outline-color: #ffbf47;
+}
+
 .dragon h1, .dragon h2, .dragon h3, .dragon h4,
 .dragon .prose h1, .dragon .prose h2, .dragon .prose h3, .dragon .prose h4 {
     color: var(--primary);
