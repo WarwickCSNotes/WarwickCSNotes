@@ -1,0 +1,20 @@
+{
+    "title": "Hopfield Networks",
+    "module": "CS331",
+    "description": "Hopfield networks and Hebbian learning rules.",
+    "questions": [
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are Hebbian learning rules?",
+            "options": [
+                "Neurons that fire together, wire together",
+                "Neurons that fire out of sync, fail to link",
+                "Neurons that pulse in time, end up in line",
+                "Neurons that buzz apart, never share a spark",
+                "Neurons that beat in tune, share the room",
+                "Neurons that drift askew, forget what they knew"
+            ],
+            "correct": [0, 1]
+        }
+    ]
+}

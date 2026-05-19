@@ -60,6 +60,26 @@
                 "pns",
                 "peripheral"
             ]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each major neuron type to where it usually exists.",
+            "left": ["Sensory", "Motor", "Relay"],
+            "right": [
+                "Receptors / sense organs",
+                "Motor cortex and CNS",
+                "CNS"
+            ],
+            "correct": [0, 1, 2]
+        },
+        {
+            "type": "text",
+            "prompt": "The term \"interneuron\" refers to which type of major neuron?",
+            "accepted": [
+                "Relay neuron",
+                "Relay",
+                "Relay neurons"
+            ]
         }
     ]
 }

@@ -63,6 +63,14 @@ export type MultiTextQuestion = {
   accepted: string[]
 }
 
+/** Like multitext, but the slots are positional: slot i must match
+ *  `accepted[i]`. Used for pipelines / sequences where order matters. */
+export type OrderedMultiTextQuestion = {
+  type: "orderedmultitext"
+  prompt: string
+  accepted: string[]
+}
+
 /** Drag items from a pool into one of N columns. Each item belongs to exactly
  *  one correct column. correct[i] gives the correct column index for items[i]. */
 export type SortQuestion = {
@@ -78,6 +86,7 @@ export type Question =
   | CheckboxQuestion
   | MatchQuestion
   | MultiTextQuestion
+  | OrderedMultiTextQuestion
   | SortQuestion
 
 type Answer = string | number[] | string[]
@@ -157,6 +166,28 @@ function matchMultiText(q: MultiTextQuestion, slots: string[]): SlotResult[] {
   return results
 }
 
+/** Per-slot grading for an ordered multitext: slot i is matched only against
+ *  `accepted[i]` (not the whole pool), so order matters. */
+function matchOrderedMultiText(
+  q: OrderedMultiTextQuestion,
+  slots: string[]
+): SlotResult[] {
+  return slots.map((slot, idx) => {
+    const user = slot.trim().toLowerCase()
+    const expected = (q.accepted[idx] ?? "").toLowerCase()
+    if (user === "" || expected === "") {
+      return { state: "wrong" as Correctness, acceptedIdx: -1 }
+    }
+    if (user === expected) {
+      return { state: "correct" as Correctness, acceptedIdx: idx }
+    }
+    if (isPartialMatch(user, expected)) {
+      return { state: "partial" as Correctness, acceptedIdx: idx }
+    }
+    return { state: "wrong" as Correctness, acceptedIdx: -1 }
+  })
+}
+
 function grade(q: Question, ans: Answer | undefined): Correctness {
   if (ans === undefined) return "wrong"
   if (q.type === "text") return gradeText(q, String(ans))
@@ -174,6 +205,15 @@ function grade(q: Question, ans: Answer | undefined): Correctness {
     const exact = matches.filter((m) => m.state === "correct").length
     const anyMatch = matches.filter((m) => m.state !== "wrong").length
     if (exact === q.slots) return "correct"
+    if (anyMatch > 0) return "partial"
+    return "wrong"
+  }
+  if (q.type === "orderedmultitext") {
+    const slots = ans as string[]
+    const matches = matchOrderedMultiText(q, slots)
+    const exact = matches.filter((m) => m.state === "correct").length
+    const anyMatch = matches.filter((m) => m.state !== "wrong").length
+    if (exact === q.accepted.length) return "correct"
     if (anyMatch > 0) return "partial"
     return "wrong"
   }
@@ -197,6 +237,12 @@ function pointsFor(q: Question, ans: Answer | undefined): number {
     const matches = matchMultiText(q, slots)
     const hits = matches.filter((m) => m.state !== "wrong").length
     return hits / q.slots
+  }
+  if (q.type === "orderedmultitext") {
+    const slots = ans as string[]
+    const matches = matchOrderedMultiText(q, slots)
+    const hits = matches.filter((m) => m.state !== "wrong").length
+    return hits / q.accepted.length
   }
   if (q.type === "sort") {
     const placement = ans as number[]
@@ -826,6 +872,94 @@ export function QuizRunner({
                               missing.length > 0 && (
                                 <p className="mt-1 text-xs text-muted-foreground">
                                   Accepted: {joinOr(missing)}
+                                </p>
+                              )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )
+                })()}
+
+              {q.type === "orderedmultitext" &&
+                (() => {
+                  const slotCount = q.accepted.length
+                  const liveSlots: string[] =
+                    (answers[i] as string[]) ?? Array(slotCount).fill("")
+                  const gradingSlots: string[] = Array.from({
+                    length: slotCount,
+                  }).map((_, si) => gradeSlotValue(i, si))
+                  const slotResults = matchOrderedMultiText(q, gradingSlots)
+                  return (
+                    <div className="flex flex-col gap-3">
+                      {Array.from({ length: slotCount }).map((_, si) => {
+                        const show = showSlot(i, si)
+                        const slotResult = show ? slotResults[si] : undefined
+                        const slotG: Correctness | undefined = slotResult?.state
+                        return (
+                          <div key={si}>
+                            <div className="flex items-center gap-2">
+                              <span className="w-6 shrink-0 text-sm font-medium text-muted-foreground">
+                                {si + 1}.
+                              </span>
+                              <input
+                                type="text"
+                                disabled={submitted}
+                                value={liveSlots[si] ?? ""}
+                                onChange={(e) =>
+                                  setAnswers((a) => {
+                                    const cur = (
+                                      (a[i] as string[]) ??
+                                      Array(slotCount).fill("")
+                                    ).slice()
+                                    cur[si] = e.target.value
+                                    return { ...a, [i]: cur }
+                                  })
+                                }
+                                onKeyDown={(e) => {
+                                  if (e.key !== "Enter") return
+                                  e.preventDefault()
+                                  if (
+                                    instaCheck &&
+                                    hasText(e.currentTarget.value)
+                                  )
+                                    snap(
+                                      `slot-${i}-${si}`,
+                                      e.currentTarget.value
+                                    )
+                                  focusNextQuizInput(e.currentTarget)
+                                }}
+                                onBlur={(e) => {
+                                  if (
+                                    instaCheck &&
+                                    hasText(e.currentTarget.value)
+                                  )
+                                    snap(
+                                      `slot-${i}-${si}`,
+                                      e.currentTarget.value
+                                    )
+                                }}
+                                className={`w-full rounded border bg-card p-2 text-card-foreground ${slotG ? stateBorder(slotG) : ""}`}
+                                placeholder={`Step ${si + 1}...`}
+                              />
+                            </div>
+                            {slotResult &&
+                              slotResult.state === "partial" && (
+                                <p className="mt-1 ml-8 text-xs text-muted-foreground">
+                                  Pretty much, exact answer:{" "}
+                                  <InlineRendered>
+                                    {q.accepted[si] ?? ""}
+                                  </InlineRendered>
+                                </p>
+                              )}
+                            {submitted &&
+                              slotResult &&
+                              slotResult.state === "wrong" && (
+                                <p className="mt-1 ml-8 text-xs text-muted-foreground">
+                                  Expected:{" "}
+                                  <InlineRendered>
+                                    {q.accepted[si] ?? ""}
+                                  </InlineRendered>
                                 </p>
                               )}
                           </div>

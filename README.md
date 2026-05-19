@@ -17,11 +17,16 @@ This project uses UV for dependency management. Get UV here: https://docs.astral
 
 To build:
 ```
- docker build -t warwickcsnotes:local .
+docker build -t warwickcsnotes:local .
 ```
 *Note: you should have Docker running while doing this*
 
-To run:
+To run, without an env file:
+```
+docker run --rm -p 3000:3000 warwickcsnotes:local
+```
+
+To run, with an env file:
 ```
 docker run --rm -p 3000:3000 --env-file .env warwickcsnotes:local
 ```

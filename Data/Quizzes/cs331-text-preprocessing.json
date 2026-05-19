@@ -1,0 +1,29 @@
+{
+    "title": "Text Preprocessing",
+    "module": "CS331",
+    "description": "The text preprocessing pipeline, plus stemming vs lemmatization.",
+    "questions": [
+        {
+            "type": "orderedmultitext",
+            "prompt": "Fill in the steps of the text preprocessing pipeline, in order.",
+            "accepted": [
+                "Sentence Segmentation",
+                "Word Tokenization",
+                "Stop-Word Removal",
+                "Lowercasing",
+                "Normalization",
+                "PoS Tagging"
+            ]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each technique to its description.",
+            "left": ["Stemming", "Lemmatization"],
+            "right": [
+                "Reduces words to root/base forms, often by removing prefixes/suffixes, which can result in invalid words",
+                "Reduces words to their dictionary root forms"
+            ],
+            "correct": [0, 1]
+        }
+    ]
+}

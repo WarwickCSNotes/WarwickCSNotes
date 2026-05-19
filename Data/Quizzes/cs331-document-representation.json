@@ -1,0 +1,17 @@
+{
+    "title": "Document Representation",
+    "module": "CS331",
+    "description": "Sparse representations of documents.",
+    "questions": [
+        {
+            "type": "sort",
+            "prompt": "Sort each advantage by the sparse storage format it belongs to.",
+            "columns": ["Yale", "COO"],
+            "items": [
+                "Good for efficient matrix operations because it is row-focused",
+                "Good for incremental matrix construction"
+            ],
+            "correct": [0, 1]
+        }
+    ]
+}

@@ -26,5 +26,10 @@
     "BiologicalNeuron.md": ["EdDenton"],
     "PropositionalLogic.md": ["EdDenton"],
     "PredicateLogic.md": ["EdDenton"],
-    "Relations.md": ["EdDenton"]
+    "Relations.md": ["EdDenton"],
+    "Differentiation.md": ["EdDenton"],
+    "LossFunctions.md": ["EdDenton"],
+    "NaturalLanguageProcessing.md": ["EdDenton"],
+    "GenerativeAdversarialNetworks.md": ["EdDenton"],
+    "ApproximationRatio.md": ["EdDenton"]
 }

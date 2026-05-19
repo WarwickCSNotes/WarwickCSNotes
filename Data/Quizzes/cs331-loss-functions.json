@@ -1,0 +1,19 @@
+{
+    "title": "Loss Functions",
+    "module": "CS331",
+    "description": "Match common loss functions to their formulas.",
+    "questions": [
+        {
+            "type": "match",
+            "prompt": "Match each loss function to its formula.",
+            "left": ["L1 Loss", "L2 Loss", "Log Loss", "Hinge Loss"],
+            "right": [
+                "$|y - \\hat{y}|$",
+                "$(y - \\hat{y})^2$",
+                "$-\\bigl[\\, y \\log(\\hat{y}) + (1 - y) \\log(1 - \\hat{y}) \\,\\bigr]$",
+                "$\\max(0,\\ 1 - y \\cdot \\hat{y})$"
+            ],
+            "correct": [0, 1, 2, 3]
+        }
+    ]
+}

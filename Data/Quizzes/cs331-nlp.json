@@ -1,0 +1,28 @@
+{
+    "title": "Natural Language Processing",
+    "module": "CS331",
+    "description": "What NLP is, and common use-cases.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "What process transforms unstructured, noisy data into clean, structured data ready for analysis and learning?",
+            "accepted": [
+                "Text preprocessing",
+                "Text pre-processing",
+                "Preprocessing",
+                "Pre-processing"
+            ]
+        },
+        {
+            "type": "multitext",
+            "prompt": "Name the four use-cases of NLP listed in the lectures.",
+            "slots": 4,
+            "accepted": [
+                "Speech Recognition",
+                "Sentiment Analysis",
+                "Chatbots",
+                "Translation"
+            ]
+        }
+    ]
+}

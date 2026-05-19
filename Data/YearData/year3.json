@@ -50,7 +50,11 @@
             "authors": [],
             "notes": [
                 {"title": "Biological Neurons", "url": "/resources/Notes/CS331/BiologicalNeuron"},
-                {"title": "Perceptron", "url": "/resources/Notes/CS331/Perceptron"}
+                {"title": "Perceptron", "url": "/resources/Notes/CS331/Perceptron"},
+                {"title": "Differentiation", "url": "/resources/Notes/CS331/Differentiation"},
+                {"title": "Loss Functions", "url": "/resources/Notes/CS331/LossFunctions"},
+                {"title": "Natural Language Processing", "url": "/resources/Notes/CS331/NaturalLanguageProcessing"},
+                {"title": "Generative Adversarial Networks", "url": "/resources/Notes/CS331/GenerativeAdversarialNetworks"}
             ],
             "past_papers": [
                 {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3310_exam_paper.pdf"},
@@ -67,7 +71,12 @@
                 {"title": "MP Neuron", "url": "/quizzes/cs331-mp-neuron"},
                 {"title": "MP Neuron vs Perceptron", "url": "/quizzes/cs331-mp-neuron-vs-perceptron"},
                 {"title": "Perceptron Learning", "url": "/quizzes/cs331-perceptron-learning", "unfinished": true},
-                {"title": "Activation Functions", "url": "/quizzes/cs331-activation-functions"}
+                {"title": "Activation Functions", "url": "/quizzes/cs331-activation-functions"},
+                {"title": "Hopfield Networks", "url": "/quizzes/cs331-hopfield-networks"},
+                {"title": "Natural Language Processing", "url": "/quizzes/cs331-nlp"},
+                {"title": "Text Preprocessing", "url": "/quizzes/cs331-text-preprocessing"},
+                {"title": "Document Representation", "url": "/quizzes/cs331-document-representation"},
+                {"title": "Loss Functions", "url": "/quizzes/cs331-loss-functions"}
             ]
         },
         "CS342": {
@@ -109,6 +118,18 @@
                 {"title": "Coursework 2", "submission_deadline": "2026-03-16 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
                 {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-26 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
             ],
+            "exercise_solutions": []
+        },
+        "CS356": {
+            "tagline": "sometimes random good",
+            "name": "Approximation and Randomised Algorithms",
+            "Term":"2",
+            "CATS":"15",
+            "authors": [],
+            "notes": [
+                {"title": "Approximation Ratio", "url": "/resources/Notes/CS356/ApproximationRatio"}
+            ],
+            "past_papers": [],
             "exercise_solutions": []
         }
     }
