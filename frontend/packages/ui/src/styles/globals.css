@@ -273,6 +273,60 @@
 .cat-logo { display: none; margin-right: 0.4rem; }
 .cat .cat-logo { display: inline; }
 
+/* Pre-rendered TikZ SVGs ship with two themable classes baked in by
+   scripts/render-tikz.mjs:
+     - .tikz-arrow on every stroke / text element. The SVG sets stroke and
+       text fill via `currentColor`, so anywhere we set CSS `color` on
+       `.tikz-svg-host` flows into every arrow + label.
+     - .tikz-fill on the node-interior fills (and the gap-stroke of accepting
+       double-circles). The SVG references `var(--tikz-fill)`.
+   Each theme picks its own pair below: arrows get an accent-flavoured
+   "highlight" colour, node fills get a tinted backdrop that sits between the
+   page background and the arrow colour. */
+
+/* light (default): dark grey arrows, near-white fills. */
+.tikz-svg-host {
+    color: oklch(0.25 0 0);
+    --tikz-fill: oklch(0.95 0 0);
+}
+
+/* dark: off-white arrows, charcoal fills slightly raised from the background. */
+.dark .tikz-svg-host {
+    color: oklch(0.92 0 0);
+    --tikz-fill: oklch(0.27 0 0);
+}
+
+/* dragon: Warwick-red arrows over deep red-tinted node interiors. */
+.dragon .tikz-svg-host {
+    color: oklch(0.68 0.2 27);
+    --tikz-fill: oklch(0.18 0.05 27);
+}
+
+/* cs141: lavender / Haskell-purple arrows, dark purple-tinted fills. */
+.cs141 .tikz-svg-host {
+    color: oklch(0.72 0.15 300);
+    --tikz-fill: oklch(0.18 0.05 300);
+}
+
+/* contrast: the theme's signature yellow as the arrow colour, near-black
+   interiors. Yellow-on-black sits well above the WCAG AAA threshold. */
+.contrast .tikz-svg-host {
+    color: oklch(0.95 0.2 95);
+    --tikz-fill: oklch(0.1 0 0);
+}
+
+/* cat: deep dusty-rose arrows on warm cream node interiors. */
+.cat .tikz-svg-host {
+    color: oklch(0.5 0.15 20);
+    --tikz-fill: oklch(0.93 0.04 40);
+}
+
+/* tabula: navy arrows (Tabula's primary) on white "card" fills. */
+.tabula .tikz-svg-host {
+    color: #245a86;
+    --tikz-fill: #fff;
+}
+
 /* Decorative sparkles in the navbar, only when the cat theme is active. */
 .cat-star {
     display: none;

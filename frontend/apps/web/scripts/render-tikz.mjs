@@ -78,6 +78,48 @@ function hashOf(s) {
   return createHash("sha256").update(s).digest("hex").slice(0, 16);
 }
 
+// Rewrite the raw tikzjax SVG so themes can recolour the diagram without
+// regenerating the file:
+//   - Black strokes / black fills (arrows, node borders, text labels) get
+//     `class="tikz-arrow"` and `stroke|fill="currentColor"`. CSS `color` on
+//     any ancestor of the inlined SVG controls the colour, so light themes
+//     inherit the foreground colour automatically.
+//   - `gray!10` node-interior fills (#f3f3f3) get `class="tikz-fill"` and
+//     `fill="var(--tikz-fill, #f3f3f3)"`. Themes can override `--tikz-fill`
+//     to change the shading without touching the SVGs.
+//   - Text elements that ship without an explicit `fill` inherit black via
+//     the SVG default — we add `fill="currentColor"` so those labels follow
+//     the theme too.
+// This depends on the SVG being inlined in the page (so cross-document CSS
+// applies); the browser-side TikzBlock fetches and embeds the SVG via
+// dangerouslySetInnerHTML rather than referencing it through <img src=…>.
+function themeSvg(svg) {
+  svg = svg.replaceAll(
+    /stroke="(?:#000|black)"/g,
+    'class="tikz-arrow" stroke="currentColor"',
+  );
+  svg = svg.replaceAll(
+    /fill="(?:#000|black)"/g,
+    'class="tikz-arrow" fill="currentColor"',
+  );
+  svg = svg.replaceAll(
+    /fill="#f3f3f3"/g,
+    'class="tikz-fill" fill="var(--tikz-fill, #f3f3f3)"',
+  );
+  // The inner stroke of an `accepting` node's double-circle (the gap between
+  // the two borders) is drawn at the same light-grey as the node fill.
+  // Route it through the same CSS variable so it follows the theme.
+  svg = svg.replaceAll(
+    /stroke="#f3f3f3"/g,
+    'class="tikz-fill" stroke="var(--tikz-fill, #f3f3f3)"',
+  );
+  svg = svg.replaceAll(
+    /<text(?![^>]*\sfill=)([^>]*)>/g,
+    '<text class="tikz-arrow" fill="currentColor"$1>',
+  );
+  return svg;
+}
+
 // Match a ```tikz fenced block. The closing fence may be `> ```` (blockquote
 // prefix) when the block lives inside an Obsidian callout like
 // `>[!check]- Solution`, so we allow an optional `>` before the closing
@@ -104,11 +146,11 @@ for (const file of files) {
     }
     process.stdout.write(`rendering ${hash} (${rel})… `);
     try {
-      const svg = await tex2svg(
+      const rawSvg = await tex2svg(
         `\\begin{document}\n${tidied}\n\\end{document}`,
         { addToPreamble: PREAMBLE },
       );
-      writeFileSync(out, svg);
+      writeFileSync(out, themeSvg(rawSvg));
       process.stdout.write("ok\n");
       rendered++;
     } catch (err) {

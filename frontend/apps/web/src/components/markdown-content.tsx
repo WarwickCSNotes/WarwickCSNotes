@@ -337,19 +337,53 @@ async function tikzHash(tidied: string): Promise<string> {
     .slice(0, 16);
 }
 
+// Module-level cache so multiple TikzBlocks sharing the same hash do exactly
+// one network round-trip per session. The HTTP layer is already immutable-
+// cached server-side, but the JS-level cache also avoids re-parsing the SVG
+// markup on remount.
+const tikzSvgCache = new Map<string, string | null>();
+
+async function fetchTikzSvg(hash: string): Promise<string | null> {
+  if (tikzSvgCache.has(hash)) return tikzSvgCache.get(hash) ?? null;
+  try {
+    const res = await fetch(`/Resources/Images/tikz/${hash}.svg`);
+    if (!res.ok) {
+      tikzSvgCache.set(hash, null);
+      return null;
+    }
+    const text = await res.text();
+    tikzSvgCache.set(hash, text);
+    return text;
+  } catch {
+    tikzSvgCache.set(hash, null);
+    return null;
+  }
+}
+
 function TikzBlock({ code }: { code: string }) {
   const tidied = tidyTikzSource(code);
-  const [hash, setHash] = useState<string | null>(null);
+  const [svgHtml, setSvgHtml] = useState<string | null>(null);
   const [missing, setMissing] = useState(false);
   const fallbackRef = useRef<HTMLDivElement>(null);
 
-  // Compute the SVG URL hash asynchronously (SubtleCrypto is async only).
-  // Cheap, but it does mean the first frame after mount is empty — that's
-  // fine because the image itself is a network request anyway.
+  // Compute hash, fetch the SVG bytes, and stash the markup. The SVG is
+  // inlined via dangerouslySetInnerHTML below (rather than referenced through
+  // <img src=…>) so the `tikz-arrow` / `tikz-fill` classes and the
+  // `currentColor` / `var(--tikz-fill)` references inside the SVG resolve
+  // against the parent document's CSS — that's what makes per-theme
+  // recolouring work.
   useEffect(() => {
     let cancelled = false;
-    tikzHash(tidied).then((h) => {
-      if (!cancelled) setHash(h);
+    tikzHash(tidied).then(async (h) => {
+      if (cancelled) return;
+      const svg = await fetchTikzSvg(h);
+      if (cancelled) return;
+      if (svg !== null) {
+        setSvgHtml(svg);
+        setMissing(false);
+      } else {
+        setMissing(true);
+      }
     });
     return () => {
       cancelled = true;
@@ -358,7 +392,7 @@ function TikzBlock({ code }: { code: string }) {
 
   // Fallback render: if the pre-rendered SVG 404'd, lazy-load the tikzjax
   // CDN and inject a <script type="text/tikz"> for in-browser rendering.
-  // Cleared on every re-render so a successful image swap-in undoes any
+  // Cleared on every re-render so a successful inline swap-in undoes any
   // previous fallback render.
   useEffect(() => {
     const host = fallbackRef.current;
@@ -374,13 +408,12 @@ function TikzBlock({ code }: { code: string }) {
   }, [missing, tidied]);
 
   return (
-    <div className="not-prose my-4 flex justify-center overflow-x-auto">
-      {hash && !missing && (
-        <img
-          src={`/Resources/Images/tikz/${hash}.svg`}
-          alt="TikZ diagram"
-          loading="lazy"
-          onError={() => setMissing(true)}
+    <div className="not-prose my-4 flex justify-center overflow-x-auto tikz-svg-host">
+      {svgHtml && !missing && (
+        <span
+          aria-label="TikZ diagram"
+          role="img"
+          dangerouslySetInnerHTML={{ __html: svgHtml }}
         />
       )}
       <div ref={fallbackRef} />
