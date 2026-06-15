@@ -188,6 +188,7 @@
         "CS141": {
             "tagline": "We love Haskell",
             "name": "Functional Programming",
+            "description": "The module has more than sufficient resources from what Alex has kindly provided, but we hope we can provide some useful tidbits, in particular notes written by Thomas Facos and past paper solutions.",
             "Term":"2",
             "CATS":"15",
             "authors": ["Thomas Facos"],

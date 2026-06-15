@@ -34,5 +34,16 @@
     "ApproximationRatio.md": ["EdDenton"],
     "SyntaxHighlightingDemo.md": ["EdDenton"],
     "MobileRoboticsOverview.md": ["EdDenton"],
-    "Sensors.md": ["EdDenton"]
+    "Sensors.md": ["EdDenton"],
+
+    "HaskellIntro.md": ["TJFacos"],
+    "HaskellBasics.md": ["TJFacos"],
+    "HaskellTypeClasses.md": ["TJFacos"],
+    "HaskellEvaluation.md": ["TJFacos"],
+    "HaskellDataStructures.md": ["TJFacos"],
+    "HaskellFolding.md": ["TJFacos"],
+    "HaskellKindsSubtypes.md": ["TJFacos"],
+    "HaskellSemigroupsMonoids.md": ["TJFacos"],
+    "HaskellFunctorsApplicativesMonads.md": ["TJFacos"],
+    "HaskellParsing.md": ["TJFacos"]
 }

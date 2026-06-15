@@ -43,12 +43,12 @@
     ],
     "content": [
         {
-            "id": "Flynt",
-            "name": "Finn McGoldrick",
-            "role": "Notes Contributor",
-            "github": "https://github.com/Flynt-251",
-            "linkedin": "https://www.linkedin.com/in/finn-m-00b258229/",
-            "image": "https://github.com/Flynt-251.png"
+            "id": "TJFacos",
+            "name": "Thomas Facos",
+            "role": "Notes & Solutions Contributor",
+            "github": "https://github.com/tjfacos",
+            "linkedin": "https://www.linkedin.com/in/facos/",
+            "image": "https://github.com/tjfacos.png"
         },
         {
             "id": "LucySiket",
@@ -57,6 +57,14 @@
             "github": "https://github.com/lucysiket",
             "linkedin": "https://www.linkedin.com/in/lucy-siket/",
             "image": "/api/credits/images/LucySiket.png"
+        },
+        {
+            "id": "Flynt",
+            "name": "Finn McGoldrick",
+            "role": "Notes Contributor",
+            "github": "https://github.com/Flynt-251",
+            "linkedin": "https://www.linkedin.com/in/finn-m-00b258229/",
+            "image": "https://github.com/Flynt-251.png"
         }
     ]
 }
