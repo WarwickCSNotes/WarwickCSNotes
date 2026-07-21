@@ -174,6 +174,7 @@ export const CareersPage = () => {
           ))}
         </div>
       </PageSection>
+
       <PageSection
         title="Online Resources"
         subtitle="A collection of online resources to aid with skill development, interview preparation and applying for career opportunities."

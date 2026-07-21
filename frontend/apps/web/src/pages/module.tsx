@@ -674,54 +674,7 @@ export const ModulePage = () => {
         </Panel>
       )}
 
-      {readingList.length > 0 && (
-        <Panel className="mt-4">
-          <h5 className="mb-2 font-bold">Reading List</h5>
-
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-            {readingList.map((book) => {
-              const body = (
-                <>
-                  <div className="font-medium">{book.title}</div>
-
-                  {book.author && (
-                    <div className="text-xs text-muted-foreground">
-                      {book.author}
-                    </div>
-                  )}
-
-                  {book.description && (
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {book.description}
-                    </p>
-                  )}
-
-                 
-                </>
-              )
-
-              return book.url ? (
-                <SurfaceAnchor
-                  key={book.title}
-                  href={book.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="relative p-3"
-                >
-                  {body}
-                </SurfaceAnchor>
-              ) : (
-                <SurfaceCard
-                  key={book.title}
-                  className="relative p-3"
-                >
-                  {body}
-                </SurfaceCard>
-              )
-            })}
-          </div>
-        </Panel>
-      )}
+      
 
       {extras.length > 0 && (
         <Panel className="mt-4">
@@ -778,6 +731,54 @@ export const ModulePage = () => {
           </p>
         )}
       </Panel>
+      {readingList.length > 0 && (
+        <Panel className="mt-4">
+          <h5 className="mb-2 font-bold">Reading List</h5>
+
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+            {readingList.map((book) => {
+              const body = (
+                <>
+                  <div className="font-medium">{book.title}</div>
+
+                  {book.author && (
+                    <div className="text-xs text-muted-foreground">
+                      {book.author}
+                    </div>
+                  )}
+
+                  {book.description && (
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {book.description}
+                    </p>
+                  )}
+
+                 
+                </>
+              )
+
+              return book.url ? (
+                <SurfaceAnchor
+                  key={book.title}
+                  href={book.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative p-3"
+                >
+                  {body}
+                </SurfaceAnchor>
+              ) : (
+                <SurfaceCard
+                  key={book.title}
+                  className="relative p-3"
+                >
+                  {body}
+                </SurfaceCard>
+              )
+            })}
+          </div>
+        </Panel>
+      )}
     </Page>
   )
 }
