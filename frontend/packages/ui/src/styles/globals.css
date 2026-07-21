@@ -265,6 +265,86 @@
     color: var(--primary);
 }
 
+.colourblind {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--foreground);
+    --primary: #0072B2;
+    --primary-foreground: #ffffff;
+    --secondary: #56B4E9;
+    --secondary-foreground: #000000;
+    --muted: #eeeeee;
+    --muted-foreground: #333333;
+    --accent: #E69F00;
+    --accent-foreground: #000000;
+    --destructive: #D55E00;
+    --border: #999999;
+    --input: #cccccc;
+    --ring: #F0E442;
+    --nav: #CC79A7;
+    --nav-foreground: #000000;
+    --surface: #eeeeee;
+    --surface-foreground: var(--foreground);
+    --surface-hover: #dddddd;
+    --detail: #009E73;
+    --chart-1: #0072B2; 
+    --chart-2: #E69F00; 
+    --chart-3: #009E73; 
+    --chart-4: #D55E00; 
+    --chart-5: #CC79A7; 
+}
+.colourblind h1, .colourblind h2, .colourblind h3, .colourblind h4,
+.colourblind .prose h1, .colourblind .prose h2, .colourblind .prose h3, .colourblind .prose h4 {
+    color: var(--primary);
+}
+
+.colourblind-dark {
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #111111;
+    --card-foreground: #ffffff;
+    --popover: #111111;
+    --popover-foreground: #ffffff;
+    --primary: #56B4E9;
+    --primary-foreground: #000000;
+    --secondary: #0072B2;
+    --secondary-foreground: #ffffff;
+    --muted: #222222;
+    --muted-foreground: #cccccc;
+    --accent: #E69F00;
+    --accent-foreground: #000000;
+    --destructive: #D55E00;
+    --border: #666666;
+    --input: #444444;
+    --ring: #F0E442;
+    --nav: #CC79A7;
+    --nav-foreground: #ffffff;
+    --surface: #161616;
+    --surface-foreground: #ffffff;
+    --surface-hover: #252525;
+    --detail: #009E73;
+    --chart-1: #56B4E9;
+    --chart-2: #E69F00;
+    --chart-3: #009E73;
+    --chart-4: #D55E00;
+    --chart-5: #CC79A7;
+    --sidebar: #111111;
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #56B4E9;
+    --sidebar-primary-foreground: #000000;
+    --sidebar-accent: #E69F00;
+    --sidebar-accent-foreground: #000000;
+    --sidebar-border: #444444;
+    --sidebar-ring: #F0E442;
+}
+.colourblind-dark h1, .colourblind-dark h2, .colourblind-dark h3, .colourblind-dark h4,
+.colourblind-dark .prose h1, .colourblind-dark .prose h2, .colourblind-dark .prose h3, .colourblind-dark .prose h4 {
+    color: var(--primary);
+}
+
 /* Theme specific logo toggling */
 .dragon-logo { display: none; margin-right: 0.4rem; }
 .dragon .dragon-logo { display: inline; }

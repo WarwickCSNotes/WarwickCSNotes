@@ -100,6 +100,9 @@ export function Navbar() {
               <DropdownMenuItem onClick={() => setTheme("dragon")}>🐉 Dragon</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("cs141")}>λ 141</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("cat")}>🌸 Cat</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("colourblind")}>Colourblind Light</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("colourblind-dark")}>Colourblind Dark</DropdownMenuItem>
+
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
