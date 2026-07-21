@@ -18,6 +18,12 @@
                 {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1180_exam_paper.pdf"},
                 {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1180_a_exam_paper.pdf"}
             ],
+            "external-resources": [
+                {"name": "Code Academy", "url":"https://www.codecademy.com/learn/learn-java", "description": "Online resource to learn Java. Some parts are restricted but the unlocked part covers a large part of basic syntax."}
+            ],
+            "reading_list": [
+                {"title": "Introduction to Java programming and data structures: Comprehensive version","author": "Y. Daniel Liang","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FQH6fYmdH&sig=bc7adaa0fa94d0aec5bac342d58c3b63bda9a4c9f5eb9626a005b49c53b45724","description": "Essential"},
+            ],
             "assessments": [
                 {"title": "Programming assignment 1", "submission_deadline": "2025-11-05 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
                 {"title": "Programming assignment 2", "submission_deadline": "2025-12-11 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
@@ -42,7 +48,8 @@
                 {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1260_d_exam_paper.pdf"}
             ],
             "external_resources": [
-                {"name": "Joey Harrison's notes", "url": "https://notes.joeyh.dev/cs126/index.html", "description": "A set of notes on CS126 written by Joey Harrison, covering all examinable material for 2025/2026."}
+                {"name": "Joey Harrison's notes", "url": "https://notes.joeyh.dev/cs126/index.html", "description": "A set of notes on CS126 written by Joey Harrison, covering all examinable material for 2025/2026."},
+                {"name": "CS Visualisation Tool", "url": "https://csvistool.com/", "description": "Extremely useful tool for understanding Heaps, AVL trees, Dijkstra's, and other concepts that benefit from visualisation"}
             ],
             "seminar_exercises": [
                 {"title": "Lab 1", "url": "#"},
@@ -75,23 +82,22 @@
                 {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1300_c_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS130/CS130-2023", "unfinished": true}}
             ],
             "external_resources": [
-                {"name": "Book of Proof (Hammack)", "url":"https://richardhammack.github.io/BookOfProof/Main.pdf", "description": "Free online textbook, great for proof techniques."},
                 {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."}
             ],
             "reading_list": [
-                {"title": "Discrete Mathematics","author": "Kenneth A. Ross, Charles R. B. Wright","url": "https://www.amazon.co.uk/s?k=Discrete+Mathematics+Kenneth+A.+Ross+Charles+R.+B.+Wright","description": "Recommended book"},
-                {"title": "Discrete Mathematics and Its Applications","author": "Kenneth H. Rosen","url": "https://www.amazon.co.uk/s?k=Discrete+Mathematics+and+Its+Applications+Kenneth+H.+Rosen","description": "Recommended book"},
-                {"title": "Discrete Mathematics for Computer Scientists","author": "J. K. Truss","url": "https://www.amazon.co.uk/s?k=Discrete+Mathematics+for+Computer+Scientists+J.+K.+Truss","description": "Recommended book"},
-                {"title": "Mathematical Writing","author": "Franco Vivaldi","url": "https://www.amazon.co.uk/s?k=Mathematical+Writing+Franco+Vivaldi","description": "Recommended book"},
-                {"title": "Book of Proof","author": "Richard H. Hammack","url": "https://www.amazon.co.uk/s?k=Book+of+Proof+Richard+H.+Hammack","description": "Recommended book"},
-                {"title": "Proofs and Fundamentals: A First Course in Abstract Mathematics","author": "Ethan D. Bloch","url": "https://www.amazon.co.uk/s?k=Proofs+and+Fundamentals+A+First+Course+in+Abstract+Mathematics+Ethan+D.+Bloch","description": "Recommended book"},
-                {"title": "How to Prove It: A Structured Approach","author": "Daniel J. Velleman","url": "https://www.amazon.co.uk/s?k=How+to+Prove+It+Daniel+J.+Velleman","description": "Further reading"},
-                {"title": "Mathematics for Computer Science","author": "Eric Lehman, Frank Thomson Leighton, Albert R. Meyer","url": "https://www.amazon.co.uk/s?k=Mathematics+for+Computer+Science+Lehman+Leighton+Meyer","description": "Further reading"},
-                {"title": "How to Solve It: A New Aspect of Mathematical Method","author": "George Pólya","url": "https://www.amazon.co.uk/s?k=How+to+Solve+It+George+Polya","description": "Further reading"},
-                {"title": "How to Lie with Statistics","author": "Darrell Huff","url": "https://www.amazon.co.uk/s?k=How+to+Lie+with+Statistics+Darrell+Huff","description": "Further reading"},
-                {"title": "Elementary Logic","author": "Kenneth A. Ross","url": "https://www.amazon.co.uk/s?k=Elementary+Logic+Kenneth+A.+Ross","description": "Recommended chapter from Discrete Mathematics"},
-                {"title": "Graphs","author": "J. K. Truss","url": "https://www.amazon.co.uk/s?k=Discrete+Mathematics+for+Computer+Scientists+J.+K.+Truss","description": "Recommended chapter from Discrete Mathematics for Computer Scientists"},
-                {"title": "Mathematics and Plausible Reasoning, Volume 1: Induction and Analogy in Mathematics","author": "George Pólya","url": "https://www.amazon.co.uk/s?k=Mathematics+and+Plausible+Reasoning+Volume+1+George+Polya","description": "Further reading (Preface & Chapter 1)"}
+                {"title": "Discrete Mathematics","author": "Kenneth A. Ross, Charles R. B. Wright","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab10206176%2A&sig=3f4ce08d65e482f768c614e069e08e768bafb435e6a08e6ecd666e62bf05dede","description": "Recommended book"},
+                {"title": "Discrete Mathematics and Its Applications","author": "Kenneth H. Rosen","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FhDP2k8Dp&sig=99ef92b3d717123b59e868c4eaf859fda845e505b0ac0472a77a5525a8231633","description": "Recommended book"},
+                {"title": "Discrete Mathematics for Computer Scientists","author": "J. K. Truss","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab10470025%2A&sig=9f0fcad4778f5af8e61ab99d8c22cb6ffb7110a6743233f26096f4bc899db5c7","description": "Recommended book"},
+                {"title": "Mathematical Writing","author": "Franco Vivaldi","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2Ft3XG4n2Y&sig=02dcb15172dc106695485a23c06727b54e82fa5f7373ed3d416630a01e1a8dc7","description": "Recommended book"},
+                {"title": "Book of Proof","author": "Richard H. Hammack","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab3467848%2A&sig=b07d601680f58e7f260adb6d2b6632a88c0d4e24f4f98ed47c14a70cedd58a0a","description": "Recommended book"},
+                {"title": "Proofs and Fundamentals: A First Course in Abstract Mathematics","author": "Ethan D. Bloch","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FLHNYJbqV&sig=5962e669331340ce28f1ecd38d6f34021ee34d4f1245d0f6591d2bcc36e7d62d","description": "Recommended book"},
+                {"title": "How to Prove It: A Structured Approach","author": "Daniel J. Velleman","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FSc8pRBgz&sig=dc0ac9aed19a51c74f9d926b43fa4c1bf28e7913d89131e718cc330d42a94469","description": "Further reading"},
+                {"title": "Mathematics for Computer Science","author": "Eric Lehman, Frank Thomson Leighton, Albert R. Meyer","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab3923725%2A&sig=01b780d792c5591177cef7097aa18a2b6b63f01319b66140ce5bb93805f59026","description": "Further reading"},
+                {"title": "How to Solve It: A New Aspect of Mathematical Method","author": "George Pólya","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FT3Mm3vPD&sig=1f04257a1f9ad128176f0bec8707660ad8c7dfbbf1640e9d5b09e407478dac1c","description": "Further reading"},
+                {"title": "How to Lie with Statistics","author": "Darrell Huff","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab11241822%2A&sig=8f7d14cda6cf25c7ad856077f7ee71d5a0f8f471211027c4872b9f06367ef14d","description": "Further reading"},
+                {"title": "Elementary Logic","author": "Kenneth A. Ross","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fdc.talis.com%2Fwarwick%2Fbundles%2F6a223418f3f89e060079d1e1&sig=cbb7ba57df78b4aaa53dc575dea3bf5ef11b3a2037c76c6c9a4f95b63f110266","description": "Recommended chapter from Discrete Mathematics"},
+                {"title": "Graphs","author": "J. K. Truss","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fdc.talis.com%2Fwarwick%2Fbundles%2F6a22341887e6360632770821&sig=4153370ab4a4b0b723a5334c5e50225f7af2543d2d19a1fb072ffd2f27004257","description": "Recommended chapter from Discrete Mathematics for Computer Scientists"},
+                {"title": "Mathematics and Plausible Reasoning, Volume 1: Induction and Analogy in Mathematics","author": "George Pólya","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FB071GBYj&sig=1741a11a9e956a6a4828c182bd25e8b7f28e7d17d5487d02d22f014985413c7d","description": "Further reading (Preface & Chapter 1)"}
             ],
             "assessments": [
                 {"title": "Problem Set 0", "submission_deadline": "2025-10-13 12:00 PM", "weighting": 1, "eligible_for_self_certification": true},
