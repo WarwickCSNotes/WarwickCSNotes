@@ -58,6 +58,12 @@ const TRACKERS: CareerLink[] = [
     description:
       "Community Discord that tracks events like hackathons, residencies, and conferences.",
   },
+  {
+    name: "Trackr",
+    url: "https://the-trackr.com/trackers/",
+    description:
+      "A collection of spring weeks, internships and graduate opportunities for Tech and Finance in the US, EU and the UK.",
+  }
 ]
 
 const SOCIETIES: CareerLink[] = [
@@ -94,12 +100,7 @@ const ONLINE_RESOURCES: CareerLink[] = [
     description:
       "Practice coding problems and prepare for technical interviews.",
   },
-  {
-    name: "Trackr",
-    url: "https://the-trackr.com/trackers/",
-    description:
-      "A collection of spring weeks, internships and graduate opportunities for Tech and Finance in the US, EU and the UK.",
-  }
+  
 ]
 
 function CareerCard({ link }: { link: CareerLink }) {
