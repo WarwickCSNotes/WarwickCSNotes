@@ -179,6 +179,7 @@ export const CareersPage = () => {
       <PageSection
         title="Online Resources"
         subtitle="A collection of online resources to aid with skill development, interview preparation and applying for career opportunities."
+        className="mb-10"
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {ONLINE_RESOURCES.map((s) => (
