@@ -22,7 +22,7 @@
                 {"name": "Code Academy", "url":"https://www.codecademy.com/learn/learn-java", "description": "Online resource to learn Java. Some parts are restricted but the unlocked part covers a large part of basic syntax."}
             ],
             "reading_list": [
-                {"title": "Introduction to Java programming and data structures: Comprehensive version","author": "Y. Daniel Liang","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FQH6fYmdH&sig=bc7adaa0fa94d0aec5bac342d58c3b63bda9a4c9f5eb9626a005b49c53b45724","description": "Essential"},
+                {"title": "Introduction to Java programming and data structures: Comprehensive version","author": "Y. Daniel Liang","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FQH6fYmdH&sig=bc7adaa0fa94d0aec5bac342d58c3b63bda9a4c9f5eb9626a005b49c53b45724","description": "Essential"}
             ],
             "assessments": [
                 {"title": "Programming assignment 1", "submission_deadline": "2025-11-05 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
