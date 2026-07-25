@@ -30,16 +30,18 @@ Here $C$ and $S$ both fall short of the optimal:
 
 The same algorithms can do very differently on a different instance:
 
-$\text{obj}(S(I_{\text{KITCHEN}})) = 23, \quad \text{obj}(C(I_{\text{KITCHEN}})) = 5, \quad \text{obj}(\text{OPT}(I_{\text{KITCHEN}})) = 38.$
+$\text{obj}(C(I_{\text{KITCHEN}})) = 5, \quad \text{obj}(S(I_{\text{KITCHEN}})) = 23, \quad \text{obj}(\text{OPT}(I_{\text{KITCHEN}})) = 38.$
 
 So now:
 
-- $S$ finds $\frac{23}{38} \approx 60.5\%$ of the cookies.
 - $C$ finds $\frac{5}{38} \approx 13.2\%$ of the cookies.
+- $S$ finds $\frac{23}{38} \approx 60.5\%$ of the cookies.
 
 ### The approximation ratio
 
 The approximation ratio of an algorithm $A$ is the *worst* ratio it achieves over all problem instances: the **smallest** value of $\frac{\text{obj}(A(I))}{\text{obj}(\text{OPT}(I))}$ across all instances.
+
+<br>
 
 Take algorithm $S$. On $I_{\text{DCS}}$ it scores $\frac{5}{33} \approx 15.2\%$; on $I_{\text{KITCHEN}}$ it scores $\frac{23}{38} \approx 60.5\%$. Its worst case is on $I_{\text{DCS}}$, so its approximation ratio is $\frac{5}{33} \approx 0.152$.
 
@@ -47,7 +49,9 @@ Formally,
 
 $\alpha_S \;=\; \min_{I \in \{I_{\text{DCS}},\ I_{\text{KITCHEN}}\}} \frac{\text{obj}(S(I))}{\text{obj}(\text{OPT}(I))} \;=\; \min\!\left( \frac{5}{33},\ \frac{23}{38} \right) \;=\; \frac{5}{33} \approx 0.152.$
 
-So why is it defined as the **minimum** for this problem? It's because the ratio gives you a guarantee - the algorithm $S$ will find at least 15.2% of the cookies. 
+So why is it defined as the **minimum** for this problem? It's because the ratio gives you a guarantee - the algorithm $S$ will find at least 15.2% of the cookies. This is the same idea behind big O notation, which gives you a guarantee that an algorithm will run at least *this* fast.
+
+<br>
 
 Now try working out the approximation ratio of algorithm $C$ for yourself before opening the callout below.
 

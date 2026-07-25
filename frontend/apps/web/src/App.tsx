@@ -25,6 +25,24 @@ const AcknowledgementsPage = lazy(() =>
 const CareersPage = lazy(() =>
   import("./pages/careers").then((m) => ({ default: m.CareersPage })),
 )
+const InternshipsPage = lazy(() =>
+  import("./pages/internships").then((m) => ({ default: m.InternshipsPage })),
+)
+const WritingYourCVPage = lazy(() =>
+  import("./pages/writing-your-cv").then((m) => ({
+    default: m.WritingYourCVPage,
+  })),
+)
+const InterviewPrepPage = lazy(() =>
+  import("./pages/interview-prep").then((m) => ({
+    default: m.InterviewPrepPage,
+  })),
+)
+const SellingYourselfPage = lazy(() =>
+  import("./pages/selling-yourself").then((m) => ({
+    default: m.SellingYourselfPage,
+  })),
+)
 const QuizzesPage = lazy(() =>
   import("./pages/quizzes").then((m) => ({ default: m.QuizzesPage })),
 )
@@ -59,6 +77,10 @@ export function App() {
             <Route path="/resources/:category/:code/:filename" element={<ResourcePage />} />
             <Route path="/acknowledgements" element={<AcknowledgementsPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/careers/internships" element={<InternshipsPage />} />
+            <Route path="/careers/writing-your-cv" element={<WritingYourCVPage />} />
+            <Route path="/careers/interview-prep" element={<InterviewPrepPage />} />
+            <Route path="/careers/selling-yourself" element={<SellingYourselfPage />} />
             <Route path="/quizzes" element={<QuizzesPage />} />
             <Route path="/quizzes/:id" element={<QuizPage />} />
             <Route path="/reviews/:code" element={<ReviewsPage />} />
