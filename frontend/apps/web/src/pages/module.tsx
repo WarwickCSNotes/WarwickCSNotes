@@ -38,6 +38,13 @@ type ExternalResource = {
   url?: string
   description?: string
 }
+type ReadingEntry = {
+  title: string
+  author?: string
+  url?: string
+  description?: string
+  
+}
 type ReviewSummary = {
   count: number
   average: Record<string, number>
@@ -66,6 +73,7 @@ type ModuleData = {
   exercise_solutions?: PaperEntry[]
   quizzes?: ResourceEntry[]
   external_resources?: ExternalResource[]
+  reading_list?: ReadingEntry[]
   extras?: ResourceEntry[]
   review_summary?: ReviewSummary
   assessments?: Assessment[]
@@ -404,6 +412,7 @@ export const ModulePage = () => {
   const exerciseSolutions = mod.exercise_solutions ?? []
   const quizzes = mod.quizzes ?? []
   const externalResources = mod.external_resources ?? []
+  const readingList = mod.reading_list ?? []
   const extras = mod.extras ?? []
   const assessments = mod.assessments ?? []
   const reviewSummary = mod.review_summary
@@ -665,6 +674,8 @@ export const ModulePage = () => {
         </Panel>
       )}
 
+      
+
       {extras.length > 0 && (
         <Panel className="mt-4">
           <h5 className="mb-2 font-bold">Extras</h5>
@@ -720,6 +731,54 @@ export const ModulePage = () => {
           </p>
         )}
       </Panel>
+      {readingList.length > 0 && (
+        <Panel className="mt-4">
+          <h5 className="mb-2 font-bold">Reading List</h5>
+
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+            {readingList.map((book) => {
+              const body = (
+                <>
+                  <div className="font-medium">{book.title}</div>
+
+                  {book.author && (
+                    <div className="text-xs text-muted-foreground">
+                      {book.author}
+                    </div>
+                  )}
+
+                  {book.description && (
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {book.description}
+                    </p>
+                  )}
+
+                 
+                </>
+              )
+
+              return book.url ? (
+                <SurfaceAnchor
+                  key={book.title}
+                  href={book.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative p-3"
+                >
+                  {body}
+                </SurfaceAnchor>
+              ) : (
+                <SurfaceCard
+                  key={book.title}
+                  className="relative p-3"
+                >
+                  {body}
+                </SurfaceCard>
+              )
+            })}
+          </div>
+        </Panel>
+      )}
     </Page>
   )
 }

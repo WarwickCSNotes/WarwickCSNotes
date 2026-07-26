@@ -10,6 +10,8 @@ type Theme =
   | "contrast"
   | "cat"
   | "tabula"
+  | "colourblind"
+  | "colourblind-dark"
 type ResolvedTheme =
   | "dark"
   | "light"
@@ -18,6 +20,8 @@ type ResolvedTheme =
   | "contrast"
   | "cat"
   | "tabula"
+  | "colourblind"
+  | "colourblind-dark"
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -41,6 +45,8 @@ const THEME_VALUES: Theme[] = [
   "contrast",
   "cat",
   "tabula",
+  "colourblind",
+  "colourblind-dark",
 ]
 
 const ThemeProviderContext = React.createContext<
@@ -141,7 +147,9 @@ export function ThemeProvider({
         "cs141",
         "contrast",
         "cat",
-        "tabula"
+        "tabula",
+        "colourblind",
+        "colourblind-dark",
       )
       root.classList.add(resolvedTheme)
 

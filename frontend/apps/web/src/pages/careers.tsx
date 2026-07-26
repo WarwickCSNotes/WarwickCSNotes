@@ -58,6 +58,12 @@ const TRACKERS: CareerLink[] = [
     description:
       "Community Discord that tracks events like hackathons, residencies, and conferences.",
   },
+  {
+    name: "Trackr",
+    url: "https://the-trackr.com/trackers/",
+    description:
+      "A collection of spring weeks, internships and graduate opportunities for Tech and Finance in the US, EU and the UK.",
+  }
 ]
 
 const SOCIETIES: CareerLink[] = [
@@ -85,6 +91,16 @@ const SOCIETIES: CareerLink[] = [
     description:
       "CTFs, talks, socials, and shenanigans. Great for picking up offensive/defensive security skills.",
   },
+]
+
+const ONLINE_RESOURCES: CareerLink[] = [
+  {
+    name: "LeetCode",
+    url: "https://leetcode.com/",
+    description:
+      "Practice coding problems and prepare for technical interviews.",
+  },
+  
 ]
 
 function CareerCard({ link }: { link: CareerLink }) {
@@ -155,6 +171,18 @@ export const CareersPage = () => {
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {SOCIETIES.map((s) => (
+            <CareerCard key={s.name} link={s} />
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection
+        title="Online Resources"
+        subtitle="A collection of online resources to aid with skill development, interview preparation and applying for career opportunities."
+        className="mb-10"
+      >
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {ONLINE_RESOURCES.map((s) => (
             <CareerCard key={s.name} link={s} />
           ))}
         </div>
