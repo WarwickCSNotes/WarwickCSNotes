@@ -86,10 +86,10 @@ export const YearPage = () => {
               <h2 className="mb-3 text-2xl font-semibold">{title}</h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {modules.map(([code, mod]) => (
-                  <div key={code} className="relative">
+                  <div key={code} className="relative h-full">
                     <SurfaceLink
                       to={`/module/${code}`}
-                      className="min-h-36 p-5 pr-14 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                      className="h-full min-h-36 p-5 pr-14 pb-12 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                     >
                       <h6 className="text-sm font-semibold text-primary">
                         {code}
