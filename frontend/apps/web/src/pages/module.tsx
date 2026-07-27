@@ -4,6 +4,7 @@ import { ArrowUpDown, BadgeCheck, Construction } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
+import { DcsModuleLink } from "@/components/dcs-module-link"
 import { AiSummaryPanel } from "@/components/ai-summary"
 import { useAiSummary } from "@/lib/use-ai-summary"
 import {
@@ -421,7 +422,12 @@ export const ModulePage = () => {
   return (
     <Page>
       <PageHeader
-        title={mod.code}
+        title={
+          <span className="inline-flex items-center gap-3">
+            {mod.code}
+            <DcsModuleLink code={mod.code} className="h-8 w-8" />
+          </span>
+        }
         subtitle={mod.name}
         back={{ to: `/year/${mod.year}`, label: `Year ${mod.year}` }}
       />

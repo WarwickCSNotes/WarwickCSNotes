@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { SurfaceLink } from "@/components/surface"
+import { DcsModuleLink } from "@/components/dcs-module-link"
 
 type YearModule = {
   name: string
@@ -85,31 +86,36 @@ export const YearPage = () => {
               <h2 className="mb-3 text-2xl font-semibold">{title}</h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {modules.map(([code, mod]) => (
-                  <SurfaceLink
-                    key={code}
-                    to={`/module/${code}`}
-                    className="min-h-36 p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-                  >
-                    <h6 className="text-sm font-semibold text-primary">
-                      {code}
-                    </h6>
-                    <h5 className="font-bold">{mod.name}</h5>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      <InlineMarkdown>{mod.tagline ?? ""}</InlineMarkdown>
-                    </p>
-                    <div className="mt-2 flex gap-3">
-                      {mod.Term && (
-                        <span className="text-xs font-medium text-detail">
-                          Term {mod.Term}
-                        </span>
-                      )}
-                      {mod.CATS && (
-                        <span className="text-xs font-medium text-detail">
-                          {mod.CATS} CATS
-                        </span>
-                      )}
-                    </div>
-                  </SurfaceLink>
+                  <div key={code} className="relative">
+                    <SurfaceLink
+                      to={`/module/${code}`}
+                      className="min-h-36 p-5 pr-14 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      <h6 className="text-sm font-semibold text-primary">
+                        {code}
+                      </h6>
+                      <h5 className="font-bold">{mod.name}</h5>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        <InlineMarkdown>{mod.tagline ?? ""}</InlineMarkdown>
+                      </p>
+                      <div className="mt-2 flex gap-3">
+                        {mod.Term && (
+                          <span className="text-xs font-medium text-detail">
+                            Term {mod.Term}
+                          </span>
+                        )}
+                        {mod.CATS && (
+                          <span className="text-xs font-medium text-detail">
+                            {mod.CATS} CATS
+                          </span>
+                        )}
+                      </div>
+                    </SurfaceLink>
+                    <DcsModuleLink
+                      code={code}
+                      className="absolute right-3 bottom-3 z-10"
+                    />
+                  </div>
                 ))}
               </div>
             </section>

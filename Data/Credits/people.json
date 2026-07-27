@@ -33,6 +33,14 @@
             "image": "/api/credits/images/odinh.jpg"
         },
         {
+            "id": "IanOsorio",
+            "name": "Ian Osorio Perez",
+            "role": "Frontend Engineer",
+            "github": "https://github.com/Severian0",
+            "linkedin": "https://www.linkedin.com/in/ian-osorio-perez-78a716290/",
+            "image": "https://github.com/Severian0.png"
+        },
+        {
             "id": "TomSweet",
             "name": "Thomas Sweet",
             "role": "DevOps Engineer",
