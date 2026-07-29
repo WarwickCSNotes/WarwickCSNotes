@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import { ExternalLink } from "lucide-react"
+import { useEffect, useState } from "react"
+import { ChevronDown, ExternalLink, FileText } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
@@ -34,6 +34,47 @@ function ResourceCard({ link }: { link: Resource }) {
       </div>
       <p className="text-sm text-muted-foreground">{link.description}</p>
     </SurfaceAnchor>
+  )
+}
+
+function NoteCallout({
+  title,
+  children,
+  defaultOpen = false,
+}: {
+  title: string
+  children: React.ReactNode
+  defaultOpen?: boolean
+}) {
+  const [open, setOpen] = useState(defaultOpen)
+  const toggle = () => setOpen((o) => !o)
+  return (
+    <div className="my-4 rounded-r border-l-4 border-blue-500/50 bg-blue-500/10 px-4 py-3">
+      <div
+        className="flex cursor-pointer items-center gap-2 font-semibold text-blue-600 select-none dark:text-blue-400"
+        onClick={toggle}
+        role="button"
+        aria-expanded={open}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault()
+            toggle()
+          }
+        }}
+      >
+        <FileText className="h-4 w-4" />
+        <span className="flex-1">{title}</span>
+        <ChevronDown
+          className={`h-4 w-4 transition-transform ${open ? "" : "-rotate-90"}`}
+        />
+      </div>
+      <div
+        className={`mt-2 text-muted-foreground [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 ${open ? "" : "hidden"}`}
+      >
+        {children}
+      </div>
+    </div>
   )
 }
 
@@ -231,29 +272,92 @@ export const WritingYourCVPage = () => {
         </div>
       </PageSection>
 
-      <PageSection
-        title="Don't fake it till you make it (too much)"
-        className="mb-10"
-      >
-        <div className="text-muted-foreground">
-          <p>
-            Don't write anything that you can't back up in an interview with
-            the employer. It's okay to exaggerate a little if you can defend
-            it, but don't write anything false: getting caught lying in an
-            interview is a horrible way to go, and can get you blacklisted.
-          </p>
-        </div>
-      </PageSection>
-
       <PageSection title="General Tips" className="mb-10">
         <div className="text-muted-foreground">
-          <ul className="ml-6 list-disc space-y-2">
-            <li>
-              <strong className="text-foreground">Keep copies</strong> of your
-              CV, tied to the applications you've submitted. You want to
-              remember what you wrote down when it comes to the interview!
-            </li>
-          </ul>
+          <NoteCallout title="Keep copies">
+            <p>
+              Keep copies of your CV, tied to the applications you've
+              submitted. You want to remember what you wrote down when it
+              comes to the interview!
+            </p>
+          </NoteCallout>
+
+          <NoteCallout title="Varied but focused">
+            <p className="mb-3">
+              You only have a page to showcase the breadth of your
+              experience.
+            </p>
+            <p className="mb-3">
+              If you've got three teamworking experiences down and no
+              independent work down, then why not replace one of those team
+              experiences with an instance of independent work?
+            </p>
+            <p className="mb-3">
+              For example, I did a million things as Academic Coordinator
+              for UWCS, but I put down 3 bullet points:
+            </p>
+            <ul className="mb-3 ml-6 list-disc space-y-1">
+              <li>
+                Used pedagogical principles in producing resources for a
+                4-session{" "}
+                <strong className="text-foreground">C Course</strong> aimed
+                at first year CS students
+              </li>
+              <li>
+                Founded and led the{" "}
+                <strong className="text-foreground">
+                  XSoc LeetCode Workshops
+                </strong>
+                , a 6-week collaboration with CodeSoc, for technical
+                interview prep
+              </li>
+              <li>
+                Produced and presented{" "}
+                <strong className="text-foreground">revision lectures</strong>{" "}
+                (e.g. for algorithms and automata) for exams and class
+                tests
+              </li>
+            </ul>
+            <p className="mb-3">
+              Each bullet point emphasises the main themes (caring about
+              learning, putting in the work, and communication) and has a
+              clear purpose. But each bullet point has a unique angle too:
+            </p>
+            <ol className="mb-3 ml-6 list-decimal space-y-2">
+              <li>
+                Showcases the ability to work independently for a while
+                (producing a full course of 4 sessions!) on a resource that
+                breaks things down simply ("aimed at first year CS
+                students").
+              </li>
+              <li>
+                Showcases the ability to work with other societies and to
+                lead that. Also makes clear it's a novel idea ("founded")
+                that hadn't been done before.
+              </li>
+              <li>
+                Showcases the ability to produce lecture resources, with
+                emphasis on presenting and public speaking skills. Also
+                shows a unique interest in academic content.
+              </li>
+            </ol>
+            <p>
+              Obviously, keep reinforcing themes relevant to the jobs
+              that you're applying for, but also ensure you're showing off
+              a variety of skills and not just hammering the same couple skills
+              (especially if they're common ones).
+            </p>
+          </NoteCallout>
+
+          <NoteCallout title="Don't fake it till you make it (too much)">
+            <p>
+              Don't write anything that you can't back up in an interview
+              with the employer. It's okay to exaggerate a little if you
+              can defend it, but don't write anything false: getting caught
+              lying in an interview is a horrible way to go, and can get
+              you blacklisted.
+            </p>
+          </NoteCallout>
         </div>
       </PageSection>
     </Page>
