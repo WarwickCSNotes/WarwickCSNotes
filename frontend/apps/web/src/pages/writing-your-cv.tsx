@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ChevronDown, ExternalLink, FileText } from "lucide-react"
+import { ChevronDown, ExternalLink, FileText, Lightbulb } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
@@ -37,21 +37,44 @@ function ResourceCard({ link }: { link: Resource }) {
   )
 }
 
-function NoteCallout({
+const CALLOUT_STYLES = {
+  note: {
+    border: "border-blue-500/50",
+    bg: "bg-blue-500/10",
+    text: "text-blue-600 dark:text-blue-400",
+    icon: FileText,
+  },
+  tip: {
+    border: "border-teal-500/50",
+    bg: "bg-teal-500/10",
+    text: "text-teal-600 dark:text-teal-400",
+    icon: Lightbulb,
+  },
+} as const
+
+type CalloutVariant = keyof typeof CALLOUT_STYLES
+
+function Callout({
+  variant = "note",
   title,
   children,
   defaultOpen = false,
 }: {
+  variant?: CalloutVariant
   title: string
   children: React.ReactNode
   defaultOpen?: boolean
 }) {
+  const style = CALLOUT_STYLES[variant]
+  const Icon = style.icon
   const [open, setOpen] = useState(defaultOpen)
   const toggle = () => setOpen((o) => !o)
   return (
-    <div className="my-4 rounded-r border-l-4 border-blue-500/50 bg-blue-500/10 px-4 py-3">
+    <div
+      className={`my-4 rounded-r border-l-4 ${style.border} ${style.bg} px-4 py-3`}
+    >
       <div
-        className="flex cursor-pointer items-center gap-2 font-semibold text-blue-600 select-none dark:text-blue-400"
+        className={`flex cursor-pointer items-center gap-2 font-semibold ${style.text} select-none`}
         onClick={toggle}
         role="button"
         aria-expanded={open}
@@ -63,7 +86,7 @@ function NoteCallout({
           }
         }}
       >
-        <FileText className="h-4 w-4" />
+        <Icon className="h-4 w-4" />
         <span className="flex-1">{title}</span>
         <ChevronDown
           className={`h-4 w-4 transition-transform ${open ? "" : "-rotate-90"}`}
@@ -98,11 +121,11 @@ export const WritingYourCVPage = () => {
         continue the process.
       </p>
 
-      <PageSection
-        title="Templates"
-        subtitle="Using a widely recognised template helps recruiters (and AI) read your CV."
-        className="mb-10"
-      >
+      <PageSection title="Templates" className="mb-10">
+        <p className="mb-4 text-muted-foreground">
+          Using a widely recognised template helps recruiters (and AI) read
+          your CV.
+        </p>
         <div className="grid grid-cols-1 gap-4">
           {TEMPLATES.map((s) => (
             <ResourceCard key={s.name} link={s} />
@@ -156,6 +179,11 @@ export const WritingYourCVPage = () => {
 
       <PageSection title="CV Sections" className="mb-10">
         <div className="text-muted-foreground">
+          <p className="mb-6">
+            This is specific advice about each section of the CV; the
+            sections from Jake's CV template are used, though the advice
+            can be adapted for most CV formats.
+          </p>
           <h3 className="mb-2 text-lg font-semibold text-foreground">
             Education
           </h3>
@@ -164,18 +192,55 @@ export const WritingYourCVPage = () => {
             noting A-Levels and any relevant things you did (e.g. I started a
             CS club during secondary school).
           </p>
+          <Callout variant="tip" title="Be a little sneaky with grades">
+            <p>
+              If you had A*AAA, you can write "A-A* in Subject 1, Subject
+              2, ...".
+            </p>
+          </Callout>
           <p className="mb-3">
-            <strong className="text-foreground">Tip:</strong> you can be a
-            little sneaky with grades. If you had A*AAA, you can write "A-A*
-            in Subject 1, Subject 2, ...".
-          </p>
-          <p className="mb-6">
             <strong className="text-foreground">University:</strong> note
             relevant modules, standout scores/prizes, and current/predicted
-            grade. Highly recommend putting your current/predicted grade
-            first: there's no standard for how to predict it, so why not put
-            the highest?
+            grade. If not graduated, highly recommend putting down
+            predicted grade as{" "}
+            <strong className="text-foreground">first</strong>: there's no
+            standard for how to predict it, so why not put the highest?
           </p>
+          <Callout variant="tip" title="Warwick Award">
+            <p className="mb-3">
+              A decently easy award to get is the Warwick Award. You may
+              even have done the tasks necessary for it without realising!
+            </p>
+            <p className="mb-3">
+              It fits nicely in Jake's template to put it right after the
+              degree, e.g.{" "}
+              <em className="text-foreground not-italic">
+                <strong>
+                  <em>Computer Science MEng</em>
+                </strong>{" "}
+                | <em>Warwick Award (Silver)</em>
+              </em>
+              .
+            </p>
+            <p className="mb-3">
+              It recognises hours of activity for job skills and asks you
+              to do some written reflections on the activities you've
+              done.
+            </p>
+            <p>
+              You can access it{" "}
+              <a
+                href="https://warwick.ac.uk/services/skills/warwickaward/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline hover:opacity-80"
+              >
+                here
+              </a>
+              .
+            </p>
+          </Callout>
+          <div className="mb-6" />
 
           <h3 className="mb-2 text-lg font-semibold text-foreground">
             Experience
@@ -191,12 +256,12 @@ export const WritingYourCVPage = () => {
           <p className="mb-3">
             Alongside experience, shows you're interested beyond the degree.
           </p>
-          <p className="mb-3">
-            <strong className="text-foreground">Tip:</strong> you can
-            repackage coursework. That data structures coursework? That was
-            an interactive movie viewer where 100% unit test coverage was
-            achieved.
-          </p>
+          <Callout variant="tip" title="Repackage your coursework">
+            <p>
+              That data structures coursework? That was an interactive movie
+              viewer where 100% unit test coverage was achieved.
+            </p>
+          </Callout>
           <p className="mb-6">
             If you're struggling to fit everything into Projects, add a line
             like "Other projects available at <em>your GitHub</em>". This
@@ -229,7 +294,7 @@ export const WritingYourCVPage = () => {
       <PageSection title="Style of writing" className="mb-10">
         <div className="text-muted-foreground">
           <p className="mb-3">
-            Two things to keep in mind when writing the bullet points
+            A few things to keep in mind when writing the bullet points
             themselves:
           </p>
           <ul className="ml-6 list-disc space-y-2">
@@ -339,15 +404,15 @@ export const WritingYourCVPage = () => {
 
       <PageSection title="General Tips" className="mb-10">
         <div className="text-muted-foreground">
-          <NoteCallout title="Keep copies">
+          <Callout title="Keep copies">
             <p>
               Keep copies of your CV, tied to the applications you've
               submitted. You want to remember what you wrote down when it
               comes to the interview!
             </p>
-          </NoteCallout>
+          </Callout>
 
-          <NoteCallout title="Varied but focused">
+          <Callout title="Varied but focused">
             <p className="mb-3">
               You only have a page to showcase the breadth of your
               experience.
@@ -412,9 +477,9 @@ export const WritingYourCVPage = () => {
               a variety of skills and not just hammering the same couple skills
               (especially if they're common ones).
             </p>
-          </NoteCallout>
+          </Callout>
 
-          <NoteCallout title="Don't fake it till you make it (too much)">
+          <Callout title="Don't fake it till you make it (too much)">
             <p>
               Don't write anything that you can't back up in an interview
               with the employer. It's okay to exaggerate a little if you
@@ -422,7 +487,7 @@ export const WritingYourCVPage = () => {
               lying in an interview is a horrible way to go, and can get
               you blacklisted.
             </p>
-          </NoteCallout>
+          </Callout>
         </div>
       </PageSection>
     </Page>
