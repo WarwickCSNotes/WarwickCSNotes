@@ -1,6 +1,6 @@
 # Warwick CS Notes
 
-Repository for notes. Check it out here: [https://csnotes.uwcs.co.uk/](https://csnotes.uwcs.co.uk/)!
+An open-source guide to the Warwick CS degree - notes, solutions, advice, and more! Check it out here: [https://csnotes.uwcs.co.uk/](https://csnotes.uwcs.co.uk/)!
 
 ## Contributing
 
