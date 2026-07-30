@@ -87,9 +87,16 @@ export const WritingYourCVPage = () => {
     <Page>
       <PageHeader
         title="Writing your CV"
-        subtitle="Your CV is often the first thing a recruiter sees, and it's usually scanned by AI first. After that, the recruiter will skim-read it for maybe 10-15 seconds to decide whether to reject you or continue the process."
+        subtitle="Write a CV to pass filters and standout to recruiters."
         back={{ to: "/careers", label: "Careers" }}
       />
+
+      <p className="mb-8 max-w-3xl text-muted-foreground">
+        Your CV is often the first thing a recruiter sees, and it's usually
+        scanned by AI first. After that, the recruiter will skim-read it
+        for maybe 10-15 seconds to decide whether to reject you or
+        continue the process.
+      </p>
 
       <PageSection
         title="Templates"
@@ -236,11 +243,22 @@ export const WritingYourCVPage = () => {
               the outcome (what you shipped, what improved) not the activity.
             </li>
             <li>
-              <strong className="text-foreground">Save space:</strong> every
-              line competes for room on a single page. Cut articles ("the",
+              <strong className="text-foreground">Save space:</strong> you only have a single page. Cut articles ("the",
               "a") where it still reads, drop "I" (it's implicit), and prefer
-              numerals and symbols ("50%", "&") over spelled-out words. Terse
-              is skimmable; long sentences get glossed over.
+              numerals and symbols ("50%", "&") over fully spelled-out words. In
+              LaTeX,{" "}
+              <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">
+                {"\\vspace{-x pt}"}
+              </code>{" "}
+              gives you some vertical space between sections when things
+              are almost fitting. Avoid long verbose sentences that get skipped while skimming.
+            </li>
+            <li>
+              <strong className="text-foreground">Use AI to help:</strong>{" "}
+              AI can optimise wording to save space and convey the right
+              information in the right tone. Just check the final output
+              still reads like you and highlights the skills you want it
+              to.
             </li>
           </ul>
         </div>
@@ -267,6 +285,53 @@ export const WritingYourCVPage = () => {
               </strong>{" "}
               of your CV for different roles (e.g. one for data science, one
               for web design). Makes tailoring a lot quicker.
+            </li>
+          </ul>
+        </div>
+      </PageSection>
+
+      <PageSection title="Common Mistakes" className="mb-10">
+        <div className="text-muted-foreground">
+          <ul className="ml-6 list-disc space-y-3">
+            <li>
+              <strong className="text-foreground">
+                Spelling and grammar mistakes:
+              </strong>{" "}
+              easy way for your CV to look unprofessional, and an easy
+              mistake to make in Overleaf. Use a tool like{" "}
+              <a
+                href="https://www.overleaf.com/blog/635-languagetool-a-free-browser-add-on-to-check-your-grammar-and-spelling"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline hover:opacity-80"
+              >
+                LanguageTool
+              </a>{" "}
+              (free browser add-on) or AI to catch them.
+            </li>
+            <li>
+              <strong className="text-foreground">Wasting space:</strong>{" "}
+              whitespace matters for readability, but you should be using
+              space and lines effectively:
+              <ul className="mt-2 ml-6 list-[circle] space-y-1">
+                <li>
+                  Use{" "}
+                  <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">
+                    {"\\vspace{-x pt}"}
+                  </code>{" "}
+                  to reclaim a bit of vertical space when things are almost
+                  fitting.
+                </li>
+                <li>
+                  Make sure each bullet point either fits on one line, or
+                  fills up its second line as much as possible.
+                </li>
+                <li>
+                  Use AI to optimise wording to fit in space. Just make sure
+                  the end output conveys the same information in the same
+                  tone.
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
