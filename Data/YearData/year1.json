@@ -82,7 +82,8 @@
                 {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1300_c_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS130/CS130-2023", "unfinished": true}}
             ],
             "external_resources": [
-                {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."}
+                {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."},
+                {"name": "Discrete Mathematics (Berkeley)", "url": "https://math.berkeley.edu/~giventh/DM.pdf", "description": "Free PDF textbook (Alexander Givental, UC Berkeley) covering discrete mathematics foundations."}
             ],
             "reading_list": [
                 {"title": "Discrete Mathematics","author": "Kenneth A. Ross, Charles R. B. Wright","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab10206176%2A&sig=3f4ce08d65e482f768c614e069e08e768bafb435e6a08e6ecd666e62bf05dede","description": "Recommended book"},
@@ -283,6 +284,9 @@
                 {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1460_exam_paper.pdf"},
                 {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1460_exam_paper.pdf"},
                 {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1460_a_exam_paper.pdf"}
+            ],
+            "external_resources": [
+                {"name": "Discrete Mathematics (Berkeley)", "url": "https://math.berkeley.edu/~giventh/DM.pdf", "description": "Free PDF textbook (Alexander Givental, UC Berkeley) covering discrete mathematics foundations."}
             ],
             "assessments": [
                 {"title": "Problem sheet 1", "submission_deadline": "2025-10-20 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},

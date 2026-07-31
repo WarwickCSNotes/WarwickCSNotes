@@ -19,6 +19,7 @@ export function Navbar() {
       active: location.pathname.startsWith(`/year/${year}`) || (onModuleOrNote && lastYear === String(year)),
     })),
     { to: "/careers", label: "Careers", active: location.pathname === '/careers' },
+    { to: "/resources", label: "Resources", active: location.pathname === '/resources' },
     { to: "/acknowledgements", label: "Credits", active: location.pathname === '/acknowledgements' },
   ];
 

@@ -25,6 +25,9 @@ const AcknowledgementsPage = lazy(() =>
 const CareersPage = lazy(() =>
   import("./pages/careers").then((m) => ({ default: m.CareersPage })),
 )
+const ResourcesPage = lazy(() =>
+  import("./pages/resources").then((m) => ({ default: m.ResourcesPage })),
+)
 const InternshipsPage = lazy(() =>
   import("./pages/internships").then((m) => ({ default: m.InternshipsPage })),
 )
@@ -77,6 +80,7 @@ export function App() {
             <Route path="/resources/:category/:code/:filename" element={<ResourcePage />} />
             <Route path="/acknowledgements" element={<AcknowledgementsPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/careers/internships" element={<InternshipsPage />} />
             <Route path="/careers/writing-your-cv" element={<WritingYourCVPage />} />
             <Route path="/careers/interview-prep" element={<InterviewPrepPage />} />
