@@ -11,13 +11,22 @@ type Resource = {
   description: string
 }
 
-const TECHNICAL: Resource[] = [
+const LEETCODE: Resource[] = [
+  {
+    name: "LeetCode",
+    url: "https://leetcode.com/",
+    description:
+      "The massive library of coding problems most tech interviewers pull from. The default practice ground.",
+  },
   {
     name: "NeetCode",
     url: "https://neetcode.io/",
     description:
-      "Curated data-structures and algorithms practice, organised by pattern with video walkthroughs. The default starting point for the technical round.",
+      "A structured way to learn LeetCode: curated problems organised by pattern, with video walkthroughs.",
   },
+]
+
+const SYSTEM_DESIGN: Resource[] = [
   {
     name: "System Design Primer",
     url: "https://github.com/donnemartin/system-design-primer",
@@ -84,11 +93,23 @@ export const InterviewPrepPage = () => {
 
       <PageSection
         title="Technical"
-        subtitle="Data structures and algorithms first, then system design once you're comfortable with the basics."
+        subtitle="Data structures and algorithms, and sometimes system design (at intern/graduate level, system design will be fairly intuitive)."
         className="mb-10"
       >
+        <h3 className="mb-3 text-lg font-semibold text-foreground">
+          LeetCode
+        </h3>
+        <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {LEETCODE.map((s) => (
+            <ResourceCard key={s.name} link={s} />
+          ))}
+        </div>
+
+        <h3 className="mb-3 text-lg font-semibold text-foreground">
+          System Design
+        </h3>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {TECHNICAL.map((s) => (
+          {SYSTEM_DESIGN.map((s) => (
             <ResourceCard key={s.name} link={s} />
           ))}
         </div>
