@@ -48,8 +48,7 @@ const GUIDES: InternalGuide[] = [
   {
     name: "Selling Yourself",
     to: "/careers/selling-yourself",
-    description:
-      "LinkedIn and a portfolio site: your public presence outside of the CV.",
+    description: "Optimising your online presence to sell yourself.",
   },
 ]
 
