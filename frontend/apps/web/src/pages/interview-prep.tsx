@@ -190,6 +190,46 @@ export const InterviewPrepPage = () => {
           </ul>
         </div>
       </PageSection>
+
+      <PageSection
+        title="Research your company"
+        subtitle="A little research on the company (and the interviewer) goes a long way. This applies to every interview type."
+        className="mb-10"
+      >
+        <div className="text-muted-foreground">
+          <ul className="ml-6 list-disc space-y-2">
+            <li>
+              <strong className="text-foreground">
+                Read past interview reports:
+              </strong>{" "}
+              <a
+                href="https://www.glassdoor.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline hover:opacity-80"
+              >
+                Glassdoor
+              </a>{" "}
+              and Blind often have people posting the exact questions they
+              got asked and how the process was structured. Sometimes even
+              the interviewer's name.
+            </li>
+            <li>
+              <strong className="text-foreground">
+                Look up your interviewer:
+              </strong>{" "}
+              LinkedIn tells you their background. A former founder will
+              ask different things to someone from a research background.
+            </li>
+            <li>
+              <strong className="text-foreground">Know the company:</strong>{" "}
+              recent news, product launches, and how they make money. It
+              doesn't take much to look prepared, and a lot to look
+              unprepared.
+            </li>
+          </ul>
+        </div>
+      </PageSection>
     </Page>
   )
 }
