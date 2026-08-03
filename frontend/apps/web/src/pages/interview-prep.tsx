@@ -39,6 +39,12 @@ const SYSTEM_DESIGN: Resource[] = [
     description:
       "Structured walkthroughs of common system-design questions (URL shortener, chat, feed, ...). Useful complement once you've read the primer.",
   },
+  {
+    name: "Hello Interview",
+    url: "https://www.hellointerview.com/",
+    description:
+      "Detailed system-design walkthroughs with clear diagrams. Free written guides plus paid mock interviews.",
+  },
 ]
 
 function ResourceCard({ link }: { link: Resource }) {

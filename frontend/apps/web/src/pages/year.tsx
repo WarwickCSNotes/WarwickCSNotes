@@ -115,6 +115,15 @@ export const YearPage = () => {
                       code={code}
                       className="absolute right-3 bottom-3 z-10"
                     />
+                    {year === "4" && (
+                      <span
+                        className="absolute bottom-3 left-3 z-10 leading-none text-xl select-none"
+                        title="Under construction"
+                        aria-label="Under construction"
+                      >
+                        🚧
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>

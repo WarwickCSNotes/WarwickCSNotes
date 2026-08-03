@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { SurfaceCard } from "@/components/surface"
-import { Github, Linkedin } from "lucide-react"
+import { Github, Globe, Linkedin } from "lucide-react"
 
 type Person = {
   id: string
@@ -11,6 +11,7 @@ type Person = {
   role: string
   github?: string
   linkedin?: string
+  portfolio?: string
   image?: string
 }
 
@@ -57,6 +58,17 @@ function PersonCard({ person }: { person: Person }) {
               aria-label={`${person.name} on LinkedIn`}
             >
               <Linkedin className="h-5 w-5" />
+            </a>
+          )}
+          {person.portfolio && (
+            <a
+              href={person.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              aria-label={`${person.name}'s portfolio website`}
+            >
+              <Globe className="h-5 w-5" />
             </a>
           )}
         </div>
