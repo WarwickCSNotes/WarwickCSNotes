@@ -34,6 +34,12 @@ const GUIDES: InternalGuide[] = [
       "A guide to landing an internship: find roles and interview prep.",
   },
   {
+    name: "Graduate Roles",
+    to: "/careers/graduate-roles",
+    description:
+      "Finding and applying for graduate roles.",
+  },
+  {
     name: "Writing your CV",
     to: "/careers/writing-your-cv",
     description:
@@ -49,6 +55,12 @@ const GUIDES: InternalGuide[] = [
     name: "Selling Yourself",
     to: "/careers/selling-yourself",
     description: "Optimising your online presence to sell yourself.",
+  },
+  {
+    name: "LinkedIn Maxxing",
+    to: "/careers/linkedin-maxxing",
+    description:
+      "Get the most out of LinkedIn: profile, connections, posts, and job search.",
   },
 ]
 

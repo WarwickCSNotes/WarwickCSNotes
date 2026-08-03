@@ -245,10 +245,25 @@ export const WritingYourCVPage = () => {
           <h3 className="mb-2 text-lg font-semibold text-foreground">
             Experience
           </h3>
-          <p className="mb-6">
+          <p className="mb-3">
             Worth filling in even if you don't have a lot. Society positions
             fit well here.
           </p>
+          <Callout variant="tip" title="Understand and own decisions">
+            <p className="mb-3">
+              If you're leading the project, you should already understand
+              (at least vaguely) why you're doing everything, and be able
+              to explain that on your CV or in an interview.
+            </p>
+            <p>
+              If you're on an internship and being directed, ask your
+              manager and colleagues why certain decisions were made.
+              Drill them with questions and you can pick up a
+              senior-level understanding of the problem and the
+              solution.
+            </p>
+          </Callout>
+          <div className="mb-6" />
 
           <h3 className="mb-2 text-lg font-semibold text-foreground">
             Projects
@@ -326,6 +341,38 @@ export const WritingYourCVPage = () => {
               to.
             </li>
           </ul>
+
+          <Callout title="XYZ method">
+            <p className="mb-3">
+              A common framework for structuring bullets (popularised by
+              Google's own resume advice) is the XYZ method: each bullet
+              reads as{" "}
+              <em className="text-foreground not-italic">
+                "Accomplished [X] as measured by [Y], by doing [Z]"
+              </em>
+              .
+            </p>
+            <ul className="mb-3 ml-6 list-disc space-y-1">
+              <li>
+                <strong className="text-foreground">X:</strong> what you
+                did / the outcome
+              </li>
+              <li>
+                <strong className="text-foreground">Y:</strong> the
+                measurable impact (%, count, time saved, users reached,
+                ...)
+              </li>
+              <li>
+                <strong className="text-foreground">Z:</strong> how you
+                did it (method, tools, tech)
+              </li>
+            </ul>
+            <p>
+              You don't have to hit all three every time, but X + Y is a
+              strong default. It forces you to quantify impact instead of
+              just listing tasks.
+            </p>
+          </Callout>
         </div>
       </PageSection>
 

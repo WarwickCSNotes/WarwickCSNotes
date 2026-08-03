@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 import { ExternalLink } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
@@ -10,15 +11,6 @@ type Resource = {
   url: string
   description: string
 }
-
-const LINKEDIN: Resource[] = [
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/",
-    description:
-      "The default place recruiters look you up after (or before) reading your CV.",
-  },
-]
 
 const PORTFOLIO: Resource[] = [
   {
@@ -76,77 +68,38 @@ export const SellingYourselfPage = () => {
         </p>
       </div>
 
-      <PageSection
-        title="LinkedIn"
-        subtitle="LinkedIn is where recruiters find you and verify what your CV claims. Keep it consistent with the CV and easy to skim."
-        className="mb-10"
-      >
-        <h3 className="mb-3 text-lg font-semibold text-foreground">
-          Profile
-        </h3>
-        <div className="mb-6 text-muted-foreground">
-          <ul className="ml-6 list-disc space-y-2">
-            <li>
-              <strong className="text-foreground">Complete the profile:</strong>{" "}
-              headshot, headline, summary, experience, education, and skills. 
-              Nice images and layout go a long way!
-            </li>
-            <li>
-              <strong className="text-foreground">Mirror the CV:</strong> the
-              roles, dates, and achievements should match, since inconsistencies are a red flag.
-              Some recruiters might just run a tool to check this as well and instantly reject rather than reach out to you to ask why there's an inconsistency.
-            </li>
-            <li>
-              <strong className="text-foreground">Post:</strong>{" "}
-              projects, hackathon wins, or interesting things you've learned.
-              Semi-frequent posts are ideal, but not necessary!
-            </li>
-          </ul>
-        </div>
-
-        <h3 className="mb-6 text-lg font-semibold text-foreground">
-          Connecting
-        </h3>
-
-        <h3 className="mb-3 text-lg font-semibold text-foreground">
-          Making Posts
-        </h3>
-        <div className="mb-6 text-muted-foreground">
-          <ul className="ml-6 list-disc space-y-2">
-            <li>
-              <strong className="text-foreground">Lead with a hook:</strong>{" "}
-              start with a line that captures the central idea, e.g.{" "}
-              <em className="text-foreground not-italic">
-                "Feeling inflexible and unmotivated? I built X"
-              </em>{" "}
-              or{" "}
-              <em className="text-foreground not-italic">
-                "I struggled with XYZ and it sucked, so I built W"
-              </em>
-              . People decide whether to keep reading in half a second.
-            </li>
-            <li>
-              <strong className="text-foreground">Use photos:</strong> a
-              screenshot, demo GIF, or a photo of you at the event stops the
-              scroll and gives the post something to render as a preview.
-            </li>
-            <li>
-              <strong className="text-foreground">Link to projects:</strong>{" "}
-              if you're posting about a build, link to the repo or live demo
-              so readers can dig deeper.
-            </li>
-            <li>
-              <strong className="text-foreground">Use AI to polish:</strong>{" "}
-              run the post through AI for spellcheck and grammar-check, then
-              do a final read-through yourself before hitting post.
-            </li>
-          </ul>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4">
-          {LINKEDIN.map((s) => (
-            <ResourceCard key={s.name} link={s} />
-          ))}
+      <PageSection title="LinkedIn" className="mb-10">
+        <div className="text-muted-foreground">
+          <p className="mb-3">
+            LinkedIn is your extended CV. Use it to sell yourself: show
+            that you go to events, ship side projects, and care about the
+            CS world. Recruiters look you up here, and a lively profile
+            signals you take the field seriously.
+          </p>
+          <p>
+            The{" "}
+            <Link
+              to="/careers/linkedin-maxxing"
+              className="text-primary underline hover:opacity-80"
+            >
+              LinkedIn Maxxing
+            </Link>{" "}
+            guide covers how to nail your{" "}
+            <Link
+              to="/careers/linkedin-maxxing#profile"
+              className="text-primary underline hover:opacity-80"
+            >
+              profile setup
+            </Link>{" "}
+            and{" "}
+            <Link
+              to="/careers/linkedin-maxxing#making-posts"
+              className="text-primary underline hover:opacity-80"
+            >
+              making posts
+            </Link>
+            .
+          </p>
         </div>
       </PageSection>
 
