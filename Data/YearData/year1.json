@@ -126,7 +126,7 @@
             ],
             "past_papers": [
                 {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1320_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1320_exam_paper.pdf"},
+                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1320_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS132/CS132-2024"}},
                 {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1320_a_exam_paper.pdf"}
 
             ],
