@@ -28,6 +28,12 @@ const FINDING_ROLES: Resource[] = [
 
 const RELATED_GUIDES: InternalGuide[] = [
   {
+    name: "Getting Experience",
+    to: "/careers/getting-experience",
+    description:
+      "Ways to stack up real experience beyond coursework: societies, hackathons, and more.",
+  },
+  {
     name: "Writing your CV",
     to: "/careers/writing-your-cv",
     description: "Get your CV past filters and standout to recruiters.",

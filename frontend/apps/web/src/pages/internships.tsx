@@ -11,39 +11,6 @@ type Resource = {
   description: string
 }
 
-const BUILD_YOURSELF_UP: Resource[] = [
-  {
-    name: "Warwick Coding Society",
-    url: "https://www.warwickcodingsociety.com",
-    description:
-      "Side-project groups, weekly workshops, and hackathons; the fastest way to accumulate portfolio work outside of coursework.",
-  },
-  {
-    name: "UWCS",
-    url: "https://uwcs.co.uk/",
-    description:
-      "Talks, language courses, and CV/careers workshops throughout the year.",
-  },
-  {
-    name: "Warwick AI",
-    url: "https://warwick.ai/",
-    description:
-      "ML/AI projects, education programme, and an annual summit; use it to build a research or applied-ML portfolio.",
-  },
-  {
-    name: "Warwick Cyber Society",
-    url: "https://warwickcybersoc.com/",
-    description:
-      "CTFs and security talks. Great for building demonstrable offensive/defensive security skills.",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com",
-    description:
-      "Host your side projects publicly. Employers will read your README and click around your repos.",
-  },
-]
-
 const FINDING_WHERE: Resource[] = [
   {
     name: "Bristol Trackr: UK Summer Internships",
@@ -90,8 +57,15 @@ export const InternshipsPage = () => {
         <ul className="ml-6 list-disc space-y-1">
           <li>
             <strong className="text-foreground">Building yourself up:</strong>{" "}
-            getting the experience and credentials that make you a compelling
-            candidate.
+            getting the experience and credentials that make you a
+            compelling candidate. Covered in its own guide:{" "}
+            <a
+              href="/careers/getting-experience"
+              className="text-primary underline hover:opacity-80"
+            >
+              Getting Experience
+            </a>
+            .
           </li>
           <li>
             <strong className="text-foreground">Finding where to apply:</strong>{" "}
@@ -130,14 +104,24 @@ export const InternshipsPage = () => {
 
       <PageSection
         title="Building yourself up"
-        subtitle="The experience side of your application. Get involved with societies, contribute to side projects, and get public code you can point at."
+        subtitle="The experience side of your application: societies, projects, hackathons. This has its own dedicated guide:"
         className="mb-10"
       >
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {BUILD_YOURSELF_UP.map((s) => (
-            <ResourceCard key={s.name} link={s} />
-          ))}
-        </div>
+        <SurfaceLink
+          to="/careers/getting-experience"
+          className="p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <div className="mb-2 flex items-start justify-between gap-3">
+            <h3 className="text-lg font-semibold !text-foreground">
+              Getting Experience
+            </h3>
+            <ArrowRight className="mt-1 h-4 w-4 shrink-0 opacity-60" />
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Ways to stack up real experience beyond coursework:
+            internships, societies, hackathons.
+          </p>
+        </SurfaceLink>
       </PageSection>
 
       <PageSection

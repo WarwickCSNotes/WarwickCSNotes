@@ -25,6 +25,11 @@ const AcknowledgementsPage = lazy(() =>
 const CareersPage = lazy(() =>
   import("./pages/careers").then((m) => ({ default: m.CareersPage })),
 )
+const GettingExperiencePage = lazy(() =>
+  import("./pages/getting-experience").then((m) => ({
+    default: m.GettingExperiencePage,
+  })),
+)
 const ResourcesPage = lazy(() =>
   import("./pages/resources").then((m) => ({ default: m.ResourcesPage })),
 )
@@ -90,6 +95,7 @@ export function App() {
             <Route path="/resources/:category/:code/:filename" element={<ResourcePage />} />
             <Route path="/acknowledgements" element={<AcknowledgementsPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/careers/getting-experience" element={<GettingExperiencePage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/careers/internships" element={<InternshipsPage />} />
             <Route path="/careers/graduate-roles" element={<GraduateRolesPage />} />
