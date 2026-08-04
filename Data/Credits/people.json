@@ -73,7 +73,16 @@
             "role": "Notes Contributor",
             "github": "https://github.com/Flynt-251",
             "linkedin": "https://www.linkedin.com/in/finn-m-00b258229/",
+            "portfolio": "https://twofiveone.xyz/",
             "image": "https://github.com/Flynt-251.png"
+        },
+        {
+            "id": "SereneAlrawi",
+            "name": "Serene Alrawi",
+            "role": "Solutions Contributor",
+            "github": "https://github.com/thiswasdumb",
+            "linkedin": "https://www.linkedin.com/in/serene-alrawi/",
+            "image": "https://github.com/thiswasdumb.png"
         }
     ]
 }
