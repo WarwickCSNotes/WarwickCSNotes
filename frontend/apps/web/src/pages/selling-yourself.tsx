@@ -103,6 +103,72 @@ export const SellingYourselfPage = () => {
         </div>
       </PageSection>
 
+      <PageSection title="GitHub" className="mb-10">
+        <div className="text-muted-foreground">
+          <p className="mb-3">
+            People often just use GitHub for work or to dump code, but it
+            can effectively be an extension of your CV!
+          </p>
+          <p className="mb-6">
+            A nicely set-up GitHub profile with contributions to
+            high-impact repositories can make a real difference to your
+            image with recruiters.
+          </p>
+
+          <h3 className="mb-2 text-lg font-semibold text-foreground">
+            Optimising projects
+          </h3>
+          <p className="mb-6">
+            Ensure they have a nice README. A recruiter clicking through
+            should see what the project does, how to run it, and ideally
+            a screenshot or GIF.
+          </p>
+
+          <h3 className="mb-2 text-lg font-semibold text-foreground">
+            Profile README
+          </h3>
+          <p className="mb-3">
+            GitHub lets you have a README on your profile page itself,
+            which is a nice place to introduce yourself. See{" "}
+            <a
+              href="https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme"
+              target="_blank"
+              rel="noreferrer"
+              className="text-primary underline hover:opacity-80"
+            >
+              GitHub's docs
+            </a>{" "}
+            for how to set one up.
+          </p>
+          <p className="mb-6">
+            You can add contribution streaks and other embeds to it too,
+            e.g.{" "}
+            <a
+              href="https://streak-stats.demolab.com/demo/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-primary underline hover:opacity-80"
+            >
+              streak stats
+            </a>
+            .
+          </p>
+
+          <h3 className="mb-2 text-lg font-semibold text-foreground">
+            Pinned repositories
+          </h3>
+          <p className="mb-3">
+            You can pin anything you've contributed to! Good things to
+            pin:
+          </p>
+          <ul className="ml-6 list-disc space-y-2">
+            <li>Personal projects you're proud of</li>
+            <li>Large open-source projects you've made a contribution to</li>
+            <li>Group projects you've worked on</li>
+          </ul>
+        </div>
+      </PageSection>
+
       <PageSection
         title="Portfolio Website"
         subtitle="A personal site is the one link on your CV that you fully control. Use it to show projects in more depth than a CV allows."
