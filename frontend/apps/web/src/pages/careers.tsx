@@ -30,8 +30,7 @@ const GUIDES: InternalGuide[] = [
   {
     name: "Getting Experience",
     to: "/careers/getting-experience",
-    description:
-      "Ways to stack up real experience beyond coursework: internships, societies, hackathons.",
+    description: "Getting experience outside of the coursework.",
   },
   {
     name: "Internships",
