@@ -2,6 +2,21 @@
     "year": 3,
     "title": "Year 3",
     "modules": {
+        "CS301": {
+            "tagline": "Basically a maths module tbh",
+            "name": "Complexity of Algorithms",
+            "Term":"2",
+            "CATS":"15",
+            "authors": [],
+            "notes": [
+                {"title": "Introduction", "url": "/resources/Notes/CS301/CS301Intro", "unfinished": true},
+                {"title": "Turing Machines", "url": "/resources/Notes/CS301/TuringMachines", "unfinished": true},
+                {"title": "Computability", "url": "/resources/Notes/CS301/Computability", "unfinished": true},
+                {"title": "Uncomputability", "url": "/resources/Notes/CS301/Uncomputability", "unfinished": true}
+            ],
+            "past_papers": [],
+            "exercise_solutions": []
+        },
         "CS310": {
             "tagline": "Dissertation - either you love it or you hate it",
             "name": "Project",
