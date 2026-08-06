@@ -67,6 +67,12 @@ const GUIDES: InternalGuide[] = [
     description:
       "Get the most out of LinkedIn: profile, connections, posts, and job search.",
   },
+  {
+    name: "Diversity",
+    to: "/careers/diversity",
+    description:
+      "Scholarships and opportunities for underrepresented groups in tech.",
+  },
 ]
 
 const TRACKERS: CareerLink[] = [

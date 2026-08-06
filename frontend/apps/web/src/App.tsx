@@ -66,6 +66,14 @@ const LinkedInMaxxingPage = lazy(() =>
     default: m.LinkedInMaxxingPage,
   })),
 )
+const DiversityPage = lazy(() =>
+  import("./pages/diversity").then((m) => ({ default: m.DiversityPage })),
+)
+const CareersDiversityPage = lazy(() =>
+  import("./pages/careers-diversity").then((m) => ({
+    default: m.CareersDiversityPage,
+  })),
+)
 const QuizzesPage = lazy(() =>
   import("./pages/quizzes").then((m) => ({ default: m.QuizzesPage })),
 )
@@ -109,6 +117,8 @@ export function App() {
             <Route path="/careers/interview-prep" element={<InterviewPrepPage />} />
             <Route path="/careers/selling-yourself" element={<SellingYourselfPage />} />
             <Route path="/careers/linkedin-maxxing" element={<LinkedInMaxxingPage />} />
+            <Route path="/careers/diversity" element={<CareersDiversityPage />} />
+            <Route path="/diversity" element={<DiversityPage />} />
             <Route path="/quizzes" element={<QuizzesPage />} />
             <Route path="/quizzes/:id" element={<QuizPage />} />
             <Route path="/reviews/:code" element={<ReviewsPage />} />

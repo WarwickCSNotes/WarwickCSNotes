@@ -24,6 +24,12 @@ const GUIDES: InternalGuide[] = [
     description:
       "How to start contributing to open-source projects, including this site.",
   },
+  {
+    name: "Diversity",
+    to: "/diversity",
+    description:
+      "Communities and opportunities for underrepresented groups at Warwick and beyond.",
+  },
 ]
 
 const DCS_RESOURCES: ResourceLink[] = [
