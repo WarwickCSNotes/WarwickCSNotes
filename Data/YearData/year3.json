@@ -131,6 +131,21 @@
             ],
             "exercise_solutions": []
         },
+        "CS349": {
+            "tagline": "Lambda calculus, types, and computation.",
+            "name": "Principles of Programming Languages",
+            "Term":"1",
+            "CATS":"15",
+            "authors": [],
+            "notes": [
+                {"title": "Lambda Calculus", "url": "/resources/Notes/LambdaCalculus"},
+                {"title": "Simply Typed Lambda Calculus", "url": "#"},
+                {"title": "PCF", "url": "#"}
+            ],
+            "past_papers": [],
+            "assessments": [],
+            "exercise_solutions": []
+        },
         "CS355": {
             "tagline": "Image things",
             "name": "Digital Forensics",

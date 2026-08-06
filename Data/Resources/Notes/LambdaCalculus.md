@@ -2,6 +2,17 @@
 
 Notes for [Principles of Programming Languages (CS349)](/module/CS349).
 
+## Introduction
+
+First, some introductory ideas that you may or may not know from earlier modules.
+
+**Association:** when an operation associates to the left, it means that the operations on the left are grouped and executed first. For example: $f\, g\, x = (f\, g)\, x$.
+
+With right associativity, what order are things executed?
+
+>[!check]- Solution
+> With right associativity, the operations on the right are grouped first: $f\, g\, x = f\,(g\, x)$.
+
 ## Substitution
 
 The ***substitution*** $M[x \leftarrow N]$ is the term obtained by replacing every **free** occurrence of the variable $x$ in $M$ with $N$. The "free" qualifier matters - see rule **(4)** below, where it forces the substitution to leave a $\lambda x$-bound body untouched.
