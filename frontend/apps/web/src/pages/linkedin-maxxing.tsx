@@ -21,6 +21,21 @@ const LINKEDIN: Resource[] = [
   },
 ]
 
+const EXAMPLES: Resource[] = [
+  {
+    name: "Edward Denton",
+    url: "https://www.linkedin.com/in/edwardden/",
+    description:
+      "My LinkedIn is pretty standard and mostly follows the advice here (since I wrote the advice lol).",
+  },
+  {
+    name: "Louis Tanak",
+    url: "https://www.linkedin.com/in/louis-tanak/",
+    description:
+      "My friend Louis' profile is very solid, with several additional sections (Projects, Licenses, Honors & Awards etc).",
+  },
+]
+
 function ResourceCard({ link }: { link: Resource }) {
   return (
     <SurfaceAnchor
@@ -136,6 +151,14 @@ export const LinkedInMaxxingPage = () => {
         title="Job Searching"
         className="mb-10"
       />
+
+      <PageSection title="Examples" className="mb-10">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {EXAMPLES.map((s) => (
+            <ResourceCard key={s.name} link={s} />
+          ))}
+        </div>
+      </PageSection>
     </Page>
   )
 }

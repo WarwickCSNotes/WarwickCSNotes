@@ -74,6 +74,11 @@ const CareersDiversityPage = lazy(() =>
     default: m.CareersDiversityPage,
   })),
 )
+const DisabilitySupportPage = lazy(() =>
+  import("./pages/disability-support").then((m) => ({
+    default: m.DisabilitySupportPage,
+  })),
+)
 const QuizzesPage = lazy(() =>
   import("./pages/quizzes").then((m) => ({ default: m.QuizzesPage })),
 )
@@ -119,6 +124,7 @@ export function App() {
             <Route path="/careers/linkedin-maxxing" element={<LinkedInMaxxingPage />} />
             <Route path="/careers/diversity" element={<CareersDiversityPage />} />
             <Route path="/diversity" element={<DiversityPage />} />
+            <Route path="/disability-support" element={<DisabilitySupportPage />} />
             <Route path="/quizzes" element={<QuizzesPage />} />
             <Route path="/quizzes/:id" element={<QuizPage />} />
             <Route path="/reviews/:code" element={<ReviewsPage />} />

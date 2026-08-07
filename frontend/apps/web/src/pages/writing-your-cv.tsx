@@ -20,6 +20,15 @@ const TEMPLATES: Resource[] = [
   },
 ]
 
+const EXAMPLES: Resource[] = [
+  {
+    name: "Edward Denton's CV",
+    url: "https://github.com/24edden/24edden/blob/main/Edward_Denton_Programming_CV.pdf",
+    description:
+      "The site author's Programming CV. Built with Jake's template and following the advice on this page.",
+  },
+]
+
 function ResourceCard({ link }: { link: Resource }) {
   return (
     <SurfaceAnchor
@@ -535,6 +544,14 @@ export const WritingYourCVPage = () => {
               you blacklisted.
             </p>
           </Callout>
+        </div>
+      </PageSection>
+
+      <PageSection title="Examples" className="mb-10">
+        <div className="grid grid-cols-1 gap-4">
+          {EXAMPLES.map((s) => (
+            <ResourceCard key={s.name} link={s} />
+          ))}
         </div>
       </PageSection>
     </Page>

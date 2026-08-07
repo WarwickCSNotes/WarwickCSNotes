@@ -30,6 +30,11 @@ const GUIDES: InternalGuide[] = [
     description:
       "Communities and opportunities for underrepresented groups at Warwick and beyond.",
   },
+  {
+    name: "Disability & Support",
+    to: "/disability-support",
+    description: "Resources and support for disabled students at Warwick.",
+  },
 ]
 
 const DCS_RESOURCES: ResourceLink[] = [

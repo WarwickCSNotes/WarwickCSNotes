@@ -87,6 +87,11 @@ const TRACKERS: CareerLink[] = [
     url: "https://the-trackr.com/trackers/",
     description:
       "A collection of spring weeks, internships and graduate opportunities for Tech and Finance in the US, EU and the UK.",
+  },
+  {
+    name: "HackathonHub",
+    url: "https://hackathonhub.eu/",
+    description: "Tracker for hackathons across Europe.",
   }
 ]
 
