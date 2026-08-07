@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { ChevronRight } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
@@ -74,7 +75,7 @@ function plainText(markdown: string): string {
 /** Shared by the column headings and every row, so the two can't drift apart.
  *  Below `md` the row falls back to stacked blocks and this doesn't apply. */
 const LEDGER_COLUMNS =
-  "md:grid md:grid-cols-[5rem_minmax(13rem,1.35fr)_minmax(0,1.4fr)_4.5rem_5rem_2.75rem] md:items-center md:gap-4"
+  "md:grid md:grid-cols-[5rem_minmax(13rem,1.35fr)_minmax(0,1.4fr)_4.5rem_5rem_2.75rem_1rem] md:items-center md:gap-4"
 
 const InlineMarkdown = ({ children }: { children: string }) => (
   <ReactMarkdown
@@ -124,6 +125,7 @@ export const YearPage = () => {
               <span>Term</span>
               <span>Credits</span>
               <span>DCS</span>
+              <span />
             </div>
 
             <div>
@@ -134,7 +136,7 @@ export const YearPage = () => {
                 // another anchor.
                 <div
                   key={code}
-                  className={`relative border-b px-3 py-3 transition-colors hover:bg-surface-hover md:py-2.5 ${LEDGER_COLUMNS}`}
+                  className={`group relative cursor-pointer border-b px-3 py-3 transition-colors hover:bg-surface-hover md:py-2.5 ${LEDGER_COLUMNS}`}
                 >
                   <Link
                     to={`/module/${code}`}
@@ -152,7 +154,10 @@ export const YearPage = () => {
                     <span className="text-sm font-semibold text-primary">
                       {code}
                     </span>
-                    <span className="font-medium md:truncate" title={mod.name}>
+                    <span
+                      className="font-medium group-hover:underline md:truncate"
+                      title={mod.name}
+                    >
                       {mod.name}
                       {year === "4" && (
                         <span
@@ -183,6 +188,14 @@ export const YearPage = () => {
                   <DcsModuleLink
                     code={code}
                     className="absolute top-3 right-3 z-10 h-6 w-6 md:static md:justify-self-start"
+                  />
+
+                  {/* The row's only at-rest sign that it goes anywhere. The
+                      DCS icon can't do that job — it points off-site, so on
+                      its own it implies the row leads to Warwick's page. */}
+                  <ChevronRight
+                    aria-hidden="true"
+                    className="hidden h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground md:block"
                   />
                 </div>
               ))}
