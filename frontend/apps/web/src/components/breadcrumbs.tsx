@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { humanise } from "@/lib/humanise"
 
-export type Crumb = {
+type Crumb = {
   label: string
   /** Omitted for the current page, which renders as plain text. */
   to?: string
