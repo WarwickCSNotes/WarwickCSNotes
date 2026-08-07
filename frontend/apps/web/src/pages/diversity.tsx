@@ -53,7 +53,6 @@ export const DiversityPage = () => {
       <PageHeader
         title="Diversity"
         subtitle="Communities and opportunities for underrepresented groups at Warwick and beyond."
-        back={{ to: "/resources", label: "Resources" }}
       />
 
       <p className="mb-10 max-w-3xl text-muted-foreground">

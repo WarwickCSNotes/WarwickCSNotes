@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Suspense, lazy } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
+import { ScrollToTop } from "@/components/scroll-to-top"
 import { Welcome } from "./pages/welcome"
 
 // Welcome is the landing page so it stays eager — avoiding a Suspense flicker
@@ -98,6 +99,7 @@ export function App() {
   return (
     <ThemeProvider defaultTheme="light">
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <Suspense
           fallback={

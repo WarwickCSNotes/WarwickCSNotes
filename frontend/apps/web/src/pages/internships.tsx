@@ -47,7 +47,6 @@ export const InternshipsPage = () => {
       <PageHeader
         title="Internships"
         subtitle="A rough guide to landing an internship: what to work on, where to apply, and how to prepare."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <div className="mb-10 text-muted-foreground">

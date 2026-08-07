@@ -40,15 +40,11 @@ export const QuizPage = () => {
   if (state.error) return <Page>Quiz not found.</Page>
   if (!state.quiz) return <Page>Loading quiz...</Page>
 
-  const backTo = state.quiz.module ? `/module/${state.quiz.module}` : `/quizzes`
-  const backLabel = state.quiz.module ?? "All quizzes"
-
   return (
     <Page>
       <PageHeader
         title={state.quiz.title}
         subtitle={state.quiz.module}
-        back={{ to: backTo, label: backLabel }}
       >
         <InstaCheckToggle />
       </PageHeader>

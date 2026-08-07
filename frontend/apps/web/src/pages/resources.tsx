@@ -103,7 +103,6 @@ export const ResourcesPage = () => {
       <PageHeader
         title="Resources"
         subtitle="Non-module-specific resources: departmental references, society material, and external guides."
-        back={{ to: "/", label: "Dashboard" }}
       />
 
       <p className="mb-8 max-w-3xl text-muted-foreground">

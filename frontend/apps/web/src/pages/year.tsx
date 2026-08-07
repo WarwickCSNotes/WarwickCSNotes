@@ -75,7 +75,7 @@ export const YearPage = () => {
 
   return (
     <Page>
-      <PageHeader title={data.title} back={{ to: "/", label: "Dashboard" }} />
+      <PageHeader title={data.title} />
       <div className="space-y-8">
         {TERM_GROUPS.map(({ key, title }) => {
           const modules = groupedModules[key]

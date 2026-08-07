@@ -47,7 +47,6 @@ export const CareersDiversityPage = () => {
       <PageHeader
         title="Diversity"
         subtitle="Career-related opportunities for marginalised groups in tech: scholarships, programmes, and pipelines."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <p className="mb-10 max-w-3xl text-muted-foreground">

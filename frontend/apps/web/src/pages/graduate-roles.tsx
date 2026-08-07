@@ -92,7 +92,6 @@ export const GraduateRolesPage = () => {
       <PageHeader
         title="Graduate Roles"
         subtitle="Finding and applying for graduate roles."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <p className="mb-8 max-w-3xl text-muted-foreground">

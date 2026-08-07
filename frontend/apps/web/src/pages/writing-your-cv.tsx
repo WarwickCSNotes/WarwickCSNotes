@@ -120,7 +120,6 @@ export const WritingYourCVPage = () => {
       <PageHeader
         title="Writing your CV"
         subtitle="Write a CV to pass filters and standout to recruiters."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <p className="mb-8 max-w-3xl text-muted-foreground">

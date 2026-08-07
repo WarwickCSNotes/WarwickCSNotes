@@ -138,7 +138,6 @@ export const ReviewsPage = () => {
             ? "No reviews yet."
             : `${data.summary.count} review${data.summary.count === 1 ? "" : "s"}`
         }
-        back={{ to: `/module/${code}`, label: code.toUpperCase() }}
       />
 
       {data.summary.count > 0 && (

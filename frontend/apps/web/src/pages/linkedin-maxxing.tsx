@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import { useLocation } from "react-router-dom"
 import { ExternalLink } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
@@ -54,25 +53,15 @@ function ResourceCard({ link }: { link: Resource }) {
 }
 
 export const LinkedInMaxxingPage = () => {
-  const location = useLocation()
-
   useEffect(() => {
     document.title = "LinkedIn Maxxing"
   }, [])
-
-  // Scroll to anchor when navigating in from another page with a hash.
-  useEffect(() => {
-    if (!location.hash) return
-    const el = document.getElementById(location.hash.slice(1))
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
-  }, [location.hash])
 
   return (
     <Page>
       <PageHeader
         title="LinkedIn Maxxing"
         subtitle="Getting the most out of LinkedIn: profile, connecting, posts, and job searching."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <p className="mb-8 max-w-3xl text-muted-foreground">

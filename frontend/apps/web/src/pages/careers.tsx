@@ -189,7 +189,6 @@ export const CareersPage = () => {
       <PageHeader
         title="Careers"
         subtitle="Resources for internships/placements, CV support, and side projects."
-        back={{ to: "/", label: "Dashboard" }}
       />
 
       <p className="mb-6 max-w-3xl text-muted-foreground">

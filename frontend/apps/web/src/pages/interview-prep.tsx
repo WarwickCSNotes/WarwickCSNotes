@@ -73,7 +73,6 @@ export const InterviewPrepPage = () => {
     <Page>
       <PageHeader
         title="Interview Prep"
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <div className="mb-10 max-w-3xl text-muted-foreground">

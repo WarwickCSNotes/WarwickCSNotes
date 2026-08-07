@@ -54,7 +54,6 @@ export const SellingYourselfPage = () => {
       <PageHeader
         title="Selling Yourself"
         subtitle="Optimising your online presence to sell yourself."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <div className="mb-8 max-w-3xl text-muted-foreground">

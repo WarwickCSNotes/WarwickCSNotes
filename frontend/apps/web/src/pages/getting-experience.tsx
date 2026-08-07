@@ -62,7 +62,6 @@ export const GettingExperiencePage = () => {
       <PageHeader
         title="Getting Experience"
         subtitle="Getting experience outside of the coursework."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <div className="mb-10 max-w-3xl text-muted-foreground">
