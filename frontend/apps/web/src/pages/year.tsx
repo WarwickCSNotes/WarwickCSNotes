@@ -159,15 +159,6 @@ export const YearPage = () => {
                       title={mod.name}
                     >
                       {mod.name}
-                      {year === "4" && (
-                        <span
-                          className="ml-2 leading-none select-none"
-                          title="Under construction"
-                          aria-label="Under construction"
-                        >
-                          🚧
-                        </span>
-                      )}
                     </span>
                   </div>
 
