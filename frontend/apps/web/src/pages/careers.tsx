@@ -1,10 +1,8 @@
 import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { ArrowRight, ExternalLink } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
-import { SurfaceAnchor, SurfaceCard } from "@/components/surface"
+import { LinkCard, GuideCard } from "@/components/cards"
 
 type CareerLink = {
   name: string
@@ -122,63 +120,6 @@ const SOCIETIES: CareerLink[] = [
   },
 ]
 
-function CareerCard({ link }: { link: CareerLink }) {
-  return (
-    <SurfaceAnchor
-      href={link.url}
-      target="_blank"
-      rel="noreferrer"
-      className="p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <div className="mb-2 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold !text-foreground">{link.name}</h3>
-        <ExternalLink className="mt-1 h-4 w-4 shrink-0 opacity-60" />
-      </div>
-      <p className="text-sm text-muted-foreground">{link.description}</p>
-    </SurfaceAnchor>
-  )
-}
-
-function GuideCard({ guide }: { guide: InternalGuide }) {
-  const navigate = useNavigate()
-  const activate = () => navigate(guide.to)
-  return (
-    <SurfaceCard
-      interactive
-      role="link"
-      tabIndex={0}
-      onClick={activate}
-      onKeyDown={(e) => {
-        if (e.target !== e.currentTarget) return
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault()
-          activate()
-        }
-      }}
-      className="block cursor-pointer p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <div className="mb-2 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold !text-foreground">{guide.name}</h3>
-        <ArrowRight className="mt-1 h-4 w-4 shrink-0 opacity-60" />
-      </div>
-      <p className="text-sm text-muted-foreground">{guide.description}</p>
-      {guide.author && (
-        <p className="mt-3 text-xs text-muted-foreground">
-          Written by{" "}
-          <Link
-            to={`/acknowledgements#${guide.author.id}`}
-            onClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => e.stopPropagation()}
-            className="italic transition-colors hover:text-primary hover:underline"
-          >
-            {guide.author.name}
-          </Link>
-        </p>
-      )}
-    </SurfaceCard>
-  )
-}
-
 export const CareersPage = () => {
   useEffect(() => {
     document.title = "Careers"
@@ -188,14 +129,14 @@ export const CareersPage = () => {
     <Page>
       <PageHeader
         title="Careers"
-        subtitle="Resources for internships/placements, CV support, and side projects."
+        subtitle={
+          <span className="block max-w-3xl">
+            The degree by itself isn't enough to get employed in this job
+            market. Learn to market yourself and stack your CV with
+            opportunities like internships, hackathons, and other credentials.
+          </span>
+        }
       />
-
-      <p className="mb-6 max-w-3xl text-muted-foreground">
-        The degree by itself isn't enough to get employed in this job market.
-        Learn to market yourself and stack your CV with opportunities like
-        internships, hackathons, and other credentials.
-      </p>
 
       <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {GUIDES.map((g) => (
@@ -204,7 +145,11 @@ export const CareersPage = () => {
       </div>
 
       <PageSection title="From the Department" className="mb-10">
-        <CareerCard link={DCS} />
+        {/* In the same grid as every other section so it's a card of the same
+            size, rather than one stretched across the full width. */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <LinkCard link={DCS} />
+        </div>
       </PageSection>
 
       <PageSection
@@ -214,7 +159,7 @@ export const CareersPage = () => {
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {SOCIETIES.map((s) => (
-            <CareerCard key={s.name} link={s} />
+            <LinkCard key={s.name} link={s} />
           ))}
         </div>
       </PageSection>
@@ -225,7 +170,7 @@ export const CareersPage = () => {
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {TRACKERS.map((s) => (
-            <CareerCard key={s.name} link={s} />
+            <LinkCard key={s.name} link={s} />
           ))}
         </div>
       </PageSection>

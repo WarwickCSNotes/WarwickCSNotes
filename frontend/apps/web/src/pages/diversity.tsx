@@ -1,9 +1,10 @@
 import { useEffect } from "react"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
-import { SurfaceAnchor, SurfaceLink } from "@/components/surface"
+import { SurfaceLink } from "@/components/surface"
+import { LinkCard } from "@/components/cards"
 
 type Resource = {
   name: string
@@ -25,23 +26,6 @@ const COMMUNITIES: Resource[] = [
       "Warwick Esports' community for underrepresented gamers.",
   },
 ]
-
-function ResourceCard({ link }: { link: Resource }) {
-  return (
-    <SurfaceAnchor
-      href={link.url}
-      target="_blank"
-      rel="noreferrer"
-      className="p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <div className="mb-2 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold !text-foreground">{link.name}</h3>
-        <ExternalLink className="mt-1 h-4 w-4 shrink-0 opacity-60" />
-      </div>
-      <p className="text-sm text-muted-foreground">{link.description}</p>
-    </SurfaceAnchor>
-  )
-}
 
 export const DiversityPage = () => {
   useEffect(() => {
@@ -65,7 +49,7 @@ export const DiversityPage = () => {
       <PageSection title="Communities" className="mb-10">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {COMMUNITIES.map((s) => (
-            <ResourceCard key={s.name} link={s} />
+            <LinkCard key={s.name} link={s} />
           ))}
         </div>
       </PageSection>
