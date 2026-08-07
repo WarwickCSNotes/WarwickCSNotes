@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { ChevronRight, Github, MessageSquare, Linkedin } from "lucide-react"
 import { Page } from "@/components/page"
@@ -54,33 +54,8 @@ const ROW_COLUMNS =
   "md:grid md:grid-cols-[9rem_minmax(0,1fr)_1rem] md:items-center md:gap-4"
 
 export const Welcome = () => {
-  const [modules, setModules] = useState<Record<number, number>>({})
-
   useEffect(() => {
     document.title = "CS Notes"
-  }, [])
-
-  // The tiles render immediately and fill in when this lands, so the landing
-  // page still paints instantly. The count line keeps its height either way —
-  // otherwise the row grows underneath you a moment after first paint.
-  //
-  // `/api/years` exists so this is one small request: counting the modules
-  // client-side would mean pulling all four year files, ~68KB, into the page
-  // that most needs to be light.
-  useEffect(() => {
-    let cancelled = false
-    fetch("/api/years")
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data: { year: number; modules: number }[] | null) => {
-        if (cancelled || !Array.isArray(data)) return
-        const next: Record<number, number> = {}
-        for (const y of data) next[y.year] = y.modules
-        setModules(next)
-      })
-      .catch(() => {})
-    return () => {
-      cancelled = true
-    }
   }, [])
 
   return (
@@ -103,11 +78,6 @@ export const Welcome = () => {
               guide={{
                 name: `Year ${year}`,
                 to: `/year/${year}`,
-                // A non-breaking space until the count lands, so the line is
-                // already there and the card doesn't grow underneath you.
-                description: modules[year]
-                  ? `${modules[year]} modules`
-                  : " ",
                 action: "View year",
               }}
             />
@@ -124,7 +94,7 @@ export const Welcome = () => {
             <Link
               key={name}
               to={to}
-              className={`group block border-b px-2 py-3 transition-colors hover:bg-surface-hover ${ROW_COLUMNS}`}
+              className={`group block border-b px-3 py-3 transition-colors hover:bg-surface-hover md:py-2.5 ${ROW_COLUMNS}`}
             >
               <span className="font-medium group-hover:underline">{name}</span>
               <span className="mt-0.5 block text-sm text-muted-foreground md:mt-0">

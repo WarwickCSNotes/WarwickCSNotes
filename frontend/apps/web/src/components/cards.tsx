@@ -10,7 +10,8 @@ export type LinkCardItem = {
 export type GuideCardItem = {
   name: string
   to: string
-  description: string
+  /** Optional: a year needs no explaining, a guide does. */
+  description?: string
   /** Footer wording. Defaults to "Read guide", which is wrong for anything
    *  that isn't one — a year of modules is browsed, not read. */
   action?: string
@@ -71,7 +72,11 @@ export function GuideCard({ guide }: { guide: GuideCardItem }) {
     <SurfaceLink to={guide.to} className={cardClass}>
       <div className={bodyClass}>
         <h3 className="text-lg font-semibold !text-foreground">{guide.name}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{guide.description}</p>
+        {guide.description && (
+          <p className="mt-1 text-sm text-muted-foreground">
+            {guide.description}
+          </p>
+        )}
       </div>
       <span className={`${footerClass} font-semibold text-primary`}>
         {guide.action ?? "Read guide"}
