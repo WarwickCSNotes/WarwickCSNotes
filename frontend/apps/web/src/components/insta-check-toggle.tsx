@@ -1,7 +1,7 @@
 import { useInstaCheck } from "@/lib/use-insta-check"
 
 /** Small switch-style toggle for the "insta-check" quiz setting.
- *  Intended to sit next to the back button at the top of a quiz page. */
+ *  Intended to sit in the `PageHeader` actions slot on a quiz page. */
 export function InstaCheckToggle() {
   const [enabled, setEnabled] = useInstaCheck()
   return (

@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { Github, MessageSquare, Linkedin } from "lucide-react"
 import { Page } from "@/components/page"
+import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
 import { SurfaceAnchor, SurfaceCard, SurfaceLink } from "@/components/surface"
 
@@ -11,7 +12,7 @@ export const Welcome = () => {
 
   return (
     <Page>
-      <h1 className="mb-4 text-4xl font-bold !text-foreground">Dashboard</h1>
+      <PageHeader title="Dashboard" />
 
       <SurfaceCard className="mb-8 p-4 text-sm">
         <strong>Disclaimer:</strong> These notes are student-made and are not

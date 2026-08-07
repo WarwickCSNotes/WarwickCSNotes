@@ -1,8 +1,10 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { MarkdownContent } from "@/components/markdown-content"
 import { Page } from "@/components/page"
+import { PageHeader } from "@/components/page-header"
 import { useContent } from "@/lib/use-content"
+import { humanise } from "@/lib/humanise"
 
 // Per-category chrome. Adding a new category is a matter of extending this map.
 const CATEGORY_LABEL: Record<string, string> = {
@@ -37,19 +39,12 @@ export const ResourcePage = () => {
 
   return (
     <Page>
-      <div className="mb-6 flex flex-wrap items-center gap-4">
-        <Link
-          to={`/module/${code}`}
-          className="inline-flex shrink-0 items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors hover:bg-muted"
-        >
-          &larr; {code}
-        </Link>
-        {modName && (
-          <span className="text-sm text-muted-foreground">
-            {modName} - {CATEGORY_LABEL[category] ?? category}
-          </span>
-        )}
-      </div>
+      <PageHeader
+        title={humanise(filename ?? "")}
+        subtitle={
+          modName && `${modName} — ${CATEGORY_LABEL[category] ?? category}`
+        }
+      />
 
       {extension === "pdf" ? (
         <iframe

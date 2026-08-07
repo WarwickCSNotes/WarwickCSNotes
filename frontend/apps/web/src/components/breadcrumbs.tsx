@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import { humanise } from "@/lib/humanise"
 
 export type Crumb = {
   label: string
@@ -25,14 +26,6 @@ const LABELS: Record<string, string> = {
   quizzes: "Quizzes",
   reviews: "Reviews",
   "class-test": "Class Test",
-}
-
-/** "writing-your-cv" -> "Writing Your Cv"; "PropositionalLogic" -> "Propositional Logic". */
-function humanise(slug: string): string {
-  const spaced = slug.includes("-")
-    ? slug.replace(/-/g, " ")
-    : slug.replace(/([a-z\d])([A-Z])/g, "$1 $2")
-  return spaced.replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
 function label(slug: string): string {
