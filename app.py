@@ -122,6 +122,27 @@ def _compute_all_review_summaries():
 REVIEW_SUMMARIES = _compute_all_review_summaries()
 
 
+@app.route("/api/years")
+def api_years():
+    """One line per year: its title and how many modules it has.
+
+    The home page needs nothing more than this. Counting the modules
+    client-side means fetching all four year files — ~68KB — into the one page
+    that is deliberately kept light so it paints quickly."""
+    years = []
+    for year_num in (1, 2, 3, 4):
+        with open(os.path.join(YEAR_DATA_DIR, f"year{year_num}.json")) as f:
+            data = json.load(f)
+        years.append(
+            {
+                "year": year_num,
+                "title": data.get("title", f"Year {year_num}"),
+                "modules": len(data.get("modules", {})),
+            }
+        )
+    return years
+
+
 @app.route("/api/year/<int:year_num>")
 def api_year(year_num):
     if year_num not in (1, 2, 3, 4):
