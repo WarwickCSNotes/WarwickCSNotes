@@ -1,9 +1,10 @@
 import { useEffect } from "react"
-import { ArrowRight, ExternalLink, Github, Linkedin, MessageSquare } from "lucide-react"
+import { ArrowRight, Github, Linkedin, MessageSquare } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
 import { SurfaceLink } from "@/components/surface"
+import { GuideCard, type GuideCardItem } from "@/components/cards"
 
 /** Every destination on this page is a card you can click, grouped under the
  *  section it belongs to. Each card names the thing, says what's on the other
@@ -30,17 +31,9 @@ const SOCIALS = [
   },
 ]
 
-type Tile = {
-  name: string
-  to: string
-  description: string
-  /** Footer wording — what clicking the card does. */
-  action: string
-}
-
 /** Careers and Resources keep their own guides on their own pages, so each is
  *  one card here. The description lists what those pages contain. */
-const HUBS: Tile[] = [
+const HUBS: GuideCardItem[] = [
   {
     name: "Careers",
     to: "/careers",
@@ -57,7 +50,7 @@ const HUBS: Tile[] = [
   },
 ]
 
-const ABOUT: Tile[] = [
+const ABOUT: GuideCardItem[] = [
   {
     name: "Credits",
     to: "/acknowledgements",
@@ -72,76 +65,44 @@ const ABOUT: Tile[] = [
   },
 ]
 
-/** A solid, unmissable call to action. Built from tokens so it survives the
- *  dragon/cat/contrast themes. */
-const primaryButtonClass =
-  "inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+/** The years, as ordinary cards. They had an outsized title and their own
+ *  padding, which made them a second card style for no reason other than being
+ *  first on the page — the section heading and the four-across row already say
+ *  they matter. */
+const YEAR_CARDS: GuideCardItem[] = YEARS.map((year) => ({
+  name: `Year ${year}`,
+  to: `/year/${year}`,
+  description: "Modules, notes, past papers and solutions.",
+  action: "Browse modules",
+}))
 
-/** The card's action, sized like a shadcn `sm` button and pinned bottom-right.
+/** The socials are the exception to the text-link treatment above: they're the
+ *  only things on the page that leave the site, and they're what someone with
+ *  a question is looking for, so they're solid buttons.
  *
- *  It's a span, not a button: the whole card is already an anchor, and an
- *  interactive element can't be nested inside one. The hover state therefore
- *  hangs off the card's `group` rather than the span's own `:hover`, which is
- *  what makes the button light up when you're anywhere on the card. */
-const cardActionClass =
-  "inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-colors group-hover:bg-primary/80"
+ *  Sized to a shadcn `xs` button — `h-6`, so the row is only 24px tall. That
+ *  height is load-bearing: see `contactFooterClass`. Written out rather than
+ *  pulled from `buttonVariants` so this stays a home-page change and doesn't
+ *  reach into the shared ui package. Built from tokens, so it's black on the
+ *  light theme and inverts properly on dark, dragon and the rest. */
+const contactButtonClass =
+  "inline-flex h-6 items-center gap-1.5 rounded-md bg-primary px-2 text-xs font-medium text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary/85 hover:shadow-md"
 
-const socialButtonClass =
-  "inline-flex items-center justify-center gap-2 rounded-lg border bg-surface px-3 py-1.5 text-xs font-medium text-surface-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-surface-hover hover:shadow-md"
+/** The Contact card sits in a row with two `GuideCard`s, and every card's
+ *  footer is pinned with `mt-auto` — so the rule only lines up across the row
+ *  if all three footers are the same height.
+ *
+ *  A GuideCard's is 1px border + `pt-3` (12px) + a 16px line of `text-xs` =
+ *  29px. This one is 1px + `pt-1` (4px) + a 24px button = 29px, which is why
+ *  the button is `h-6` and the padding is `pt-1` rather than the `pt-3` used
+ *  everywhere else. Change one and the rule steps out of line. */
+const contactFooterClass = "mt-auto flex flex-wrap items-center gap-2 border-t pt-1"
 
 const yearGrid = "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
 /** Two hubs, so two columns — a three-up row would leave a hole. */
 const hubGrid = "grid grid-cols-1 gap-4 sm:grid-cols-2"
 const grid = "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
 
-/** The card used everywhere on the page. Identical footprint whatever it links
- *  to, so scanning the page is scanning one shape.
- *
- *  `h-full` opts into the grid's stretch and `mt-auto` pins the footer to the
- *  bottom, which is what makes every card in a row the same height however
- *  long its description runs. */
-function ActionCard({ tile }: { tile: Tile }) {
-  return (
-    <SurfaceLink
-      to={tile.to}
-      className="group flex h-full flex-col p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <div className="mb-5">
-        <h3 className="text-lg font-semibold !text-foreground">{tile.name}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{tile.description}</p>
-      </div>
-      <div className="mt-auto flex justify-end">
-        <span className={cardActionClass}>
-          {tile.action}
-          <ArrowRight className="h-3.5 w-3.5 shrink-0" />
-        </span>
-      </div>
-    </SurfaceLink>
-  )
-}
-
-/** Years get a larger treatment than the cards below: they're the reason most
- *  people are here, so they shouldn't look like the eighth card of the same
- *  size. */
-function YearTile({ year }: { year: number }) {
-  return (
-    <SurfaceLink
-      to={`/year/${year}`}
-      className="group flex h-full flex-col p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <span className="text-3xl font-bold">Year {year}</span>
-      <span className="mt-1 mb-5 text-sm text-muted-foreground">
-        Modules, notes, past papers and solutions.
-      </span>
-      <div className="mt-auto flex justify-end">
-        <span className={cardActionClass}>
-          Browse modules
-          <ArrowRight className="h-3.5 w-3.5 shrink-0" />
-        </span>
-      </div>
-    </SurfaceLink>
-  )
-}
 
 export const Welcome = () => {
   useEffect(() => {
@@ -162,8 +123,8 @@ export const Welcome = () => {
 
       <PageSection title="Study" className="mb-10">
         <div className={yearGrid}>
-          {YEARS.map((year) => (
-            <YearTile key={year} year={year} />
+          {YEAR_CARDS.map((year) => (
+            <GuideCard key={year.name} guide={year} />
           ))}
         </div>
 
@@ -180,9 +141,9 @@ export const Welcome = () => {
               Multiple-choice practice questions, grouped by module.
             </span>
           </span>
-          <span className={primaryButtonClass}>
+          <span className="flex items-center gap-1.5 text-xs font-semibold text-primary">
             Open quizzes
-            <ArrowRight className="h-4 w-4 shrink-0" />
+            <ArrowRight className="h-3 w-3 shrink-0" />
           </span>
         </SurfaceLink>
       </PageSection>
@@ -190,7 +151,7 @@ export const Welcome = () => {
       <PageSection title="Beyond the notes" className="mb-10">
         <div className={hubGrid}>
           {HUBS.map((tile) => (
-            <ActionCard key={tile.name} tile={tile} />
+            <GuideCard key={tile.name} guide={tile} />
           ))}
         </div>
       </PageSection>
@@ -198,12 +159,12 @@ export const Welcome = () => {
       <PageSection title="Community" className="mb-10">
         <div className={grid}>
           {ABOUT.map((tile) => (
-            <ActionCard key={tile.name} tile={tile} />
+            <GuideCard key={tile.name} guide={tile} />
           ))}
 
-          {/* Socials take a card of their own rather than a line of text links
-              at the foot of the page, so they're the same size as everything
-              else you're asked to click. */}
+          {/* Socials get a card of their own so the section is one row of
+              three rather than two cards and a stray line of links. The card
+              isn't itself a link, so the three inside it are ordinary ones. */}
           <div className="flex h-full flex-col rounded-lg border bg-surface p-5 text-surface-foreground shadow-sm">
             <div className="mb-4">
               <h3 className="text-lg font-semibold">Contact</h3>
@@ -211,18 +172,17 @@ export const Welcome = () => {
                 Ask a question or report a mistake in the notes.
               </p>
             </div>
-            <div className="mt-auto flex flex-wrap justify-end gap-2">
+            <div className={contactFooterClass}>
               {SOCIALS.map(({ name, url, Icon }) => (
                 <a
                   key={name}
                   href={url}
                   target="_blank"
                   rel="noreferrer"
-                  className={socialButtonClass}
+                  className={contactButtonClass}
                 >
-                  <Icon className="h-3.5 w-3.5 shrink-0" />
+                  <Icon className="h-3 w-3 shrink-0" />
                   {name}
-                  <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
                 </a>
               ))}
             </div>
