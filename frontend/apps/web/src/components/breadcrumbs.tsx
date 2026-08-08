@@ -172,6 +172,10 @@ export function Breadcrumbs() {
   const year = useModuleYear(moduleCodeFor(pathname))
   const crumbs = buildTrail(pathname, year)
 
+  // Home shows only a "Home" crumb, which reads as noise since you already
+  // know where you are. Skip it entirely on `/`.
+  if (pathname === "/") return null
+
   return (
     <nav aria-label="Breadcrumb" className="mb-4 flex h-6 items-center">
       <ol className="flex flex-wrap items-center gap-1.5 text-sm">

@@ -110,14 +110,14 @@ export const Welcome = () => {
       </PageSection>
 
       <PageSection title="Get in touch">
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+        <div className="flex flex-wrap gap-3">
           {SOCIALS.map(({ name, url, Icon }) => (
             <a
               key={name}
               href={url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+              className="inline-flex items-center gap-2 rounded-lg border bg-surface px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-surface-hover hover:shadow-md"
             >
               <Icon className="h-4 w-4 shrink-0" />
               {name}
@@ -129,8 +129,9 @@ export const Welcome = () => {
       {/* A caveat belongs at the foot of the page, not above the content. */}
       <p className="mt-12 border-t pt-6 text-xs text-muted-foreground">
         These notes are student-made and are not officially endorsed by the
-        University of Warwick. They may contain errors or omissions — always
-        cross-reference with official lecture materials and module resources.
+        University of Warwick. They may contain errors or omissions, so
+        always cross-reference with official lecture materials and module
+        resources.
       </p>
     </Page>
   )
