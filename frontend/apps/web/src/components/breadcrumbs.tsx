@@ -177,6 +177,9 @@ export function Breadcrumbs() {
   const year = useModuleYear(moduleCodeFor(pathname))
   const crumbs = buildTrail(pathname, year)
 
+  // main reached the same conclusion in 684f580 and returned null on `/`.
+  // This keeps the empty row instead: dropping it entirely moves the title up
+  // by 40px on home and nowhere else, so it jumps as you navigate.
   if (crumbs.length === 0) {
     return <div aria-hidden="true" className="mb-4 h-6" />
   }

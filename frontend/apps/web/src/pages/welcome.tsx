@@ -164,7 +164,11 @@ export const Welcome = () => {
 
           {/* Socials get a card of their own so the section is one row of
               three rather than two cards and a stray line of links. The card
-              isn't itself a link, so the three inside it are ordinary ones. */}
+              isn't itself a link, so the three inside it are ordinary ones.
+
+              This supersedes the separate "Get in touch" section that landed
+              on main in 684f580 — same three links, folded into Community so
+              the page ends on one row rather than a section of its own. */}
           <div className="flex h-full flex-col rounded-lg border bg-surface p-5 text-surface-foreground shadow-sm">
             <div className="mb-4">
               <h3 className="text-lg font-semibold">Contact</h3>
@@ -193,8 +197,9 @@ export const Welcome = () => {
       {/* A caveat belongs at the foot of the page, not above the content. */}
       <p className="mt-12 border-t pt-6 text-xs text-muted-foreground">
         These notes are student-made and are not officially endorsed by the
-        University of Warwick. They may contain errors or omissions — always
-        cross-reference with official lecture materials and module resources.
+        University of Warwick. They may contain errors or omissions, so
+        always cross-reference with official lecture materials and module
+        resources.
       </p>
     </Page>
   )

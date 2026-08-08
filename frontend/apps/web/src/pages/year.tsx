@@ -158,6 +158,15 @@ export const YearPage = () => {
                       className="font-medium group-hover:underline md:truncate"
                       title={mod.name}
                     >
+                      {year === "4" && (
+                        <span
+                          aria-label="Under construction"
+                          title="Under construction"
+                          className="mr-1"
+                        >
+                          🚧
+                        </span>
+                      )}
                       {mod.name}
                     </span>
                   </div>
