@@ -10,9 +10,12 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      "/api": "http://localhost:3000",
+      // 127.0.0.1 rather than localhost: Node resolves localhost to ::1 first
+      // on Windows, and `app.run(host="0.0.0.0")` binds IPv4 only, so the
+      // proxy fails and every page that fetches from /api hangs on "Loading".
+      "/api": "http://127.0.0.1:3000",
       "/resources": {
-        target: "http://localhost:3000",
+        target: "http://127.0.0.1:3000",
         bypass: (req) => {
           // Let the browser's SPA navigation through so React Router handles
           // /resources/<Category>/<Code>/<Filename> URLs. Fetch/XHR requests
