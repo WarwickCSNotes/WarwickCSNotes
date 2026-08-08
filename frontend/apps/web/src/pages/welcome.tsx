@@ -1,35 +1,17 @@
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
-import { ChevronRight, Github, MessageSquare, Linkedin } from "lucide-react"
+import { ArrowRight, Github, Linkedin, MessageSquare } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
-import { GuideCard } from "@/components/cards"
+import { SurfaceLink } from "@/components/surface"
+import { GuideCard, type GuideCardItem } from "@/components/cards"
+
+/** Every destination on this page is a card you can click, grouped under the
+ *  section it belongs to. Each card names the thing, says what's on the other
+ *  side of it, and ends with the action it performs — the page is a set of
+ *  buttons rather than a set of sentences with links buried in them. */
 
 const YEARS = [1, 2, 3, 4]
-
-const PAGES = [
-  {
-    name: "Careers",
-    to: "/careers",
-    description: "Internships, CVs, interviews and getting found.",
-  },
-  {
-    name: "Resources",
-    to: "/resources",
-    description: "Handbooks, society material and open-source guides.",
-  },
-  {
-    name: "Quizzes",
-    to: "/quizzes",
-    description: "Practice quizzes across every module.",
-  },
-  {
-    name: "Credits",
-    to: "/acknowledgements",
-    description: "The people who wrote all this.",
-  },
-]
 
 const SOCIALS = [
   {
@@ -49,9 +31,78 @@ const SOCIALS = [
   },
 ]
 
-/** Columns shared by every Explore row. Below `md` the row stacks instead. */
-const ROW_COLUMNS =
-  "md:grid md:grid-cols-[9rem_minmax(0,1fr)_1rem] md:items-center md:gap-4"
+/** Careers and Resources keep their own guides on their own pages, so each is
+ *  one card here. The description lists what those pages contain. */
+const HUBS: GuideCardItem[] = [
+  {
+    name: "Careers",
+    to: "/careers",
+    description:
+      "Guides on internships, CVs, interviews and graduate roles, plus societies and job trackers.",
+    action: "Open careers",
+  },
+  {
+    name: "Resources",
+    to: "/resources",
+    description:
+      "Department handbooks, exam feedback, society material, and support for disabled and underrepresented students.",
+    action: "Open resources",
+  },
+]
+
+const ABOUT: GuideCardItem[] = [
+  {
+    name: "Credits",
+    to: "/acknowledgements",
+    description: "The students who wrote the notes, quizzes and solutions.",
+    action: "Open credits",
+  },
+  {
+    name: "Contribute",
+    to: "/resources/open-source-contributions",
+    description: "How to add notes or fix a mistake in the ones already here.",
+    action: "Read guide",
+  },
+]
+
+/** The years, as ordinary cards. They had an outsized title and their own
+ *  padding, which made them a second card style for no reason other than being
+ *  first on the page — the section heading and the four-across row already say
+ *  they matter. */
+const YEAR_CARDS: GuideCardItem[] = YEARS.map((year) => ({
+  name: `Year ${year}`,
+  to: `/year/${year}`,
+  description: "Modules, notes, past papers and solutions.",
+  action: "Browse modules",
+}))
+
+/** The socials are the exception to the text-link treatment above: they're the
+ *  only things on the page that leave the site, and they're what someone with
+ *  a question is looking for, so they're solid buttons.
+ *
+ *  Sized to a shadcn `xs` button — `h-6`, so the row is only 24px tall. That
+ *  height is load-bearing: see `contactFooterClass`. Written out rather than
+ *  pulled from `buttonVariants` so this stays a home-page change and doesn't
+ *  reach into the shared ui package. Built from tokens, so it's black on the
+ *  light theme and inverts properly on dark, dragon and the rest. */
+const contactButtonClass =
+  "inline-flex h-6 items-center gap-1.5 rounded-md bg-primary px-2 text-xs font-medium text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary/85 hover:shadow-md"
+
+/** The Contact card sits in a row with two `GuideCard`s, and every card's
+ *  footer is pinned with `mt-auto` — so the rule only lines up across the row
+ *  if all three footers are the same height.
+ *
+ *  A GuideCard's is 1px border + `pt-3` (12px) + a 16px line of `text-xs` =
+ *  29px. This one is 1px + `pt-1` (4px) + a 24px button = 29px, which is why
+ *  the button is `h-6` and the padding is `pt-1` rather than the `pt-3` used
+ *  everywhere else. Change one and the rule steps out of line. */
+const contactFooterClass = "mt-auto flex flex-wrap items-center gap-2 border-t pt-1"
+
+const yearGrid = "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+/** Two hubs, so two columns — a three-up row would leave a hole. */
+const hubGrid = "grid grid-cols-1 gap-4 sm:grid-cols-2"
+const grid = "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+
 
 export const Welcome = () => {
   useEffect(() => {
@@ -70,59 +121,76 @@ export const Welcome = () => {
         }
       />
 
-      <PageSection title="Years" className="mb-10">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {YEARS.map((year) => (
-            <GuideCard
-              key={year}
-              guide={{
-                name: `Year ${year}`,
-                to: `/year/${year}`,
-                action: "View year",
-              }}
-            />
+      <PageSection title="Study" className="mb-10">
+        <div className={yearGrid}>
+          {YEAR_CARDS.map((year) => (
+            <GuideCard key={year.name} guide={year} />
+          ))}
+        </div>
+
+        {/* Quizzes sit with the years because they're the same job — one
+            destination rather than four, so a full-width row across the
+            bottom of the section rather than a fifth tile. */}
+        <SurfaceLink
+          to="/quizzes"
+          className="mt-4 flex flex-wrap items-center justify-between gap-4 p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <span>
+            <span className="block font-semibold">Quizzes</span>
+            <span className="mt-0.5 block text-sm text-muted-foreground">
+              Multiple-choice practice questions, grouped by module.
+            </span>
+          </span>
+          <span className="flex items-center gap-1.5 text-xs font-semibold text-primary">
+            Open quizzes
+            <ArrowRight className="h-3 w-3 shrink-0" />
+          </span>
+        </SurfaceLink>
+      </PageSection>
+
+      <PageSection title="Beyond the notes" className="mb-10">
+        <div className={hubGrid}>
+          {HUBS.map((tile) => (
+            <GuideCard key={tile.name} guide={tile} />
           ))}
         </div>
       </PageSection>
 
-      {/* Careers, Resources and Quizzes previously had no route in from this
-          page at all — they existed only in the nav bar. Rows rather than more
-          cards, so they don't compete with the years above. */}
-      <PageSection title="Explore" className="mb-10">
-        <div className="border-t">
-          {PAGES.map(({ name, to, description }) => (
-            <Link
-              key={name}
-              to={to}
-              className={`group block border-b px-3 py-3 transition-colors hover:bg-surface-hover md:py-2.5 ${ROW_COLUMNS}`}
-            >
-              <span className="font-medium group-hover:underline">{name}</span>
-              <span className="mt-0.5 block text-sm text-muted-foreground md:mt-0">
-                {description}
-              </span>
-              <ChevronRight
-                aria-hidden="true"
-                className="hidden h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground md:block"
-              />
-            </Link>
+      <PageSection title="Community" className="mb-10">
+        <div className={grid}>
+          {ABOUT.map((tile) => (
+            <GuideCard key={tile.name} guide={tile} />
           ))}
-        </div>
-      </PageSection>
 
-      <PageSection title="Get in touch">
-        <div className="flex flex-wrap gap-3">
-          {SOCIALS.map(({ name, url, Icon }) => (
-            <a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border bg-surface px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-surface-hover hover:shadow-md"
-            >
-              <Icon className="h-4 w-4 shrink-0" />
-              {name}
-            </a>
-          ))}
+          {/* Socials get a card of their own so the section is one row of
+              three rather than two cards and a stray line of links. The card
+              isn't itself a link, so the three inside it are ordinary ones.
+
+              This supersedes the separate "Get in touch" section that landed
+              on main in 684f580 — same three links, folded into Community so
+              the page ends on one row rather than a section of its own. */}
+          <div className="flex h-full flex-col rounded-lg border bg-surface p-5 text-surface-foreground shadow-sm">
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold">Contact</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ask a question or report a mistake in the notes.
+              </p>
+            </div>
+            <div className={contactFooterClass}>
+              {SOCIALS.map(({ name, url, Icon }) => (
+                <a
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={contactButtonClass}
+                >
+                  <Icon className="h-3 w-3 shrink-0" />
+                  {name}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </PageSection>
 
