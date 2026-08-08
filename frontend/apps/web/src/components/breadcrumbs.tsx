@@ -90,7 +90,9 @@ const PARENT: Record<string, Crumb> = {
 function buildTrail(pathname: string, moduleYear: number | undefined): Crumb[] {
   const seg = pathname.split("/").filter(Boolean)
 
-  if (seg.length === 0) return [{ label: "Home" }]
+  // Home has nothing to trail: the crumb would be a lone "Home" naming the
+  // page you're already on. The row is still rendered, empty — see below.
+  if (seg.length === 0) return []
 
   // /year/:year
   if (seg[0] === "year" && seg[1]) {
@@ -161,16 +163,23 @@ function moduleCodeFor(pathname: string): string | undefined {
   return undefined
 }
 
-/** Rendered by `Page`, so it sits in exactly the same spot on every route —
- *  including home, where it's the single "Home" crumb.
+/** Rendered by `Page`, so it sits in exactly the same spot on every route.
  *
  *  The row has a fixed height on purpose: the module year arrives from a fetch
  *  a moment after first paint, and without a reserved line the whole page would
- *  shift down as the crumb appears. */
+ *  shift down as the crumb appears. Home keeps that reserved height even though
+ *  it has no crumbs, so the title lands at the same y wherever you are.
+ *
+ *  An empty row is a plain div rather than an empty `nav`, so screen readers
+ *  aren't handed a navigation landmark with nothing in it. */
 export function Breadcrumbs() {
   const { pathname } = useLocation()
   const year = useModuleYear(moduleCodeFor(pathname))
   const crumbs = buildTrail(pathname, year)
+
+  if (crumbs.length === 0) {
+    return <div aria-hidden="true" className="mb-4 h-6" />
+  }
 
   return (
     <nav aria-label="Breadcrumb" className="mb-4 flex h-6 items-center">
