@@ -13,7 +13,6 @@ export const OpenSourceContributionsPage = () => {
       <PageHeader
         title="Open Source Contributions"
         subtitle="Contributing to open-source projects: why, how, and where to start."
-        back={{ to: "/resources", label: "Resources" }}
       />
 
       <p className="mb-10 max-w-3xl text-muted-foreground">

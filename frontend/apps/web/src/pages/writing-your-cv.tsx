@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { ChevronDown, ExternalLink, FileText, Lightbulb } from "lucide-react"
+import { ChevronDown, FileText, Lightbulb } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
-import { SurfaceAnchor } from "@/components/surface"
+import { LinkCard } from "@/components/cards"
 
 type Resource = {
   name: string
@@ -28,23 +28,6 @@ const EXAMPLES: Resource[] = [
       "The site author's Programming CV. Built with Jake's template and following the advice on this page.",
   },
 ]
-
-function ResourceCard({ link }: { link: Resource }) {
-  return (
-    <SurfaceAnchor
-      href={link.url}
-      target="_blank"
-      rel="noreferrer"
-      className="p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <div className="mb-2 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold !text-foreground">{link.name}</h3>
-        <ExternalLink className="mt-1 h-4 w-4 shrink-0 opacity-60" />
-      </div>
-      <p className="text-sm text-muted-foreground">{link.description}</p>
-    </SurfaceAnchor>
-  )
-}
 
 const CALLOUT_STYLES = {
   note: {
@@ -120,7 +103,6 @@ export const WritingYourCVPage = () => {
       <PageHeader
         title="Writing your CV"
         subtitle="Write a CV to pass filters and standout to recruiters."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <p className="mb-8 max-w-3xl text-muted-foreground">
@@ -137,7 +119,7 @@ export const WritingYourCVPage = () => {
         </p>
         <div className="grid grid-cols-1 gap-4">
           {TEMPLATES.map((s) => (
-            <ResourceCard key={s.name} link={s} />
+            <LinkCard key={s.name} link={s} />
           ))}
         </div>
       </PageSection>
@@ -550,7 +532,7 @@ export const WritingYourCVPage = () => {
       <PageSection title="Examples" className="mb-10">
         <div className="grid grid-cols-1 gap-4">
           {EXAMPLES.map((s) => (
-            <ResourceCard key={s.name} link={s} />
+            <LinkCard key={s.name} link={s} />
           ))}
         </div>
       </PageSection>

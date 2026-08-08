@@ -429,7 +429,6 @@ export const ModulePage = () => {
           </span>
         }
         subtitle={mod.name}
-        back={{ to: `/year/${mod.year}`, label: `Year ${mod.year}` }}
       />
       <div className="-mt-4 mb-2 flex gap-4">
         {mod.Term && (

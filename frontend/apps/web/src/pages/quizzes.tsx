@@ -42,7 +42,6 @@ export const QuizzesPage = () => {
       <PageHeader
         title="Quizzes"
         subtitle="Practice quizzes across modules. Pick one and test yourself."
-        back={{ to: "/", label: "Dashboard" }}
       />
 
       {loading && <p>Loading...</p>}

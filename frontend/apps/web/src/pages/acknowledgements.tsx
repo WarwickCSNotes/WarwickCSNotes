@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react"
-import { useLocation } from "react-router-dom"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { SurfaceCard } from "@/components/surface"
@@ -79,7 +78,6 @@ function PersonCard({ person }: { person: Person }) {
 
 export const AcknowledgementsPage = () => {
   const [credits, setCredits] = useState<Credits>({})
-  const location = useLocation()
 
   useEffect(() => {
     fetch("/api/credits")
@@ -94,13 +92,6 @@ export const AcknowledgementsPage = () => {
     [credits.dev, credits.content]
   )
 
-  // Scroll to anchor after credits load
-  useEffect(() => {
-    if (!location.hash || people.length === 0) return
-    const el = document.getElementById(location.hash.slice(1))
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" })
-  }, [people, location.hash])
-
   return (
     <>
       <title>Acknowledgements</title>
@@ -108,7 +99,6 @@ export const AcknowledgementsPage = () => {
         <PageHeader
           title="Acknowledgements"
           subtitle="The people behind Warwick CS Notes."
-          back={{ to: "/", label: "Dashboard" }}
         />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

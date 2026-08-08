@@ -1,10 +1,9 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import { ExternalLink } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
-import { SurfaceAnchor } from "@/components/surface"
+import { LinkCard } from "@/components/cards"
 
 type Resource = {
   name: string
@@ -35,23 +34,6 @@ const HACKATHONS: Resource[] = [
   },
 ]
 
-function ResourceCard({ link }: { link: Resource }) {
-  return (
-    <SurfaceAnchor
-      href={link.url}
-      target="_blank"
-      rel="noreferrer"
-      className="p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <div className="mb-2 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold !text-foreground">{link.name}</h3>
-        <ExternalLink className="mt-1 h-4 w-4 shrink-0 opacity-60" />
-      </div>
-      <p className="text-sm text-muted-foreground">{link.description}</p>
-    </SurfaceAnchor>
-  )
-}
-
 export const GettingExperiencePage = () => {
   useEffect(() => {
     document.title = "Getting Experience"
@@ -62,7 +44,6 @@ export const GettingExperiencePage = () => {
       <PageHeader
         title="Getting Experience"
         subtitle="Getting experience outside of the coursework."
-        back={{ to: "/careers", label: "Careers" }}
       />
 
       <div className="mb-10 max-w-3xl text-muted-foreground">
@@ -125,7 +106,7 @@ export const GettingExperiencePage = () => {
           <p className="mb-4">A few worth watching out for:</p>
           <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
             {HACKATHONS.map((s) => (
-              <ResourceCard key={s.name} link={s} />
+              <LinkCard key={s.name} link={s} />
             ))}
           </div>
           <p>

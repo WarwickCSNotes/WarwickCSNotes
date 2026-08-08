@@ -12,7 +12,6 @@ export const DisabilitySupportPage = () => {
       <PageHeader
         title="Disability & Support"
         subtitle="Resources and support for disabled students at Warwick."
-        back={{ to: "/resources", label: "Resources" }}
       />
     </Page>
   )

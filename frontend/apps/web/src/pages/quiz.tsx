@@ -40,23 +40,19 @@ export const QuizPage = () => {
   if (state.error) return <Page>Quiz not found.</Page>
   if (!state.quiz) return <Page>Loading quiz...</Page>
 
-  const backTo = state.quiz.module ? `/module/${state.quiz.module}` : `/quizzes`
-  const backLabel = state.quiz.module ?? "All quizzes"
-
   return (
     <Page>
       <PageHeader
         title={state.quiz.title}
-        subtitle={state.quiz.module}
-        back={{ to: backTo, label: backLabel }}
+        // Both belong in the subtitle slot: the description was previously a
+        // second muted line below the header, which read as a subtitle sitting
+        // in a different place to every other page's.
+        subtitle={[state.quiz.module, state.quiz.description]
+          .filter(Boolean)
+          .join(" — ")}
       >
         <InstaCheckToggle />
       </PageHeader>
-      {state.quiz.description && (
-        <p className="mt-2 mb-6 text-muted-foreground">
-          {state.quiz.description}
-        </p>
-      )}
 
       <QuizRunner questions={state.quiz.questions} instaCheck={instaCheck} />
     </Page>

@@ -99,7 +99,6 @@ export const CS133ClassTest = () => {
       <PageHeader
         title="Class Test Simulator"
         subtitle="Practice questions for CS133 Professional Skills."
-        back={{ to: "/module/CS133", label: "CS133" }}
       >
         <InstaCheckToggle />
       </PageHeader>
