@@ -1,17 +1,17 @@
 # Lambda Calculus
 
-Notes for [Principles of Programming Languages (CS349)](/module/CS349).
+Lambda Calculus (LC) is a turing-complete computational model.
 
 ## Introduction
 
 First, some introductory ideas that you may or may not know from earlier modules.
 
-**Association:** when an operation associates to the left, it means that the operations on the left are grouped and executed first. For example: $f\, g\, x = (f\, g)\, x$.
+**Association:** when an operation associates to the left, it means that the operations on the left are grouped and executed first. For example: $f \odot g \odot x = (f \odot g) \odot x$.
 
 With right associativity, what order are things executed?
 
 >[!check]- Solution
-> With right associativity, the operations on the right are grouped first: $f\, g\, x = f\,(g\, x)$.
+> With right associativity, the operations on the right are grouped first: $f \odot g \odot x = f \odot (g \odot x)$.
 
 ## Structure
 
@@ -25,8 +25,10 @@ Broken down:
 - **abstraction** (a fancy term for function creation) e.g. `\x -> x` (which is $(\lambda x.\, M)$ when $M = x$)
 - **application** (so calling a function with an argument) e.g. `(\x -> x) y` (which is $M\, M$ where the first $M$ is `\x -> x` and the second is $y$)
 
->[!warning] Just syntax
+>[!warning]- Just syntax
 > People get a bit confused by application because it's just two terms next to each other. There is no enforcement in the syntax for the first term $M_1$ in $(M_1\, M_2)$ being an abstraction, even though $M_1$ should be an abstraction for the expression to make sense. This is purely syntax.
+>
+> We will see later that we have a special name for applications where the first term is an abstraction: these are called reducible expressions (**redexes**), since they can be simplified by passing the argument through the function (called a **beta reduction**).
 
 ## Free vs Bound Variables
 
@@ -34,7 +36,7 @@ Variables are **bound** by abstractions. For example, when we have an abstractio
 
 **Free** variables are not bound by any abstraction. In actual applications, these would refer to things outside the current expression, like a specific function, constant, or value in the surrounding context.
 
->[!note] Define the set of free variables in an expression
+>[!note]- Define the set of free variables in an expression
 > We use the syntax of LC (that we saw earlier) to define free variables. It would look something like:
 >
 > $\mathrm{FV}(x) = \ldots$
@@ -50,11 +52,11 @@ Variables are **bound** by abstractions. For example, when we have an abstractio
 >
 > $\mathrm{FV}(\lambda x.\, M) = \mathrm{FV}(M) \setminus \{x\}$
 >
-> <small>$X \setminus Y$ means to exclude elements of $Y$ from $X$, e.g. $\{a, b, c\} \setminus \{c\} = \{a, b\}$.</small>
+> *($X \setminus Y$ means to exclude elements of $Y$ from $X$, e.g. $\{a, b, c\} \setminus \{c\} = \{a, b\}$.)*
 >
 > $\mathrm{FV}(M_1\, M_2) = \mathrm{FV}(M_1) \cup \mathrm{FV}(M_2)$
 
->[!note] Putting it all together
+>[!note]- Putting it all together
 > Consider $(\lambda x.\, x\, y)\, z$.
 >
 > Using what we've learned, $(\lambda x.\, x\, y)$ is an **abstraction**. The whole expression $((\lambda x.\, x\, y)\, z)$ is an **application** of that abstraction (with $z$ being $M_2$).
@@ -105,7 +107,7 @@ $(\lambda a\, b.\, b\, a\, a\, c) = (\lambda x\, y.\, y\, x\, x\, c)$
 
 Only bound variables get renamed (note $c$ above stays as $c$).
 
->[!note] Why bound and not free?
+>[!note]- Why bound and not free?
 > Free variables generally aren't renamed because they may refer to specific things outside the expression, like a specific function, constant, or value in the surrounding context. Renaming them would change what the expression is about, which gives you a different expression entirely.
 >
 > That's why, when there's a conflict between a bound variable and a free variable, it's the bound variable that gets renamed.
@@ -124,7 +126,7 @@ $$\lambda x.\, M\, x \rightarrow_\eta M$$
 
 It is the same as removing an unnecessary function call, like in the example below.
 
-```
+```rust
 fn f(x) {
   g(x)
 }

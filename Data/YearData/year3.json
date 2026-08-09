@@ -138,7 +138,7 @@
             "CATS":"15",
             "authors": [],
             "notes": [
-                {"title": "Lambda Calculus", "url": "/resources/Notes/LambdaCalculus"},
+                {"title": "Lambda Calculus", "url": "/resources/Notes/CS349/LambdaCalculus"},
                 {"title": "Simply Typed Lambda Calculus", "url": "#"},
                 {"title": "PCF", "url": "#"}
             ],
