@@ -134,3 +134,14 @@ fn f(x) {
 
 Here, `f` is a useless function and just does what `g` does with extra steps.
 
+## Reduction Order
+
+## Evaluation Order
+
+## Normal Forms
+
+## "Extensions" to LC
+
+## Proof Rules
+
+## Evaluation Contexts

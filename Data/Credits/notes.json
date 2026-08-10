@@ -35,6 +35,9 @@
     "SyntaxHighlightingDemo.md": ["EdDenton"],
     "MobileRoboticsOverview.md": ["EdDenton"],
     "Sensors.md": ["EdDenton"],
+    "LambdaCalculus.md": ["EdDenton"],
+    "STLC.md": ["EdDenton"],
+    "PCF.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],

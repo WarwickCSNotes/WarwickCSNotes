@@ -139,8 +139,8 @@
             "authors": [],
             "notes": [
                 {"title": "Lambda Calculus", "url": "/resources/Notes/CS349/LambdaCalculus"},
-                {"title": "Simply Typed Lambda Calculus", "url": "#"},
-                {"title": "PCF", "url": "#"}
+                {"title": "Simply Typed Lambda Calculus", "url": "/resources/Notes/CS349/STLC"},
+                {"title": "PCF", "url": "/resources/Notes/CS349/PCF"}
             ],
             "past_papers": [],
             "assessments": [],
