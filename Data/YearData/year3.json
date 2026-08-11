@@ -153,7 +153,10 @@
             "CATS":"15",
             "authors": [],
             "notes": [
-                {"title": "Image fundamentals", "url": "#"}
+                {"title": "Image Fundamentals", "url": "#"},
+                {"title": "Image Enhancements", "url": "#"},
+                {"title": "Forgery Detection", "url": "#"},
+                {"title": "Source Identification & Deepfake Detection", "url": "#"}
             ],
             "past_papers": [
                 {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3550_exam_paper.pdf"},
