@@ -153,6 +153,7 @@
             "CATS":"15",
             "authors": [],
             "notes": [
+                {"title": "Image Acquisition", "url": "/resources/Notes/CS355/ImageAcquisition"},
                 {"title": "Image Fundamentals", "url": "#"},
                 {"title": "Image Enhancements", "url": "#"},
                 {"title": "Forgery Detection", "url": "#"},
