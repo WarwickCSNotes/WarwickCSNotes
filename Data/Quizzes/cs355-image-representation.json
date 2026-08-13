@@ -1,0 +1,43 @@
+{
+    "title": "Image Representation",
+    "module": "CS355",
+    "description": "Quick check on colour spaces and chroma subsampling.",
+    "questions": [
+        {
+            "type": "match",
+            "prompt": "Match each chroma-subsampling sampling method to its description.",
+            "left": ["Average", "Left", "Right", "Direct"],
+            "right": [
+                "Top-left pixel value is used",
+                "Average of all pixels in the chroma block",
+                "Average of the rightmost chroma pixels",
+                "Average of the leftmost chroma pixels"
+            ],
+            "correct": [1, 3, 2, 0]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "In an $A{:}b{:}c$ chroma-subsampling ratio, what do $A$, $b$, and $c$ represent?",
+            "options": [
+                "$A$ is the width of the sampling block",
+                "$A$ is the height of the sampling block",
+                "$b$ is the number of chroma samples in the first row",
+                "$b$ is the number of luma samples in the first row",
+                "$c$ is the number of chroma samples in the second row",
+                "$c$ is the total number of chroma samples across both rows"
+            ],
+            "correct": [0, 2, 4]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which chroma-subsampling scheme is most popular for digital images and videos?",
+            "options": [
+                "$4{:}4{:}4$",
+                "$4{:}2{:}2$",
+                "$4{:}2{:}0$",
+                "$4{:}1{:}1$"
+            ],
+            "correct": [2]
+        }
+    ]
+}

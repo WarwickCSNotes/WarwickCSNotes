@@ -154,6 +154,7 @@
             "authors": [],
             "notes": [
                 {"title": "Image Acquisition", "url": "/resources/Notes/CS355/ImageAcquisition"},
+                {"title": "Image Representation", "url": "/resources/Notes/CS355/ImageRepresentation"},
                 {"title": "Image Fundamentals", "url": "#"},
                 {"title": "Image Enhancements", "url": "#"},
                 {"title": "Forgery Detection", "url": "#"},
@@ -169,7 +170,10 @@
                 {"title": "Coursework 2", "submission_deadline": "2026-03-16 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
                 {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-26 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
             ],
-            "exercise_solutions": []
+            "exercise_solutions": [],
+            "quizzes": [
+                {"title": "Image Representation", "url": "/quizzes/cs355-image-representation"}
+            ]
         },
         "CS356": {
             "tagline": "sometimes random good",

@@ -38,6 +38,8 @@
     "LambdaCalculus.md": ["EdDenton"],
     "STLC.md": ["EdDenton"],
     "PCF.md": ["EdDenton"],
+    "ImageAcquisition.md": ["EdDenton"],
+    "ImageRepresentation.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],
