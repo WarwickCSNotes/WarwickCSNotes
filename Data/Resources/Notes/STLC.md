@@ -15,8 +15,10 @@ Types weren't always a given in programming languages. They've been added over t
 >[!note]- Static analysis and typed intermediate languages
 > Types let a compiler reason about a program without running it, catching errors early and enabling optimisations. Modern compilers pass programs through typed intermediate languages internally so that safety properties are preserved through optimisation.
 
->[!note]- Security and proof
-> Types can enforce security properties (e.g. tainted vs sanitised data) and have deep ties to formal logic (the Curry-Howard correspondence: types are propositions, programs are proofs). Historically, types were introduced by Russell to exclude paradoxes like his own from set theory; that same idea underpins modern type systems.
+>[!note]- Security
+> "Wrong" states of the program are where a lot of vulnerabilities come from and these states can be prevented through type checking; a well-typed program shouldn't fall into many of these illegal states. 
+>
+> Historically, types were introduced by Russell to exclude paradoxes like his own from set theory (see Russel's paradox); that's the same idea as in modern programs, since modern typing prevents a whole category of error states from cropping up in the same way that typing prevented paradox-related problems. 
 
 ## Basic Concepts
 
