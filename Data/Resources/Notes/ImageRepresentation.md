@@ -29,4 +29,15 @@ It's useful to be able to compare images, or sections of images, to figure out h
 
 ### Correlation (Pearson's $r$)
 
+Some setup first. The **variance** of $X$ is:
+
+$$\text{Var}(X) = \frac{1}{N} \sum_i (x_i - \bar{x})^2$$
+
+The **covariance** of $X$ and $Y$ is:
+
+$$\text{Cov}(X, Y) = \frac{1}{N} \sum_i (x_i - \bar{x})(y_i - \bar{y})$$
+
+>[!check]- What happens to $\text{Cov}(X, Y)$ when $X = Y$?
+> $$\text{Cov}(X, X) \;=\; \frac{1}{N} \sum_i (x_i - \bar{x})(x_i - \bar{x}) \;=\; \frac{1}{N} \sum_i (x_i - \bar{x})^2 \;=\; \text{Var}(X)$$
+
 ### SSIM

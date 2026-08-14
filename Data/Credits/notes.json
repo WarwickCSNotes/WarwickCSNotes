@@ -40,6 +40,7 @@
     "PCF.md": ["EdDenton"],
     "ImageAcquisition.md": ["EdDenton"],
     "ImageRepresentation.md": ["EdDenton"],
+    "ImageEnhancement.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],

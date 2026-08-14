@@ -156,7 +156,7 @@
                 {"title": "Image Acquisition", "url": "/resources/Notes/CS355/ImageAcquisition"},
                 {"title": "Image Representation", "url": "/resources/Notes/CS355/ImageRepresentation"},
                 {"title": "Image Fundamentals", "url": "#"},
-                {"title": "Image Enhancements", "url": "#"},
+                {"title": "Image Enhancement", "url": "/resources/Notes/CS355/ImageEnhancement"},
                 {"title": "Forgery Detection", "url": "#"},
                 {"title": "Source Identification & Deepfake Detection", "url": "#"}
             ],
