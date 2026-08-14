@@ -155,8 +155,8 @@
             "notes": [
                 {"title": "Image Acquisition", "url": "/resources/Notes/CS355/ImageAcquisition"},
                 {"title": "Image Representation", "url": "/resources/Notes/CS355/ImageRepresentation"},
-                {"title": "Image Fundamentals", "url": "#"},
                 {"title": "Image Enhancement", "url": "/resources/Notes/CS355/ImageEnhancement"},
+                {"title": "Digital Watermarking", "url": "/resources/Notes/CS355/DigitalWatermarking"},
                 {"title": "Forgery Detection", "url": "#"},
                 {"title": "Source Identification & Deepfake Detection", "url": "#"}
             ],
@@ -172,7 +172,8 @@
             ],
             "exercise_solutions": [],
             "quizzes": [
-                {"title": "Image Representation", "url": "/quizzes/cs355-image-representation"}
+                {"title": "Image Representation", "url": "/quizzes/cs355-image-representation"},
+                {"title": "Digital Watermarking", "url": "/quizzes/cs355-digital-watermarking"}
             ]
         },
         "CS356": {

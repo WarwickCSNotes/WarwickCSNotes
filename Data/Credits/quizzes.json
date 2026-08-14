@@ -5,5 +5,6 @@
     "cs331-mp-neuron-vs-perceptron.json": ["EdDenton"],
     "cs331-perceptron-learning.json": ["EdDenton"],
     "cs331-activation-functions.json": ["LucySiket"],
-    "cs355-image-representation.json": ["EdDenton"]
+    "cs355-image-representation.json": ["EdDenton"],
+    "cs355-digital-watermarking.json": ["EdDenton"]
 }

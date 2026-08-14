@@ -41,6 +41,7 @@
     "ImageAcquisition.md": ["EdDenton"],
     "ImageRepresentation.md": ["EdDenton"],
     "ImageEnhancement.md": ["EdDenton"],
+    "DigitalWatermarking.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],

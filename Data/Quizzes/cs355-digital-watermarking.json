@@ -1,0 +1,21 @@
+{
+    "title": "Digital Watermarking",
+    "module": "CS355",
+    "description": "Quick check on the properties of digital watermarks.",
+    "questions": [
+        {
+            "type": "match",
+            "prompt": "Match each watermark property to its description.",
+            "left": ["Visible", "Blind", "Private", "Robust", "Semi-fragile", "Fragile"],
+            "right": [
+                "Doesn't survive modification",
+                "Only authorised users can detect it",
+                "Can be seen by the human eye",
+                "Survives some modifications, such as rotation, cropping, and scaling",
+                "Survives modification, malicious or not",
+                "Doesn't need access to the unwatermarked version to detect it"
+            ],
+            "correct": [2, 5, 1, 4, 3, 0]
+        }
+    ]
+}
