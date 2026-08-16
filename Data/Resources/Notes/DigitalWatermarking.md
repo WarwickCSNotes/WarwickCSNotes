@@ -45,9 +45,13 @@ In binary (as 8-bit values), these are:
 
 The first digits (leftmost bits) of each binary number are said to form a **bit plane**, the second digits of each binary number form another bit plane, and so on.
 
-In particular, the values in the first digits contribute the most to the value of the binary number and the most to the colour of the pixel. This bit plane is called the **Most Significant Bit (MSB) bit plane**.
+In particular, the values in the first digits contribute the most to the value of the binary number and the most to the colour of the pixel. This bit plane is called the **Most Significant Bit (MSB) bit plane**. In our example, the MSB bit plane is:
 
-Similarly, the values in the last digits contribute the least, so these form the **Least Significant Bit (LSB) bit plane**.
+$$\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$$
+
+Similarly, the values in the last digits contribute the least, so these form the **Least Significant Bit (LSB) bit plane**. In our example, the LSB bit plane is:
+
+$$\begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$$
 
 ### Visualising Bitplanes
 
@@ -69,3 +73,8 @@ We take the MSB bit plane and replace it with some signature.
 This signature will be very much visible on the image!
 
 >[!check]- What kind of watermark is this?
+> This is a **visible**, **public**, and **robust** watermark.
+>
+> - **Visible** since the MSB bit plane dominates the pixel colour, so any change is dominant in the image.
+> - **Public** since anyone can extract the bit planes with sufficient knowledge.
+> - **Robust** since altering the MSB bit plane significantly changes the pixel values, so any modification that removes the watermark would visibly destroy the image itself.

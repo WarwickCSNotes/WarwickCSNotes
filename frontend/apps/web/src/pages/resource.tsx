@@ -42,7 +42,7 @@ export const ResourcePage = () => {
       <PageHeader
         title={humanise(filename ?? "")}
         subtitle={
-          modName && `${modName} — ${CATEGORY_LABEL[category] ?? category}`
+          modName && `${modName} - ${CATEGORY_LABEL[category] ?? category}`
         }
       />
 
