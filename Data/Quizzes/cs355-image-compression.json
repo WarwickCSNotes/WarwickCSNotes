@@ -1,0 +1,25 @@
+{
+    "title": "Image Compression",
+    "module": "CS355",
+    "description": "Quick check on image compression basics.",
+    "questions": [
+        {
+            "type": "multitext",
+            "prompt": "Name the three types of redundancy.",
+            "slots": 3,
+            "accepted": [
+                "Spatial",
+                "Psychovisual",
+                "Coding",
+                "Spatial redundancy",
+                "Psychovisual redundancy",
+                "Coding redundancy"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the most common image compression algorithm?",
+            "accepted": ["JPEG", "jpeg", "Jpeg", "JPG", "jpg"]
+        }
+    ]
+}

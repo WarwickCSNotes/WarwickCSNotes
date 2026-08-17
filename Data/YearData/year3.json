@@ -157,6 +157,7 @@
                 {"title": "Image Representation", "url": "/resources/Notes/CS355/ImageRepresentation"},
                 {"title": "Image Enhancement", "url": "/resources/Notes/CS355/ImageEnhancement"},
                 {"title": "Digital Watermarking", "url": "/resources/Notes/CS355/DigitalWatermarking"},
+                {"title": "Image Compression", "url": "/resources/Notes/CS355/ImageCompression"},
                 {"title": "Forgery Detection", "url": "#"},
                 {"title": "Source Identification & Deepfake Detection", "url": "#"}
             ],
@@ -173,7 +174,8 @@
             "exercise_solutions": [],
             "quizzes": [
                 {"title": "Image Representation", "url": "/quizzes/cs355-image-representation"},
-                {"title": "Digital Watermarking", "url": "/quizzes/cs355-digital-watermarking"}
+                {"title": "Digital Watermarking", "url": "/quizzes/cs355-digital-watermarking"},
+                {"title": "Image Compression", "url": "/quizzes/cs355-image-compression"}
             ]
         },
         "CS356": {

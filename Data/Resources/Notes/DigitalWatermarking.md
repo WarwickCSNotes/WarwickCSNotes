@@ -1,5 +1,7 @@
 Digital watermarks!
 
+We discuss watermarking assets (using images as an example), properties of watermarks (and how they affect application), and watermarking techniques (one pixel-domain technique and one frequency-domain technique).
+
 ## Properties of Watermarks
 
 There are several kinds of watermarks, with different properties. Different properties are desirable for different applications.
