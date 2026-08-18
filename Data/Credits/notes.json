@@ -43,6 +43,7 @@
     "ImageEnhancement.md": ["EdDenton"],
     "DigitalWatermarking.md": ["EdDenton"],
     "ImageCompression.md": ["EdDenton"],
+    "MinimumKCenter.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],

@@ -185,7 +185,8 @@
             "CATS":"15",
             "authors": [],
             "notes": [
-                {"title": "Approximation Ratio", "url": "/resources/Notes/CS356/ApproximationRatio"}
+                {"title": "Approximation Ratio", "url": "/resources/Notes/CS356/ApproximationRatio"},
+                {"title": "Minimum k-center", "url": "/resources/Notes/CS356/MinimumKCenter"}
             ],
             "past_papers": [],
             "exercise_solutions": []

@@ -1,7 +1,19 @@
 import { useEffect } from "react"
+import { ArrowRight } from "lucide-react"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
+import { SurfaceLink } from "@/components/surface"
+import { LinkCard } from "@/components/cards"
+
+const INITIATIVES = [
+  {
+    name: "Google Summer of Code",
+    url: "https://summerofcode.withgoogle.com/",
+    description:
+      "Google's flagship summer programme funding open-source contributions. Start early and get a few small contributions in beforehand to maximise your chances.",
+  },
+]
 
 export const OpenSourceContributionsPage = () => {
   useEffect(() => {
@@ -46,6 +58,14 @@ export const OpenSourceContributionsPage = () => {
         </ul>
       </PageSection>
 
+      <PageSection title="Open Source Initiatives" className="mb-10">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {INITIATIVES.map((i) => (
+            <LinkCard key={i.name} link={i} />
+          ))}
+        </div>
+      </PageSection>
+
       <PageSection title="Getting started" className="mb-10">
         <ul className="ml-6 list-disc space-y-2 text-muted-foreground">
           <li>
@@ -72,25 +92,26 @@ export const OpenSourceContributionsPage = () => {
       </PageSection>
 
       <PageSection title="Contribute to this site" className="mb-10">
-        <div className="text-muted-foreground">
-          <p className="mb-3">
-            Warwick CS Notes is itself open source and welcomes
-            contributions. Content (notes, solutions, quizzes) is just as
-            valuable as code.
+        <p className="mb-4 text-muted-foreground">
+          Warwick CS Notes is itself open source and welcomes
+          contributions. Content (notes, solutions, quizzes) is just as
+          valuable as code.
+        </p>
+        <SurfaceLink
+          to="/resources/how-to-contribute"
+          className="p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <div className="mb-2 flex items-start justify-between gap-3">
+            <h3 className="text-lg font-semibold !text-foreground">
+              How to Contribute
+            </h3>
+            <ArrowRight className="mt-1 h-4 w-4 shrink-0 opacity-60" />
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Step-by-step guides for adding notes, exam paper solutions,
+            quizzes, and external resources.
           </p>
-          <p>
-            See the repo at{" "}
-            <a
-              href="https://github.com/WarwickCSNotes/WarwickCSNotes"
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary underline hover:opacity-80"
-            >
-              github.com/WarwickCSNotes/WarwickCSNotes
-            </a>
-            .
-          </p>
-        </div>
+        </SurfaceLink>
       </PageSection>
     </Page>
   )
