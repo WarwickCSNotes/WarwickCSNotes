@@ -1,5 +1,3 @@
-# Syntax Highlighting Demo
-
 A quick check that Haskell code blocks render with syntax highlighting. The example below uses `foldr` from the standard library.
 
 ```hs

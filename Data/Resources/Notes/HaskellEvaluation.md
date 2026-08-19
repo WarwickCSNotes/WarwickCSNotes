@@ -1,4 +1,3 @@
-# Evaluation
 > This note covers lecture 8 (2026)
 
 This is something you're often asked to do in CS141 exams: evaluate statements. Or, more precisely, show how the compiler will evaluate a statement.

@@ -1,5 +1,3 @@
-# Transport Layer
-
 > [!note]- Describe the purpose of the transport layer.
 > - Provides **logical communication** **between application processes** (not connected) running on different hosts.
 > - **Sender:**

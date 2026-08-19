@@ -1,5 +1,3 @@
-# Perceptron
-
 >[!note]- MP Neuron is special case of Perceptron
 > - Perceptron has inputs $\in \mathbb{R}$ whereas MP Neuron is constrained $\in \{0, 1\}$
 > - Perceptron can learn a threshold or manually-set, but MP Neuron must be manually set

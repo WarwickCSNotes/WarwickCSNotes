@@ -1,5 +1,3 @@
-# Sets (and sequences)
-
 A set is a mathematical object with a notion of membership i.e. whether something is in it or not. 
 
 Since they do NOT have a notion of counting, you can only include an element *once* (it is in or it is out).

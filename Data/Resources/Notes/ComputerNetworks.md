@@ -1,5 +1,3 @@
-# Computer Networks
-
 > [!note]- Describe a network and its rough structure.
 > - Allows processes on different devices to communicate.
 >

@@ -1,7 +1,3 @@
-# Image Compression
-
-Notes for [Digital Forensics (CS355)](/module/CS355).
-
 Understanding compression can help us understand when a compressed image has been altered.
 
 ## Motivation

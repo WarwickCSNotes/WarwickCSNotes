@@ -1,5 +1,3 @@
-# Kernels
-
 > [!note]- Describe the kernel of an OS.
 > - An interface between hardware and processes.
 > - Runs at all times.

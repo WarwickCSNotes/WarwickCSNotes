@@ -1,7 +1,3 @@
-# Image Representation
-
-Notes for [Digital Forensics (CS355)](/module/CS355).
-
 ## Colour Spaces: RGB vs Y'UV
 
 ## Chroma Subsampling

@@ -1,5 +1,3 @@
-# Computability
-
 Before we discuss the computability of problems, it is important to note that we can encode Turing machines (TMs) as bit strings - which keeps in theme with encoding problems as bit strings in [Introduction](/resources/Notes/CS301/CS301Intro). This is key for our [incomputability arguments](/resources/Notes/CS301/Uncomputability) later.
 
 >[!note]- TMs encoded as bit strings

@@ -1,5 +1,3 @@
-# Probability
-
 We discuss a set-theoretic view of probability established by Kolmogorov, which consists of 4 components and 3 axioms! 
 
 Don't worry too much about learning the exact components and axioms right now, since you'll pick them up with practice as they appear so much.

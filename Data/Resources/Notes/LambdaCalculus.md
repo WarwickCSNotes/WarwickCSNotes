@@ -1,5 +1,3 @@
-# Lambda Calculus
-
 Lambda Calculus (LC) is a turing-complete computational model.
 
 ## Introduction

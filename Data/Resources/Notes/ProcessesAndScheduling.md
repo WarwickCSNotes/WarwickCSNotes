@@ -1,5 +1,3 @@
-# Processes and Scheduling
-
 > [!note]- Describe what a process and program is.
 >
 > **Program**: 

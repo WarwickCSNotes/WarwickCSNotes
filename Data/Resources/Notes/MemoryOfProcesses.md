@@ -1,5 +1,3 @@
-# Memory
-
 > [!note]- Describe a process in memory, physical and logical addresses.
 > - Program needs to be in memory to be executed.
 >     - Store instructions and data.

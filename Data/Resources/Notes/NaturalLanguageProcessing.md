@@ -1,5 +1,3 @@
-# Natural Language Processing
-
 ## Text Preprocessing
 
 Raw text data is:

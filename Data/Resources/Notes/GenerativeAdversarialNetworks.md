@@ -1,5 +1,3 @@
-# Generative Adversarial Networks
-
 **Generative Adversarial Networks (GANs)** are a deep learning model used to generate new data, usually to use as a training dataset.
 
 ## Why the name?

@@ -1,5 +1,3 @@
-# Biological Neuron
-
 Your body needs to **sense** things, think, and **respond** appropriately. To do this, the body relies on a **Central Nervous System (CNS)** which consists of two parts:
 - the brain 
 - the spinal cord 

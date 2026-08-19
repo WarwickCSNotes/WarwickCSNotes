@@ -1,5 +1,3 @@
-# Loss Functions
-
 Common loss functions used in regression and classification, along with their derivatives with respect to the prediction $\hat{y}$. The derivative is what backprop multiplies into the chain rule when training a network, so it's the thing you actually need at every step.
 
 We use $y$ for the ground truth and $\hat{y}$ for the model's prediction throughout.

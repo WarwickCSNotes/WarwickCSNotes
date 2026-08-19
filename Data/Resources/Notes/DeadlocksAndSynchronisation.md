@@ -1,5 +1,3 @@
-# Deadlocks
-
 > [!note]- Describe deadlocks conditions and the system model.
 > - Set of processes is in a deadlock when each process in a set is **waiting for an event** that can be **caused only by another process** in the set.
 > - Deadlock free does not mean starvation free — only one process needs to be able to make progress.

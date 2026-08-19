@@ -1,4 +1,3 @@
-# Folding
 > The note covers content from lectures 11, 13, and 14 (2026)
 
 `foldr` is a function which allows us to collapse a list down to a single value.

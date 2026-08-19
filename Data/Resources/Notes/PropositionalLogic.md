@@ -1,5 +1,3 @@
-# Propositional Logic
-
 In the everyday, we talk using loose and casual language which can have many interpretations. However, in mathematics, we must be precise and clear in our language. To this end, we have the language of **logic**. 
 
 ## Statements

@@ -1,5 +1,3 @@
-# Differentiation
-
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!
 
 ## Chain Rule

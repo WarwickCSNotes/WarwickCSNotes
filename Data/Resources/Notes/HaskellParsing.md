@@ -1,5 +1,3 @@
-# Parsing with Megaparsec
-
 Parsing in CS141 is done with the `Megaparsec` package. We start by importing `Text.Megaparsec` and `Text.Megaparsec.Char`
 
 ```hs

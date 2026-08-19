@@ -1,5 +1,3 @@
-# Mobile Robotics: Overview
-
 **Warning:** there are no physical robots, and nothing about the actual locomotion of robots. There is a simulation of a robot with sensing strategies and planning a path for the robot, but nothing about how the kinematics of how robots move in the real world.
 
 ## Basic Terms

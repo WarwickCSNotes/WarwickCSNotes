@@ -1,5 +1,3 @@
-# Relations
-
 A **relation** between sets $A$ and $B$ is a subset of $A \times B$. That is, a relation $R \subseteq A \times B$ picks out which pairs $(a, b)$ are "related" and which aren't.
 
 We write $aRb$ to mean $(a, b) \in R$, read "$a$ is related to $b$ by $R$" (or just "$a R b$"). When $A = B$, we say $R$ is a relation **on** $A$.

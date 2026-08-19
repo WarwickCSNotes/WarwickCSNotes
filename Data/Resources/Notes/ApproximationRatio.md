@@ -1,5 +1,3 @@
-# Approximation Ratio
-
 A problem $P$ has many different possible solutions, many different algorithms that try to find those solutions, and many different problem instances. The **approximation ratio** of an algorithm measures how close the algorithm, *in the worst case from all input instances*, gets to the optimal solution.
 
 ## Intuition: Cookies Problem

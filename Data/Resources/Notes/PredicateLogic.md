@@ -1,5 +1,3 @@
-# Predicate Logic
-
 Propositional logic lets us combine simple statements with logical operators, but it's limited: every statement is a single, atomic truth value. We can't express things like "every student passed" or "there exists a number bigger than $100$" without saying more about the things the statement is *about*.
 
 **Predicate logic** (sometimes called **first-order logic**) extends propositional logic with two new ingredients:

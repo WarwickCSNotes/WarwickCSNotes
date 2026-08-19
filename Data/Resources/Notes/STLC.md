@@ -1,5 +1,3 @@
-# Simply Typed Lambda Calculus
-
 The Simply Typed Lambda Calculus (STLC) extends the untyped [Lambda Calculus](/resources/Notes/CS349/LambdaCalculus) with a simple system of types.
 
 ## Why types?

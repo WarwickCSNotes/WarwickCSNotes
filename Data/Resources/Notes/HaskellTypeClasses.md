@@ -1,5 +1,3 @@
-# Type Classes
-
 > This note covers lecture 7 (2026)
 
 In Haskell, a type class describes operations that can be performed on certain types of data. When a given data type `t` is part of type class `C`, all of the operations that are available on `C` are naturally also defined and available on `t`. They are analogous to interfaces in Object-Oriented languages like Java.

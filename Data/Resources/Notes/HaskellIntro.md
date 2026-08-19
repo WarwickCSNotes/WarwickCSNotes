@@ -1,5 +1,3 @@
-# Introduction to Haskell
-
 > This note covers lecture 1 (2026).
 
 This note is here mostly to give some background, and for completeness (since these notes are designed to align with the existing lecture notes).

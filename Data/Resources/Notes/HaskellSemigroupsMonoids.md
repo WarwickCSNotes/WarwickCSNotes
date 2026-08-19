@@ -1,4 +1,3 @@
-# Semigroups & Monoids
 > This note covers content from lecture 17
 
 ## Semigroups

@@ -1,5 +1,3 @@
-# Threads
-
 > [!note]- Describe threads.
 > - A unit of CPU execution.
 > - Single threaded process — one chain of execution, runs each line sequentially.

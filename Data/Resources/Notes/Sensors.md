@@ -1,5 +1,3 @@
-# Sensors
-
 *"One of the most important tasks of an autonomous system of any kind is to acquire knowledge about its environment. This is done by taking measurements using various sensors and then extracting meaningful information from those measurements." - Introduction to Autonomous Mobile Robots*
 
 You acquire knowledge about the environment through the data that sensors give you. 
