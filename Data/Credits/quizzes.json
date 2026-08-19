@@ -7,5 +7,7 @@
     "cs331-activation-functions.json": ["LucySiket"],
     "cs355-image-representation.json": ["EdDenton"],
     "cs355-digital-watermarking.json": ["EdDenton"],
-    "cs355-image-compression.json": ["EdDenton"]
+    "cs355-image-compression.json": ["EdDenton"],
+    "cs355-image-acquisition.json": ["EdDenton"],
+    "cs356-approximation-ratio.json": ["EdDenton"]
 }

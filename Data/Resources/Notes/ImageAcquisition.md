@@ -6,7 +6,9 @@ We discuss this pipeline and briefly discuss video acquisition.
 
 The imaging pipeline for a typical camera:
 
-$$\text{Light} \to \text{Optical Lenses (inside camera)} \to \text{CFA} \to \text{Imaging Sensor} \to \text{Post-Processing} \to \text{Digital Image}$$
+$$\text{Light} \to \text{Optical Lenses (inside camera)} \to \text{CFA} \to \text{Imaging Sensor} \to \text{Post-Processing} \to \text{Digital Image} \overset{\text{(optional)}}{\to} \text{Compressed Digital Image}$$
+
+Compression is explored later in [Image Compression](/resources/Notes/CS355/ImageCompression). It's optional, but often used in practice.
 
 ### CFA
 

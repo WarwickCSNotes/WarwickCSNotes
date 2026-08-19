@@ -1,0 +1,33 @@
+{
+    "title": "Approximation Ratio",
+    "module": "CS356",
+    "description": "Quick check on the definition of the approximation ratio for min and max problems.",
+    "questions": [
+        {
+            "type": "checkbox",
+            "prompt": "Select the formula for the approximation ratio of a **minimisation** problem.",
+            "options": [
+                "$\\max_{I \\in I^*} \\frac{\\text{obj}(\\text{OPT}(I))}{\\text{obj}(\\text{ALG}(I))}$",
+                "$\\text{obj}(\\text{ALG}(I)) - \\text{obj}(\\text{OPT}(I))$",
+                "$\\min_{I \\in I^*} \\frac{\\text{obj}(\\text{ALG}(I))}{\\text{obj}(\\text{OPT}(I))}$",
+                "$\\sum_{I \\in I^*} \\frac{\\text{obj}(\\text{ALG}(I))}{\\text{obj}(\\text{OPT}(I))}$",
+                "$\\max_{I \\in I^*} \\frac{\\text{obj}(\\text{ALG}(I))}{\\text{obj}(\\text{OPT}(I))}$",
+                "$\\min_{I \\in I^*} \\frac{\\text{obj}(\\text{OPT}(I))}{\\text{obj}(\\text{ALG}(I))}$"
+            ],
+            "correct": [4]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Select the formula for the approximation ratio of a **maximisation** problem.",
+            "options": [
+                "$\\max_{I \\in I^*} \\frac{\\text{obj}(\\text{OPT}(I))}{\\text{obj}(\\text{ALG}(I))}$",
+                "$\\text{obj}(\\text{ALG}(I)) - \\text{obj}(\\text{OPT}(I))$",
+                "$\\min_{I \\in I^*} \\frac{\\text{obj}(\\text{ALG}(I))}{\\text{obj}(\\text{OPT}(I))}$",
+                "$\\sum_{I \\in I^*} \\frac{\\text{obj}(\\text{ALG}(I))}{\\text{obj}(\\text{OPT}(I))}$",
+                "$\\max_{I \\in I^*} \\frac{\\text{obj}(\\text{ALG}(I))}{\\text{obj}(\\text{OPT}(I))}$",
+                "$\\min_{I \\in I^*} \\frac{\\text{obj}(\\text{OPT}(I))}{\\text{obj}(\\text{ALG}(I))}$"
+            ],
+            "correct": [2]
+        }
+    ]
+}

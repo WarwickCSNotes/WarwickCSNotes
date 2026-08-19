@@ -64,6 +64,10 @@ Now try working out the approximation ratio of algorithm $C$ for yourself before
 >
 > So $C$'s approximation ratio is roughly $0.132$: even worse than $S$'s, because $C$'s worst-case instance (the kitchen) only yields $5$ of the $38$ cookies.
 
+#### Edge case of $\text{obj}(\text{OPT}(I)) = 0$
+
+Notice that we deal in fractions, where $\text{obj}(\text{OPT}(I))$ is the denominator. We want to avoid divide-by-zero errors, so we say that any "$x/0$" equals $1$. This is so that any case where the optimal answer has a quantity of $0$, it is assumed to have the optimal solution so that we can ignore it.
+
 ## General definition
 
 For any algorithm $\text{ALG}$ on a **maximisation** problem $P$, with $I^*$ the set of all instances of $P$:

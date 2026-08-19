@@ -1,0 +1,51 @@
+{
+    "title": "Image Acquisition",
+    "module": "CS355",
+    "description": "Quick check on the imaging pipeline and its key processes.",
+    "questions": [
+        {
+            "type": "order",
+            "prompt": "Arrange the following stages of the image acquisition pipeline in order, from first to last.",
+            "items": [
+                "Light",
+                "Camera/Lens",
+                "CFA",
+                "Imaging Sensor",
+                "Post-Processing",
+                "Digital Image",
+                "Compressed Digital Image"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the process of discretisation of intensity values?",
+            "accepted": [
+                "quantization",
+                "quantisation",
+                "Quantization",
+                "Quantisation"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the process of discretisation of space?",
+            "accepted": [
+                "sampling",
+                "Sampling"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the process of recovering complete RGB colour from the Bayer pattern array?",
+            "accepted": [
+                "CFA interpolation",
+                "cfa interpolation",
+                "CFA Interpolation",
+                "demosaicing",
+                "Demosaicing",
+                "demosaicking",
+                "Demosaicking"
+            ]
+        }
+    ]
+}

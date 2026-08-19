@@ -173,6 +173,7 @@
             ],
             "exercise_solutions": [],
             "quizzes": [
+                {"title": "Image Acquisition", "url": "/quizzes/cs355-image-acquisition"},
                 {"title": "Image Representation", "url": "/quizzes/cs355-image-representation"},
                 {"title": "Digital Watermarking", "url": "/quizzes/cs355-digital-watermarking"},
                 {"title": "Image Compression", "url": "/quizzes/cs355-image-compression"}
@@ -189,7 +190,10 @@
                 {"title": "Minimum k-center", "url": "/resources/Notes/CS356/MinimumKCenter"}
             ],
             "past_papers": [],
-            "exercise_solutions": []
+            "exercise_solutions": [],
+            "quizzes": [
+                {"title": "Approximation Ratio", "url": "/quizzes/cs356-approximation-ratio"}
+            ]
         }
     }
 }
