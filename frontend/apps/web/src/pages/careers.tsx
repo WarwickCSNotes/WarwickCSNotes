@@ -73,6 +73,15 @@ const GUIDES: InternalGuide[] = [
   },
 ]
 
+const OTHER_RESOURCES: CareerLink[] = [
+  {
+    name: "JustinBustin's Informal Careers Guide",
+    url: "https://docs.google.com/document/d/1Hcn33w8npbkrN0ZiLy5pJqr8Gw_swCRpW_PhYPfi_MQ/edit?usp=sharing",
+    description:
+      "A very informal careers guide from an American student, so oriented at the US job market. Different conventions, timelines, and companies than the UK.",
+  },
+]
+
 const TRACKERS: CareerLink[] = [
   {
     name: "Hackathon Radar (Discord)",
@@ -167,9 +176,21 @@ export const CareersPage = () => {
       <PageSection
         title="Trackers & Opportunities"
         subtitle="External communities and lists that surface events (hackathons, residencies, conferences) you can apply to."
+        className="mb-10"
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {TRACKERS.map((s) => (
+            <LinkCard key={s.name} link={s} />
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection
+        title="Other Resources"
+        subtitle="External guides and writeups worth a look, from around the internet."
+      >
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {OTHER_RESOURCES.map((s) => (
             <LinkCard key={s.name} link={s} />
           ))}
         </div>

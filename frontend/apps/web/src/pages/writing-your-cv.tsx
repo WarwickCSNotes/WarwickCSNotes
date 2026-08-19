@@ -27,6 +27,12 @@ const EXAMPLES: Resource[] = [
     description:
       "The site author's Programming CV. Built with Jake's template and following the advice on this page.",
   },
+  {
+    name: "JustinBustin's CV",
+    url: "https://docs.google.com/document/d/1JfV3boMTNV3YRfk_YWfbSvMQvx46whTZNKbePR-ozOg/edit?usp=sharing",
+    description:
+      "A US CV, so some conventions (length, sections) may differ from what UK recruiters expect.",
+  },
 ]
 
 const CALLOUT_STYLES = {
