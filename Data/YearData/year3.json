@@ -5,14 +5,30 @@
         "CS301": {
             "tagline": "Basically a maths module tbh",
             "name": "Complexity of Algorithms",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Introduction", "url": "/resources/Notes/CS301/CS301Intro", "unfinished": true},
-                {"title": "Turing Machines", "url": "/resources/Notes/CS301/TuringMachines", "unfinished": true},
-                {"title": "Computability", "url": "/resources/Notes/CS301/Computability", "unfinished": true},
-                {"title": "Uncomputability", "url": "/resources/Notes/CS301/Uncomputability", "unfinished": true}
+                {
+                    "title": "Introduction",
+                    "url": "/resources/Notes/CS301/CS301Intro",
+                    "unfinished": true
+                },
+                {
+                    "title": "Turing Machines",
+                    "url": "/resources/Notes/CS301/TuringMachines",
+                    "unfinished": true
+                },
+                {
+                    "title": "Computability",
+                    "url": "/resources/Notes/CS301/Computability",
+                    "unfinished": true
+                },
+                {
+                    "title": "Uncomputability",
+                    "url": "/resources/Notes/CS301/Uncomputability",
+                    "unfinished": true
+                }
             ],
             "past_papers": [],
             "exercise_solutions": []
@@ -20,17 +36,35 @@
         "CS310": {
             "tagline": "Dissertation - either you love it or you hate it",
             "name": "Project",
-            "Term":"1/2/3",
-            "CATS":"30",
+            "Term": "1/2/3",
+            "CATS": "30",
             "authors": [],
             "notes": [
-                {"title": "Report Writing Tips", "url": "#"}
+                {
+                    "title": "Report Writing Tips",
+                    "url": "#"
+                }
             ],
             "past_papers": [],
             "assessments": [
-                {"title": "Progress Report", "submission_deadline": "2026-01-22 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
-                {"title": "Final Report", "submission_deadline": "2026-04-09 12:00 PM", "weighting": 75, "eligible_for_self_certification": false},
-                {"title": "Project Management Report", "submission_deadline": "2026-04-09 12:00 PM", "weighting": 10, "eligible_for_self_certification": false}
+                {
+                    "title": "Progress Report",
+                    "submission_deadline": "2026-01-22 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Final Report",
+                    "submission_deadline": "2026-04-09 12:00 PM",
+                    "weighting": 75,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Project Management Report",
+                    "submission_deadline": "2026-04-09 12:00 PM",
+                    "weighting": 10,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
@@ -38,109 +72,226 @@
             "tagline": "No real robots :(",
             "name": "Mobile Robotics",
             "description": "Warning: there are no physical robots, and nothing about the actual locomotion of robots. There is a simulation of a robot with sensing strategies and planning a path for the robot, but nothing about how the kinematics of how robots move in the real world.",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Overview", "url": "/resources/Notes/CS313/MobileRoboticsOverview"},
-                {"title": "Sensors", "url": "/resources/Notes/CS313/Sensors"}
+                {
+                    "title": "Overview",
+                    "url": "/resources/Notes/CS313/MobileRoboticsOverview"
+                },
+                {
+                    "title": "Sensors",
+                    "url": "/resources/Notes/CS313/Sensors"
+                }
             ],
             "past_papers": [],
             "exercise_solutions": [],
             "quizzes": [
-                {"title": "Sensors", "url": "/quizzes/cs313-sensors"}
+                {
+                    "title": "Sensors",
+                    "url": "/quizzes/cs313-sensors"
+                }
             ]
         },
         "CS325": {
             "tagline": "Build a thing",
             "name": "Compiler Design",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Parsing", "url": "#"}
+                {
+                    "title": "Parsing",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3250_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3250_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3250_a_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3250_a_exam_paper.pdf"
+                }
             ],
             "seminar_exercises": [
-                {"title": "Lab", "url": "#"}
+                {
+                    "title": "Lab",
+                    "url": "#"
+                }
             ],
             "assessments": [
-                {"title": "Coursework", "submission_deadline": "2025-11-24 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-01 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework",
+                    "submission_deadline": "2025-11-24 12:00 PM",
+                    "weighting": 40,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-01 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS331": {
             "tagline": "Has biology in it for some reason",
             "name": "Neural Computing",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Biological Neurons", "url": "/resources/Notes/CS331/BiologicalNeuron"},
-                {"title": "Perceptron", "url": "/resources/Notes/CS331/Perceptron"},
-                {"title": "Differentiation", "url": "/resources/Notes/CS331/Differentiation"},
-                {"title": "Loss Functions", "url": "/resources/Notes/CS331/LossFunctions"},
-                {"title": "Natural Language Processing", "url": "/resources/Notes/CS331/NaturalLanguageProcessing"},
-                {"title": "Generative Adversarial Networks", "url": "/resources/Notes/CS331/GenerativeAdversarialNetworks"}
+                {
+                    "title": "Overview of AI",
+                    "url": "/resources/Notes/CS331/OverviewOfAI"
+                },
+                {
+                    "title": "Biological Neurons",
+                    "url": "/resources/Notes/CS331/BiologicalNeuron"
+                },
+                {
+                    "title": "Perceptron",
+                    "url": "/resources/Notes/CS331/Perceptron"
+                },
+                {
+                    "title": "Differentiation",
+                    "url": "/resources/Notes/CS331/Differentiation"
+                },
+                {
+                    "title": "Loss Functions",
+                    "url": "/resources/Notes/CS331/LossFunctions"
+                },
+                {
+                    "title": "Natural Language Processing",
+                    "url": "/resources/Notes/CS331/NaturalLanguageProcessing"
+                },
+                {
+                    "title": "Generative Adversarial Networks",
+                    "url": "/resources/Notes/CS331/GenerativeAdversarialNetworks"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3310_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3310_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3310_c_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3310_c_exam_paper.pdf"
+                }
             ],
             "exercise_solutions": [],
             "assessments": [
-                {"title": "Coursework", "submission_deadline": "2026-04-10 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-18 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework",
+                    "submission_deadline": "2026-04-10 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-18 9:30 AM",
+                    "weighting": 80,
+                    "eligible_for_self_certification": false
+                }
             ],
             "quizzes": [
-                {"title": "Biological Neurons", "url": "/quizzes/cs331-biological-neurons"},
-                {"title": "MP Neuron", "url": "/quizzes/cs331-mp-neuron"},
-                {"title": "MP Neuron vs Perceptron", "url": "/quizzes/cs331-mp-neuron-vs-perceptron"},
-                {"title": "Perceptron Learning", "url": "/quizzes/cs331-perceptron-learning", "unfinished": true},
-                {"title": "Activation Functions", "url": "/quizzes/cs331-activation-functions"},
-                {"title": "Hopfield Networks", "url": "/quizzes/cs331-hopfield-networks"},
-                {"title": "Natural Language Processing", "url": "/quizzes/cs331-nlp"},
-                {"title": "Text Preprocessing", "url": "/quizzes/cs331-text-preprocessing"},
-                {"title": "Document Representation", "url": "/quizzes/cs331-document-representation"},
-                {"title": "Loss Functions", "url": "/quizzes/cs331-loss-functions"}
+                {
+                    "title": "Biological Neurons",
+                    "url": "/quizzes/cs331-biological-neurons"
+                },
+                {
+                    "title": "MP Neuron",
+                    "url": "/quizzes/cs331-mp-neuron"
+                },
+                {
+                    "title": "MP Neuron vs Perceptron",
+                    "url": "/quizzes/cs331-mp-neuron-vs-perceptron"
+                },
+                {
+                    "title": "Perceptron Learning",
+                    "url": "/quizzes/cs331-perceptron-learning",
+                    "unfinished": true
+                },
+                {
+                    "title": "Activation Functions",
+                    "url": "/quizzes/cs331-activation-functions"
+                },
+                {
+                    "title": "Hopfield Networks",
+                    "url": "/quizzes/cs331-hopfield-networks"
+                },
+                {
+                    "title": "Natural Language Processing",
+                    "url": "/quizzes/cs331-nlp"
+                },
+                {
+                    "title": "Text Preprocessing",
+                    "url": "/quizzes/cs331-text-preprocessing"
+                },
+                {
+                    "title": "Document Representation",
+                    "url": "/quizzes/cs331-document-representation"
+                },
+                {
+                    "title": "Loss Functions",
+                    "url": "/quizzes/cs331-loss-functions"
+                }
             ]
         },
         "CS342": {
             "tagline": "What makes the money",
             "name": "Machine Learning",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Probability", "url": "#"}
+                {
+                    "title": "Probability",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3420__exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3420_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3420_c_exam_paper.pdf"}
+                {
+                    "title": "2025 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3420__exam_paper.pdf"
+                },
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3420_c_exam_paper.pdf"
+                }
             ],
             "assessments": [
-                {"title": "Coursework", "submission_deadline": "2025-12-16 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-21 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework",
+                    "submission_deadline": "2025-12-16 12:00 PM",
+                    "weighting": 40,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-21 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS349": {
             "tagline": "Lambda calculus, types, and computation.",
             "name": "Principles of Programming Languages",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Lambda Calculus", "url": "/resources/Notes/CS349/LambdaCalculus"},
-                {"title": "Simply Typed Lambda Calculus", "url": "/resources/Notes/CS349/STLC"},
-                {"title": "PCF", "url": "/resources/Notes/CS349/PCF"}
+                {
+                    "title": "Lambda Calculus",
+                    "url": "/resources/Notes/CS349/LambdaCalculus"
+                },
+                {
+                    "title": "Simply Typed Lambda Calculus",
+                    "url": "/resources/Notes/CS349/STLC"
+                },
+                {
+                    "title": "PCF",
+                    "url": "/resources/Notes/CS349/PCF"
+                }
             ],
             "past_papers": [],
             "assessments": [],
@@ -149,50 +300,108 @@
         "CS355": {
             "tagline": "Image things",
             "name": "Digital Forensics",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Image Acquisition", "url": "/resources/Notes/CS355/ImageAcquisition"},
-                {"title": "Image Representation", "url": "/resources/Notes/CS355/ImageRepresentation"},
-                {"title": "Image Enhancement", "url": "/resources/Notes/CS355/ImageEnhancement"},
-                {"title": "Digital Watermarking", "url": "/resources/Notes/CS355/DigitalWatermarking"},
-                {"title": "Image Compression", "url": "/resources/Notes/CS355/ImageCompression"},
-                {"title": "Forgery Detection", "url": "#"},
-                {"title": "Source Identification & Deepfake Detection", "url": "#"}
+                {
+                    "title": "Image Acquisition",
+                    "url": "/resources/Notes/CS355/ImageAcquisition"
+                },
+                {
+                    "title": "Image Representation",
+                    "url": "/resources/Notes/CS355/ImageRepresentation"
+                },
+                {
+                    "title": "Image Enhancement",
+                    "url": "/resources/Notes/CS355/ImageEnhancement"
+                },
+                {
+                    "title": "Digital Watermarking",
+                    "url": "/resources/Notes/CS355/DigitalWatermarking"
+                },
+                {
+                    "title": "Image Compression",
+                    "url": "/resources/Notes/CS355/ImageCompression"
+                },
+                {
+                    "title": "Forgery Detection",
+                    "url": "#"
+                },
+                {
+                    "title": "Source Identification & Deepfake Detection",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs3550_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs3550_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3550_c_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs3550_c_exam_paper.pdf"
+                }
             ],
             "assessments": [
-                {"title": "Coursework 1", "submission_deadline": "2026-02-19 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
-                {"title": "Coursework 2", "submission_deadline": "2026-03-16 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-26 9:30 AM", "weighting": 70, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework 1",
+                    "submission_deadline": "2026-02-19 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Coursework 2",
+                    "submission_deadline": "2026-03-16 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-26 9:30 AM",
+                    "weighting": 70,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": [],
             "quizzes": [
-                {"title": "Image Acquisition", "url": "/quizzes/cs355-image-acquisition"},
-                {"title": "Image Representation", "url": "/quizzes/cs355-image-representation"},
-                {"title": "Digital Watermarking", "url": "/quizzes/cs355-digital-watermarking"},
-                {"title": "Image Compression", "url": "/quizzes/cs355-image-compression"}
+                {
+                    "title": "Image Acquisition",
+                    "url": "/quizzes/cs355-image-acquisition"
+                },
+                {
+                    "title": "Image Representation",
+                    "url": "/quizzes/cs355-image-representation"
+                },
+                {
+                    "title": "Digital Watermarking",
+                    "url": "/quizzes/cs355-digital-watermarking"
+                },
+                {
+                    "title": "Image Compression",
+                    "url": "/quizzes/cs355-image-compression"
+                }
             ]
         },
         "CS356": {
             "tagline": "sometimes random good",
             "name": "Approximation and Randomised Algorithms",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Approximation Ratio", "url": "/resources/Notes/CS356/ApproximationRatio"},
-                {"title": "Minimum k-center", "url": "/resources/Notes/CS356/MinimumKCenter"}
+                {
+                    "title": "Approximation Ratio",
+                    "url": "/resources/Notes/CS356/ApproximationRatio"
+                },
+                {
+                    "title": "Minimum k-center",
+                    "url": "/resources/Notes/CS356/MinimumKCenter"
+                }
             ],
             "past_papers": [],
             "exercise_solutions": [],
             "quizzes": [
-                {"title": "Approximation Ratio", "url": "/quizzes/cs356-approximation-ratio"}
+                {
+                    "title": "Approximation Ratio",
+                    "url": "/quizzes/cs356-approximation-ratio"
+                }
             ]
         }
     }

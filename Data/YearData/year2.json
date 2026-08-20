@@ -5,155 +5,362 @@
         "CS241": {
             "tagline": "Processes, Scheduling, C",
             "name": "Operating Systems and Computer Networks",
-            "description":"Warning: past papers may not be as relevant, due to the new MO (Jonathan Foss, replacing Arpan).",
-            "Term":"1",
-            "CATS":"15",
+            "description": "Warning: past papers may not be as relevant, due to the new MO (Jonathan Foss, replacing Arpan).",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Kernels", "url": "/resources/Notes/CS241/Kernels"},
-                {"title": "Processes and Scheduling", "url": "/resources/Notes/CS241/ProcessesAndScheduling"},
-                {"title": "Memory of Processes", "url": "/resources/Notes/CS241/MemoryOfProcesses"},
-                {"title": "Threads", "url": "/resources/Notes/CS241/Threads"},
-                {"title": "Deadlocks and Synchronisation", "url": "/resources/Notes/CS241/DeadlocksAndSynchronisation"},
-                {"title": "Computer Networks", "url": "/resources/Notes/CS241/ComputerNetworks"},
-                {"title": "Application Layer", "url": "/resources/Notes/CS241/ApplicationLayer"},
-                {"title": "Transport Layer", "url": "/resources/Notes/CS241/TransportLayer"},
-                {"title": "Network Layer", "url": "/resources/Notes/CS241/NetworkLayer"}
+                {
+                    "title": "Kernels",
+                    "url": "/resources/Notes/CS241/Kernels"
+                },
+                {
+                    "title": "Processes and Scheduling",
+                    "url": "/resources/Notes/CS241/ProcessesAndScheduling"
+                },
+                {
+                    "title": "Memory of Processes",
+                    "url": "/resources/Notes/CS241/MemoryOfProcesses"
+                },
+                {
+                    "title": "Threads",
+                    "url": "/resources/Notes/CS241/Threads"
+                },
+                {
+                    "title": "Deadlocks and Synchronisation",
+                    "url": "/resources/Notes/CS241/DeadlocksAndSynchronisation"
+                },
+                {
+                    "title": "Computer Networks",
+                    "url": "/resources/Notes/CS241/ComputerNetworks"
+                },
+                {
+                    "title": "Application Layer",
+                    "url": "/resources/Notes/CS241/ApplicationLayer"
+                },
+                {
+                    "title": "Transport Layer",
+                    "url": "/resources/Notes/CS241/TransportLayer"
+                },
+                {
+                    "title": "Network Layer",
+                    "url": "/resources/Notes/CS241/NetworkLayer"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2410_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2410_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2410_b_exam_paper_2.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2410_b_exam_paper_2.pdf"
+                }
             ],
             "seminar_exercises": [
-                {"title": "Lab", "url": "#"},
-                {"title": "Lab 2", "url": "#"}
+                {
+                    "title": "Lab",
+                    "url": "#"
+                },
+                {
+                    "title": "Lab 2",
+                    "url": "#"
+                }
             ],
             "exercise_solutions": [],
             "assessments": [
-                {"title": "Coursework", "submission_deadline": "2025-12-09 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-04-29 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework",
+                    "submission_deadline": "2025-12-09 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-04-29 9:30 AM",
+                    "weighting": 80,
+                    "eligible_for_self_certification": false
+                }
             ],
             "quizzes": [
-                {"title": "Kernels", "url": "/quizzes/cs241-kernels"},
-                {"title": "Processes and Scheduling", "url": "/quizzes/cs241-processes-and-scheduling"},
-                {"title": "Memory of Processes", "url": "/quizzes/cs241-memory-of-processes"},
-                {"title": "Threads", "url": "/quizzes/cs241-threads"},
-                {"title": "Deadlocks and Synchronisation", "url": "/quizzes/cs241-deadlocks-and-synchronisation"},
-                {"title": "Computer Networks", "url": "/quizzes/cs241-computer-networks"},
-                {"title": "Application Layer", "url": "/quizzes/cs241-application-layer"},
-                {"title": "Transport Layer", "url": "/quizzes/cs241-transport-layer"},
-                {"title": "Network Layer", "url": "/quizzes/cs241-network-layer"}
+                {
+                    "title": "Kernels",
+                    "url": "/quizzes/cs241-kernels"
+                },
+                {
+                    "title": "Processes and Scheduling",
+                    "url": "/quizzes/cs241-processes-and-scheduling"
+                },
+                {
+                    "title": "Memory of Processes",
+                    "url": "/quizzes/cs241-memory-of-processes"
+                },
+                {
+                    "title": "Threads",
+                    "url": "/quizzes/cs241-threads"
+                },
+                {
+                    "title": "Deadlocks and Synchronisation",
+                    "url": "/quizzes/cs241-deadlocks-and-synchronisation"
+                },
+                {
+                    "title": "Computer Networks",
+                    "url": "/quizzes/cs241-computer-networks"
+                },
+                {
+                    "title": "Application Layer",
+                    "url": "/quizzes/cs241-application-layer"
+                },
+                {
+                    "title": "Transport Layer",
+                    "url": "/quizzes/cs241-transport-layer"
+                },
+                {
+                    "title": "Network Layer",
+                    "url": "/quizzes/cs241-network-layer"
+                }
             ]
         },
         "CS257": {
             "tagline": "Remember CS132? Version 2 dropped",
             "name": "Advanced Computer Architecture",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Memory", "url": "/resources/Notes/CS257/Memory"},
-                {"title": "Cache", "url": "/resources/Notes/CS257/Cache"},
-                {"title": "Code Optimisation", "url": "/resources/Notes/CS257/CodeOptimisation"},
-                {"title": "Processors", "url": "/resources/Notes/CS257/Processors"},
-                {"title": "Pipelining", "url": "/resources/Notes/CS257/Pipelining"},
-                {"title": "Superscalar Architecture", "url": "/resources/Notes/CS257/Superscalar"},
-                {"title": "Parallel Processing", "url": "/resources/Notes/CS257/Parallel"},
-                {"title": "SMP Cache Coherence", "url": "/resources/Notes/CS257/SMPCacheCoherence"},
-                {"title": "Multithreading & Multicore", "url": "/resources/Notes/CS257/MultithreadingMulticore"},
-                {"title": "State of the Art", "url": "/resources/Notes/CS257/StateOfTheArt"}
+                {
+                    "title": "Memory",
+                    "url": "/resources/Notes/CS257/Memory"
+                },
+                {
+                    "title": "Cache",
+                    "url": "/resources/Notes/CS257/Cache"
+                },
+                {
+                    "title": "Code Optimisation",
+                    "url": "/resources/Notes/CS257/CodeOptimisation"
+                },
+                {
+                    "title": "Processors",
+                    "url": "/resources/Notes/CS257/Processors"
+                },
+                {
+                    "title": "Pipelining",
+                    "url": "/resources/Notes/CS257/Pipelining"
+                },
+                {
+                    "title": "Superscalar Architecture",
+                    "url": "/resources/Notes/CS257/Superscalar"
+                },
+                {
+                    "title": "Parallel Processing",
+                    "url": "/resources/Notes/CS257/Parallel"
+                },
+                {
+                    "title": "SMP Cache Coherence",
+                    "url": "/resources/Notes/CS257/SMPCacheCoherence"
+                },
+                {
+                    "title": "Multithreading & Multicore",
+                    "url": "/resources/Notes/CS257/MultithreadingMulticore"
+                },
+                {
+                    "title": "State of the Art",
+                    "url": "/resources/Notes/CS257/StateOfTheArt"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2570_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2570_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2570_c_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2570_c_exam_paper.pdf"
+                }
             ],
             "seminar_exercises": [
-                {"title": "Lab", "url": "#"}
+                {
+                    "title": "Lab",
+                    "url": "#"
+                }
             ],
             "assessments": [
-                {"title": "Practical Assignment", "submission_deadline": "2026-03-12 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-13 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+                {
+                    "title": "Practical Assignment",
+                    "submission_deadline": "2026-03-12 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-13 9:30 AM",
+                    "weighting": 80,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS258": {
             "tagline": "Relational models, SQL, and pain",
             "name": "Database Systems",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Relational Model", "url": "#"}
+                {
+                    "title": "Relational Model",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2580_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2580_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2580_b_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2580_b_exam_paper.pdf"
+                }
             ],
             "seminar_exercises": [
-                {"title": "Lab", "url": "#"}
+                {
+                    "title": "Lab",
+                    "url": "#"
+                }
             ],
             "assessments": [
-                {"title": "Coursework", "submission_deadline": "2025-12-17 12:00 PM", "weighting": 30, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-05 2:00 PM", "weighting": 70, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework",
+                    "submission_deadline": "2025-12-17 12:00 PM",
+                    "weighting": 30,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-05 2:00 PM",
+                    "weighting": 70,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS259": {
             "tagline": "Automata and fun",
             "name": "Formal Languages",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Regular Languages & DFAs", "url": "#"},
-                {"title": "NFAs", "url": "#"},
-                {"title": "Regular Expressions", "url": "#"},
-                {"title": "CFGs", "url": "#"}
+                {
+                    "title": "Regular Languages & DFAs",
+                    "url": "#"
+                },
+                {
+                    "title": "NFAs",
+                    "url": "#"
+                },
+                {
+                    "title": "Regular Expressions",
+                    "url": "#"
+                },
+                {
+                    "title": "CFGs",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2590_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2590_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2590_b_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2590_b_exam_paper.pdf"
+                }
             ],
             "assessments": [
-                {"title": "Coursework", "submission_deadline": "2026-04-30 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-15 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework",
+                    "submission_deadline": "2026-04-30 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-15 9:30 AM",
+                    "weighting": 80,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": [
-                {"title": "Seminar Exercise 1 (Week 2)", "url": "https://warwick.ac.uk/fac/sci/dcs/teaching/material/cs259/exercise1_msr.pdf", "solution": {"url": "/resources/Solutions/CS259/SeminarExercise1"}},
-                {"title": "Seminar Exercise 2 (Week 3)", "url": "https://warwick.ac.uk/fac/sci/dcs/teaching/material/cs259/week3.pdf", "solution": {"url": "/resources/Solutions/CS259/SeminarExercise2"}},
-                {"title": "Seminar Exercise 3 (Week 4)", "url": "https://warwick.ac.uk/fac/sci/dcs/teaching/material/cs259/week4.pdf", "solution": {"url": "/resources/Solutions/CS259/SeminarExercise3"}}
+                {
+                    "title": "Seminar Exercise 1 (Week 2)",
+                    "url": "https://warwick.ac.uk/fac/sci/dcs/teaching/material/cs259/exercise1_msr.pdf",
+                    "solution": {
+                        "url": "/resources/Solutions/CS259/SeminarExercise1"
+                    }
+                },
+                {
+                    "title": "Seminar Exercise 2 (Week 3)",
+                    "url": "https://warwick.ac.uk/fac/sci/dcs/teaching/material/cs259/week3.pdf",
+                    "solution": {
+                        "url": "/resources/Solutions/CS259/SeminarExercise2"
+                    }
+                },
+                {
+                    "title": "Seminar Exercise 3 (Week 4)",
+                    "url": "https://warwick.ac.uk/fac/sci/dcs/teaching/material/cs259/week4.pdf",
+                    "solution": {
+                        "url": "/resources/Solutions/CS259/SeminarExercise3"
+                    }
+                }
             ]
         },
         "CS260": {
             "tagline": "Algorithm paradigms and also complexity classes",
             "name": "Algorithms",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Complexity & Big-O", "url": "#"},
-                {"title": "Divide & Conquer", "url": "#"},
-                {"title": "Dynamic Programming", "url": "#"},
-                {"title": "Greedy Algorithms", "url": "#"}
+                {
+                    "title": "Complexity & Big-O",
+                    "url": "#"
+                },
+                {
+                    "title": "Divide & Conquer",
+                    "url": "#"
+                },
+                {
+                    "title": "Dynamic Programming",
+                    "url": "#"
+                },
+                {
+                    "title": "Greedy Algorithms",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2600_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2600_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2600_a_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2600_a_exam_paper.pdf"
+                }
             ],
             "seminar_exercises": [
-                {"title": "ad", "url": "#"},
-                {"title": "da", "url": "#"}
+                {
+                    "title": "ad",
+                    "url": "#"
+                },
+                {
+                    "title": "da",
+                    "url": "#"
+                }
             ],
             "exercise_solutions": [],
             "assessments": [
-                {"title": "Coursework 1", "submission_deadline": "2025-11-10 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
-                {"title": "Coursework 2", "submission_deadline": "2025-12-15 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-01 9:10 AM", "weighting": 90, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework 1",
+                    "submission_deadline": "2025-11-10 12:00 PM",
+                    "weighting": 5,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Coursework 2",
+                    "submission_deadline": "2025-12-15 12:00 PM",
+                    "weighting": 5,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-01 9:10 AM",
+                    "weighting": 90,
+                    "eligible_for_self_certification": false
+                }
             ],
             "external_resources": [
                 {
@@ -166,44 +373,92 @@
         "CS261": {
             "tagline": "Nightmare nightmare nightmare",
             "name": "Software Engineering",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "GET ME OUT OF HERE", "url": "#"}
+                {
+                    "title": "GET ME OUT OF HERE",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2610_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2610_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url":"https://warwick.ac.uk/services/exampapers/cs/2023/cs2610_b_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2610_b_exam_paper.pdf"
+                }
             ],
             "assessments": [
-                {"title": "Requirements and Design", "submission_deadline": "2026-02-09 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
-                {"title": "Group Presentation", "submission_deadline": "2026-03-16 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
-                {"title": "Peer Assessment", "submission_deadline": "2026-04-20 12:00 PM", "weighting": 15, "eligible_for_self_certification": false},
-                {"title": "Individual Report", "submission_deadline": "2026-04-20 12:00 PM", "weighting": 50, "eligible_for_self_certification": false}
+                {
+                    "title": "Requirements and Design",
+                    "submission_deadline": "2026-02-09 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Group Presentation",
+                    "submission_deadline": "2026-03-16 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Peer Assessment",
+                    "submission_deadline": "2026-04-20 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Individual Report",
+                    "submission_deadline": "2026-04-20 12:00 PM",
+                    "weighting": 50,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS262": {
             "tagline": "Prolog is kinda fun",
             "name": "Logic and Verification",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Propositional Logic", "url": "#"},
-                {"title": "Predicate Logic", "url": "#"},
-                {"title": "Hoare Logic", "url": "#"}
+                {
+                    "title": "Propositional Logic",
+                    "url": "#"
+                },
+                {
+                    "title": "Predicate Logic",
+                    "url": "#"
+                },
+                {
+                    "title": "Hoare Logic",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2620.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs2620_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2620_b_exam_paper.pdf"}
+                {
+                    "title": "2025 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs2620.pdf"
+                },
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2620_b_exam_paper.pdf"
+                }
             ],
             "assessments": [
-                {"title": "Coursework", "submission_deadline": "2026-05-05 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-17 2:00 PM", "weighting": 75, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework",
+                    "submission_deadline": "2026-05-05 12:00 PM",
+                    "weighting": 25,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-17 2:00 PM",
+                    "weighting": 75,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         }

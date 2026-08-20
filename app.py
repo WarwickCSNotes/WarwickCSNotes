@@ -1,6 +1,8 @@
+import datetime
 import hashlib
 import json
 import os
+import re
 import urllib.error
 import urllib.request
 
@@ -33,6 +35,79 @@ GEMINI_API_URL_TEMPLATE = (
     "{model}:generateContent?key={key}"
 )
 REVIEW_AI_CACHE: "dict[tuple[str, str], tuple[str, str]]" = {}
+
+# --- Past-paper URL fallback ----------------------------------------------
+# Warwick DCS exam papers live under a predictable URL pattern, so we don't
+# store URLs in year<N>.json unless they deviate. The backend fills in the
+# defaults for the last DEFAULT_EXAMS_TO_LIST exam years; a module can
+# override the count with `"available_exams": <n>` in its JSON entry.
+#
+# URL pattern: {EXAM_URL_BASE}/<year>/<code>0_exam_paper.pdf where <code> is
+# the lowercased module code — e.g. CS130 → cs1300, CS3550 → cs35500. Any
+# JSON entry keeps its own URL / solution / verified / unfinished fields; the
+# URL is filled in from the pattern only when the JSON leaves it blank.
+EXAM_URL_BASE = "https://warwick.ac.uk/services/exampapers/cs"
+CURRENT_EXAM_YEAR = datetime.datetime.now().year
+DEFAULT_EXAMS_TO_LIST = 3
+
+
+def _default_exam_url(module_code: str, year: int) -> str:
+    return f"{EXAM_URL_BASE}/{year}/{module_code.lower()}0_exam_paper.pdf"
+
+
+def _parse_year_from_title(title: str) -> "int | None":
+    """Pull a 4-digit exam year out of a title like '2025 Exam Paper'."""
+    m = re.search(r"\b(20\d{2})\b", title or "")
+    return int(m.group(1)) if m else None
+
+
+def _resolve_past_papers(mod_code: str, mod: dict) -> list:
+    """Merge explicit past_papers entries with backend-generated defaults for
+    the last N exam years (N = mod['available_exams'] or DEFAULT_EXAMS_TO_LIST).
+
+    - For each year in the target range, an explicit entry (matched by the
+      year in its title) overrides the default; a missing URL is filled in
+      from the pattern.
+    - Explicit entries whose title year falls outside the range (older
+      papers with attached solutions, for example) are kept at the end.
+    """
+    n = int(mod.get("available_exams") or DEFAULT_EXAMS_TO_LIST)
+    target_years = [CURRENT_EXAM_YEAR - i for i in range(n)]  # newest first
+
+    explicit = list(mod.get("past_papers") or [])
+    by_year: dict = {}
+    extras: list = []
+    for entry in explicit:
+        y = _parse_year_from_title(entry.get("title", ""))
+        if y in target_years and y not in by_year:
+            by_year[y] = entry
+        else:
+            extras.append(entry)
+
+    resolved: list = []
+    for y in target_years:
+        entry = by_year.get(y)
+        if entry is None:
+            resolved.append({
+                "title": f"{y} Exam Paper",
+                "url": _default_exam_url(mod_code, y),
+            })
+        else:
+            filled = dict(entry)
+            if not filled.get("url"):
+                filled["url"] = _default_exam_url(mod_code, y)
+            resolved.append(filled)
+    resolved.extend(extras)
+    return resolved
+
+
+def _apply_past_paper_defaults(mod_code: str, mod: dict) -> dict:
+    """Return a copy of `mod` with past_papers resolved and the
+    `available_exams` field stripped so it doesn't leak to the client."""
+    out = dict(mod)
+    out["past_papers"] = _resolve_past_papers(mod_code, mod)
+    out.pop("available_exams", None)
+    return out
 
 # Resources are shared content files (notes, solutions, ...) stored under
 # Data/Resources/<Category>/. All resource files obey the same rules:
@@ -127,7 +202,12 @@ def api_year(year_num):
     if year_num not in (1, 2, 3, 4):
         abort(404)
     with open(os.path.join(YEAR_DATA_DIR, f"year{year_num}.json")) as f:
-        return json.load(f)
+        year_data = json.load(f)
+    year_data["modules"] = {
+        code: _apply_past_paper_defaults(code, mod)
+        for code, mod in year_data["modules"].items()
+    }
+    return year_data
 
 
 @app.route("/api/module/<code>")
@@ -141,7 +221,7 @@ def api_module(code):
                     mod_code.upper(), {"count": 0, "average": {}}
                 )
                 return {
-                    **mod,
+                    **_apply_past_paper_defaults(mod_code, mod),
                     "code": mod_code,
                     "year": year_num,
                     "review_summary": review_summary,

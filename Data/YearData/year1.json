@@ -5,59 +5,127 @@
         "CS118": {
             "tagline": "How to make program",
             "name": "Programming for Computer Scientists",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "AAAAAAAAAAAAAA", "url": "#"},
-                {"title": "BBBBBBBBBB", "url": "#"},
-                {"title": "CCCCCCCCCCC", "url": "#"}
+                {
+                    "title": "AAAAAAAAAAAAAA",
+                    "url": "#"
+                },
+                {
+                    "title": "BBBBBBBBBB",
+                    "url": "#"
+                },
+                {
+                    "title": "CCCCCCCCCCC",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1180_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1180_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1180_a_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1180_a_exam_paper.pdf"
+                }
             ],
             "external-resources": [
-                {"name": "Code Academy", "url":"https://www.codecademy.com/learn/learn-java", "description": "Online resource to learn Java. Some parts are restricted but the unlocked part covers a large part of basic syntax."}
+                {
+                    "name": "Code Academy",
+                    "url": "https://www.codecademy.com/learn/learn-java",
+                    "description": "Online resource to learn Java. Some parts are restricted but the unlocked part covers a large part of basic syntax."
+                }
             ],
             "reading_list": [
-                {"title": "Introduction to Java programming and data structures: Comprehensive version","author": "Y. Daniel Liang","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FQH6fYmdH&sig=bc7adaa0fa94d0aec5bac342d58c3b63bda9a4c9f5eb9626a005b49c53b45724","description": "Essential"}
+                {
+                    "title": "Introduction to Java programming and data structures: Comprehensive version",
+                    "author": "Y. Daniel Liang",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FQH6fYmdH&sig=bc7adaa0fa94d0aec5bac342d58c3b63bda9a4c9f5eb9626a005b49c53b45724",
+                    "description": "Essential"
+                }
             ],
             "assessments": [
-                {"title": "Programming assignment 1", "submission_deadline": "2025-11-05 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
-                {"title": "Programming assignment 2", "submission_deadline": "2025-12-11 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-04-29 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Programming assignment 1",
+                    "submission_deadline": "2025-11-05 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Programming assignment 2",
+                    "submission_deadline": "2025-12-11 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-04-29 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS126": {
             "tagline": "Data Structures",
             "name": "Design of Information Structures",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Time Complexity", "url": "#"},
-                {"title": "Stacks and Queues", "url": "#"},
-                {"title": "Trees", "url": "#"}
+                {
+                    "title": "Time Complexity",
+                    "url": "#"
+                },
+                {
+                    "title": "Stacks and Queues",
+                    "url": "#"
+                },
+                {
+                    "title": "Trees",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1260_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1260_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1260_d_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1260_d_exam_paper.pdf"
+                }
             ],
             "external_resources": [
-                {"name": "Joey Harrison's notes", "url": "https://notes.joeyh.dev/cs126/index.html", "description": "A set of notes on CS126 written by Joey Harrison, covering all examinable material for 2025/2026."},
-                {"name": "CS Visualisation Tool", "url": "https://csvistool.com/", "description": "Extremely useful tool for understanding Heaps, AVL trees, Dijkstra's, and other concepts that benefit from visualisation"}
+                {
+                    "name": "Joey Harrison's notes",
+                    "url": "https://notes.joeyh.dev/cs126/index.html",
+                    "description": "A set of notes on CS126 written by Joey Harrison, covering all examinable material for 2025/2026."
+                },
+                {
+                    "name": "CS Visualisation Tool",
+                    "url": "https://csvistool.com/",
+                    "description": "Extremely useful tool for understanding Heaps, AVL trees, Dijkstra's, and other concepts that benefit from visualisation"
+                }
             ],
             "seminar_exercises": [
-                {"title": "Lab 1", "url": "#"},
-                {"title": "Lab 2", "url": "#"}
+                {
+                    "title": "Lab 1",
+                    "url": "#"
+                },
+                {
+                    "title": "Lab 2",
+                    "url": "#"
+                }
             ],
             "assessments": [
-                {"title": "Programming assignment", "submission_deadline": "2026-05-05 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-28 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Programming assignment",
+                    "submission_deadline": "2026-05-05 12:00 PM",
+                    "weighting": 40,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-28 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
@@ -65,236 +133,629 @@
             "tagline": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "name": "Sets and Proofs",
             "description": "A module of all time.",
-            "Term":"1",
-            "CATS":"15",
-            "authors": ["EdDenton"],
+            "Term": "1",
+            "CATS": "15",
+            "authors": [
+                "EdDenton"
+            ],
             "notes": [
-                {"title": "Sets", "url": "/resources/Notes/CS130/Sets"},
-                {"title": "Propositional Logic", "url": "/resources/Notes/CS130/PropositionalLogic"},
-                {"title": "Predicate Logic", "url": "/resources/Notes/CS130/PredicateLogic"},
-                {"title": "Relations", "url": "/resources/Notes/CS130/Relations"},
-                {"title": "Functions", "url": "#"},
-                {"title": "Countability", "url": "#"}
+                {
+                    "title": "Sets",
+                    "url": "/resources/Notes/CS130/Sets"
+                },
+                {
+                    "title": "Propositional Logic",
+                    "url": "/resources/Notes/CS130/PropositionalLogic"
+                },
+                {
+                    "title": "Predicate Logic",
+                    "url": "/resources/Notes/CS130/PredicateLogic"
+                },
+                {
+                    "title": "Relations",
+                    "url": "/resources/Notes/CS130/Relations"
+                },
+                {
+                    "title": "Functions",
+                    "url": "#"
+                },
+                {
+                    "title": "Countability",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1300_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1300_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS130/CS130-2024"}},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1300_c_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS130/CS130-2023", "unfinished": true}}
+                {
+                    "title": "2024 Exam Paper",
+                    "solution": {
+                        "url": "/resources/Solutions/CS130/CS130-2024"
+                    }
+                },
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1300_c_exam_paper.pdf",
+                    "solution": {
+                        "url": "/resources/Solutions/CS130/CS130-2023",
+                        "unfinished": true
+                    }
+                }
             ],
             "external_resources": [
-                {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs130/", "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."},
-                {"name": "Discrete Mathematics (Berkeley)", "url": "https://math.berkeley.edu/~giventh/DM.pdf", "description": "Free PDF textbook (Alexander Givental, UC Berkeley) covering discrete mathematics foundations."}
+                {
+                    "name": "Yijun's Notes",
+                    "url": "https://yijun.hu/blog-cs/cs130/",
+                    "description": "Really good set of notes on cs130 - may not reflect the most recent cs130 structure, but the majority of content should still be relevant."
+                },
+                {
+                    "name": "Discrete Mathematics (Berkeley)",
+                    "url": "https://math.berkeley.edu/~giventh/DM.pdf",
+                    "description": "Free PDF textbook (Alexander Givental, UC Berkeley) covering discrete mathematics foundations."
+                }
             ],
             "reading_list": [
-                {"title": "Discrete Mathematics","author": "Kenneth A. Ross, Charles R. B. Wright","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab10206176%2A&sig=3f4ce08d65e482f768c614e069e08e768bafb435e6a08e6ecd666e62bf05dede","description": "Recommended book"},
-                {"title": "Discrete Mathematics and Its Applications","author": "Kenneth H. Rosen","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FhDP2k8Dp&sig=99ef92b3d717123b59e868c4eaf859fda845e505b0ac0472a77a5525a8231633","description": "Recommended book"},
-                {"title": "Discrete Mathematics for Computer Scientists","author": "J. K. Truss","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab10470025%2A&sig=9f0fcad4778f5af8e61ab99d8c22cb6ffb7110a6743233f26096f4bc899db5c7","description": "Recommended book"},
-                {"title": "Mathematical Writing","author": "Franco Vivaldi","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2Ft3XG4n2Y&sig=02dcb15172dc106695485a23c06727b54e82fa5f7373ed3d416630a01e1a8dc7","description": "Recommended book"},
-                {"title": "Book of Proof","author": "Richard H. Hammack","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab3467848%2A&sig=b07d601680f58e7f260adb6d2b6632a88c0d4e24f4f98ed47c14a70cedd58a0a","description": "Recommended book"},
-                {"title": "Proofs and Fundamentals: A First Course in Abstract Mathematics","author": "Ethan D. Bloch","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FLHNYJbqV&sig=5962e669331340ce28f1ecd38d6f34021ee34d4f1245d0f6591d2bcc36e7d62d","description": "Recommended book"},
-                {"title": "How to Prove It: A Structured Approach","author": "Daniel J. Velleman","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FSc8pRBgz&sig=dc0ac9aed19a51c74f9d926b43fa4c1bf28e7913d89131e718cc330d42a94469","description": "Further reading"},
-                {"title": "Mathematics for Computer Science","author": "Eric Lehman, Frank Thomson Leighton, Albert R. Meyer","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab3923725%2A&sig=01b780d792c5591177cef7097aa18a2b6b63f01319b66140ce5bb93805f59026","description": "Further reading"},
-                {"title": "How to Solve It: A New Aspect of Mathematical Method","author": "George Pólya","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FT3Mm3vPD&sig=1f04257a1f9ad128176f0bec8707660ad8c7dfbbf1640e9d5b09e407478dac1c","description": "Further reading"},
-                {"title": "How to Lie with Statistics","author": "Darrell Huff","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab11241822%2A&sig=8f7d14cda6cf25c7ad856077f7ee71d5a0f8f471211027c4872b9f06367ef14d","description": "Further reading"},
-                {"title": "Elementary Logic","author": "Kenneth A. Ross","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fdc.talis.com%2Fwarwick%2Fbundles%2F6a223418f3f89e060079d1e1&sig=cbb7ba57df78b4aaa53dc575dea3bf5ef11b3a2037c76c6c9a4f95b63f110266","description": "Recommended chapter from Discrete Mathematics"},
-                {"title": "Graphs","author": "J. K. Truss","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fdc.talis.com%2Fwarwick%2Fbundles%2F6a22341887e6360632770821&sig=4153370ab4a4b0b723a5334c5e50225f7af2543d2d19a1fb072ffd2f27004257","description": "Recommended chapter from Discrete Mathematics for Computer Scientists"},
-                {"title": "Mathematics and Plausible Reasoning, Volume 1: Induction and Analogy in Mathematics","author": "George Pólya","url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FB071GBYj&sig=1741a11a9e956a6a4828c182bd25e8b7f28e7d17d5487d02d22f014985413c7d","description": "Further reading (Preface & Chapter 1)"}
+                {
+                    "title": "Discrete Mathematics",
+                    "author": "Kenneth A. Ross, Charles R. B. Wright",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab10206176%2A&sig=3f4ce08d65e482f768c614e069e08e768bafb435e6a08e6ecd666e62bf05dede",
+                    "description": "Recommended book"
+                },
+                {
+                    "title": "Discrete Mathematics and Its Applications",
+                    "author": "Kenneth H. Rosen",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FhDP2k8Dp&sig=99ef92b3d717123b59e868c4eaf859fda845e505b0ac0472a77a5525a8231633",
+                    "description": "Recommended book"
+                },
+                {
+                    "title": "Discrete Mathematics for Computer Scientists",
+                    "author": "J. K. Truss",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab10470025%2A&sig=9f0fcad4778f5af8e61ab99d8c22cb6ffb7110a6743233f26096f4bc899db5c7",
+                    "description": "Recommended book"
+                },
+                {
+                    "title": "Mathematical Writing",
+                    "author": "Franco Vivaldi",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2Ft3XG4n2Y&sig=02dcb15172dc106695485a23c06727b54e82fa5f7373ed3d416630a01e1a8dc7",
+                    "description": "Recommended book"
+                },
+                {
+                    "title": "Book of Proof",
+                    "author": "Richard H. Hammack",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab3467848%2A&sig=b07d601680f58e7f260adb6d2b6632a88c0d4e24f4f98ed47c14a70cedd58a0a",
+                    "description": "Recommended book"
+                },
+                {
+                    "title": "Proofs and Fundamentals: A First Course in Abstract Mathematics",
+                    "author": "Ethan D. Bloch",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FLHNYJbqV&sig=5962e669331340ce28f1ecd38d6f34021ee34d4f1245d0f6591d2bcc36e7d62d",
+                    "description": "Recommended book"
+                },
+                {
+                    "title": "How to Prove It: A Structured Approach",
+                    "author": "Daniel J. Velleman",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FSc8pRBgz&sig=dc0ac9aed19a51c74f9d926b43fa4c1bf28e7913d89131e718cc330d42a94469",
+                    "description": "Further reading"
+                },
+                {
+                    "title": "Mathematics for Computer Science",
+                    "author": "Eric Lehman, Frank Thomson Leighton, Albert R. Meyer",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab3923725%2A&sig=01b780d792c5591177cef7097aa18a2b6b63f01319b66140ce5bb93805f59026",
+                    "description": "Further reading"
+                },
+                {
+                    "title": "How to Solve It: A New Aspect of Mathematical Method",
+                    "author": "George Pólya",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FT3Mm3vPD&sig=1f04257a1f9ad128176f0bec8707660ad8c7dfbbf1640e9d5b09e407478dac1c",
+                    "description": "Further reading"
+                },
+                {
+                    "title": "How to Lie with Statistics",
+                    "author": "Darrell Huff",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fwarwick.summon.serialssolutions.com%2F%23%21%2Fsearch%3Fho%3Dt%26include.ft.matches%3Df%26l%3Den%26solrPassThroughQuery%3Dsys_participant_id%3Awarwick_catalog_%2Ab11241822%2A&sig=8f7d14cda6cf25c7ad856077f7ee71d5a0f8f471211027c4872b9f06367ef14d",
+                    "description": "Further reading"
+                },
+                {
+                    "title": "Elementary Logic",
+                    "author": "Kenneth A. Ross",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fdc.talis.com%2Fwarwick%2Fbundles%2F6a223418f3f89e060079d1e1&sig=cbb7ba57df78b4aaa53dc575dea3bf5ef11b3a2037c76c6c9a4f95b63f110266",
+                    "description": "Recommended chapter from Discrete Mathematics"
+                },
+                {
+                    "title": "Graphs",
+                    "author": "J. K. Truss",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fdc.talis.com%2Fwarwick%2Fbundles%2F6a22341887e6360632770821&sig=4153370ab4a4b0b723a5334c5e50225f7af2543d2d19a1fb072ffd2f27004257",
+                    "description": "Recommended chapter from Discrete Mathematics for Computer Scientists"
+                },
+                {
+                    "title": "Mathematics and Plausible Reasoning, Volume 1: Induction and Analogy in Mathematics",
+                    "author": "George Pólya",
+                    "url": "https://warwick.rl.talis.com/link?url=https%3A%2F%2Fgo.exlibris.link%2FB071GBYj&sig=1741a11a9e956a6a4828c182bd25e8b7f28e7d17d5487d02d22f014985413c7d",
+                    "description": "Further reading (Preface & Chapter 1)"
+                }
             ],
             "assessments": [
-                {"title": "Problem Set 0", "submission_deadline": "2025-10-13 12:00 PM", "weighting": 1, "eligible_for_self_certification": true},
-                {"title": "Problem Set 1", "submission_deadline": "2025-10-27 12:00 PM", "weighting": 3, "eligible_for_self_certification": true},
-                {"title": "Problem Set 2", "submission_deadline": "2025-11-10 12:00 PM", "weighting": 3, "eligible_for_self_certification": true},
-                {"title": "Problem Set 3", "submission_deadline": "2025-11-24 12:00 PM", "weighting": 3, "eligible_for_self_certification": true},
-                {"title": "Examination January", "submission_deadline": "2026-01-14 2:00 PM", "weighting": 10, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-06 9:30 AM", "weighting": 80, "eligible_for_self_certification": false}
+                {
+                    "title": "Problem Set 0",
+                    "submission_deadline": "2025-10-13 12:00 PM",
+                    "weighting": 1,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Problem Set 1",
+                    "submission_deadline": "2025-10-27 12:00 PM",
+                    "weighting": 3,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Problem Set 2",
+                    "submission_deadline": "2025-11-10 12:00 PM",
+                    "weighting": 3,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Problem Set 3",
+                    "submission_deadline": "2025-11-24 12:00 PM",
+                    "weighting": 3,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Examination January",
+                    "submission_deadline": "2026-01-14 2:00 PM",
+                    "weighting": 10,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-06 9:30 AM",
+                    "weighting": 80,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": [],
             "quizzes": [
-                {"title": "Propositional Logic", "url": "/quizzes/cs130-propositional-logic"}
+                {
+                    "title": "Propositional Logic",
+                    "url": "/quizzes/cs130-propositional-logic"
+                }
             ]
         },
         "CS132": {
             "tagline": "Hardware fundamentals",
             "name": "Computer Organisation and Architecture",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Data Representation", "url": "#"},
-                {"title": "Digital Logic", "url": "#"},
-                {"title": "Assembly", "url": "#"}
+                {
+                    "title": "Data Representation",
+                    "url": "#"
+                },
+                {
+                    "title": "Digital Logic",
+                    "url": "#"
+                },
+                {
+                    "title": "Assembly",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1320_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1320_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS132/CS132-2024"}},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1320_a_exam_paper.pdf"}
-
+                {
+                    "title": "2024 Exam Paper",
+                    "solution": {
+                        "url": "/resources/Solutions/CS132/CS132-2024"
+                    }
+                },
+                {
+                    "title": "2024 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1320_a_exam_paper.pdf"
+                }
             ],
             "seminar_exercises": [
-                {"title": "Lab 1", "url": "#"}
+                {
+                    "title": "Lab 1",
+                    "url": "#"
+                }
             ],
             "assessments": [
-                {"title": "Coursework 2 - Group Technical Report", "submission_deadline": "2026-01-22 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
-                {"title": "Coursework 1 - Problem Sheet", "submission_deadline": "2025-11-27 12:00 PM", "weighting": 15, "eligible_for_self_certification": true},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-08 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework 2 - Group Technical Report",
+                    "submission_deadline": "2026-01-22 12:00 PM",
+                    "weighting": 25,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Coursework 1 - Problem Sheet",
+                    "submission_deadline": "2025-11-27 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-08 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS133": {
             "tagline": "Academic writing and ethics or something idk I didn't go to lectures",
             "name": "Professional Skills",
-            "Term":"1/2",
-            "CATS":"15",
+            "Term": "1/2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Ethics", "url": "#"}
+                {
+                    "title": "Ethics",
+                    "url": "#"
+                }
             ],
             "past_papers": [],
             "extras": [
-                {"title": "Class Test Simulator", "url": "/tools/CS133/class-test"}
+                {
+                    "title": "Class Test Simulator",
+                    "url": "/tools/CS133/class-test"
+                }
             ],
             "assessments": [
-                {"title": "Lab Mark Points", "submission_deadline": "2025-12-12 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
-                {"title": "Class test", "submission_deadline": "2026-03-18 8:30 AM", "weighting": 15, "eligible_for_self_certification": false},
-                {"title": "Personal development plan", "submission_deadline": "2026-05-07 12:00 PM", "weighting": 20, "eligible_for_self_certification": false},
-                {"title": "Essay", "submission_deadline": "2026-04-30 12:00 PM", "weighting": 30, "eligible_for_self_certification": false},
-                {"title": "Presentation", "submission_deadline": "2026-03-20 12:00 PM", "weighting": 15, "eligible_for_self_certification": false}
+                {
+                    "title": "Lab Mark Points",
+                    "submission_deadline": "2025-12-12 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Class test",
+                    "submission_deadline": "2026-03-18 8:30 AM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Personal development plan",
+                    "submission_deadline": "2026-05-07 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Essay",
+                    "submission_deadline": "2026-04-30 12:00 PM",
+                    "weighting": 30,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Presentation",
+                    "submission_deadline": "2026-03-20 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS139": {
             "tagline": "HTML, CSS, the pain of JavaScript",
             "name": "Web Development Technologies",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "HTML & CSS", "url": "#"},
-                {"title": "JavaScript", "url": "#"}
+                {
+                    "title": "HTML & CSS",
+                    "url": "#"
+                },
+                {
+                    "title": "JavaScript",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1390_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1390_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1390_c_exam_paper_2.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1390_c_exam_paper_2.pdf"
+                }
             ],
             "assessments": [
-                {"title": "Web Server Application Coursework", "submission_deadline": "2026-03-12 12:00 PM", "weighting": 40, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-30 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Web Server Application Coursework",
+                    "submission_deadline": "2026-03-12 12:00 PM",
+                    "weighting": 40,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-30 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         },
         "CS140": {
             "tagline": "*Sometimes I dream of saving the world...*",
             "name": "Computer Security",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Linux Basics", "url": "#"},
-                {"title": "Secret & Public Key Encryption", "url": "#"},
-                {"title": "Web Servers, Authentication & Cookies", "url": "#"}
+                {
+                    "title": "Linux Basics",
+                    "url": "#"
+                },
+                {
+                    "title": "Secret & Public Key Encryption",
+                    "url": "#"
+                },
+                {
+                    "title": "Web Servers, Authentication & Cookies",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1400_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1400_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1400_c_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1400_c_exam_paper.pdf"
+                }
             ],
             "exercise_solutions": [],
             "external_resources": [
-                {"name": "Computer Security (3rd ed) by Dieter Gollmann", "url":"https://go.exlibris.link/x3XvLhzk", "description": "Recommended reading by the module organiser."}
+                {
+                    "name": "Computer Security (3rd ed) by Dieter Gollmann",
+                    "url": "https://go.exlibris.link/x3XvLhzk",
+                    "description": "Recommended reading by the module organiser."
+                }
             ],
             "assessments": [
-                {"title": "Coursework 1 - web server", "submission_deadline": "2025-12-04 12:00 PM", "weighting": 5, "eligible_for_self_certification": false},
-                {"title": "Coursework 3 - security defects", "submission_deadline": "2026-01-19 12:00 PM", "weighting": 25, "eligible_for_self_certification": true},
-                {"title": "Coursework 2 - secure message", "submission_deadline": "2025-12-04 12:00 PM", "weighting": 10, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-13 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework 1 - web server",
+                    "submission_deadline": "2025-12-04 12:00 PM",
+                    "weighting": 5,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Coursework 3 - security defects",
+                    "submission_deadline": "2026-01-19 12:00 PM",
+                    "weighting": 25,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Coursework 2 - secure message",
+                    "submission_deadline": "2025-12-04 12:00 PM",
+                    "weighting": 10,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-13 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ]
         },
         "CS141": {
             "tagline": "We love Haskell",
             "name": "Functional Programming",
             "description": "The module has more than sufficient resources from what Alex has kindly provided, but we hope we can provide some useful tidbits, in particular notes written by Thomas Facos and past paper solutions.",
-            "Term":"2",
-            "CATS":"15",
-            "authors": ["Thomas Facos"],
+            "Term": "2",
+            "CATS": "15",
+            "authors": [
+                "Thomas Facos"
+            ],
             "notes": [
-                {"title": "Introduction to Haskell", "url": "/resources/Notes/CS141/HaskellIntro"},
-                {"title": "Basics of Haskell", "url": "/resources/Notes/CS141/HaskellBasics"},
-                {"title": "Type Classes", "url": "/resources/Notes/CS141/HaskellTypeClasses"},
-                {"title": "Evaluation", "url": "/resources/Notes/CS141/HaskellEvaluation"},
-                {"title": "Custom Data Structures", "url": "/resources/Notes/CS141/HaskellDataStructures"},
-                {"title": "Folding", "url": "/resources/Notes/CS141/HaskellFolding"},
-                {"title": "Kinds and Subtypes", "url": "/resources/Notes/CS141/HaskellKindsSubtypes"},
-                {"title": "Semigroups and Monoids", "url": "/resources/Notes/CS141/HaskellSemigroupsMonoids"},
-                {"title": "Functors, Applicatives, and Monads", "url": "/resources/Notes/CS141/HaskellFunctorsApplicativesMonads"},
-                {"title": "Parsing", "url": "/resources/Notes/CS141/HaskellParsing"}
+                {
+                    "title": "Introduction to Haskell",
+                    "url": "/resources/Notes/CS141/HaskellIntro"
+                },
+                {
+                    "title": "Basics of Haskell",
+                    "url": "/resources/Notes/CS141/HaskellBasics"
+                },
+                {
+                    "title": "Type Classes",
+                    "url": "/resources/Notes/CS141/HaskellTypeClasses"
+                },
+                {
+                    "title": "Evaluation",
+                    "url": "/resources/Notes/CS141/HaskellEvaluation"
+                },
+                {
+                    "title": "Custom Data Structures",
+                    "url": "/resources/Notes/CS141/HaskellDataStructures"
+                },
+                {
+                    "title": "Folding",
+                    "url": "/resources/Notes/CS141/HaskellFolding"
+                },
+                {
+                    "title": "Kinds and Subtypes",
+                    "url": "/resources/Notes/CS141/HaskellKindsSubtypes"
+                },
+                {
+                    "title": "Semigroups and Monoids",
+                    "url": "/resources/Notes/CS141/HaskellSemigroupsMonoids"
+                },
+                {
+                    "title": "Functors, Applicatives, and Monads",
+                    "url": "/resources/Notes/CS141/HaskellFunctorsApplicativesMonads"
+                },
+                {
+                    "title": "Parsing",
+                    "url": "/resources/Notes/CS141/HaskellParsing"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1410_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1410_exam_paper.pdf", "solution": {"url": "/resources/Solutions/CS141/CS141-2024", "unfinished": true}},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1410_c_exam_paper.pdf"}
+                {
+                    "title": "2024 Exam Paper",
+                    "solution": {
+                        "url": "/resources/Solutions/CS141/CS141-2024",
+                        "unfinished": true
+                    }
+                },
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1410_c_exam_paper.pdf"
+                }
             ],
             "seminar_exercises": [
-                {"title": "Lab 1", "url": "#"},
-                {"title": "Lab 2", "url": "#"},
-                {"title": "Lab 3", "url": "#"}
+                {
+                    "title": "Lab 1",
+                    "url": "#"
+                },
+                {
+                    "title": "Lab 2",
+                    "url": "#"
+                },
+                {
+                    "title": "Lab 3",
+                    "url": "#"
+                }
             ],
             "assessments": [
-                {"title": "Coursework 1", "submission_deadline": "2026-02-19 12:00 PM", "weighting": 15, "eligible_for_self_certification": true},
-                {"title": "Coursework 2", "submission_deadline": "2026-04-07 12:00 PM", "weighting": 25, "eligible_for_self_certification": false},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-16 9:30 AM", "weighting": 60, "eligible_for_self_certification": false}
+                {
+                    "title": "Coursework 1",
+                    "submission_deadline": "2026-02-19 12:00 PM",
+                    "weighting": 15,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Coursework 2",
+                    "submission_deadline": "2026-04-07 12:00 PM",
+                    "weighting": 25,
+                    "eligible_for_self_certification": false
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-16 9:30 AM",
+                    "weighting": 60,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": [],
             "external_resources": [
-                {"name": "Learn You a Haskell for Great Good!", "url":"https://learnyouahaskell.github.io/chapters.html", "description": "The primary text for the module, accessible freely online. A very accessible beginner's guide to Haskell"},
-                {"name": "Yijun's Notes", "url":"https://yijun.hu/blog-cs/cs141/", "description": "Only covers more difficult content, later in the module."}
+                {
+                    "name": "Learn You a Haskell for Great Good!",
+                    "url": "https://learnyouahaskell.github.io/chapters.html",
+                    "description": "The primary text for the module, accessible freely online. A very accessible beginner's guide to Haskell"
+                },
+                {
+                    "name": "Yijun's Notes",
+                    "url": "https://yijun.hu/blog-cs/cs141/",
+                    "description": "Only covers more difficult content, later in the module."
+                }
             ]
         },
         "CS143": {
             "tagline": "Rip off CS259",
             "name": "Logic and Automata",
-            "Term":"2",
-            "CATS":"15",
+            "Term": "2",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Probability", "url": "#"},
-                {"title": "Distributions", "url": "#"}
+                {
+                    "title": "Probability",
+                    "url": "#"
+                },
+                {
+                    "title": "Distributions",
+                    "url": "#"
+                }
             ],
             "past_papers": [],
             "assessments": [
-                {"title": "Programming Assignment", "submission_deadline": "2026-04-13 12:00 PM", "weighting": 20, "eligible_for_self_certification": true},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-06-04 2:00 PM", "weighting": 80, "eligible_for_self_certification": false}
+                {
+                    "title": "Programming Assignment",
+                    "submission_deadline": "2026-04-13 12:00 PM",
+                    "weighting": 20,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-06-04 2:00 PM",
+                    "weighting": 80,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": [
-                {"title": "Seminar Exercise 1 (Week 2)", "url": "#", "solution": {"url": "/resources/Solutions/CS143/SeminarExercise1"}},
-                {"title": "Seminar Exercise 2 (Week 3)", "url": "#", "solution": {"url": "/resources/Solutions/CS143/SeminarExercise2"}}
+                {
+                    "title": "Seminar Exercise 1 (Week 2)",
+                    "url": "#",
+                    "solution": {
+                        "url": "/resources/Solutions/CS143/SeminarExercise1"
+                    }
+                },
+                {
+                    "title": "Seminar Exercise 2 (Week 3)",
+                    "url": "#",
+                    "solution": {
+                        "url": "/resources/Solutions/CS143/SeminarExercise2"
+                    }
+                }
             ]
         },
         "CS146": {
             "tagline": "Rabbits.",
             "name": "Introduction to Discrete Mathematics",
-            "Term":"1",
-            "CATS":"15",
+            "Term": "1",
+            "CATS": "15",
             "authors": [],
             "notes": [
-                {"title": "Linear Algebra", "url": "#"},
-                {"title": "Calculus", "url": "#"}
+                {
+                    "title": "Linear Algebra",
+                    "url": "#"
+                },
+                {
+                    "title": "Calculus",
+                    "url": "#"
+                }
             ],
             "past_papers": [
-                {"title": "2025 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2025/cs1460_exam_paper.pdf"},
-                {"title": "2024 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2024/cs1460_exam_paper.pdf"},
-                {"title": "2023 Exam Paper", "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1460_a_exam_paper.pdf"}
+                {
+                    "title": "2023 Exam Paper",
+                    "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs1460_a_exam_paper.pdf"
+                }
             ],
             "external_resources": [
-                {"name": "Discrete Mathematics (Berkeley)", "url": "https://math.berkeley.edu/~giventh/DM.pdf", "description": "Free PDF textbook (Alexander Givental, UC Berkeley) covering discrete mathematics foundations."}
+                {
+                    "name": "Discrete Mathematics (Berkeley)",
+                    "url": "https://math.berkeley.edu/~giventh/DM.pdf",
+                    "description": "Free PDF textbook (Alexander Givental, UC Berkeley) covering discrete mathematics foundations."
+                }
             ],
             "assessments": [
-                {"title": "Problem sheet 1", "submission_deadline": "2025-10-20 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
-                {"title": "Problem sheet 2", "submission_deadline": "2025-11-03 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
-                {"title": "Problem sheet 3", "submission_deadline": "2025-11-17 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
-                {"title": "Problem sheet 4", "submission_deadline": "2025-12-01 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
-                {"title": "Problem sheet 5", "submission_deadline": "2025-12-15 12:00 PM", "weighting": 4, "eligible_for_self_certification": true},
-                {"title": "Centrally-timetabled examination (On-campus)", "submission_deadline": "2026-05-30 2:00 PM", "weighting": 80, "eligible_for_self_certification": false}
+                {
+                    "title": "Problem sheet 1",
+                    "submission_deadline": "2025-10-20 12:00 PM",
+                    "weighting": 4,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Problem sheet 2",
+                    "submission_deadline": "2025-11-03 12:00 PM",
+                    "weighting": 4,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Problem sheet 3",
+                    "submission_deadline": "2025-11-17 12:00 PM",
+                    "weighting": 4,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Problem sheet 4",
+                    "submission_deadline": "2025-12-01 12:00 PM",
+                    "weighting": 4,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Problem sheet 5",
+                    "submission_deadline": "2025-12-15 12:00 PM",
+                    "weighting": 4,
+                    "eligible_for_self_certification": true
+                },
+                {
+                    "title": "Centrally-timetabled examination (On-campus)",
+                    "submission_deadline": "2026-05-30 2:00 PM",
+                    "weighting": 80,
+                    "eligible_for_self_certification": false
+                }
             ],
             "exercise_solutions": []
         }
