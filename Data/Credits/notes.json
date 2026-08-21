@@ -45,6 +45,7 @@
     "ImageCompression.md": ["EdDenton"],
     "MinimumKCenter.md": ["EdDenton"],
     "OverviewOfAI.md": ["EdDenton"],
+    "GraphBasedSimilaritySearch.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],

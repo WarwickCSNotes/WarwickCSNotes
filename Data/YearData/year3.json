@@ -168,6 +168,10 @@
                 {
                     "title": "Generative Adversarial Networks",
                     "url": "/resources/Notes/CS331/GenerativeAdversarialNetworks"
+                },
+                {
+                    "title": "Graph-Based Similarity Search",
+                    "url": "/resources/Notes/CS331/GraphBasedSimilaritySearch"
                 }
             ],
             "past_papers": [
