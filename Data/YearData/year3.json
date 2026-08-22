@@ -397,6 +397,10 @@
                 {
                     "title": "Minimum k-center",
                     "url": "/resources/Notes/CS356/MinimumKCenter"
+                },
+                {
+                    "title": "Duality of Linear Programs",
+                    "url": "/resources/Notes/CS356/DualityOfLinearPrograms"
                 }
             ],
             "past_papers": [],

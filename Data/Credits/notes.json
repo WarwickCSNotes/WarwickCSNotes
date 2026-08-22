@@ -46,6 +46,7 @@
     "MinimumKCenter.md": ["EdDenton"],
     "OverviewOfAI.md": ["EdDenton"],
     "GraphBasedSimilaritySearch.md": ["EdDenton"],
+    "DualityOfLinearPrograms.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],
