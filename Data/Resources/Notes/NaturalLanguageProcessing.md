@@ -92,3 +92,25 @@ For example: `studying`, `studies`, `studied` all lemmatize to `study`; `was`, `
 - **Translation.** Some languages put adjectives in a different position relative to nouns than English does. For example, English says "red car" but French says "voiture rouge". Knowing which token is the noun and which is the adjective lets a translator re-order them correctly.
 - **Sentiment analysis.** Sentiment is mostly carried by adjectives ("great", "terrible") and adverbs ("rarely", "always"). Tagging lets you isolate those and weight them, rather than treating every word equally.
 - **Text-to-speech (TTS).** Some words are pronounced differently depending on their part of speech. The classic example is `record`: stressed on the first syllable when used as a noun ("a *re*cord"), on the second when used as a verb ("to re*cord*"). A TTS system needs the PoS to pick the right pronunciation.
+
+## Document-Level Representation
+
+Each document is represented by one vector.
+
+- Sparse, high-dimensional
+- Vector built from all words in the document
+- Representation can't capture word semantics
+
+## Word-Level Representation
+
+Another representation method, in contrast to Document-Level Representation.
+
+| Property | Document-Level (DLR) | Word-Level (WLR) |
+|----------|---------------------|------------------|
+| Dimensionality | Sparse, high-dimensional | Dense, low-dimensional |
+| Vector represents | All words in the document | A single word |
+| Semantics | Can't capture word semantics | Can capture word semantics |
+
+Note also that WLR can be aggregated (e.g. averaging or summing the word vectors) to find a document vector.
+
+### Word Embedding
