@@ -2,12 +2,14 @@ In a linear program, you have a series of constraints and some objective functio
 
 For example:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{Maximise } \quad & x_1 + x_2 \\
 \text{subject to } \quad & x_1 \leq 3 \\
 & x_2 \leq 2 \\
 & x_1,\, x_2 \geq 0
-\end{aligned}$$
+\end{aligned}
+$$
 
 In this program, our objective function is $x_1 + x_2$.
 
@@ -30,11 +32,13 @@ First, we'll make some assumptions to simplify things (there's a section further
 
 We can manipulate the constraints we have. We can freely add constraints together to produce new valid constraints. We can also multiply constraints up or down (as long as we multiply by some $y \geq 0$, so the direction of the inequality is preserved). For instance, for the program above, we can get the new constraints:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 2x_1 &\leq 6 \\
 4x_2 &\leq 8 \\
 x_1 + x_2 &\leq 5
-\end{aligned}$$
+\end{aligned}
+$$
 
 >[!check]- How did we get the new constraints?
 > Label the original constraints as (1) $x_1 \leq 3$ and (2) $x_2 \leq 2$.
@@ -47,10 +51,12 @@ x_1 + x_2 &\leq 5
 
 So we can freely manipulate the constraints. We'll introduce variables ($y_1, y_2, \ldots, y_n$) for each constraint we have. We get new constraints by multiplying the old constraints by these variables:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 y_1 x_1 &\leq 3 y_1 \\
 y_2 x_2 &\leq 2 y_2
-\end{aligned}$$
+\end{aligned}
+$$
 
 We also have to add new constraints, since we can only scale by a non-negative number:
 
@@ -64,14 +70,18 @@ Right now, we have some intermediate constraints which have both the old and new
 
 We can quickly see we have $\text{in-between constraints} \leq \text{purely new-variable constraints}$ by adding our constraints together:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 y_1 x_1 &\leq 3 y_1 \\
 y_2 x_2 &\leq 2 y_2
-\end{aligned}$$
+\end{aligned}
+$$
 
 becomes
 
-$$y_1 x_1 + y_2 x_2 \;\leq\; 3 y_1 + 2 y_2$$
+$$
+y_1 x_1 + y_2 x_2 \;\leq\; 3 y_1 + 2 y_2
+$$
 
 Now, we just need to establish $\text{objective function} \leq \text{in-between constraints}$, i.e. we need $x_1 + x_2 \leq y_1 x_1 + y_2 x_2$. We can do this by constraining $y_1$ and $y_2$ further so this is true; after all, we introduced them. As long as we don't break the constraint $y_1, y_2 \geq 0$, we can do what we want with them.
 
