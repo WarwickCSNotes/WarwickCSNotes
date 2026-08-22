@@ -31,7 +31,7 @@ export const ResourcePage = () => {
   useEffect(() => {
     if (filename && code) {
       const label = CATEGORY_LABEL[category] ?? category
-      document.title = `${filename}: ${code} ${label}`
+      document.title = `${humanise(filename)}: ${code} ${label}`
     }
   }, [filename, code, category])
 

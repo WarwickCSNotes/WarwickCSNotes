@@ -9,5 +9,6 @@
     "cs355-digital-watermarking.json": ["EdDenton"],
     "cs355-image-compression.json": ["EdDenton"],
     "cs355-image-acquisition.json": ["EdDenton"],
-    "cs356-approximation-ratio.json": ["EdDenton"]
+    "cs356-approximation-ratio.json": ["EdDenton"],
+    "cs356-duality-of-linear-programs.json": ["EdDenton"]
 }

@@ -409,6 +409,10 @@
                 {
                     "title": "Approximation Ratio",
                     "url": "/quizzes/cs356-approximation-ratio"
+                },
+                {
+                    "title": "Duality of Linear Programs",
+                    "url": "/quizzes/cs356-duality-of-linear-programs"
                 }
             ]
         }

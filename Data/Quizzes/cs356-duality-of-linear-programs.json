@@ -1,0 +1,74 @@
+{
+    "title": "Duality of Linear Programs",
+    "module": "CS356",
+    "description": "Quick check on weak/strong duality and the primal-dual relationship.",
+    "questions": [
+        {
+            "type": "text",
+            "prompt": "If there is a maximising LP with $\\text{OPT}_1$ and a corresponding dual with $\\text{OPT}_2$, what is the name of the inequality connecting $\\text{OPT}_1$ with $\\text{OPT}_2$?",
+            "accepted": [
+                "Weak Duality",
+                "weak duality",
+                "Weak duality",
+                "weak-duality",
+                "Weak Duality Theorem",
+                "weak duality theorem"
+            ]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which of the following are correct? (A primal LP has optimum $\\text{OPT}_1$ and its corresponding dual has optimum $\\text{OPT}_2$.)",
+            "options": [
+                "Maximising primal: $\\text{OPT}_1 \\leq \\text{OPT}_2$",
+                "Minimising primal: $\\text{OPT}_1 \\geq \\text{OPT}_2$",
+                "Maximising primal: $\\text{OPT}_1 \\geq \\text{OPT}_2$",
+                "Minimising primal: $\\text{OPT}_1 \\leq \\text{OPT}_2$"
+            ],
+            "correct": [0, 1]
+        },
+        {
+            "type": "text",
+            "prompt": "If there is a maximising LP with $\\text{OPT}_1$ and a corresponding dual with $\\text{OPT}_2$, what is the name of the property asserting $\\text{OPT}_1 = \\text{OPT}_2$?",
+            "accepted": [
+                "Strong Duality",
+                "strong duality",
+                "Strong duality",
+                "strong-duality",
+                "Strong Duality Theorem",
+                "strong duality theorem"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "Given a primal LP and its corresponding dual, is the dual of the dual the same as the primal? (True / False)",
+            "accepted": [
+                "True",
+                "true",
+                "T",
+                "t",
+                "Yes",
+                "yes"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What do the variables in the primal correspond to in the dual?",
+            "accepted": [
+                "Constraints",
+                "constraints",
+                "Constraint",
+                "constraint"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What do the constraints in the primal correspond to in the dual?",
+            "accepted": [
+                "Variables",
+                "variables",
+                "Variable",
+                "variable"
+            ]
+        }
+    ]
+}
