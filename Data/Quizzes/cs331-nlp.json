@@ -54,6 +54,27 @@
             ]
         },
         {
+            "type": "text",
+            "prompt": "What does BOW stand for?",
+            "accepted": [
+                "bag of words"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What does TF in TF×IDF stand for?",
+            "accepted": [
+                "term frequency"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What does IDF in TF×IDF stand for?",
+            "accepted": [
+                "inverse document frequency"
+            ]
+        },
+        {
             "type": "sort",
             "prompt": "Sort each advantage by the sparse storage format it belongs to.",
             "columns": [
