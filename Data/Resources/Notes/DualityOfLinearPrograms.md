@@ -260,3 +260,133 @@ The **Weak Duality Theorem** refers to the property that the optimal values of t
 The **Strong Duality Theorem** refers to the property that the optimal values of the primal and dual are exactly the same:
 
 - If the primal has optimum $\text{OPT}_1$ and the dual has optimum $\text{OPT}_2$, then $\text{OPT}_1 = \text{OPT}_2$.
+
+## Complementary Slackness
+
+Let's use the primal and dual from the minimising problem as an example:
+
+$$
+\begin{aligned}
+\text{Primal: } \quad & \text{Minimise } 2 x_1 + 3 x_2 + 4 x_3 \\
+& x_1 + x_3 \geq 1 \\
+& x_2 + x_3 \geq 6 \\
+& x_1,\, x_2,\, x_3 \geq 0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\text{Dual: } \quad & \text{Maximise } y_1 + 6 y_2 \\
+& y_1 \leq 2 \\
+& y_2 \leq 3 \\
+& y_1 + y_2 \leq 4 \\
+& y_1,\, y_2 \geq 0
+\end{aligned}
+$$
+
+From deriving the dual, we have that:
+
+$$
+2 x_1 + 3 x_2 + 4 x_3 \;\geq\; (y_1) x_1 + (y_2) x_2 + (y_1 + y_2) x_3 \;\geq\; y_1 + 6 y_2
+$$
+
+Let's also re-arrange $(y_1) x_1 + (y_2) x_2 + (y_1 + y_2) x_3$ to be in terms of coefficients of the variables from the dual:
+
+$$
+(y_1) x_1 + (y_2) x_2 + (y_1 + y_2) x_3 \;=\; (x_1 + x_3) y_1 + (x_2 + x_3) y_2
+$$
+
+So in summary:
+
+$$
+2 x_1 + 3 x_2 + 4 x_3 \;\geq\; (y_1) x_1 + (y_2) x_2 + (y_1 + y_2) x_3 \;=\; (x_1 + x_3) y_1 + (x_2 + x_3) y_2 \;\geq\; y_1 + 6 y_2
+$$
+
+### Applying strong duality
+
+We know from strong duality that an optimal primal solution ($\text{OPT}_1$) equals the optimal dual solution ($\text{OPT}_2$). So if the values for $(x_1, x_2, x_3)$ and $(y_1, y_2)$ are such that the answers are optimal, then $\text{OPT}_1 = \text{OPT}_2$ and hence $2 x_1 + 3 x_2 + 4 x_3 = y_1 + 6 y_2$.
+
+This should make everything in our massive inequality above equal. So if $(x_1, x_2, x_3)$ and $(y_1, y_2)$ are optimal assignments then:
+
+$$
+2 x_1 + 3 x_2 + 4 x_3 \;=\; (y_1) x_1 + (y_2) x_2 + (y_1 + y_2) x_3 \;=\; (x_1 + x_3) y_1 + (x_2 + x_3) y_2 \;=\; y_1 + 6 y_2
+$$
+
+So if we ask when each inequality turns into an equality (i.e. when the inequalities are "tight"), we can discover conditions for the solutions to be optimal.
+
+### Finding the Complementary Slackness Conditions of the Primal
+
+The conditions for the *first* inequality to be tight are called the **complementary slackness conditions for the primal**. So when is:
+
+$$
+2 x_1 + 3 x_2 + 4 x_3 \;=\; (y_1) x_1 + (y_2) x_2 + (y_1 + y_2) x_3
+$$
+
+This is true if each term is equal. The first term is equal if $2 x_1 = (y_1) x_1$:
+
+- either $x_1 = 0$
+- or $y_1 = 2$
+
+Find the other terms.
+
+>[!check]- Other conditions
+> The second term $3 x_2 = (y_2) x_2$ is equal if:
+>
+> - $x_2 = 0$, or
+> - $y_2 = 3$.
+>
+> The third term $4 x_3 = (y_1 + y_2) x_3$ is equal if:
+>
+> - $x_3 = 0$, or
+> - $y_1 + y_2 = 4$.
+
+So the complementary slackness conditions for the primal are these constraints.
+
+>[!check]- The Complementary Slackness Conditions for the Primal
+> - $x_1 = 0$ or $y_1 = 2$
+> - $x_2 = 0$ or $y_2 = 3$
+> - $x_3 = 0$ or $y_1 + y_2 = 4$
+>
+> Equivalently: for each $i$, either $x_i = 0$ or the $i$-th dual constraint is tight (holds with equality).
+
+### Finding the Complementary Slackness Conditions for the Dual
+
+Let's identify the second inequality:
+
+>[!check]- The second inequality
+> $$
+> (x_1 + x_3) y_1 + (x_2 + x_3) y_2 \;\geq\; y_1 + 6 y_2
+> $$
+
+We want each term to be equal, so the complementary slackness conditions for the dual come from:
+
+$$
+(x_1 + x_3) y_1 + (x_2 + x_3) y_2 \;=\; y_1 + 6 y_2
+$$
+
+>[!check]- The Complementary Slackness Conditions for the Dual
+> The first term $(x_1 + x_3) y_1 = y_1$ is equal if:
+>
+> - $y_1 = 0$, or
+> - $x_1 + x_3 = 1$.
+>
+> The second term $(x_2 + x_3) y_2 = 6 y_2$ is equal if:
+>
+> - $y_2 = 0$, or
+> - $x_2 + x_3 = 6$.
+>
+> Equivalently: for each $j$, either $y_j = 0$ or the $j$-th primal constraint is tight (holds with equality).
+
+### Complementary Slackness Theorems
+
+A pair of feasible solutions to the primal and dual LPs are optimal if and only if:
+
+**(i)** Whenever a primal variable is nonzero, the corresponding dual constraint is tight.
+
+>[!check]- Example from above
+> Suppose $x_1 \neq 0$. From the complementary slackness conditions for the primal ($x_1 = 0$ or $y_1 = 2$), we must have $y_1 = 2$. That is exactly the first dual constraint ($y_1 \leq 2$) being tight.
+
+**(ii)** Whenever a dual variable is nonzero, the corresponding primal constraint is tight.
+
+>[!check]- Example from above
+> Suppose $y_1 \neq 0$. From the complementary slackness conditions for the dual ($y_1 = 0$ or $x_1 + x_3 = 1$), we must have $x_1 + x_3 = 1$. That is exactly the first primal constraint ($x_1 + x_3 \geq 1$) being tight.
