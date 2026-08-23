@@ -226,14 +226,6 @@
                     "url": "/quizzes/cs331-nlp"
                 },
                 {
-                    "title": "Text Preprocessing",
-                    "url": "/quizzes/cs331-text-preprocessing"
-                },
-                {
-                    "title": "Document Representation",
-                    "url": "/quizzes/cs331-document-representation"
-                },
-                {
                     "title": "Loss Functions",
                     "url": "/quizzes/cs331-loss-functions"
                 }

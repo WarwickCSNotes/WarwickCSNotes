@@ -21,30 +21,23 @@
             "prompt": "What is the process of discretisation of intensity values?",
             "accepted": [
                 "quantization",
-                "quantisation",
-                "Quantization",
-                "Quantisation"
+                "quantisation"
             ]
         },
         {
             "type": "text",
             "prompt": "What is the process of discretisation of space?",
             "accepted": [
-                "sampling",
-                "Sampling"
+                "sampling"
             ]
         },
         {
             "type": "text",
             "prompt": "What is the process of recovering complete RGB colour from the Bayer pattern array?",
             "accepted": [
-                "CFA interpolation",
                 "cfa interpolation",
-                "CFA Interpolation",
                 "demosaicing",
-                "Demosaicing",
-                "demosaicking",
-                "Demosaicking"
+                "demosaicking"
             ]
         }
     ]

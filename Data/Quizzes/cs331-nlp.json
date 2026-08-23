@@ -1,16 +1,16 @@
 {
     "title": "Natural Language Processing",
     "module": "CS331",
-    "description": "What NLP is, and common use-cases.",
+    "description": "NLP fundamentals, the text preprocessing pipeline, and sparse document representations.",
     "questions": [
         {
             "type": "text",
             "prompt": "What process transforms unstructured, noisy data into clean, structured data ready for analysis and learning?",
             "accepted": [
-                "Text preprocessing",
-                "Text pre-processing",
-                "Preprocessing",
-                "Pre-processing"
+                "text preprocessing",
+                "text pre-processing",
+                "preprocessing",
+                "pre-processing"
             ]
         },
         {
@@ -18,10 +18,55 @@
             "prompt": "Name the four use-cases of NLP listed in the lectures.",
             "slots": 4,
             "accepted": [
-                "Speech Recognition",
-                "Sentiment Analysis",
-                "Chatbots",
-                "Translation"
+                "speech recognition",
+                "speech",
+                "sentiment analysis",
+                "chatbots",
+                "translation"
+            ]
+        },
+        {
+            "type": "orderedmultitext",
+            "prompt": "Fill in the steps of the text preprocessing pipeline, in order.",
+            "accepted": [
+                "sentence segmentation",
+                "word tokenization",
+                "stop-word removal",
+                "lowercasing",
+                "normalization",
+                "pos tagging"
+            ]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each technique to its description.",
+            "left": [
+                "Stemming",
+                "Lemmatization"
+            ],
+            "right": [
+                "Reduces words to root/base forms, often by removing prefixes/suffixes, which can result in invalid words",
+                "Reduces words to their dictionary root forms"
+            ],
+            "correct": [
+                0,
+                1
+            ]
+        },
+        {
+            "type": "sort",
+            "prompt": "Sort each advantage by the sparse storage format it belongs to.",
+            "columns": [
+                "Yale",
+                "COO"
+            ],
+            "items": [
+                "Good for efficient matrix operations because it is row-focused",
+                "Good for incremental matrix construction"
+            ],
+            "correct": [
+                0,
+                1
             ]
         }
     ]

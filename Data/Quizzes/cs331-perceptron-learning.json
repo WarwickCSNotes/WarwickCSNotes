@@ -7,13 +7,20 @@
             "type": "multitext",
             "prompt": "Why might you have a high learning rate?",
             "slots": 2,
-            "accepted": ["Speed", "Fewer iterations"]
+            "accepted": [
+                "speed",
+                "fewer iterations"
+            ]
         },
         {
             "type": "multitext",
             "prompt": "Why might you have a low learning rate?",
             "slots": 2,
-            "accepted": ["accuracy", "not overshoot", "overshoot"]
+            "accepted": [
+                "accuracy",
+                "not overshoot",
+                "overshoot"
+            ]
         }
     ]
 }

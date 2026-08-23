@@ -124,9 +124,18 @@ function buildTrail(pathname: string, moduleYear: number | undefined): Crumb[] {
     ]
   }
 
-  // /quizzes/:id — ids are prefixed with the module code, e.g. cs130-sets
+  // /quizzes/:id — ids are prefixed with the module code, e.g. cs130-sets.
+  // If the id starts with a module code, walk down the module's own trail so
+  // the breadcrumb ends at the quiz's owning module rather than a flat list.
   if (seg[0] === "quizzes" && seg[1]) {
     const title = humanise(seg[1].replace(/^cs\d+-/i, ""))
+    const codeMatch = seg[1].match(/^(cs\d+)/i)
+    if (codeMatch) {
+      return [
+        ...moduleTrail(codeMatch[1], moduleYear),
+        { label: title },
+      ]
+    }
     return [HOME, { label: "Quizzes", to: "/quizzes" }, { label: title }]
   }
 
@@ -160,6 +169,11 @@ function moduleCodeFor(pathname: string): string | undefined {
   if (seg[0] === "reviews" && seg[1]) return seg[1]
   if (seg[0] === "resources" && seg.length === 4) return seg[2]
   if (seg[0] === "tools" && seg.length === 3) return seg[1]
+  // Quiz ids are prefixed with the module code, e.g. cs130-sets → CS130.
+  if (seg[0] === "quizzes" && seg[1]) {
+    const m = seg[1].match(/^(cs\d+)/i)
+    return m ? m[1] : undefined
+  }
   return undefined
 }
 

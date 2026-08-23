@@ -6,14 +6,24 @@
         {
             "type": "match",
             "prompt": "Match each sensor classification to its description.",
-            "left": ["Proprioceptive", "Exteroceptive", "Passive", "Active"],
+            "left": [
+                "Proprioceptive",
+                "Exteroceptive",
+                "Passive",
+                "Active"
+            ],
             "right": [
                 "Measures values internal to the robot, e.g. wheel speed",
                 "Measures values from the robot's environment",
                 "Energy comes from the environment",
                 "The sensor emits energy"
             ],
-            "correct": [0, 1, 2, 3]
+            "correct": [
+                0,
+                1,
+                2,
+                3
+            ]
         },
         {
             "type": "order",
@@ -30,18 +40,18 @@
             "type": "text",
             "prompt": "What is the type of error that is predictable and caused by factors that can be modelled?",
             "accepted": [
-                "Systematic",
-                "Systematic error",
-                "Systematic errors"
+                "systematic",
+                "systematic error",
+                "systematic errors"
             ]
         },
         {
             "type": "text",
             "prompt": "What is the type of error that is **not** predictable but can be treated with probability?",
             "accepted": [
-                "Random",
-                "Random error",
-                "Random errors"
+                "random",
+                "random error",
+                "random errors"
             ]
         }
     ]

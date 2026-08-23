@@ -8,18 +8,21 @@
             "prompt": "Name the three types of redundancy.",
             "slots": 3,
             "accepted": [
-                "Spatial",
-                "Psychovisual",
-                "Coding",
-                "Spatial redundancy",
-                "Psychovisual redundancy",
-                "Coding redundancy"
+                "spatial",
+                "psychovisual",
+                "coding",
+                "spatial redundancy",
+                "psychovisual redundancy",
+                "coding redundancy"
             ]
         },
         {
             "type": "text",
             "prompt": "What is the most common image compression algorithm?",
-            "accepted": ["JPEG", "jpeg", "Jpeg", "JPG", "jpg"]
+            "accepted": [
+                "jpeg",
+                "jpg"
+            ]
         }
     ]
 }

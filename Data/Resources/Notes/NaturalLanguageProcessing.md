@@ -1,3 +1,12 @@
+Natural Language Processing (NLP) is a field of AI for enabling computers to read and generate human language.
+
+## Applications of NLP
+
+- Speech Recognition
+- Sentiment Analysis
+- Chatbots (e.g. ChatGPT, Gemini, Claude)
+- Translation (e.g. English to French)
+
 ## Text Preprocessing
 
 Raw text data is:
