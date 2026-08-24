@@ -23,6 +23,17 @@
                 "jpeg",
                 "jpg"
             ]
+        },
+        {
+            "type": "order",
+            "prompt": "Order the steps of JPEG compression, from first to last.",
+            "items": [
+                "Colour space inversion",
+                "Division into subimages",
+                "Discrete cosine transform",
+                "Quantizer",
+                "Entropy coding (Huffman coding)"
+            ]
         }
     ]
 }

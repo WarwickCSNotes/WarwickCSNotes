@@ -291,6 +291,8 @@ BOW would break this document down into "Ed", "loves", "Epic", "The", "Musical" 
 >
 > **Disadvantage:** more computation, more storage needed, and more sparse (more possible gram combinations, so more zero counts across documents).
 
+### LSA
+
 ## Word-Level Representation
 
 Another representation method, in contrast to Document-Level Representation.
@@ -303,4 +305,12 @@ Another representation method, in contrast to Document-Level Representation.
 
 Note also that WLR can be aggregated (e.g. averaging or summing the word vectors) to find a document vector.
 
-### Word Embedding
+### Word Embeddings
+
+### CBOW
+
+### Skip-Gram
+
+### Hierarchical Softmax
+
+### Negative Sampling
