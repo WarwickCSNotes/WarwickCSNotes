@@ -47,6 +47,7 @@
     "OverviewOfAI.md": ["EdDenton"],
     "GraphBasedSimilaritySearch.md": ["EdDenton"],
     "DualityOfLinearPrograms.md": ["EdDenton"],
+    "LearningParadigms.md": ["EdDenton"],
 
     "HaskellIntro.md": ["TJFacos"],
     "HaskellBasics.md": ["TJFacos"],

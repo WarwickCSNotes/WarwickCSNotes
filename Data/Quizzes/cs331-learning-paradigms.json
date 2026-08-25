@@ -1,0 +1,66 @@
+{
+    "title": "Learning Paradigms",
+    "module": "CS331",
+    "description": "Quick check on supervised, unsupervised, semi-supervised, transductive vs inductive, and Pavlovian conditioning.",
+    "questions": [
+        {
+            "type": "multitext",
+            "prompt": "What are the applications of Supervised Learning given in the lectures/notes?",
+            "slots": 2,
+            "accepted": [
+                "regression",
+                "classification"
+            ]
+        },
+        {
+            "type": "multitext",
+            "prompt": "What are the applications of Unsupervised Learning given in the lectures/notes?",
+            "slots": 2,
+            "accepted": [
+                "clustering",
+                "association"
+            ]
+        },
+        {
+            "type": "multitext",
+            "prompt": "Semi-Supervised Learning exists because labelling all data is often impractical. Give the two main reasons why data isn't always labelled.",
+            "slots": 2,
+            "accepted": [
+                "cost",
+                "time",
+                "expensive",
+                "time-consuming"
+            ]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each Semi-Supervised Learning assumption to its description.",
+            "left": ["Continuity Assumption", "Cluster Assumption"],
+            "right": [
+                "Data points in the same cluster are likely to have the same label",
+                "Close-together data points are likely to have the same label"
+            ],
+            "correct": [1, 0]
+        },
+        {
+            "type": "match",
+            "prompt": "Match each learning approach to its description.",
+            "left": ["Inductive Learning", "Transductive Learning"],
+            "right": [
+                "Makes predictions for a specific fixed set of unlabelled data, without necessarily learning a general rule",
+                "Learns a general rule from labelled data that can be applied to any new unlabelled data"
+            ],
+            "correct": [1, 0]
+        },
+        {
+            "type": "order",
+            "prompt": "Arrange the stages of Pavlovian Conditioning in the correct order.",
+            "items": [
+                "Before conditioning: food alone triggers salivation",
+                "Before conditioning: bell alone triggers no response",
+                "During conditioning: food and bell paired, reinforcing the association",
+                "After conditioning: bell alone triggers salivation"
+            ]
+        }
+    ]
+}

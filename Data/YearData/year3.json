@@ -146,7 +146,7 @@
                     "url": "/resources/Notes/CS331/OverviewOfAI"
                 },
                 {
-                    "title": "Biological Neurons",
+                    "title": "Biology",
                     "url": "/resources/Notes/CS331/BiologicalNeuron"
                 },
                 {
@@ -172,6 +172,10 @@
                 {
                     "title": "Graph-Based Similarity Search",
                     "url": "/resources/Notes/CS331/GraphBasedSimilaritySearch"
+                },
+                {
+                    "title": "Learning Paradigms",
+                    "url": "/resources/Notes/CS331/LearningParadigms"
                 }
             ],
             "past_papers": [
@@ -197,7 +201,7 @@
             ],
             "quizzes": [
                 {
-                    "title": "Biological Neurons",
+                    "title": "Biology",
                     "url": "/quizzes/cs331-biological-neurons"
                 },
                 {
@@ -224,6 +228,10 @@
                 {
                     "title": "Natural Language Processing",
                     "url": "/quizzes/cs331-nlp"
+                },
+                {
+                    "title": "Learning Paradigms",
+                    "url": "/quizzes/cs331-learning-paradigms"
                 },
                 {
                     "title": "Loss Functions",

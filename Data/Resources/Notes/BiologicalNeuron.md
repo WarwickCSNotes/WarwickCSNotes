@@ -68,4 +68,21 @@ Two main factors which determine the speed of the action potential:
 >[!info]- Myelin Sheath
 > The **myelin sheath** is a fatty covering which act as an insulator for axons, so the action potential remains strong and doesn't dissipate/leak outwards.
 
-The axon ends in a bunch of **axon terminals** which is where the synapses connecting the axon to the dendrites of other neurons are. 
+The axon ends in a bunch of **axon terminals** which is where the synapses connecting the axon to the dendrites of other neurons are.
+
+## Action Potentials
+
+There is a **membrane potential** (or **membrane voltage**) across the cell membrane: a difference in voltages from the outside to the inside of the cell.
+
+There is a **resting potential** of about $-70\text{mV}$ across the membrane.
+
+There are **leaky channels** and **voltage-gated channels** on the membrane:
+
+- **Leaky channels** always let ions through.
+- **Voltage-gated channels** only open at certain potentials (they should be closed at resting).
+
+Essentially, the voltage-gated channels only join in when the potential is strong enough.
+
+### Action Potential
+
+When a neuron sends information down an axon, an **action potential** is induced. It is generated when the membrane potential exceeds some threshold voltage (usually $-55\text{mV}$). Any stimulus smaller than this threshold will produce nothing, but threshold-exceeding voltages will cause **depolarisation** of the cell, and the cell is excited. 

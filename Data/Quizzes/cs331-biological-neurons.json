@@ -1,5 +1,5 @@
 {
-    "title": "Biological Neurons",
+    "title": "Biology",
     "module": "CS331",
     "description": "Quick check on the biological inspiration for artificial neural networks.",
     "questions": [
@@ -117,6 +117,14 @@
                 "relay neuron",
                 "relay",
                 "relay neurons"
+            ]
+        },
+        {
+            "type": "text",
+            "prompt": "What is the resting potential of the cell membrane?",
+            "accepted": [
+                "-70mv",
+                "-70 mv"
             ]
         }
     ]

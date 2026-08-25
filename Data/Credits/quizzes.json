@@ -10,5 +10,6 @@
     "cs355-image-compression.json": ["EdDenton"],
     "cs355-image-acquisition.json": ["EdDenton"],
     "cs356-approximation-ratio.json": ["EdDenton"],
-    "cs356-duality-of-linear-programs.json": ["EdDenton"]
+    "cs356-duality-of-linear-programs.json": ["EdDenton"],
+    "cs331-learning-paradigms.json": ["EdDenton"]
 }
