@@ -1,0 +1,17 @@
+{
+    "title": "Source Device Identification",
+    "module": "CS355",
+    "description": "Quick check on the SPN (Sensor Pattern Noise) approximation workflow.",
+    "questions": [
+        {
+            "type": "order",
+            "prompt": "Arrange the steps of SPN approximation in order, from first to last.",
+            "items": [
+                "Obtain multiple images (ideally uniform lighting)",
+                "Denoise images",
+                "Calculate noise residual",
+                "Average noise residual"
+            ]
+        }
+    ]
+}

@@ -380,6 +380,14 @@
                 {
                     "title": "Image Compression",
                     "url": "/quizzes/cs355-image-compression"
+                },
+                {
+                    "title": "Image Enhancement",
+                    "url": "/quizzes/cs355-image-enhancement"
+                },
+                {
+                    "title": "Source Device Identification",
+                    "url": "/quizzes/cs355-source-device-identification"
                 }
             ]
         },

@@ -1,0 +1,17 @@
+{
+    "title": "Image Enhancement",
+    "module": "CS355",
+    "description": "Quick check on noise-removal filters.",
+    "questions": [
+        {
+            "type": "match",
+            "prompt": "Match each type of noise to the filter that removes it.",
+            "left": ["Gaussian noise", "Salt and pepper noise"],
+            "right": [
+                "Median filter",
+                "Local averaging (mean filter)"
+            ],
+            "correct": [1, 0]
+        }
+    ]
+}

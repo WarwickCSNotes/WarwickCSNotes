@@ -38,6 +38,33 @@
                 "$4{:}1{:}1$"
             ],
             "correct": [2]
+        },
+        {
+            "type": "checkbox",
+            "prompt": "Which is the correct formula for the sample correlation coefficient $r(X, Y)$?",
+            "options": [
+                "$r(X, Y) = \\dfrac{\\text{Cov}(X, Y)}{\\text{Var}(X) \\cdot \\text{Var}(Y)}$",
+                "$r(X, Y) = \\dfrac{\\text{Cov}(X, Y)}{\\text{Var}(X) + \\text{Var}(Y)}$",
+                "$r(X, Y) = \\dfrac{\\text{Cov}(X, Y)}{\\sqrt{\\text{Var}(X) \\cdot \\text{Var}(Y)}}$",
+                "$r(X, Y) = \\dfrac{\\sqrt{\\text{Var}(X) \\cdot \\text{Var}(Y)}}{\\text{Cov}(X, Y)}$"
+            ],
+            "correct": [2]
+        },
+        {
+            "type": "sort",
+            "prompt": "Categorise each distortion by whether it counts as a structural distortion (as used by SSIM).",
+            "columns": ["Structural", "Non-structural"],
+            "items": [
+                "Blurring",
+                "Luminance change",
+                "Noise",
+                "Spatial shift",
+                "JPEG blocking",
+                "Gamma distortion",
+                "Contrast change",
+                "Wavelet ringing"
+            ],
+            "correct": [0, 1, 0, 1, 0, 1, 1, 0]
         }
     ]
 }

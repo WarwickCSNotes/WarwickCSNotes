@@ -27,4 +27,15 @@ Equalisation *generally* increases the contrast of an image, and general histogr
 
 Noise is an unwanted, often random artifact on images that usually occurs due to imperfections in devices, environment, transmission, or compression.
 
+Generally, two kinds of noise we look at:
+
+- **Gaussian noise**
+- **Salt and pepper noise**
+
+We use **local averaging (mean filter)** to get rid of Gaussian noise, and we use a **median filter** to get rid of salt and pepper noise.
+
+#### Mean Filter
+
+#### Median Filter
+
 ## Frequency-Domain Processing
