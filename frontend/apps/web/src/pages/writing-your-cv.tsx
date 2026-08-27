@@ -18,6 +18,12 @@ const TEMPLATES: Resource[] = [
     description:
       "A widely-recommended LaTeX resume template. Single page, ATS-friendly, and easy to skim.",
   },
+  {
+    name: "Dat Nguyen's CV Template (Overleaf)",
+    url: "https://www.overleaf.com/project/6a817fe52f9bb3ec79d3b440",
+    description:
+      "An alternative LaTeX CV template on Overleaf.",
+  },
 ]
 
 const EXAMPLES: Resource[] = [
