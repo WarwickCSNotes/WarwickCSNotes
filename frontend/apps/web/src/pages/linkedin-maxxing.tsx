@@ -32,6 +32,12 @@ const EXAMPLES: Resource[] = [
     description:
       "My friend Louis' profile is very solid, with several additional sections (Projects, Licenses, Honors & Awards etc).",
   },
+  {
+    name: "Crystal Ng Shu Lu",
+    url: "https://www.linkedin.com/in/crystalng2005/",
+    description:
+      "Verified, with the Projects and Volunteering sections filled in, good work experience, and career-oriented posts.",
+  },
 ]
 
 export const LinkedInMaxxingPage = () => {

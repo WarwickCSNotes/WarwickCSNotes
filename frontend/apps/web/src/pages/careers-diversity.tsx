@@ -17,6 +17,12 @@ const WOMEN_IN_COMPUTING: Resource[] = [
     description:
       "ACM's Council on Women in Computing offers scholarships for women to attend research conferences.",
   },
+  {
+    name: "Qube Scholarships for Women in Computing",
+    url: "https://warwick.ac.uk/fac/sci/dcs/admissions/undergraduate/funding-opportunities/",
+    description:
+      "A scholarship for women in Computer Science, listed on the DCS funding opportunities page. The link is also emailed to you at the beginning of first year, so keep an eye on your Warwick inbox.",
+  },
 ]
 
 export const CareersDiversityPage = () => {
