@@ -375,11 +375,15 @@
             "name": "Software Engineering",
             "Term": "2",
             "CATS": "15",
-            "authors": [],
+            "authors": ["CrystalNg"],
             "notes": [
                 {
                     "title": "GET ME OUT OF HERE",
                     "url": "#"
+                },
+                {
+                    "title": "Design Patterns",
+                    "url": "/resources/Notes/CS261/DesignPatterns"
                 }
             ],
             "past_papers": [
