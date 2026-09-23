@@ -118,6 +118,33 @@
                     "url": "#"
                 }
             ],
+            "external_resources": [
+                {
+                    "name": "A Brief History of LLVM (YouTube)",
+                    "url": "https://www.youtube.com/watch?v=i7Tkkd-CXQQ",
+                    "description": "Vikram Adve and Chris Lattner tell the story of LLVM at the 2007 LLVM Developers' Meeting, from research project to the backend infrastructure the module's coursework targets."
+                },
+                {
+                    "name": "Architecture for a Next-Generation GCC (Lattner & Adve, 2003)",
+                    "url": "https://llvm.org/pubs/2003-05-01-GCCSummit2003.html",
+                    "description": "The GCC Summit paper that proposed an SSA-based intermediate representation for whole-program, link-time optimisation. Good background on why compilers use an IR and what makes a good one."
+                },
+                {
+                    "name": "MLIR: A Compiler Infrastructure for the End of Moore's Law",
+                    "url": "https://arxiv.org/abs/2002.11054",
+                    "description": "Paper introducing MLIR, LLVM's multi-level IR framework. Shows how the single-IR model from lectures generalises to reusable, domain-specific dialects."
+                },
+                {
+                    "name": "The Compilation Game - Tobias Grosser (YouTube)",
+                    "url": "https://www.youtube.com/watch?v=fZSXJzDMEc8",
+                    "description": "Talk arguing that compiler development needs to be broken into reusable pieces, verified and automated, drawing on LLVM/MLIR, hardware design and HPC. Wider context for where compiler research is going."
+                },
+                {
+                    "name": "Building Compilers for AI Programming Frameworks (YouTube)",
+                    "url": "https://www.youtube.com/watch?v=-ZxDqcSCrhg",
+                    "description": "Uday Bondhugula on how compilers are built for AI/ML frameworks, covering polyhedral optimisation and MLIR. A practical look at code generation beyond the module's toy language."
+                }
+            ],
             "assessments": [
                 {
                     "title": "Coursework",
