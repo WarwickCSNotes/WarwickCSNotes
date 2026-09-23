@@ -58,5 +58,7 @@
     "HaskellKindsSubtypes.md": ["TJFacos"],
     "HaskellSemigroupsMonoids.md": ["TJFacos"],
     "HaskellFunctorsApplicativesMonads.md": ["TJFacos"],
-    "HaskellParsing.md": ["TJFacos"]
+    "HaskellParsing.md": ["TJFacos"],
+
+    "DesignPatterns.md": ["CrystalNg"]
 }

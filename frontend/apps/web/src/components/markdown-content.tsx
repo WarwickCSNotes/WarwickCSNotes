@@ -70,6 +70,59 @@ function highlightHaskell(code: string) {
   );
 }
 
+/** Reserved keywords in Java (including the primitive type names, which are
+ *  keywords in Java rather than ordinary type identifiers). */
+const JAVA_KEYWORDS = new Set([
+  "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char",
+  "class", "const", "continue", "default", "do", "double", "else", "enum",
+  "extends", "final", "finally", "float", "for", "goto", "if", "implements",
+  "import", "instanceof", "int", "interface", "long", "native", "new",
+  "package", "private", "protected", "public", "return", "short", "static",
+  "strictfp", "super", "switch", "synchronized", "this", "throw", "throws",
+  "transient", "try", "var", "void", "volatile", "while",
+]);
+
+/** Literals, coloured like numbers rather than like keywords. */
+const JAVA_LITERALS = new Set(["true", "false", "null"]);
+
+/** Lightweight, regex-based Java syntax highlighter; the counterpart of
+ *  `highlightHaskell` for the CS261 design-pattern code blocks. Same
+ *  self-contained approach and same colour palette: comments, strings, char
+ *  literals, annotations, type names, keywords, numbers and operators. */
+function highlightJava(code: string) {
+  // One regex with alternation, longest-first so e.g. `/*` beats `/`.
+  const tokenRe = /(\/\*[\s\S]*?\*\/|\/\/[^\n]*|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|@[A-Za-z_$][\w$]*|[A-Z][\w$]*|[a-z_$][\w$]*|\d[\w.]*|\s+|[^\s])/g;
+  const tokens: { value: string; cls: string }[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = tokenRe.exec(code)) !== null) {
+    const t = m[0];
+    let cls = "";
+    if (t.startsWith("/*") || t.startsWith("//")) {
+      cls = "italic text-muted-foreground";
+    } else if (t.startsWith('"') || t.startsWith("'")) {
+      cls = "text-emerald-600 dark:text-emerald-400";
+    } else if (t.startsWith("@") || /^[A-Z]/.test(t)) {
+      // Annotations and type names (Java convention: types are capitalised).
+      cls = "text-blue-600 dark:text-blue-400";
+    } else if (JAVA_KEYWORDS.has(t)) {
+      cls = "text-purple-600 dark:text-purple-400 font-semibold";
+    } else if (JAVA_LITERALS.has(t) || /^\d/.test(t)) {
+      cls = "text-orange-600 dark:text-orange-400";
+    } else if (/^[a-z_$]/.test(t) || /^\s+$/.test(t)) {
+      cls = "";
+    } else {
+      // Punctuation or a symbolic operator (`=`, `==`, `;`, `{`, ...).
+      cls = "text-pink-600 dark:text-pink-400";
+    }
+    tokens.push({ value: t, cls });
+  }
+  return tokens.map((tok, i) =>
+    tok.cls
+      ? <span key={i} className={tok.cls}>{tok.value}</span>
+      : <span key={i}>{tok.value}</span>
+  );
+}
+
 function latexToMarkdown(tex: string): string {
   let md = tex;
   md = md.replace(/\\documentclass(\[.*?\])?\{.*?\}/g, '');
@@ -528,9 +581,14 @@ export function MarkdownContent({ content, extension }: { content: string; exten
               return <code className="bg-muted rounded px-1.5 py-0.5 text-sm font-mono">{children}</code>;
             }
             const isHaskell = className === "language-hs" || className === "language-haskell";
+            const isJava = className === "language-java";
             return (
               <code className={`${className} block bg-muted rounded p-4 my-4 overflow-x-auto text-sm whitespace-pre`}>
-                {isHaskell ? highlightHaskell(String(children)) : children}
+                {isHaskell
+                  ? highlightHaskell(String(children))
+                  : isJava
+                    ? highlightJava(String(children))
+                    : children}
               </code>
             );
           },
