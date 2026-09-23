@@ -29,9 +29,9 @@ const TEMPLATES: Resource[] = [
 const EXAMPLES: Resource[] = [
   {
     name: "Edward Denton's CV",
-    url: "https://github.com/24edden/24edden/blob/main/Edward_Denton_Programming_CV.pdf",
+    url: "https://github.com/24edden/24edden/blob/main/Edward_Denton_Final_Student_BSc_CV.pdf",
     description:
-      "My Programming CV! Not perfect but pretty good, and generally follows the advice on this page. Note it is my CV after my final year of uni.",
+      "My Programming CV just before I graduated! Not perfect but pretty good, and generally follows the advice on this page.",
   },
   {
     name: "JustinBustin's CV",
