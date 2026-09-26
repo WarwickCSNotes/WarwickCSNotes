@@ -1,9 +1,21 @@
-A set is a mathematical object with a notion of membership i.e. whether something is in it or not. 
+A set is a thing which contains things, and it only keeps track of whether a thing is in it or not. It doesn't have an idea of how many of each thing is in it - just whether the thing is in it or not. For instance, a set:
 
-Since they do NOT have a notion of counting, you can only include an element *once* (it is in or it is out).
-That is, $\{A, B, C\} = \{A, A, B, C\} = \{A, B, B, C, C\}$.
+$\{Coke, Pepsi\}$
 
-(sets are typically wrapped in curly braces $\{\}$)
+*(sets are typically wrapped in curly braces $\{\}$)*   
+
+Since sets only keep track of whether a thing is in it or not, duplicates don't make sense. That is:
+
+$\{Coke, Coke, Pepsi\} = \{Coke, Pepsi\} = \{Coke, Coke, Coke, Pepsi, Pepsi\}$.
+
+More formally (though not a proper mathematical definition): A set is a mathematical object with a notion of membership i.e. whether something is in it or not. Sets do not have a notion of counting.
+
+>[!info]- Historical Description (Cantor)
+> Georg Cantor, considered the father of set theory, gave the following description of sets:
+>
+> "A set is a collection into a whole of definite, distinct objects of our intuition or our thought. The objects are elements (members) of the set"
+>
+> (Note translations vary slightly since Cantor wrote in German)
 
 ## Membership of a Set
 
@@ -34,6 +46,9 @@ Some sets that come up everywhere:
 - $\mathbb{C}$, the **complex numbers**: numbers of the form $a + bi$ with $a, b \in \mathbb{R}$ and $i^2 = -1$.
 
 These satisfy a natural chain of inclusions: $\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C}$.
+
+>[!tip]- Exam Tip: Useful Sets
+> Often in exams, you may need to construct a set with some properties. These will often be the above sets (or one of the above sets is a starting point for such a set).
 
 ## Operations on Sets
 
