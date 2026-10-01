@@ -1,8 +1,34 @@
 In the everyday, we talk using loose and casual language which can have many interpretations. However, in mathematics, we must be precise and clear in our language. To this end, we have the language of **logic**. 
 
-## Statements
+We build up this language of logic with simple propositions (which we will also refer to as statements) that have a truth value (true/false) and we piece these statements together with logical operators (e.g. AND, OR, NOT). 
 
-In Propositional Logic, we can express statements that are either **true** or **false**. It is not valid to give statements that don't have a truthiness (e.g. "Enjoy CS130 or else..." or "What about questions?") or are paradoxical (e.g. the Liar's paradox: "This statement is false").
+## Statements (aka Propositions)
+
+In Propositional Logic, we can express statements that are either **true** or **false**. It is not valid to give statements that don't have a truthiness (e.g. "Enjoy CS130 or else..." or "What about questions?").
+
+Since paradoxes (e.g. the Liar's paradox: "This statement is false") don't have an exact truth value (either true or false), paradoxes are not valid statements.
+
+>[!note] Example statements
+> - $1 \times 1 = 1$
+> - $42 - 3 = 68$
+> - The temperature on top of Mt Everest at 18:55 on the 30th September 2026 is 53 degrees
+
+>[!check]- Why are these all statements?
+> - $1 \times 1 = 1$ is **true** $\rightarrow$ it's a statement.
+> - $42 - 3 = 68$ is **false** $\rightarrow$ it's a statement.
+> - The Everest one, we don't know, but it's certainly one or the other $\rightarrow$ it's a statement.
+>
+> All of the above have a truth value (either true or false), so they are statements. Note that being a statement has nothing to do with being *true*, or even with us *knowing* which one it is. It only requires that one of the two truth values applies.
+
+>[!failure] Example invalid statements
+> - Yay, CS130!
+> - This sentence is false.
+> - Where is the bathroom?
+
+>[!check]- Why aren't these statements?
+> - **"Yay, CS130!"** is an exclamation; there is no truth value!
+> - **"This sentence is false."** is the Liar's paradox from above. Suppose it's true, then what it claims holds, so it's false. Suppose it's false, then what it claims fails, so it's true. Neither truth value can be assigned consistently, so it doesn't have one.
+> - **"Where is the bathroom?"** is a question. It asks for information rather than asserting anything, so there's nothing there to be true or false in the first place.
 
 ## Atomic Propositions
 
