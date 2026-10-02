@@ -24,6 +24,12 @@ const TEMPLATES: Resource[] = [
     description:
       "An alternative LaTeX CV template on Overleaf.",
   },
+  {
+    name: "Trackr CV Template (Word)",
+    url: "https://the-trackr.com/blog/trackr-cv-template/",
+    description:
+      "A Word template aimed at UK finance and consulting applications (e.g. Deloitte, BCG, Softwire etc), as opposed to software roles.",
+  },
 ]
 
 const EXAMPLES: Resource[] = [
