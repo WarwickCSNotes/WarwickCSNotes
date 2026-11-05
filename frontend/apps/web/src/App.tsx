@@ -62,6 +62,11 @@ const WritingYourCVPage = lazy(() =>
     default: m.WritingYourCVPage,
   })),
 )
+const WritingYourCoverLetterPage = lazy(() =>
+  import("./pages/writing-your-cover-letter").then((m) => ({
+    default: m.WritingYourCoverLetterPage,
+  })),
+)
 const InterviewPrepPage = lazy(() =>
   import("./pages/interview-prep").then((m) => ({
     default: m.InterviewPrepPage,
@@ -75,6 +80,21 @@ const SellingYourselfPage = lazy(() =>
 const LinkedInMaxxingPage = lazy(() =>
   import("./pages/linkedin-maxxing").then((m) => ({
     default: m.LinkedInMaxxingPage,
+  })),
+)
+const ResearchAndFurtherStudyPage = lazy(() =>
+  import("./pages/research-and-further-study").then((m) => ({
+    default: m.ResearchAndFurtherStudyPage,
+  })),
+)
+const AlternativeCareersPage = lazy(() =>
+  import("./pages/alternative-careers").then((m) => ({
+    default: m.AlternativeCareersPage,
+  })),
+)
+const InternationalStudentsPage = lazy(() =>
+  import("./pages/international-students").then((m) => ({
+    default: m.InternationalStudentsPage,
   })),
 )
 const DiversityPage = lazy(() =>
@@ -133,9 +153,13 @@ export function App() {
             <Route path="/careers/internships" element={<InternshipsPage />} />
             <Route path="/careers/graduate-roles" element={<GraduateRolesPage />} />
             <Route path="/careers/writing-your-cv" element={<WritingYourCVPage />} />
+            <Route path="/careers/writing-your-cover-letter" element={<WritingYourCoverLetterPage />} />
             <Route path="/careers/interview-prep" element={<InterviewPrepPage />} />
             <Route path="/careers/selling-yourself" element={<SellingYourselfPage />} />
             <Route path="/careers/linkedin-maxxing" element={<LinkedInMaxxingPage />} />
+            <Route path="/careers/research-and-further-study" element={<ResearchAndFurtherStudyPage />} />
+            <Route path="/careers/alternative-careers" element={<AlternativeCareersPage />} />
+            <Route path="/careers/international-students" element={<InternationalStudentsPage />} />
             <Route path="/careers/diversity" element={<CareersDiversityPage />} />
             <Route path="/diversity" element={<DiversityPage />} />
             <Route path="/disability-support" element={<DisabilitySupportPage />} />

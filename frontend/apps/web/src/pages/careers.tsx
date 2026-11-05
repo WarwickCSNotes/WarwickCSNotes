@@ -49,6 +49,11 @@ const GUIDES: InternalGuide[] = [
       "Write a CV to pass filters and standout to recruiters.",
   },
   {
+    name: "Writing your Cover Letter",
+    to: "/careers/writing-your-cover-letter",
+    description: "A quick, repeatable way to write cover letters.",
+  },
+  {
     name: "Interview Prep",
     to: "/careers/interview-prep",
     description:
@@ -63,13 +68,30 @@ const GUIDES: InternalGuide[] = [
     name: "LinkedIn Maxxing",
     to: "/careers/linkedin-maxxing",
     description:
-      "Get the most out of LinkedIn: profile, connections, posts, and job search.",
+      "Get the most out of LinkedIn: profile, networking, posts, and job search.",
+  },
+  {
+    name: "Research & Further Study",
+    to: "/careers/research-and-further-study",
+    description:
+      "Research during your degree, plus Master's and PhD options.",
+  },
+  {
+    name: "Alternative Careers",
+    to: "/careers/alternative-careers",
+    description:
+      "Software Engineering Adjacent careers that are accessible through a Computer Science degree.",
   },
   {
     name: "Diversity",
     to: "/careers/diversity",
     description:
       "Scholarships and opportunities for underrepresented groups in tech.",
+  },
+  {
+    name: "International Students",
+    to: "/careers/international-students",
+    description: "Visa routes and career advice for international students.",
   },
 ]
 
@@ -99,7 +121,19 @@ const TRACKERS: CareerLink[] = [
     name: "HackathonHub",
     url: "https://hackathonhub.eu/",
     description: "Tracker for hackathons across Europe.",
-  }
+  },
+  {
+    name: "Gradcracker",
+    url: "https://www.gradcracker.com/",
+    description:
+      "Job board for STEM internships, placements and graduate roles.",
+  },
+  {
+    name: "Bright Network",
+    url: "https://www.brightnetwork.co.uk/",
+    description:
+      "Careers platform listing internships and graduate jobs across the UK.",
+  },
 ]
 
 const SOCIETIES: CareerLink[] = [

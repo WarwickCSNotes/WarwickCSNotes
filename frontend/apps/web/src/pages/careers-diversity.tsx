@@ -25,6 +25,13 @@ const WOMEN_IN_COMPUTING: Resource[] = [
   },
 ]
 
+const ABL_FOUNDATION: Resource = {
+  name: "ABL Foundation",
+  url: "https://www.ablfoundation.co.uk/",
+  description:
+    "Paid internships for disabled students and recent graduates, designed to lead to lasting careers.",
+}
+
 const COMMUNITIES: Resource[] = [
   {
     name: "Rewriting the Code",
@@ -181,6 +188,30 @@ export const CareersDiversityPage = () => {
             </li>
           ))}
         </ul>
+      </PageSection>
+
+      <PageSection
+        title="Disabled Students"
+        subtitle="The ABL Foundation runs an internship programme for disabled students."
+        className="mb-10"
+      >
+        <div className="mb-4 text-muted-foreground">
+          <p className="mb-3">To be eligible, you need to meet both criteria:</p>
+          <ul className="ml-6 list-disc space-y-2">
+            <li>
+              Be studying at a UK university, be a recent graduate of one, or
+              be on a gap year with an unconditional offer from one.
+            </li>
+            <li>
+              Have received, or be receiving, Disabled Students' Allowance
+              (DSA). If you don't meet this but still consider yourself
+              eligible, complete the relevant section of the application form.
+            </li>
+          </ul>
+        </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <LinkCard link={ABL_FOUNDATION} />
+        </div>
       </PageSection>
     </Page>
   )
