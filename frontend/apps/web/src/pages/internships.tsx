@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
 import { SurfaceLink } from "@/components/surface"
 import { LinkCard } from "@/components/cards"
+import { DataTable } from "@/components/data-table"
 
 type Resource = {
   name: string
@@ -19,7 +20,31 @@ const FINDING_WHERE: Resource[] = [
     description:
       "Widely-used tracker of open UK tech summer internships with deadlines and application links. Check it weekly.",
   },
+  {
+    name: "Gradcracker",
+    url: "https://www.gradcracker.com/",
+    description:
+      "Job board for STEM internships, placements and graduate roles.",
+  },
+  {
+    name: "Bright Network",
+    url: "https://www.brightnetwork.co.uk/",
+    description:
+      "Careers platform listing internships and graduate jobs across the UK.",
+  },
+  {
+    name: "LinkedIn Jobs",
+    url: "https://www.linkedin.com/jobs/",
+    description:
+      "Search for roles directly, and set up alerts for the companies you're interested in.",
+  },
 ]
+
+/** A route that's harder to land but still possible. Italic as well as
+ *  coloured, so the distinction survives without colour. */
+const Stretch = ({ children }: { children: React.ReactNode }) => (
+  <em className="block text-sky-700 dark:text-sky-400">{children}</em>
+)
 
 export const InternshipsPage = () => {
   useEffect(() => {
@@ -86,6 +111,101 @@ export const InternshipsPage = () => {
       </div>
 
       <PageSection
+        id="types"
+        title="Types of opportunity"
+        subtitle="Who each type is normally aimed at:"
+        className="mb-10"
+      >
+        <DataTable
+          className="mb-3"
+          headers={["Type", "Aimed at"]}
+          rows={[
+            ["Spring Weeks", "1st years on a BSc and 2nd years on an MEng"],
+            ["Internships", "Penultimate-year students"],
+            ["Graduate jobs", "Final-year students"],
+          ]}
+        />
+        <p className="text-sm text-muted-foreground">
+          Spring Weeks are also called Insight Days. Some companies accept
+          penultimate-year students for them too.
+        </p>
+      </PageSection>
+
+      <PageSection
+        id="pipeline"
+        title="What to apply for each year"
+        subtitle="The conventional route is in plain text. Options in blue italics are harder to find, but still possible."
+        className="mb-10"
+      >
+        <DataTable
+          headers={["Year", "1", "2", "3", "4"]}
+          rows={[
+            [
+              "MEng",
+              <>
+                Spring Weeks
+                <Stretch>Internships</Stretch>
+              </>,
+              <>
+                Spring Weeks
+                <br />
+                Internships
+              </>,
+              <>
+                Internships
+                <Stretch>Spring Weeks</Stretch>
+              </>,
+              <>
+                Graduate jobs
+                <Stretch>Internships</Stretch>
+              </>,
+            ],
+            [
+              "BSc",
+              <>
+                Spring Weeks
+                <Stretch>Internships</Stretch>
+              </>,
+              <>
+                Internships
+                <Stretch>Spring Weeks</Stretch>
+              </>,
+              <>
+                Graduate jobs
+                <Stretch>Internships</Stretch>
+              </>,
+              "(Graduated)",
+            ],
+          ]}
+        />
+      </PageSection>
+
+      <PageSection
+        id="timeline"
+        title="Application timeline"
+        subtitle="Roughly how the recruitment year lines up with Warwick's terms:"
+        className="mb-10"
+      >
+        <DataTable
+          className="mb-3"
+          headers={["When", "What happens"]}
+          rows={[
+            ["August to September", "The new application season begins"],
+            ["First half of Term 1", "First wave of applications opens"],
+            [
+              "Term 1 break to mid Term 2",
+              "Second wave of applications opens",
+            ],
+            ["Term 2 break", "Spring Weeks take place"],
+          ]}
+        />
+        <p className="text-sm text-muted-foreground">
+          You can apply from the start of the season until around the middle
+          of Term 3, so don't panic if you miss the first wave.
+        </p>
+      </PageSection>
+
+      <PageSection
         title="Building yourself up"
         subtitle="The experience side of your application: societies, projects, hackathons. This has its own dedicated guide:"
         className="mb-10"
@@ -112,7 +232,7 @@ export const InternshipsPage = () => {
         subtitle="Trackers of open internship applications so you don't miss deadlines. Check regularly; applications open in waves throughout the year."
         className="mb-10"
       >
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {FINDING_WHERE.map((s) => (
             <LinkCard key={s.name} link={s} />
           ))}

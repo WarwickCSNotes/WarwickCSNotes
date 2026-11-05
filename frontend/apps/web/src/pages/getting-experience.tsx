@@ -66,7 +66,15 @@ export const GettingExperiencePage = () => {
           >
             Open Source Contributions
           </Link>{" "}
-          guide for a different route to hands-on experience.
+          guide for a different route to hands-on experience. For summer
+          research projects, see{" "}
+          <Link
+            to="/careers/research-and-further-study"
+            className="text-primary underline hover:opacity-80"
+          >
+            Research & Further Study
+          </Link>
+          .
         </p>
       </div>
 
@@ -90,6 +98,37 @@ export const GettingExperiencePage = () => {
               contribute to.
             </li>
           </ul>
+        </div>
+      </PageSection>
+
+      <PageSection
+        title="WMG Summer Internships"
+        subtitle="Good experience with Warwick Manufacturing Group (WMG), open to first years too."
+        className="mb-10"
+      >
+        <ul className="mb-4 ml-6 list-disc space-y-2 text-muted-foreground">
+          <li>
+            <strong className="text-foreground">Who can apply:</strong> Warwick
+            students who are returning to Warwick afterwards, including first
+            years.
+          </li>
+          <li>
+            <strong className="text-foreground">Stipend:</strong> £2,000.
+          </li>
+          <li>
+            <strong className="text-foreground">Applications:</strong> open
+            during Easter, and require a personal statement and CV.
+          </li>
+        </ul>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <LinkCard
+            link={{
+              name: "WMG Summer Internships",
+              url: "https://warwick.ac.uk/fac/sci/wmg/study/internships/wmg_research_internships/summer_internships_student_info",
+              description:
+                "Official information for students, including current terms and how to apply.",
+            }}
+          />
         </div>
       </PageSection>
 

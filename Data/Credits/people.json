@@ -91,6 +91,23 @@
             "github": "https://github.com/thiswasdumb",
             "linkedin": "https://www.linkedin.com/in/serene-alrawi/",
             "image": "https://github.com/thiswasdumb.png"
+        },
+        {
+            "id": "IrenePeleteiro",
+            "name": "Irene Peleteiro Paniagua",
+            "role": "Careers Contributor",
+            "github": "https://github.com/ipeleteiro",
+            "linkedin": "https://www.linkedin.com/in/irene-peleteiro-paniagua-a3246a290/",
+            "portfolio": "https://ipeleteiro.itch.io/",
+            "image": "https://github.com/ipeleteiro.png"
+        },
+        {
+            "id": "ArchishaBiswas",
+            "name": "Archisha Biswas",
+            "role": "Careers Contributor",
+            "github": "https://github.com/archie-parchie",
+            "linkedin": "https://www.linkedin.com/in/archisha-biswas-719266423/",
+            "image": "https://github.com/archie-parchie.png"
         }
     ]
 }

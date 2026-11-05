@@ -256,7 +256,8 @@ export const WritingYourCVPage = () => {
           </h3>
           <p className="mb-3">
             Worth filling in even if you don't have a lot. Society positions
-            fit well here.
+            fit well here, especially leadership roles that relate to the job
+            (e.g. on the Computing Society exec).
           </p>
           <Callout variant="tip" title="Understand and own decisions">
             <p className="mb-3">
@@ -296,11 +297,19 @@ export const WritingYourCVPage = () => {
           <h3 className="mb-2 text-lg font-semibold text-foreground">
             Technical Skills
           </h3>
-          <p className="mb-6">
+          <p className="mb-3">
             A good place to smash keywords to pass AI filters. Debatable
             whether it's needed, since you can shove all the
             skills/technologies into Experience and Projects entries anyway.
           </p>
+          <Callout variant="tip" title="Warwick Careers adviser tips">
+            <p>
+              A Warwick Careers adviser recommended putting your technical
+              proficiency section at the top of the CV and using Arial as your
+              font.
+            </p>
+          </Callout>
+          <div className="mb-6" />
 
           <h3 className="mb-2 text-lg font-semibold text-foreground">
             Interests
@@ -405,7 +414,9 @@ export const WritingYourCVPage = () => {
                 Keep multiple variants
               </strong>{" "}
               of your CV for different roles (e.g. one for data science, one
-              for web design). Makes tailoring a lot quicker.
+              for web design), or for categories of company (e.g. fintech,
+              game dev, big tech, start-ups), each with your most relevant
+              projects. Makes tailoring a lot quicker.
             </li>
           </ul>
         </div>

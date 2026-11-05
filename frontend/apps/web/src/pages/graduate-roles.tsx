@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 import { Page } from "@/components/page"
 import { PageHeader } from "@/components/page-header"
 import { PageSection } from "@/components/page-section"
@@ -22,6 +23,24 @@ const FINDING_ROLES: Resource[] = [
     url: "https://the-trackr.com/trackers/",
     description:
       "A collection of spring weeks, internships and graduate opportunities for Tech and Finance across the US, EU, and the UK.",
+  },
+  {
+    name: "Gradcracker",
+    url: "https://www.gradcracker.com/",
+    description:
+      "Job board for STEM internships, placements and graduate roles.",
+  },
+  {
+    name: "Bright Network",
+    url: "https://www.brightnetwork.co.uk/",
+    description:
+      "Careers platform listing internships and graduate jobs across the UK.",
+  },
+  {
+    name: "LinkedIn Jobs",
+    url: "https://www.linkedin.com/jobs/",
+    description:
+      "Search for roles directly, and set up alerts for the companies you're interested in.",
   },
 ]
 
@@ -65,7 +84,14 @@ export const GraduateRolesPage = () => {
         Graduate roles are the first full-time job after your degree.
         Applications typically open in autumn of your final year, and
         deadlines can be earlier than you'd expect. Check trackers
-        regularly.
+        regularly, and see the{" "}
+        <Link
+          to="/careers/internships#timeline"
+          className="text-primary underline hover:opacity-80"
+        >
+          application timeline
+        </Link>{" "}
+        for how the recruitment year runs.
       </p>
 
       <PageSection
@@ -73,7 +99,7 @@ export const GraduateRolesPage = () => {
         subtitle="Trackers of open graduate applications so you don't miss deadlines."
         className="mb-10"
       >
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {FINDING_ROLES.map((s) => (
             <LinkCard key={s.name} link={s} />
           ))}
