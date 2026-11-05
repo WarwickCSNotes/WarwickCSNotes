@@ -14,7 +14,7 @@ const SPONSOR_REGISTER = {
 const ADVICE: { title: string; text: string }[] = [
   {
     title: "Sponsorship:",
-    text: "most tech roles sponsor visas.",
+    text: "visa sponsorship varies by employer and role. Check the vacancy's sponsorship policy and the employer's Skilled Worker sponsor licence; being on the register does not mean every role is sponsored.",
   },
   {
     title: "First-year internships:",
