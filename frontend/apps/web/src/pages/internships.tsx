@@ -43,7 +43,7 @@ const FINDING_WHERE: Resource[] = [
 /** A route that's harder to land but still possible. Italic as well as
  *  coloured, so the distinction survives without colour. */
 const Stretch = ({ children }: { children: React.ReactNode }) => (
-  <em className="block text-sky-600 dark:text-sky-400">{children}</em>
+  <em className="block text-sky-700 dark:text-sky-400">{children}</em>
 )
 
 export const InternshipsPage = () => {
