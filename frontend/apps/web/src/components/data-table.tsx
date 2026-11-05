@@ -23,18 +23,21 @@ export function DataTable({ headers, rows, className }: DataTableProps) {
         <tbody>
           {rows.map((row, r) => (
             <tr key={r} className="border-t align-top">
-              {row.map((cell, c) => (
-                <td
-                  key={c}
-                  className={`px-4 py-2 ${
-                    c === 0
-                      ? "font-medium text-foreground"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {cell}
-                </td>
-              ))}
+              {row.map((cell, c) =>
+                c === 0 ? (
+                  <th
+                    key={c}
+                    scope="row"
+                    className="px-4 py-2 font-medium text-foreground"
+                  >
+                    {cell}
+                  </th>
+                ) : (
+                  <td key={c} className="px-4 py-2 text-muted-foreground">
+                    {cell}
+                  </td>
+                ),
+              )}
             </tr>
           ))}
         </tbody>
