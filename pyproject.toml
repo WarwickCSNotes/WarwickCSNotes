@@ -9,4 +9,5 @@ dependencies = [
     "jinja2>=3.1.6",
     "markdown>=3.10.2",
     "pypandoc_binary>=1.13", # import is just "pypandoc" but binary so it install pandoc too
+    "gunicorn",
 ]

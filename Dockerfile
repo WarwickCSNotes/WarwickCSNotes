@@ -34,4 +34,4 @@ RUN mkdir -p frontend/apps/web
 COPY --from=build /app/frontend/apps/web/dist ./frontend/apps/web/dist
 
 EXPOSE 3000
-CMD ["uv", "run", "app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:3000", "--workers", "2", "--threads", "4", "app:app"]
