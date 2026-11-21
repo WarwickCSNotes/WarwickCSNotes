@@ -1,8 +1,5 @@
 services:
   csnotes:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: ghcr.io/warwickcsnotes/warwickcsnotes:latest
     container_name: warwickcsnotes
     environment:
@@ -10,10 +7,5 @@ services:
       - GEMINI_KEY=${GEMINI_KEY}
       - CLAUDE_API=${CLAUDE_API}
     ports:
-      - 5422:3000
+      - "5422:3000"
     restart: unless-stopped
-    networks:
-      - csnotes
-
-networks:
-  csnotes:

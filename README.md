@@ -86,12 +86,33 @@ ghcr.io/warwickcsnotes/warwickcsnotes:latest
 To deploy via Portainer UWCS:
 
 - Go to [Portainer UWCS](https://portainer.uwcs.co.uk/)
-- Click **Add Container**
-- Set the **Image** to `ghcr.io/warwickcsnotes/warwickcsnotes:latest`
-- Under port mapping, set **Host** to `5422` (this is essential for being mapped to `csnotes.uwcs` as opposed to `csnotes.containers.uwcs`) and **Container** to `3000`
-- Under **Advanced Settings**, add an environment variable: `VIRTUAL_HOST=csnotes`
-- Deploy the container
-- The site will be available at [csnotes.uwcs.co.uk](https://csnotes.uwcs.co.uk/)
+- Go to **Sources**, click **Add new**
+  - **Source Name:** `csnotes`
+  - **Repo URL:** `https://github.com/WarwickCSNotes/WarwickCSNotes`
+  - *Toggle authentication off*
+  - *Toggle enable polling on, and set Fetch interval to e.g. 5m*
+  - Click **Test Connection**, and if it succeeds, **Save Changes**
+- Next, go to **Stacks**, click **Add stack**
+  - **Name:** `csnotes`
+  - **Build Method:** Repository
+  - **Source:** `csnotes`
+  - **Repository reference:** `refs/head/main`
+  - **Compose path:** `docker-compose.yml`
+  - *Add environment variables with non-static values (`GEMINI_KEY` & `CLAUDE_KEY`, not `VIRTUAL_HOST` - sufficient to leave as-is in `docker-compose.yml`)*
+  - **Select registries:** `ghcr.io`
+  - *Deploy the stack*
+- The website should be visible at both `csnotes.containers.uwcs.co.uk` and `csnotes.uwcs.co.uk`
+  - If not, UWCS Tech Team should check:
+    - For the former, that either:
+      - The `warwickcsnotes` container has joined the `public-nginx` network visible to `nginx-proxy` (should happen automatically).
+      - Or that the `nginx-proxy` container has joined the `csnotes_default` network (manual).
+    - For the latter, in HAProxy on Milner (manual) has all of:
+      - A *Real Server* `csnotes` - server address `public-docker.internal.uwcs.co.uk`, port `5422`
+      - A *Virtual Service* `csnotes_backend` with `csnotes` set under *Server*.
+      - A `csnotes.uwcs.co.uk csnotes_backend` entry in the `PUBLIC_SUBDOMAINS` map files under *Advanced --> Map Files*.
+      - connected to the entry under *Real Servers*, and a `csnotes.uwcs.co.uk csnotes_backend` entry in the `PUBLIC_SUBDOMAINS` map file (under *Advanced --> Map Files*).
+- After a GitHub Actions workflow run has completed, Portainer GitOps will pull & deploy the changes at the next poll (default 5 minutes) - alternatively, someone with access control can redeploy.
+- Pulls source from the repository reference (the `main` branch), and deployment is informed by the `docker-compose.yml` in the repository (unlike manual stacks where compose is configured locally).
 
 ## More Info
 
