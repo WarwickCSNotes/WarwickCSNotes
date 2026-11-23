@@ -327,6 +327,17 @@
             ],
             "past_papers": [
                 {
+                    "title": "CS260 Class Test 2024",
+                    "url": "/resources/Notes/CS260/CS260ClassTest2024",
+                    "solution": {
+                        "url": "/resources/Solutions/CS260/CS260-ClassTest-2024"
+                    }
+                },
+                {
+                    "title": "CS260 Class Test 2023",
+                    "url": "/resources/Notes/CS260/CS260ClassTest2023"
+                },
+                {
                     "title": "2023 Exam Paper",
                     "url": "https://warwick.ac.uk/services/exampapers/cs/2023/cs2600_a_exam_paper.pdf"
                 }
