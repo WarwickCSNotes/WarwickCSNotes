@@ -95,7 +95,16 @@ export const GettingExperiencePage = () => {
             <li>
               <strong className="text-foreground">Society projects:</strong>{" "}
               UWCS in particular runs open-source projects you can
-              contribute to.
+              contribute to. See their{" "}
+              <a
+                href="https://techteam.uwcs.co.uk/en/open-source"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline hover:opacity-80"
+              >
+                open-source guide
+              </a>{" "}
+              to get started.
             </li>
           </ul>
         </div>
@@ -159,6 +168,38 @@ export const GettingExperiencePage = () => {
               Hackathon Radar
             </a>{" "}
             Discord.
+          </p>
+        </div>
+      </PageSection>
+
+      <PageSection title="Project Ideas" className="mb-10">
+        <div className="text-muted-foreground">
+          <p className="mb-4">
+            If you are not sure what to build, check out the repository
+            below and just build whatever piques your interest. Projects
+            like these will strengthen any technical CV, but they are
+            particularly useful for software engineering (SWE) roles.
+          </p>
+          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <LinkCard
+              link={{
+                name: "Project Based Learning",
+                url: "https://github.com/practical-tutorials/project-based-learning",
+                description:
+                  "A curated list of tutorials where you learn a language or technology by building a project.",
+              }}
+            />
+          </div>
+          <p>
+            If you want to get into research, quant research, or AI
+            safety, see the{" "}
+            <Link
+              to="/careers/research-and-further-study"
+              className="text-primary underline hover:opacity-80"
+            >
+              Research & Further Study
+            </Link>{" "}
+            guide instead.
           </p>
         </div>
       </PageSection>
